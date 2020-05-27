@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <AssemblyName>Solti.Utils.SQL.Interfaces</AssemblyName>
+    <RootNamespace>Solti.Utils.SQL.Interfaces</RootNamespace>
+  </PropertyGroup>
+
+  <Import Project="../Common.targets" />
+  
+  <PropertyGroup>
+    <Description>Abstractions for SqlUtils.NET</Description>
+    <PackageId>SqlUtils.NET.Interfaces</PackageId>
+  </PropertyGroup>
+</Project>

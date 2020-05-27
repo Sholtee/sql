@@ -12,6 +12,10 @@
     <None Remove="index.md" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SqlUtils.Interfaces\SqlUtils.Interfaces.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <Description>TODO</Description>
     <PackageId>SqlUtils.NET</PackageId>

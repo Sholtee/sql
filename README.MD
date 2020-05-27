@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/mlssww4bgg11s9lp/branch/master?svg=true)](https://ci.appveyor.com/project/Sholtee/sql/branch/master) ![AppVeyor tests](https://img.shields.io/appveyor/tests/sholtee/sql) [![Coverage Status](https://coveralls.io/repos/github/Sholtee/sql/badge.svg?branch=master)](https://coveralls.io/github/Sholtee/sql?branch=master)

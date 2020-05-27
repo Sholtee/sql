@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <AssemblyName>Solti.Utils.SQL</AssemblyName>
+    <RootNamespace>Solti.Utils.SQL</RootNamespace>
+  </PropertyGroup>
+
+  <Import Project="../Common.targets" />
+
+  <ItemGroup>
+    <None Remove="docfx.json" />
+    <None Remove="index.md" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <Description>TODO</Description>
+    <PackageId>SqlUtils.NET</PackageId>
+  </PropertyGroup>
+</Project>

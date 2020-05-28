@@ -3,6 +3,8 @@
 *                                                                               *
 * Author: Denes Solti                                                           *
 ********************************************************************************/
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -33,7 +35,7 @@ namespace Solti.Utils.SQL.Tests
         [TestCase("INSERT INTO Region (RegionID, RegionDescription) VALUES ({0}, {1})")]
         [TestCase("INSERT INTO Region (RegionID, RegionDescription) VALUES (@RegionID, {1})")]
         [TestCase("INSERT INTO Region (RegionID, RegionDescription) VALUES (?, {1})")]
-        public void Format_ShouldAccept(string fmt) 
+        public void Format_ShouldAccept(string fmt)
         {
             var mockConfig = new Mock<DefaultConfig>(MockBehavior.Strict);
             mockConfig
@@ -54,15 +56,31 @@ namespace Solti.Utils.SQL.Tests
         }
 
         [Test]
-        public void Format_ShouldEscape() 
+        public void Format_ShouldEscape()
         {
-            string sql = CommandText.Format("SELECT * FROM Region WHERE RegionDescription = @RegionDescription", new SqlParameter 
+            string sql = CommandText.Format("SELECT * FROM Region WHERE RegionDescription = @RegionDescription", new SqlParameter
             {
                 DbType = DbType.String,
                 ParameterName = "@RegionDescription",
-                Value  = "cica\" -- comment last quote \r\nDROP TABLE Region"
+                Value = "cica\" -- comment last quote \r\nDROP TABLE Region"
             });
             Assert.That(sql, Is.EqualTo("SELECT * FROM Region WHERE RegionDescription = \"cica\\\" -- comment last quote \\r\\nDROP TABLE Region\""));
         }
+
+        [Test]
+        public void Format_ShouldThrowOnNull()
+        {
+            Assert.Throws<ArgumentNullException>(() => CommandText.Format(null));
+            Assert.Throws<ArgumentNullException>(() => CommandText.Format("", paramz: null));
+        }
+
+        [TestCase("INSERT INTO Region (RegionID) VALUES (?)")]
+        [TestCase("INSERT INTO Region (RegionID) VALUES ({0})")]
+        public void Format_ShouldValidateTheIndex(string sql) =>
+            Assert.Throws<IndexOutOfRangeException>(() => CommandText.Format(sql));
+
+        [TestCase("INSERT INTO Region (RegionID) VALUES (@InvalidName)")]
+        public void Format_ShouldValidateTheName(string sql) =>
+            Assert.Throws<KeyNotFoundException>(() => CommandText.Format(sql));
     }
 }

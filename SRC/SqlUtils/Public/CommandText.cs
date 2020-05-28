@@ -23,7 +23,11 @@ namespace Solti.Utils.SQL
         /// </summary>
         public static string Format(string sql, params IDataParameter[] paramz)
         {
-            if (sql == null) throw new ArgumentNullException(nameof(sql));
+            if (sql == null) 
+                throw new ArgumentNullException(nameof(sql));
+
+            if (paramz == null)
+                throw new ArgumentNullException(nameof(paramz));
 
             int index = 0;
 

@@ -48,6 +48,12 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Config.Instance
   nameWithType: Config.Instance
+- uid: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.IConfig)
+  name: Use(IConfig)
+  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use_Solti_Utils_SQL_IConfig_
+  commentId: M:Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.IConfig)
+  fullName: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.IConfig)
+  nameWithType: Config.Use(IConfig)
 - uid: Solti.Utils.SQL.Config.Use*
   name: Use
   href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use_
@@ -64,15 +70,6 @@ references:
   fullName.vb: Solti.Utils.SQL.Config.Use(Of T)()
   nameWithType: Config.Use<T>()
   nameWithType.vb: Config.Use(Of T)()
-- uid: Solti.Utils.SQL.Config.Use``1(``0)
-  name: Use<T>(T)
-  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use__1___0_
-  commentId: M:Solti.Utils.SQL.Config.Use``1(``0)
-  name.vb: Use(Of T)(T)
-  fullName: Solti.Utils.SQL.Config.Use<T>(T)
-  fullName.vb: Solti.Utils.SQL.Config.Use(Of T)(T)
-  nameWithType: Config.Use<T>(T)
-  nameWithType.vb: Config.Use(Of T)(T)
 - uid: Solti.Utils.SQL.DefaultConfig
   name: DefaultConfig
   href: Solti.Utils.SQL.DefaultConfig.html

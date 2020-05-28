@@ -1,3 +1,113 @@
 ### YamlMime:XRefMap
 sorted: true
-references: []
+references:
+- uid: Solti.Utils.SQL
+  name: Solti.Utils.SQL
+  href: Solti.Utils.SQL.html
+  commentId: N:Solti.Utils.SQL
+  fullName: Solti.Utils.SQL
+  nameWithType: Solti.Utils.SQL
+- uid: Solti.Utils.SQL.CommandText
+  name: CommandText
+  href: Solti.Utils.SQL.CommandText.html
+  commentId: T:Solti.Utils.SQL.CommandText
+  fullName: Solti.Utils.SQL.CommandText
+  nameWithType: CommandText
+- uid: Solti.Utils.SQL.CommandText.Format(System.String,System.Data.IDataParameter[])
+  name: Format(String, IDataParameter[])
+  href: Solti.Utils.SQL.CommandText.html#Solti_Utils_SQL_CommandText_Format_System_String_System_Data_IDataParameter___
+  commentId: M:Solti.Utils.SQL.CommandText.Format(System.String,System.Data.IDataParameter[])
+  name.vb: Format(String, IDataParameter())
+  fullName: Solti.Utils.SQL.CommandText.Format(System.String, System.Data.IDataParameter[])
+  fullName.vb: Solti.Utils.SQL.CommandText.Format(System.String, System.Data.IDataParameter())
+  nameWithType: CommandText.Format(String, IDataParameter[])
+  nameWithType.vb: CommandText.Format(String, IDataParameter())
+- uid: Solti.Utils.SQL.CommandText.Format*
+  name: Format
+  href: Solti.Utils.SQL.CommandText.html#Solti_Utils_SQL_CommandText_Format_
+  commentId: Overload:Solti.Utils.SQL.CommandText.Format
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.CommandText.Format
+  nameWithType: CommandText.Format
+- uid: Solti.Utils.SQL.Config
+  name: Config
+  href: Solti.Utils.SQL.Config.html
+  commentId: T:Solti.Utils.SQL.Config
+  fullName: Solti.Utils.SQL.Config
+  nameWithType: Config
+- uid: Solti.Utils.SQL.Config.Instance
+  name: Instance
+  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Instance
+  commentId: P:Solti.Utils.SQL.Config.Instance
+  fullName: Solti.Utils.SQL.Config.Instance
+  nameWithType: Config.Instance
+- uid: Solti.Utils.SQL.Config.Instance*
+  name: Instance
+  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Instance_
+  commentId: Overload:Solti.Utils.SQL.Config.Instance
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Config.Instance
+  nameWithType: Config.Instance
+- uid: Solti.Utils.SQL.Config.Use*
+  name: Use
+  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use_
+  commentId: Overload:Solti.Utils.SQL.Config.Use
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Config.Use
+  nameWithType: Config.Use
+- uid: Solti.Utils.SQL.Config.Use``1
+  name: Use<T>()
+  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use__1
+  commentId: M:Solti.Utils.SQL.Config.Use``1
+  name.vb: Use(Of T)()
+  fullName: Solti.Utils.SQL.Config.Use<T>()
+  fullName.vb: Solti.Utils.SQL.Config.Use(Of T)()
+  nameWithType: Config.Use<T>()
+  nameWithType.vb: Config.Use(Of T)()
+- uid: Solti.Utils.SQL.Config.Use``1(``0)
+  name: Use<T>(T)
+  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use__1___0_
+  commentId: M:Solti.Utils.SQL.Config.Use``1(``0)
+  name.vb: Use(Of T)(T)
+  fullName: Solti.Utils.SQL.Config.Use<T>(T)
+  fullName.vb: Solti.Utils.SQL.Config.Use(Of T)(T)
+  nameWithType: Config.Use<T>(T)
+  nameWithType.vb: Config.Use(Of T)(T)
+- uid: Solti.Utils.SQL.DefaultConfig
+  name: DefaultConfig
+  href: Solti.Utils.SQL.DefaultConfig.html
+  commentId: T:Solti.Utils.SQL.DefaultConfig
+  fullName: Solti.Utils.SQL.DefaultConfig
+  nameWithType: DefaultConfig
+- uid: Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDataParameter)
+  name: Stringify(IDataParameter)
+  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_Stringify_System_Data_IDataParameter_
+  commentId: M:Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDataParameter)
+  fullName: Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDataParameter)
+  nameWithType: DefaultConfig.Stringify(IDataParameter)
+- uid: Solti.Utils.SQL.DefaultConfig.Stringify*
+  name: Stringify
+  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_Stringify_
+  commentId: Overload:Solti.Utils.SQL.DefaultConfig.Stringify
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.DefaultConfig.Stringify
+  nameWithType: DefaultConfig.Stringify
+- uid: Solti.Utils.SQL.IConfig
+  name: IConfig
+  href: Solti.Utils.SQL.IConfig.html
+  commentId: T:Solti.Utils.SQL.IConfig
+  fullName: Solti.Utils.SQL.IConfig
+  nameWithType: IConfig
+- uid: Solti.Utils.SQL.IConfig.Stringify(System.Data.IDataParameter)
+  name: Stringify(IDataParameter)
+  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_Stringify_System_Data_IDataParameter_
+  commentId: M:Solti.Utils.SQL.IConfig.Stringify(System.Data.IDataParameter)
+  fullName: Solti.Utils.SQL.IConfig.Stringify(System.Data.IDataParameter)
+  nameWithType: IConfig.Stringify(IDataParameter)
+- uid: Solti.Utils.SQL.IConfig.Stringify*
+  name: Stringify
+  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_Stringify_
+  commentId: Overload:Solti.Utils.SQL.IConfig.Stringify
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.IConfig.Stringify
+  nameWithType: IConfig.Stringify

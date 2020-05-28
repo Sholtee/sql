@@ -19,6 +19,7 @@ namespace Solti.Utils.SQL
         /// <summary>
         /// See <see cref="IConfig.Stringify(IDataParameter)"/>
         /// </summary>
+        /// <remarks>This is a basic implementation indeed for testing purposes only. You have to override it in the derived configuration.</remarks>
         public virtual string Stringify(IDataParameter parameter) 
         {
             if (parameter == null)

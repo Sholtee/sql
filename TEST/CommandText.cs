@@ -28,16 +28,18 @@ namespace Solti.Utils.SQL.Tests
                 .Setup(c => c.Stringify(It.IsAny<IDataParameter>()))
                 .CallBase();
 
-            Config.Use(mockConfig.Object);
+            using (Config.UseTemporarily(mockConfig.Object))
+            {
 
-            IDataParameter
-                p1 = new SqlParameter { DbType = DbType.Int32, Value = 1, ParameterName = "@RegionID" },
-                p2 = new SqlParameter { DbType = DbType.String, Value = "cica", ParameterName = "RegionDescription" /*direkt nincs @*/ };
+                IDataParameter
+                    p1 = new SqlParameter { DbType = DbType.Int32, Value = 1, ParameterName = "@RegionID" },
+                    p2 = new SqlParameter { DbType = DbType.String, Value = "cica", ParameterName = "RegionDescription" /*direkt nincs @*/ };
 
-            Assert.That(CommandText.Format(fmt, p1, p2), Is.EqualTo("INSERT INTO Region (RegionID, RegionDescription) VALUES (1, \"cica\")"));
+                Assert.That(CommandText.Format(fmt, p1, p2), Is.EqualTo("INSERT INTO Region (RegionID, RegionDescription) VALUES (1, \"cica\")"));
 
-            mockConfig.Verify(c => c.Stringify(p1), Times.Once);
-            mockConfig.Verify(c => c.Stringify(p2), Times.Once);
+                mockConfig.Verify(c => c.Stringify(p1), Times.Once);
+                mockConfig.Verify(c => c.Stringify(p2), Times.Once);
+            }
         }
     }
 }

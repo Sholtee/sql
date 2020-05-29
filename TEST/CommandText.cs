@@ -14,20 +14,8 @@ using NUnit.Framework;
 namespace Solti.Utils.SQL.Tests
 {
     [TestFixture]
-    public class CommandTextTests
+    public class CommandTextTests: TestsBase
     {
-        private IConfig FPrevious;
-
-        [OneTimeSetUp]
-        public void Setup()
-        {
-            FPrevious = Config.Instance;
-            Config.Use<DefaultConfig>();
-        }
-
-        [OneTimeTearDown]
-        public void Teardown() => Config.Use(FPrevious);
-
         private static string Stringify(IDataParameter para) => Config.Instance.Stringify(para);
 
         [TestCase("INSERT INTO Region (RegionID, RegionDescription) VALUES (?, ?)")]

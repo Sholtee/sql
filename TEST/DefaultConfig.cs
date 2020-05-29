@@ -13,20 +13,8 @@ using NUnit.Framework;
 namespace Solti.Utils.SQL.Tests
 {
     [TestFixture]
-    public class DefaultConfigTests
+    public class DefaultConfigTests: TestsBase
     {
-        private IConfig FPrevious;
-
-        [OneTimeSetUp]
-        public void Setup()
-        {
-            FPrevious = Config.Instance;
-            Config.Use<DefaultConfig>();
-        }
-
-        [OneTimeTearDown]
-        public void Teardown() => Config.Use(FPrevious);
-
         private static string Stringify(IDataParameter para) => Config.Instance.Stringify(para);
 
         [Test]

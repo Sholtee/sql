@@ -53,9 +53,11 @@ namespace Solti.Utils.SQL.Tests
             mockObject.Verify(o => o.ToString(), Times.Once);
         }
 
-        [TestCase("\"cica\"", @"""\""cica\""""")]
+        [TestCase(@"""cica""", @"""\""cica\""""")]
+        [TestCase("'cica'", @"""\'cica\'""")]
+        [TestCase("\r\n", @"""\r\n""")]
+        [TestCase("\\", @"""\\""")]
         public void Stringify_ShouldEscape(string s, string expected) =>
-            Assert.That(Stringify(new SqlParameter { Value = s }), Is.EqualTo(expected));
-        
+            Assert.That(Stringify(new SqlParameter { Value = s }), Is.EqualTo(expected)); 
     }
 }

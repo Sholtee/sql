@@ -62,9 +62,9 @@ namespace Solti.Utils.SQL.Tests
             {
                 DbType = DbType.String,
                 ParameterName = "@RegionDescription",
-                Value = "cica\" -- comment last quote \r\nDROP TABLE Region"
+                Value = "cica\" -- comment last quote \r\n;DROP TABLE Region"
             });
-            Assert.That(sql, Is.EqualTo("SELECT * FROM Region WHERE RegionDescription = \"cica\\\" -- comment last quote \\r\\nDROP TABLE Region\""));
+            Assert.That(sql, Is.EqualTo("SELECT * FROM Region WHERE RegionDescription = \"cica\\\" -- comment last quote \\r\\n;DROP TABLE Region\""));
         }
 
         [Test]

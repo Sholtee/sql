@@ -89,6 +89,25 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.DefaultConfig.Stringify
   nameWithType: DefaultConfig.Stringify
+- uid: Solti.Utils.SQL.IBulkedDbConnection
+  name: IBulkedDbConnection
+  href: Solti.Utils.SQL.IBulkedDbConnection.html
+  commentId: T:Solti.Utils.SQL.IBulkedDbConnection
+  fullName: Solti.Utils.SQL.IBulkedDbConnection
+  nameWithType: IBulkedDbConnection
+- uid: Solti.Utils.SQL.IBulkedDbConnection.Flush
+  name: Flush()
+  href: Solti.Utils.SQL.IBulkedDbConnection.html#Solti_Utils_SQL_IBulkedDbConnection_Flush
+  commentId: M:Solti.Utils.SQL.IBulkedDbConnection.Flush
+  fullName: Solti.Utils.SQL.IBulkedDbConnection.Flush()
+  nameWithType: IBulkedDbConnection.Flush()
+- uid: Solti.Utils.SQL.IBulkedDbConnection.Flush*
+  name: Flush
+  href: Solti.Utils.SQL.IBulkedDbConnection.html#Solti_Utils_SQL_IBulkedDbConnection_Flush_
+  commentId: Overload:Solti.Utils.SQL.IBulkedDbConnection.Flush
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.IBulkedDbConnection.Flush
+  nameWithType: IBulkedDbConnection.Flush
 - uid: Solti.Utils.SQL.IConfig
   name: IConfig
   href: Solti.Utils.SQL.IConfig.html
@@ -108,3 +127,22 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.IConfig.Stringify
   nameWithType: IConfig.Stringify
+- uid: Solti.Utils.SQL.IDbConnectionExtensions
+  name: IDbConnectionExtensions
+  href: Solti.Utils.SQL.IDbConnectionExtensions.html
+  commentId: T:Solti.Utils.SQL.IDbConnectionExtensions
+  fullName: Solti.Utils.SQL.IDbConnectionExtensions
+  nameWithType: IDbConnectionExtensions
+- uid: Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection(System.Data.IDbConnection)
+  name: CreateBulkedDbConnection(IDbConnection)
+  href: Solti.Utils.SQL.IDbConnectionExtensions.html#Solti_Utils_SQL_IDbConnectionExtensions_CreateBulkedDbConnection_System_Data_IDbConnection_
+  commentId: M:Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection(System.Data.IDbConnection)
+  fullName: Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection(System.Data.IDbConnection)
+  nameWithType: IDbConnectionExtensions.CreateBulkedDbConnection(IDbConnection)
+- uid: Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection*
+  name: CreateBulkedDbConnection
+  href: Solti.Utils.SQL.IDbConnectionExtensions.html#Solti_Utils_SQL_IDbConnectionExtensions_CreateBulkedDbConnection_
+  commentId: Overload:Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection
+  nameWithType: IDbConnectionExtensions.CreateBulkedDbConnection

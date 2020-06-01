@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   
   <PropertyGroup>
     <AssemblyName>Solti.Utils.SQL.Interfaces</AssemblyName>
@@ -11,4 +11,9 @@
     <Description>Abstractions for SqlUtils.NET</Description>
     <PackageId>SqlUtils.NET.Interfaces</PackageId>
   </PropertyGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Reflection.Emit" Version="4.*" />
+  </ItemGroup>
+ 
 </Project>

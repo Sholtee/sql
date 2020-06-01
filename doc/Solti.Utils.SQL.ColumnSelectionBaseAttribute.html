@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ColumnSelectionBaseAttribute
+   | SqlUtils.NET </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ColumnSelectionBaseAttribute
+   | SqlUtils.NET ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="icon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute">
+  
+  
+  <h1 id="Solti_Utils_SQL_ColumnSelectionBaseAttribute" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute" class="text-break">Class ColumnSelectionBaseAttribute
+  </h1>
+  <div class="markdown level0 summary"><p>Defines an abstract database column selection.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute">Attribute</a></div>
+    <div class="level2"><span class="xref">ColumnSelectionBaseAttribute</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Solti.Utils.SQL.IFragment.html">IFragment</a></div>
+    <div><a class="xref" href="Solti.Utils.SQL.IBuildable.html">IBuildable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.equals#System_Attribute_Equals_System_Object_">Attribute.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattribute#System_Attribute_GetCustomAttribute_System_Reflection_Assembly_System_Type_">Attribute.GetCustomAttribute(Assembly, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattribute#System_Attribute_GetCustomAttribute_System_Reflection_Assembly_System_Type_System_Boolean_">Attribute.GetCustomAttribute(Assembly, Type, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattribute#System_Attribute_GetCustomAttribute_System_Reflection_MemberInfo_System_Type_">Attribute.GetCustomAttribute(MemberInfo, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattribute#System_Attribute_GetCustomAttribute_System_Reflection_MemberInfo_System_Type_System_Boolean_">Attribute.GetCustomAttribute(MemberInfo, Type, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattribute#System_Attribute_GetCustomAttribute_System_Reflection_Module_System_Type_">Attribute.GetCustomAttribute(Module, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattribute#System_Attribute_GetCustomAttribute_System_Reflection_Module_System_Type_System_Boolean_">Attribute.GetCustomAttribute(Module, Type, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattribute#System_Attribute_GetCustomAttribute_System_Reflection_ParameterInfo_System_Type_">Attribute.GetCustomAttribute(ParameterInfo, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattribute#System_Attribute_GetCustomAttribute_System_Reflection_ParameterInfo_System_Type_System_Boolean_">Attribute.GetCustomAttribute(ParameterInfo, Type, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_Assembly_">Attribute.GetCustomAttributes(Assembly)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_Assembly_System_Boolean_">Attribute.GetCustomAttributes(Assembly, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_Assembly_System_Type_">Attribute.GetCustomAttributes(Assembly, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_Assembly_System_Type_System_Boolean_">Attribute.GetCustomAttributes(Assembly, Type, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_MemberInfo_">Attribute.GetCustomAttributes(MemberInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_MemberInfo_System_Boolean_">Attribute.GetCustomAttributes(MemberInfo, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_MemberInfo_System_Type_">Attribute.GetCustomAttributes(MemberInfo, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_MemberInfo_System_Type_System_Boolean_">Attribute.GetCustomAttributes(MemberInfo, Type, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_Module_">Attribute.GetCustomAttributes(Module)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_Module_System_Boolean_">Attribute.GetCustomAttributes(Module, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_Module_System_Type_">Attribute.GetCustomAttributes(Module, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_Module_System_Type_System_Boolean_">Attribute.GetCustomAttributes(Module, Type, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_ParameterInfo_">Attribute.GetCustomAttributes(ParameterInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_ParameterInfo_System_Boolean_">Attribute.GetCustomAttributes(ParameterInfo, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_ParameterInfo_System_Type_">Attribute.GetCustomAttributes(ParameterInfo, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.getcustomattributes#System_Attribute_GetCustomAttributes_System_Reflection_ParameterInfo_System_Type_System_Boolean_">Attribute.GetCustomAttributes(ParameterInfo, Type, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.gethashcode#System_Attribute_GetHashCode">Attribute.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.isdefaultattribute#System_Attribute_IsDefaultAttribute">Attribute.IsDefaultAttribute()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.isdefined#System_Attribute_IsDefined_System_Reflection_Assembly_System_Type_">Attribute.IsDefined(Assembly, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.isdefined#System_Attribute_IsDefined_System_Reflection_Assembly_System_Type_System_Boolean_">Attribute.IsDefined(Assembly, Type, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.isdefined#System_Attribute_IsDefined_System_Reflection_MemberInfo_System_Type_">Attribute.IsDefined(MemberInfo, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.isdefined#System_Attribute_IsDefined_System_Reflection_MemberInfo_System_Type_System_Boolean_">Attribute.IsDefined(MemberInfo, Type, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.isdefined#System_Attribute_IsDefined_System_Reflection_Module_System_Type_">Attribute.IsDefined(Module, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.isdefined#System_Attribute_IsDefined_System_Reflection_Module_System_Type_System_Boolean_">Attribute.IsDefined(Module, Type, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.isdefined#System_Attribute_IsDefined_System_Reflection_ParameterInfo_System_Type_">Attribute.IsDefined(ParameterInfo, Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.isdefined#System_Attribute_IsDefined_System_Reflection_ParameterInfo_System_Type_System_Boolean_">Attribute.IsDefined(ParameterInfo, Type, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.match#System_Attribute_Match_System_Object_">Attribute.Match(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.typeid#System_Attribute_TypeId">Attribute.TypeId</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Solti.Utils.SQL.html">Solti.Utils.SQL</a></h6>
+  <h6><strong>Assembly</strong>: Solti.Utils.SQL.Interfaces.dll</h6>
+  <h5 id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class ColumnSelectionBaseAttribute : Attribute, IFragment, IBuildable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Solti_Utils_SQL_ColumnSelectionBaseAttribute__ctor_" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.#ctor*"></a>
+  <h4 id="Solti_Utils_SQL_ColumnSelectionBaseAttribute__ctor_System_Type_System_Boolean_System_String_System_Reflection_MethodInfo_" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.#ctor(System.Type,System.Boolean,System.String,System.Reflection.MethodInfo)">ColumnSelectionBaseAttribute(Type, Boolean, String, MethodInfo)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Solti.Utils.SQL.ColumnSelectionBaseAttribute.html">ColumnSelectionBaseAttribute</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ColumnSelectionBaseAttribute(Type ormType, bool required, string alias, MethodInfo select)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">ormType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">required</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">alias</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></td>
+        <td><span class="parametername">select</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_Alias_" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.Alias*"></a>
+  <h4 id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_Alias" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.Alias">Alias</h4>
+  <div class="markdown level1 summary"><p>The (optional) alias of the column name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Alias { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_OrmType_" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.OrmType*"></a>
+  <h4 id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_OrmType" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.OrmType">OrmType</h4>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a> that represents the data table.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type OrmType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_Required_" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.Required*"></a>
+  <h4 id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_Required" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.Required">Required</h4>
+  <div class="markdown level1 summary"><p>Specifies if the selection must return a value or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Required { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_GetBuilder_" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetBuilder*"></a>
+  <h4 id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_GetBuilder" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetBuilder">GetBuilder()</h4>
+  <div class="markdown level1 summary"><p>Gets the related <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.emit.customattributebuilder">CustomAttributeBuilder</a>. For mire information see the <a class="xref" href="Solti.Utils.SQL.IBuildable.html">IBuildable</a> interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract CustomAttributeBuilder GetBuilder()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.emit.customattributebuilder">CustomAttributeBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_GetFragments_" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetFragments*"></a>
+  <h4 id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)">GetFragments(ParameterExpression, PropertyInfo, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Gets the generator methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual IEnumerable&lt;MethodCallExpression&gt; GetFragments(ParameterExpression bldr, PropertyInfo viewProperty, bool isGroupBy)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.expressions.parameterexpression">ParameterExpression</a></td>
+        <td><span class="parametername">bldr</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">viewProperty</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">isGroupBy</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.expressions.methodcallexpression">MethodCallExpression</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <a id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_Solti_Utils_SQL_IBuildable_Builder_" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti#Utils#SQL#IBuildable#Builder*"></a>
+  <h4 id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_Solti_Utils_SQL_IBuildable_Builder" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti#Utils#SQL#IBuildable#Builder">IBuildable.Builder</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CustomAttributeBuilder IBuildable.Builder { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.emit.customattributebuilder">CustomAttributeBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_Solti_Utils_SQL_IFragment_GetFragments_" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti#Utils#SQL#IFragment#GetFragments*"></a>
+  <h4 id="Solti_Utils_SQL_ColumnSelectionBaseAttribute_Solti_Utils_SQL_IFragment_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_" data-uid="Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti#Utils#SQL#IFragment#GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)">IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;MethodCallExpression&gt; IFragment.GetFragments(ParameterExpression bldr, PropertyInfo viewProperty, bool isGroupBy)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.expressions.parameterexpression">ParameterExpression</a></td>
+        <td><span class="parametername">bldr</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">viewProperty</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">isGroupBy</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.linq.expressions.methodcallexpression">MethodCallExpression</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Solti.Utils.SQL.IFragment.html">IFragment</a>
+  </div>
+  <div>
+      <a class="xref" href="Solti.Utils.SQL.IBuildable.html">IBuildable</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

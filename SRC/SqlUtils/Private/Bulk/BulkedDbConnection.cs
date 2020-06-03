@@ -6,6 +6,7 @@
 using System;
 using System.Data;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -20,6 +21,9 @@ namespace Solti.Utils.SQL.Internals
     
     internal sealed class BulkedDbConnection: IBulkedDbConnection
     {
+        static BulkedDbConnection() =>
+            ProxyGenerator<IDbCommand, IDbCommandInterceptor>.CacheDirectory = Path.Combine(Path.GetTempPath(), ".sqlutils", typeof(BulkedDbConnection).Assembly.GetName().Version.ToString());
+
         internal IDbConnection Connection { get; }
 
         internal StringBuilder Buffer { get; }

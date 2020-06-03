@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace Solti.Utils.SQL
+    <title>Namespace Solti.Utils.SQL.Interfaces
    | SqlUtils.NET </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace Solti.Utils.SQL
+    <meta name="title" content="Namespace Solti.Utils.SQL.Interfaces
    | SqlUtils.NET ">
     <meta name="generator" content="docfx 2.46.0.0">
     
@@ -37,34 +37,42 @@
       <div role="main" class="container body-content hide-when-search">
         <div class="article row grid">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Solti.Utils.SQL">
+            <article class="content wrap" id="_content" data-uid="Solti.Utils.SQL.Interfaces">
   
-  <h1 id="Solti_Utils_SQL" data-uid="Solti.Utils.SQL" class="text-break">Namespace Solti.Utils.SQL
+  <h1 id="Solti_Utils_SQL_Interfaces" data-uid="Solti.Utils.SQL.Interfaces" class="text-break">Namespace Solti.Utils.SQL.Interfaces
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
     <h3 id="classes">Classes
   </h3>
-      <h4><a class="xref" href="Solti.Utils.SQL.CommandText.html">CommandText</a></h4>
-      <section><p>Command text related stuffs.</p>
+      <h4><a class="xref" href="Solti.Utils.SQL.Interfaces.BelongsToAttribute.html">BelongsToAttribute</a></h4>
+      <section><p>Represents a simple column selection</p>
 </section>
-      <h4><a class="xref" href="Solti.Utils.SQL.Config.html">Config</a></h4>
-      <section><p>Exposes the configuration of this library.</p>
+      <h4><a class="xref" href="Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html">ColumnSelectionAttribute</a></h4>
+      <section><p>Represents a single column selection.</p>
 </section>
-      <h4><a class="xref" href="Solti.Utils.SQL.DefaultConfig.html">DefaultConfig</a></h4>
-      <section><p>Default configuration.</p>
+      <h4><a class="xref" href="Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html">ColumnSelectionBaseAttribute</a></h4>
+      <section><p>Represents an abstract database column selection.</p>
 </section>
-      <h4><a class="xref" href="Solti.Utils.SQL.IDbConnectionExtensions.html">IDbConnectionExtensions</a></h4>
-      <section><p>Defines several extensions related to <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.data.idbconnection">IDbConnection</a>.</p>
+      <h4><a class="xref" href="Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.html">CustomBelongsToAttribute</a></h4>
+      <section><p>The base of the <a class="xref" href="Solti.Utils.SQL.Interfaces.BelongsToAttribute.html">BelongsToAttribute</a>.</p>
 </section>
     <h3 id="interfaces">Interfaces
   </h3>
-      <h4><a class="xref" href="Solti.Utils.SQL.IBulkedDbConnection.html">IBulkedDbConnection</a></h4>
-      <section><p>Describes a bulked database connection. On bulked connections only write operations are allowed.</p>
+      <h4><a class="xref" href="Solti.Utils.SQL.Interfaces.IBuildable.html">IBuildable</a></h4>
+      <section><p>Represents an attribute that can be built.</p>
 </section>
-      <h4><a class="xref" href="Solti.Utils.SQL.IConfig.html">IConfig</a></h4>
-      <section><p>Defines the abstract configuration related to this library.</p>
+      <h4><a class="xref" href="Solti.Utils.SQL.Interfaces.IFragment.html">IFragment</a></h4>
+      <section><p>Represents one or more query fragments.</p>
+</section>
+      <h4><a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a></h4>
+      <section><p>Required SQL operations.</p>
+</section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="Solti.Utils.SQL.Interfaces.Order.html">Order</a></h4>
+      <section><p>Represents the order of a selection.</p>
 </section>
 </article>
           </div>

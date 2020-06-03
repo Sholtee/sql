@@ -7,124 +7,6 @@ references:
   commentId: N:Solti.Utils.SQL
   fullName: Solti.Utils.SQL
   nameWithType: Solti.Utils.SQL
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute
-  name: ColumnSelectionBaseAttribute
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html
-  commentId: T:Solti.Utils.SQL.ColumnSelectionBaseAttribute
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute
-  nameWithType: ColumnSelectionBaseAttribute
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.#ctor(System.Type,System.Boolean,System.String,System.Reflection.MethodInfo)
-  name: ColumnSelectionBaseAttribute(Type, Boolean, String, MethodInfo)
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute__ctor_System_Type_System_Boolean_System_String_System_Reflection_MethodInfo_
-  commentId: M:Solti.Utils.SQL.ColumnSelectionBaseAttribute.#ctor(System.Type,System.Boolean,System.String,System.Reflection.MethodInfo)
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.ColumnSelectionBaseAttribute(System.Type, System.Boolean, System.String, System.Reflection.MethodInfo)
-  nameWithType: ColumnSelectionBaseAttribute.ColumnSelectionBaseAttribute(Type, Boolean, String, MethodInfo)
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.#ctor*
-  name: ColumnSelectionBaseAttribute
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute__ctor_
-  commentId: Overload:Solti.Utils.SQL.ColumnSelectionBaseAttribute.#ctor
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.ColumnSelectionBaseAttribute
-  nameWithType: ColumnSelectionBaseAttribute.ColumnSelectionBaseAttribute
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Alias
-  name: Alias
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_Alias
-  commentId: P:Solti.Utils.SQL.ColumnSelectionBaseAttribute.Alias
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Alias
-  nameWithType: ColumnSelectionBaseAttribute.Alias
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Alias*
-  name: Alias
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_Alias_
-  commentId: Overload:Solti.Utils.SQL.ColumnSelectionBaseAttribute.Alias
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Alias
-  nameWithType: ColumnSelectionBaseAttribute.Alias
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetBuilder
-  name: GetBuilder()
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_GetBuilder
-  commentId: M:Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetBuilder
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetBuilder()
-  nameWithType: ColumnSelectionBaseAttribute.GetBuilder()
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetBuilder*
-  name: GetBuilder
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_GetBuilder_
-  commentId: Overload:Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetBuilder
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetBuilder
-  nameWithType: ColumnSelectionBaseAttribute.GetBuilder
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
-  name: GetFragments(ParameterExpression, PropertyInfo, Boolean)
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_
-  commentId: M:Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetFragments(System.Linq.Expressions.ParameterExpression, System.Reflection.PropertyInfo, System.Boolean)
-  nameWithType: ColumnSelectionBaseAttribute.GetFragments(ParameterExpression, PropertyInfo, Boolean)
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetFragments*
-  name: GetFragments
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_GetFragments_
-  commentId: Overload:Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetFragments
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.GetFragments
-  nameWithType: ColumnSelectionBaseAttribute.GetFragments
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.OrmType
-  name: OrmType
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_OrmType
-  commentId: P:Solti.Utils.SQL.ColumnSelectionBaseAttribute.OrmType
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.OrmType
-  nameWithType: ColumnSelectionBaseAttribute.OrmType
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.OrmType*
-  name: OrmType
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_OrmType_
-  commentId: Overload:Solti.Utils.SQL.ColumnSelectionBaseAttribute.OrmType
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.OrmType
-  nameWithType: ColumnSelectionBaseAttribute.OrmType
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Required
-  name: Required
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_Required
-  commentId: P:Solti.Utils.SQL.ColumnSelectionBaseAttribute.Required
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Required
-  nameWithType: ColumnSelectionBaseAttribute.Required
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Required*
-  name: Required
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_Required_
-  commentId: Overload:Solti.Utils.SQL.ColumnSelectionBaseAttribute.Required
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Required
-  nameWithType: ColumnSelectionBaseAttribute.Required
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti#Utils#SQL#IBuildable#Builder
-  name: IBuildable.Builder
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_Solti_Utils_SQL_IBuildable_Builder
-  commentId: P:Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti#Utils#SQL#IBuildable#Builder
-  name.vb: Solti.Utils.SQL.IBuildable.Builder
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti.Utils.SQL.IBuildable.Builder
-  nameWithType: ColumnSelectionBaseAttribute.IBuildable.Builder
-  nameWithType.vb: ColumnSelectionBaseAttribute.Solti.Utils.SQL.IBuildable.Builder
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti#Utils#SQL#IBuildable#Builder*
-  name: IBuildable.Builder
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_Solti_Utils_SQL_IBuildable_Builder_
-  commentId: Overload:Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti#Utils#SQL#IBuildable#Builder
-  isSpec: "True"
-  name.vb: Solti.Utils.SQL.IBuildable.Builder
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti.Utils.SQL.IBuildable.Builder
-  nameWithType: ColumnSelectionBaseAttribute.IBuildable.Builder
-  nameWithType.vb: ColumnSelectionBaseAttribute.Solti.Utils.SQL.IBuildable.Builder
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti#Utils#SQL#IFragment#GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
-  name: IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_Solti_Utils_SQL_IFragment_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_
-  commentId: M:Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti#Utils#SQL#IFragment#GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
-  name.vb: Solti.Utils.SQL.IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti.Utils.SQL.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression, System.Reflection.PropertyInfo, System.Boolean)
-  nameWithType: ColumnSelectionBaseAttribute.IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
-  nameWithType.vb: ColumnSelectionBaseAttribute.Solti.Utils.SQL.IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
-- uid: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti#Utils#SQL#IFragment#GetFragments*
-  name: IFragment.GetFragments
-  href: Solti.Utils.SQL.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_ColumnSelectionBaseAttribute_Solti_Utils_SQL_IFragment_GetFragments_
-  commentId: Overload:Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti#Utils#SQL#IFragment#GetFragments
-  isSpec: "True"
-  name.vb: Solti.Utils.SQL.IFragment.GetFragments
-  fullName: Solti.Utils.SQL.ColumnSelectionBaseAttribute.Solti.Utils.SQL.IFragment.GetFragments
-  nameWithType: ColumnSelectionBaseAttribute.IFragment.GetFragments
-  nameWithType.vb: ColumnSelectionBaseAttribute.Solti.Utils.SQL.IFragment.GetFragments
 - uid: Solti.Utils.SQL.CommandText
   name: CommandText
   href: Solti.Utils.SQL.CommandText.html
@@ -207,25 +89,6 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.DefaultConfig.Stringify
   nameWithType: DefaultConfig.Stringify
-- uid: Solti.Utils.SQL.IBuildable
-  name: IBuildable
-  href: Solti.Utils.SQL.IBuildable.html
-  commentId: T:Solti.Utils.SQL.IBuildable
-  fullName: Solti.Utils.SQL.IBuildable
-  nameWithType: IBuildable
-- uid: Solti.Utils.SQL.IBuildable.Builder
-  name: Builder
-  href: Solti.Utils.SQL.IBuildable.html#Solti_Utils_SQL_IBuildable_Builder
-  commentId: P:Solti.Utils.SQL.IBuildable.Builder
-  fullName: Solti.Utils.SQL.IBuildable.Builder
-  nameWithType: IBuildable.Builder
-- uid: Solti.Utils.SQL.IBuildable.Builder*
-  name: Builder
-  href: Solti.Utils.SQL.IBuildable.html#Solti_Utils_SQL_IBuildable_Builder_
-  commentId: Overload:Solti.Utils.SQL.IBuildable.Builder
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.IBuildable.Builder
-  nameWithType: IBuildable.Builder
 - uid: Solti.Utils.SQL.IBulkedDbConnection
   name: IBulkedDbConnection
   href: Solti.Utils.SQL.IBulkedDbConnection.html
@@ -283,22 +146,463 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection
   nameWithType: IDbConnectionExtensions.CreateBulkedDbConnection
-- uid: Solti.Utils.SQL.IFragment
-  name: IFragment
-  href: Solti.Utils.SQL.IFragment.html
-  commentId: T:Solti.Utils.SQL.IFragment
-  fullName: Solti.Utils.SQL.IFragment
-  nameWithType: IFragment
-- uid: Solti.Utils.SQL.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
-  name: GetFragments(ParameterExpression, PropertyInfo, Boolean)
-  href: Solti.Utils.SQL.IFragment.html#Solti_Utils_SQL_IFragment_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_
-  commentId: M:Solti.Utils.SQL.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
-  fullName: Solti.Utils.SQL.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression, System.Reflection.PropertyInfo, System.Boolean)
-  nameWithType: IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
-- uid: Solti.Utils.SQL.IFragment.GetFragments*
-  name: GetFragments
-  href: Solti.Utils.SQL.IFragment.html#Solti_Utils_SQL_IFragment_GetFragments_
-  commentId: Overload:Solti.Utils.SQL.IFragment.GetFragments
+- uid: Solti.Utils.SQL.Interfaces
+  name: Solti.Utils.SQL.Interfaces
+  href: Solti.Utils.SQL.Interfaces.html
+  commentId: N:Solti.Utils.SQL.Interfaces
+  fullName: Solti.Utils.SQL.Interfaces
+  nameWithType: Solti.Utils.SQL.Interfaces
+- uid: Solti.Utils.SQL.Interfaces.BelongsToAttribute
+  name: BelongsToAttribute
+  href: Solti.Utils.SQL.Interfaces.BelongsToAttribute.html
+  commentId: T:Solti.Utils.SQL.Interfaces.BelongsToAttribute
+  fullName: Solti.Utils.SQL.Interfaces.BelongsToAttribute
+  nameWithType: BelongsToAttribute
+- uid: Solti.Utils.SQL.Interfaces.BelongsToAttribute.#ctor(System.Type,System.Boolean,System.String,Solti.Utils.SQL.Interfaces.Order)
+  name: BelongsToAttribute(Type, Boolean, String, Order)
+  href: Solti.Utils.SQL.Interfaces.BelongsToAttribute.html#Solti_Utils_SQL_Interfaces_BelongsToAttribute__ctor_System_Type_System_Boolean_System_String_Solti_Utils_SQL_Interfaces_Order_
+  commentId: M:Solti.Utils.SQL.Interfaces.BelongsToAttribute.#ctor(System.Type,System.Boolean,System.String,Solti.Utils.SQL.Interfaces.Order)
+  fullName: Solti.Utils.SQL.Interfaces.BelongsToAttribute.BelongsToAttribute(System.Type, System.Boolean, System.String, Solti.Utils.SQL.Interfaces.Order)
+  nameWithType: BelongsToAttribute.BelongsToAttribute(Type, Boolean, String, Order)
+- uid: Solti.Utils.SQL.Interfaces.BelongsToAttribute.#ctor*
+  name: BelongsToAttribute
+  href: Solti.Utils.SQL.Interfaces.BelongsToAttribute.html#Solti_Utils_SQL_Interfaces_BelongsToAttribute__ctor_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.BelongsToAttribute.#ctor
   isSpec: "True"
-  fullName: Solti.Utils.SQL.IFragment.GetFragments
+  fullName: Solti.Utils.SQL.Interfaces.BelongsToAttribute.BelongsToAttribute
+  nameWithType: BelongsToAttribute.BelongsToAttribute
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute
+  name: ColumnSelectionAttribute
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html
+  commentId: T:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute
+  nameWithType: ColumnSelectionAttribute
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.#ctor(System.Type,System.Boolean,System.String)
+  name: ColumnSelectionAttribute(Type, Boolean, String)
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute__ctor_System_Type_System_Boolean_System_String_
+  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.#ctor(System.Type,System.Boolean,System.String)
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.ColumnSelectionAttribute(System.Type, System.Boolean, System.String)
+  nameWithType: ColumnSelectionAttribute.ColumnSelectionAttribute(Type, Boolean, String)
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.#ctor*
+  name: ColumnSelectionAttribute
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute__ctor_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.#ctor
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.ColumnSelectionAttribute
+  nameWithType: ColumnSelectionAttribute.ColumnSelectionAttribute
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute
+  name: ColumnSelectionBaseAttribute
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html
+  commentId: T:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute
+  nameWithType: ColumnSelectionBaseAttribute
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.#ctor(System.Type,System.Boolean,System.String,System.Reflection.MethodInfo)
+  name: ColumnSelectionBaseAttribute(Type, Boolean, String, MethodInfo)
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute__ctor_System_Type_System_Boolean_System_String_System_Reflection_MethodInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.#ctor(System.Type,System.Boolean,System.String,System.Reflection.MethodInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.ColumnSelectionBaseAttribute(System.Type, System.Boolean, System.String, System.Reflection.MethodInfo)
+  nameWithType: ColumnSelectionBaseAttribute.ColumnSelectionBaseAttribute(Type, Boolean, String, MethodInfo)
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.#ctor*
+  name: ColumnSelectionBaseAttribute
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute__ctor_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.#ctor
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.ColumnSelectionBaseAttribute
+  nameWithType: ColumnSelectionBaseAttribute.ColumnSelectionBaseAttribute
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Action
+  name: Action
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_Action
+  commentId: P:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Action
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Action
+  nameWithType: ColumnSelectionBaseAttribute.Action
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Action*
+  name: Action
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_Action_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Action
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Action
+  nameWithType: ColumnSelectionBaseAttribute.Action
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Alias
+  name: Alias
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_Alias
+  commentId: P:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Alias
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Alias
+  nameWithType: ColumnSelectionBaseAttribute.Alias
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Alias*
+  name: Alias
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_Alias_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Alias
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Alias
+  nameWithType: ColumnSelectionBaseAttribute.Alias
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetBuilder
+  name: GetBuilder()
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_GetBuilder
+  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetBuilder
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetBuilder()
+  nameWithType: ColumnSelectionBaseAttribute.GetBuilder()
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetBuilder*
+  name: GetBuilder
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_GetBuilder_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetBuilder
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetBuilder
+  nameWithType: ColumnSelectionBaseAttribute.GetBuilder
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
+  name: GetFragments(ParameterExpression, PropertyInfo, Boolean)
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_
+  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetFragments(System.Linq.Expressions.ParameterExpression, System.Reflection.PropertyInfo, System.Boolean)
+  nameWithType: ColumnSelectionBaseAttribute.GetFragments(ParameterExpression, PropertyInfo, Boolean)
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetFragments*
+  name: GetFragments
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_GetFragments_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetFragments
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetFragments
+  nameWithType: ColumnSelectionBaseAttribute.GetFragments
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetQueryMethod(System.Linq.Expressions.Expression{System.Action{Solti.Utils.SQL.Interfaces.ISqlQuery}})
+  name: GetQueryMethod(Expression<Action<ISqlQuery>>)
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_GetQueryMethod_System_Linq_Expressions_Expression_System_Action_Solti_Utils_SQL_Interfaces_ISqlQuery___
+  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetQueryMethod(System.Linq.Expressions.Expression{System.Action{Solti.Utils.SQL.Interfaces.ISqlQuery}})
+  name.vb: GetQueryMethod(Expression(Of Action(Of ISqlQuery)))
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetQueryMethod(System.Linq.Expressions.Expression<System.Action<Solti.Utils.SQL.Interfaces.ISqlQuery>>)
+  fullName.vb: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetQueryMethod(System.Linq.Expressions.Expression(Of System.Action(Of Solti.Utils.SQL.Interfaces.ISqlQuery)))
+  nameWithType: ColumnSelectionBaseAttribute.GetQueryMethod(Expression<Action<ISqlQuery>>)
+  nameWithType.vb: ColumnSelectionBaseAttribute.GetQueryMethod(Expression(Of Action(Of ISqlQuery)))
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetQueryMethod*
+  name: GetQueryMethod
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_GetQueryMethod_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetQueryMethod
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.GetQueryMethod
+  nameWithType: ColumnSelectionBaseAttribute.GetQueryMethod
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.OrmType
+  name: OrmType
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_OrmType
+  commentId: P:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.OrmType
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.OrmType
+  nameWithType: ColumnSelectionBaseAttribute.OrmType
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.OrmType*
+  name: OrmType
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_OrmType_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.OrmType
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.OrmType
+  nameWithType: ColumnSelectionBaseAttribute.OrmType
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Required
+  name: Required
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_Required
+  commentId: P:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Required
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Required
+  nameWithType: ColumnSelectionBaseAttribute.Required
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Required*
+  name: Required
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_Required_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Required
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Required
+  nameWithType: ColumnSelectionBaseAttribute.Required
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Solti#Utils#SQL#Interfaces#IBuildable#Builder
+  name: IBuildable.Builder
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_Solti_Utils_SQL_Interfaces_IBuildable_Builder
+  commentId: P:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Solti#Utils#SQL#Interfaces#IBuildable#Builder
+  name.vb: Solti.Utils.SQL.Interfaces.IBuildable.Builder
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Solti.Utils.SQL.Interfaces.IBuildable.Builder
+  nameWithType: ColumnSelectionBaseAttribute.IBuildable.Builder
+  nameWithType.vb: ColumnSelectionBaseAttribute.Solti.Utils.SQL.Interfaces.IBuildable.Builder
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Solti#Utils#SQL#Interfaces#IBuildable#Builder*
+  name: IBuildable.Builder
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_Solti_Utils_SQL_Interfaces_IBuildable_Builder_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Solti#Utils#SQL#Interfaces#IBuildable#Builder
+  isSpec: "True"
+  name.vb: Solti.Utils.SQL.Interfaces.IBuildable.Builder
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Solti.Utils.SQL.Interfaces.IBuildable.Builder
+  nameWithType: ColumnSelectionBaseAttribute.IBuildable.Builder
+  nameWithType.vb: ColumnSelectionBaseAttribute.Solti.Utils.SQL.Interfaces.IBuildable.Builder
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Solti#Utils#SQL#Interfaces#IFragment#GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
+  name: IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_Solti_Utils_SQL_Interfaces_IFragment_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_
+  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Solti#Utils#SQL#Interfaces#IFragment#GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
+  name.vb: Solti.Utils.SQL.Interfaces.IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Solti.Utils.SQL.Interfaces.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression, System.Reflection.PropertyInfo, System.Boolean)
+  nameWithType: ColumnSelectionBaseAttribute.IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
+  nameWithType.vb: ColumnSelectionBaseAttribute.Solti.Utils.SQL.Interfaces.IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Solti#Utils#SQL#Interfaces#IFragment#GetFragments*
+  name: IFragment.GetFragments
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionBaseAttribute_Solti_Utils_SQL_Interfaces_IFragment_GetFragments_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Solti#Utils#SQL#Interfaces#IFragment#GetFragments
+  isSpec: "True"
+  name.vb: Solti.Utils.SQL.Interfaces.IFragment.GetFragments
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionBaseAttribute.Solti.Utils.SQL.Interfaces.IFragment.GetFragments
+  nameWithType: ColumnSelectionBaseAttribute.IFragment.GetFragments
+  nameWithType.vb: ColumnSelectionBaseAttribute.Solti.Utils.SQL.Interfaces.IFragment.GetFragments
+- uid: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute
+  name: CustomBelongsToAttribute
+  href: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.html
+  commentId: T:Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute
+  fullName: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute
+  nameWithType: CustomBelongsToAttribute
+- uid: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.#ctor(System.Type,System.Boolean,System.String,Solti.Utils.SQL.Interfaces.Order)
+  name: CustomBelongsToAttribute(Type, Boolean, String, Order)
+  href: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.html#Solti_Utils_SQL_Interfaces_CustomBelongsToAttribute__ctor_System_Type_System_Boolean_System_String_Solti_Utils_SQL_Interfaces_Order_
+  commentId: M:Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.#ctor(System.Type,System.Boolean,System.String,Solti.Utils.SQL.Interfaces.Order)
+  fullName: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.CustomBelongsToAttribute(System.Type, System.Boolean, System.String, Solti.Utils.SQL.Interfaces.Order)
+  nameWithType: CustomBelongsToAttribute.CustomBelongsToAttribute(Type, Boolean, String, Order)
+- uid: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.#ctor*
+  name: CustomBelongsToAttribute
+  href: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.html#Solti_Utils_SQL_Interfaces_CustomBelongsToAttribute__ctor_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.#ctor
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.CustomBelongsToAttribute
+  nameWithType: CustomBelongsToAttribute.CustomBelongsToAttribute
+- uid: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.GetBuilder
+  name: GetBuilder()
+  href: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.html#Solti_Utils_SQL_Interfaces_CustomBelongsToAttribute_GetBuilder
+  commentId: M:Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.GetBuilder
+  fullName: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.GetBuilder()
+  nameWithType: CustomBelongsToAttribute.GetBuilder()
+- uid: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.GetBuilder*
+  name: GetBuilder
+  href: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.html#Solti_Utils_SQL_Interfaces_CustomBelongsToAttribute_GetBuilder_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.GetBuilder
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.GetBuilder
+  nameWithType: CustomBelongsToAttribute.GetBuilder
+- uid: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
+  name: GetFragments(ParameterExpression, PropertyInfo, Boolean)
+  href: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.html#Solti_Utils_SQL_Interfaces_CustomBelongsToAttribute_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_
+  commentId: M:Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
+  fullName: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.GetFragments(System.Linq.Expressions.ParameterExpression, System.Reflection.PropertyInfo, System.Boolean)
+  nameWithType: CustomBelongsToAttribute.GetFragments(ParameterExpression, PropertyInfo, Boolean)
+- uid: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.GetFragments*
+  name: GetFragments
+  href: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.html#Solti_Utils_SQL_Interfaces_CustomBelongsToAttribute_GetFragments_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.GetFragments
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.GetFragments
+  nameWithType: CustomBelongsToAttribute.GetFragments
+- uid: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.Order
+  name: Order
+  href: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.html#Solti_Utils_SQL_Interfaces_CustomBelongsToAttribute_Order
+  commentId: P:Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.Order
+  fullName: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.Order
+  nameWithType: CustomBelongsToAttribute.Order
+- uid: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.Order*
+  name: Order
+  href: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.html#Solti_Utils_SQL_Interfaces_CustomBelongsToAttribute_Order_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.Order
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.CustomBelongsToAttribute.Order
+  nameWithType: CustomBelongsToAttribute.Order
+- uid: Solti.Utils.SQL.Interfaces.IBuildable
+  name: IBuildable
+  href: Solti.Utils.SQL.Interfaces.IBuildable.html
+  commentId: T:Solti.Utils.SQL.Interfaces.IBuildable
+  fullName: Solti.Utils.SQL.Interfaces.IBuildable
+  nameWithType: IBuildable
+- uid: Solti.Utils.SQL.Interfaces.IBuildable.Builder
+  name: Builder
+  href: Solti.Utils.SQL.Interfaces.IBuildable.html#Solti_Utils_SQL_Interfaces_IBuildable_Builder
+  commentId: P:Solti.Utils.SQL.Interfaces.IBuildable.Builder
+  fullName: Solti.Utils.SQL.Interfaces.IBuildable.Builder
+  nameWithType: IBuildable.Builder
+- uid: Solti.Utils.SQL.Interfaces.IBuildable.Builder*
+  name: Builder
+  href: Solti.Utils.SQL.Interfaces.IBuildable.html#Solti_Utils_SQL_Interfaces_IBuildable_Builder_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IBuildable.Builder
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.IBuildable.Builder
+  nameWithType: IBuildable.Builder
+- uid: Solti.Utils.SQL.Interfaces.IFragment
+  name: IFragment
+  href: Solti.Utils.SQL.Interfaces.IFragment.html
+  commentId: T:Solti.Utils.SQL.Interfaces.IFragment
+  fullName: Solti.Utils.SQL.Interfaces.IFragment
+  nameWithType: IFragment
+- uid: Solti.Utils.SQL.Interfaces.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
+  name: GetFragments(ParameterExpression, PropertyInfo, Boolean)
+  href: Solti.Utils.SQL.Interfaces.IFragment.html#Solti_Utils_SQL_Interfaces_IFragment_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_
+  commentId: M:Solti.Utils.SQL.Interfaces.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
+  fullName: Solti.Utils.SQL.Interfaces.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression, System.Reflection.PropertyInfo, System.Boolean)
+  nameWithType: IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
+- uid: Solti.Utils.SQL.Interfaces.IFragment.GetFragments*
+  name: GetFragments
+  href: Solti.Utils.SQL.Interfaces.IFragment.html#Solti_Utils_SQL_Interfaces_IFragment_GetFragments_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IFragment.GetFragments
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.IFragment.GetFragments
   nameWithType: IFragment.GetFragments
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery
+  name: ISqlQuery
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html
+  commentId: T:Solti.Utils.SQL.Interfaces.ISqlQuery
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery
+  nameWithType: ISqlQuery
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize(System.Type)
+  name: Finalize(Type)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Finalize_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize(System.Type)
+  nameWithType: ISqlQuery.Finalize(Type)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize*
+  name: Finalize
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Finalize_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize
+  nameWithType: ISqlQuery.Finalize
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy(System.Reflection.PropertyInfo)
+  name: GroupBy(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_GroupBy_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy(System.Reflection.PropertyInfo)
+  nameWithType: ISqlQuery.GroupBy(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy*
+  name: GroupBy
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_GroupBy_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy
+  nameWithType: ISqlQuery.GroupBy
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  name: InnerJoin(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_InnerJoin_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
+  nameWithType: ISqlQuery.InnerJoin(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin*
+  name: InnerJoin
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_InnerJoin_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin
+  nameWithType: ISqlQuery.InnerJoin
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  name: LeftJoin(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_LeftJoin_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
+  nameWithType: ISqlQuery.LeftJoin(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin*
+  name: LeftJoin
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_LeftJoin_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin
+  nameWithType: ISqlQuery.LeftJoin
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy(System.Reflection.PropertyInfo)
+  name: OrderBy(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_OrderBy_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy(System.Reflection.PropertyInfo)
+  nameWithType: ISqlQuery.OrderBy(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy*
+  name: OrderBy
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_OrderBy_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy
+  nameWithType: ISqlQuery.OrderBy
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending(System.Reflection.PropertyInfo)
+  name: OrderByDescending(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_OrderByDescending_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending(System.Reflection.PropertyInfo)
+  nameWithType: ISqlQuery.OrderByDescending(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending*
+  name: OrderByDescending
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_OrderByDescending_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending
+  nameWithType: ISqlQuery.OrderByDescending
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Query(System.Type)
+  name: Query(Type)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Query_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.Query(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Query(System.Type)
+  nameWithType: ISqlQuery.Query(Type)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Query*
+  name: Query
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Query_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.Query
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Query
+  nameWithType: ISqlQuery.Query
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Select(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  name: Select(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Select_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.Select(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Select(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
+  nameWithType: ISqlQuery.Select(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Select*
+  name: Select
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Select_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.Select
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Select
+  nameWithType: ISqlQuery.Select
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  name: SelectCount(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectCount_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
+  nameWithType: ISqlQuery.SelectCount(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount*
+  name: SelectCount
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectCount_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount
+  nameWithType: ISqlQuery.SelectCount
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  name: SelectMax(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectMax_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
+  nameWithType: ISqlQuery.SelectMax(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax*
+  name: SelectMax
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectMax_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax
+  nameWithType: ISqlQuery.SelectMax
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  name: SelectMin(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectMin_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
+  nameWithType: ISqlQuery.SelectMin(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin*
+  name: SelectMin
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectMin_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin
+  nameWithType: ISqlQuery.SelectMin
+- uid: Solti.Utils.SQL.Interfaces.Order
+  name: Order
+  href: Solti.Utils.SQL.Interfaces.Order.html
+  commentId: T:Solti.Utils.SQL.Interfaces.Order
+  fullName: Solti.Utils.SQL.Interfaces.Order
+  nameWithType: Order
+- uid: Solti.Utils.SQL.Interfaces.Order.Ascending
+  name: Ascending
+  href: Solti.Utils.SQL.Interfaces.Order.html#Solti_Utils_SQL_Interfaces_Order_Ascending
+  commentId: F:Solti.Utils.SQL.Interfaces.Order.Ascending
+  fullName: Solti.Utils.SQL.Interfaces.Order.Ascending
+  nameWithType: Order.Ascending
+- uid: Solti.Utils.SQL.Interfaces.Order.Descending
+  name: Descending
+  href: Solti.Utils.SQL.Interfaces.Order.html#Solti_Utils_SQL_Interfaces_Order_Descending
+  commentId: F:Solti.Utils.SQL.Interfaces.Order.Descending
+  fullName: Solti.Utils.SQL.Interfaces.Order.Descending
+  nameWithType: Order.Descending
+- uid: Solti.Utils.SQL.Interfaces.Order.None
+  name: None
+  href: Solti.Utils.SQL.Interfaces.Order.html#Solti_Utils_SQL_Interfaces_Order_None
+  commentId: F:Solti.Utils.SQL.Interfaces.Order.None
+  fullName: Solti.Utils.SQL.Interfaces.Order.None
+  nameWithType: Order.None

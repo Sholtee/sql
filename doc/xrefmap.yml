@@ -408,6 +408,12 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.CountOfAttribute.CountOfAttribute
   nameWithType: CountOfAttribute.CountOfAttribute
+- uid: Solti.Utils.SQL.Interfaces.EmptyListMarkerAttribute
+  name: EmptyListMarkerAttribute
+  href: Solti.Utils.SQL.Interfaces.EmptyListMarkerAttribute.html
+  commentId: T:Solti.Utils.SQL.Interfaces.EmptyListMarkerAttribute
+  fullName: Solti.Utils.SQL.Interfaces.EmptyListMarkerAttribute
+  nameWithType: EmptyListMarkerAttribute
 - uid: Solti.Utils.SQL.Interfaces.IBuildable
   name: IBuildable
   href: Solti.Utils.SQL.Interfaces.IBuildable.html
@@ -657,3 +663,9 @@ references:
   commentId: F:Solti.Utils.SQL.Interfaces.Order.None
   fullName: Solti.Utils.SQL.Interfaces.Order.None
   nameWithType: Order.None
+- uid: Solti.Utils.SQL.Interfaces.WrappedAttribute
+  name: WrappedAttribute
+  href: Solti.Utils.SQL.Interfaces.WrappedAttribute.html
+  commentId: T:Solti.Utils.SQL.Interfaces.WrappedAttribute
+  fullName: Solti.Utils.SQL.Interfaces.WrappedAttribute
+  nameWithType: WrappedAttribute

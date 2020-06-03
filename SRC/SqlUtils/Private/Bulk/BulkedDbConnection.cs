@@ -21,8 +21,13 @@ namespace Solti.Utils.SQL.Internals
     
     internal sealed class BulkedDbConnection: IBulkedDbConnection
     {
-        static BulkedDbConnection() =>
-            ProxyGenerator<IDbCommand, IDbCommandInterceptor>.CacheDirectory = Path.Combine(Path.GetTempPath(), ".sqlutils", typeof(BulkedDbConnection).Assembly.GetName().Version.ToString());
+        static BulkedDbConnection()
+        {
+            string cacheDir = Path.Combine(Path.GetTempPath(), ".sqlutils", typeof(BulkedDbConnection).Assembly.GetName().Version.ToString());
+            Directory.CreateDirectory(cacheDir);
+
+            ProxyGenerator<IDbCommand, IDbCommandInterceptor>.CacheDirectory = cacheDir;
+        }
 
         internal IDbConnection Connection { get; }
 

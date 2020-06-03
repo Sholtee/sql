@@ -11,7 +11,7 @@ using System.Reflection;
 namespace Solti.Utils.SQL.Interfaces
 {
     /// <summary>
-    /// Required SQL operations.
+    /// Represents an abstract SQL builder.
     /// </summary>
     public interface ISqlQuery
     {

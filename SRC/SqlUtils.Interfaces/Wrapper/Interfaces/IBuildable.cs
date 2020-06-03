@@ -5,7 +5,7 @@
 ********************************************************************************/
 using System.Reflection.Emit;
 
-namespace Solti.Utils.SQL
+namespace Solti.Utils.SQL.Interfaces
 {
     /// <summary>
     /// Represents an attribute that can be built.

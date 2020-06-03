@@ -10,10 +10,10 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace Solti.Utils.SQL
+namespace Solti.Utils.SQL.Interfaces
 {
     /// <summary>
-    /// Defines an abstract database column selection.
+    /// Represents an abstract database column selection.
     /// </summary>
     public abstract class ColumnSelectionBaseAttribute : Attribute, IFragment, IBuildable
     {
@@ -31,6 +31,21 @@ namespace Solti.Utils.SQL
         /// The (optional) alias of the column name.
         /// </summary>
         public string? Alias { get; }
+
+        /// <summary>
+        /// The action belongs to this selection.
+        /// </summary>
+        public MethodInfo Action { get; }
+
+        /// <summary>
+        /// Gets a <see cref="MethodInfo"/> from the <see cref="ISqlQuery"/> interface. 
+        /// </summary>
+        protected static MethodInfo GetQueryMethod(Expression<Action<ISqlQuery>> expr)
+        {
+            if (expr == null) throw new ArgumentNullException(nameof(expr));
+
+            return ((MethodCallExpression)expr.Body).Method;
+        }
 
         IEnumerable<MethodCallExpression> IFragment.GetFragments(ParameterExpression bldr, PropertyInfo viewProperty, bool isGroupBy) => GetFragments(
             bldr ?? throw new ArgumentNullException(nameof(bldr)), 
@@ -57,7 +72,7 @@ namespace Solti.Utils.SQL
 
             yield return Expression.Call(
                 bldr,
-                FSelect,
+                Action,
                 Expression.Constant(OrmType.GetProperty(property) ?? throw new MissingMemberException(OrmType.Name, property)),
                 Expression.Constant(viewProperty));
         }
@@ -70,15 +85,13 @@ namespace Solti.Utils.SQL
         /// </summary>
         protected abstract CustomAttributeBuilder GetBuilder();
 
-        private readonly MethodInfo FSelect;
-
         /// <summary>
         /// Creates a new <see cref="ColumnSelectionBaseAttribute"/> instance.
         /// </summary>
-        protected ColumnSelectionBaseAttribute(Type ormType, bool required, string? alias, MethodInfo select)
+        protected ColumnSelectionBaseAttribute(Type ormType, bool required, string? alias, MethodInfo action)
         {
             OrmType  = ormType ?? throw new ArgumentNullException(nameof(ormType));
-            FSelect  = select ?? throw new ArgumentNullException(nameof(select));
+            Action   = action  ?? throw new ArgumentNullException(nameof(action));
             Required = required;
             Alias    = alias;         
         }

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Solti.Utils.SQL
+namespace Solti.Utils.SQL.Interfaces
 {
     /// <summary>
     /// Represents one or more query fragments.

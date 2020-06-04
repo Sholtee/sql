@@ -62,7 +62,7 @@ namespace Solti.Utils.SQL.Interfaces
         ISqlQuery GroupBy(PropertyInfo tableColumn);
 
         /// <summary>
-        /// Palce for custom finalization routins. This method will be called once the query is assembled.
+        /// Place for custom finalization routins. This method will be called once the query is assembled.
         /// </summary>
         /// <param name="view"></param>
         void Finalize(Type view);

@@ -12,9 +12,23 @@ namespace Solti.Utils.SQL.Internals
 
     internal static class Unwrapped<TView>
     {
-        public static Type Type { get; }
+        private static readonly object FLock = new object();
 
-        static Unwrapped()
+        private static Type? FType;
+
+        public static Type Type 
+        {
+            get 
+            {
+                if (FType == null)
+                    lock (FLock)
+                        if (FType == null)
+                            FType = GetUnwrappedType();
+                return FType;
+            }
+        }
+
+        private static Type GetUnwrappedType()
         {
             Type viewType = typeof(TView);
             TypeBuilder tb = MyTypeBuilder.Create($"Unwrapped{viewType.Name}");
@@ -30,7 +44,7 @@ namespace Solti.Utils.SQL.Internals
                     .SetCustomAttribute(((IBuildable) sel.Reason).Builder);
             }
 
-            Type = tb.CreateTypeInfo()!.AsType();
+            return tb.CreateTypeInfo()!.AsType();
         }
     }
 }

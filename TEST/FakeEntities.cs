@@ -166,6 +166,14 @@ namespace Solti.Utils.SQL.Tests
         public List<View2> ViewList2 { get; set; }
     }
 
+    public class WrappedView3
+    {
+        [BelongsTo(typeof(Start_Node), alias: "Id")]
+        public int Azonosito { get; set; }
+        [Wrapped]
+        public View3 View { get; set; }
+    }
+
     public class WrappedView3_Extesnion
     {
         [BelongsTo(typeof(Start_Node), alias: "Id")]

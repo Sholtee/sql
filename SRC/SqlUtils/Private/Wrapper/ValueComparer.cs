@@ -47,13 +47,17 @@ namespace Solti.Utils.SQL.Internals
                 return obj.GetHashCode();
 
             var hc = new HashCode();
+            hc.Add(type);
 
             if (obj is IEnumerable @enum)
-                foreach (object i in @enum) 
+                foreach (object i in @enum)
                     hc.Add(i, this);
-            else 
+            else
                 foreach (PropertyInfo prop in type.GetProperties().Where(p => p.CanRead))
+                {
+                    hc.Add(prop.Name);
                     hc.Add(prop.FastGetValue(obj), this);
+                }
 
             return hc.ToHashCode();
         }

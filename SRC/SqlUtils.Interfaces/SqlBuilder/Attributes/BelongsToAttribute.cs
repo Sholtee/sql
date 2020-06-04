@@ -12,7 +12,7 @@ using System.Reflection.Emit;
 namespace Solti.Utils.SQL.Interfaces
 {
     /// <summary>
-    /// The base of the <see cref="BelongsToAttribute"/>.
+    /// Represents a simple database column selection.
     /// </summary>
     public sealed class BelongsToAttribute : ColumnSelectionAttribute
     {

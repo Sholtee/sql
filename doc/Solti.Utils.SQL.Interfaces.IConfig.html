@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class DefaultConfig
+    <title>Interface IConfig
    | SqlUtils.NET </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class DefaultConfig
+    <meta name="title" content="Interface IConfig
    | SqlUtils.NET ">
     <meta name="generator" content="docfx 2.46.0.0">
     
@@ -37,63 +37,30 @@
       <div role="main" class="container body-content hide-when-search">
         <div class="article row grid">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Solti.Utils.SQL.DefaultConfig">
+            <article class="content wrap" id="_content" data-uid="Solti.Utils.SQL.Interfaces.IConfig">
   
   
-  <h1 id="Solti_Utils_SQL_DefaultConfig" data-uid="Solti.Utils.SQL.DefaultConfig" class="text-break">Class DefaultConfig
+  <h1 id="Solti_Utils_SQL_Interfaces_IConfig" data-uid="Solti.Utils.SQL.Interfaces.IConfig" class="text-break">Interface IConfig
   </h1>
-  <div class="markdown level0 summary"><p>Default configuration.</p>
+  <div class="markdown level0 summary"><p>Defines the abstract configuration related to this library.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">DefaultConfig</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="Solti.Utils.SQL.IConfig.html">IConfig</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
-    </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Solti.Utils.SQL.html">Solti.Utils.SQL</a></h6>
-  <h6><strong>Assembly</strong>: Solti.Utils.SQL.dll</h6>
-  <h5 id="Solti_Utils_SQL_DefaultConfig_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Solti.Utils.SQL.Interfaces.html">Solti.Utils.SQL.Interfaces</a></h6>
+  <h6><strong>Assembly</strong>: Solti.Utils.SQL.Interfaces.dll</h6>
+  <h5 id="Solti_Utils_SQL_Interfaces_IConfig_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DefaultConfig : IConfig</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IConfig</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
-  <a id="Solti_Utils_SQL_DefaultConfig_IsDatabaseEntity_" data-uid="Solti.Utils.SQL.DefaultConfig.IsDatabaseEntity*"></a>
-  <h4 id="Solti_Utils_SQL_DefaultConfig_IsDatabaseEntity_System_Type_" data-uid="Solti.Utils.SQL.DefaultConfig.IsDatabaseEntity(System.Type)">IsDatabaseEntity(Type)</h4>
-  <div class="markdown level1 summary"><p>See <a class="xref" href="Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsDatabaseEntity_System_Type_">IsDatabaseEntity(Type)</a>.</p>
+  <a id="Solti_Utils_SQL_Interfaces_IConfig_IsDatabaseEntity_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_IConfig_IsDatabaseEntity_System_Type_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity(System.Type)">IsDatabaseEntity(Type)</h4>
+  <div class="markdown level1 summary"><p>Returns true if the type represents a database entity.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual bool IsDatabaseEntity(Type type)</code></pre>
+    <pre><code class="lang-csharp hljs">bool IsDatabaseEntity(Type type)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -127,14 +94,14 @@
       </tr>
     </tbody>
   </table>
-  <a id="Solti_Utils_SQL_DefaultConfig_IsIgnored_" data-uid="Solti.Utils.SQL.DefaultConfig.IsIgnored*"></a>
-  <h4 id="Solti_Utils_SQL_DefaultConfig_IsIgnored_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.DefaultConfig.IsIgnored(System.Reflection.PropertyInfo)">IsIgnored(PropertyInfo)</h4>
-  <div class="markdown level1 summary"><p>See <a class="xref" href="Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsIgnored_System_Reflection_PropertyInfo_">IsIgnored(PropertyInfo)</a>.</p>
+  <a id="Solti_Utils_SQL_Interfaces_IConfig_IsIgnored_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.IsIgnored*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_IConfig_IsIgnored_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.IsIgnored(System.Reflection.PropertyInfo)">IsIgnored(PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>Returns true if the property should be ignored.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual bool IsIgnored(PropertyInfo prop)</code></pre>
+    <pre><code class="lang-csharp hljs">bool IsIgnored(PropertyInfo prop)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -168,14 +135,14 @@
       </tr>
     </tbody>
   </table>
-  <a id="Solti_Utils_SQL_DefaultConfig_IsWrapped_" data-uid="Solti.Utils.SQL.DefaultConfig.IsWrapped*"></a>
-  <h4 id="Solti_Utils_SQL_DefaultConfig_IsWrapped_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.DefaultConfig.IsWrapped(System.Reflection.PropertyInfo)">IsWrapped(PropertyInfo)</h4>
-  <div class="markdown level1 summary"><p>See <a class="xref" href="Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsWrapped_System_Reflection_PropertyInfo_">IsWrapped(PropertyInfo)</a>.</p>
+  <a id="Solti_Utils_SQL_Interfaces_IConfig_IsWrapped_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.IsWrapped*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_IConfig_IsWrapped_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.IsWrapped(System.Reflection.PropertyInfo)">IsWrapped(PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>Returns true if the property represents a list and should be used in relation mapping.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual bool IsWrapped(PropertyInfo prop)</code></pre>
+    <pre><code class="lang-csharp hljs">bool IsWrapped(PropertyInfo prop)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -209,14 +176,14 @@
       </tr>
     </tbody>
   </table>
-  <a id="Solti_Utils_SQL_DefaultConfig_Stringify_" data-uid="Solti.Utils.SQL.DefaultConfig.Stringify*"></a>
-  <h4 id="Solti_Utils_SQL_DefaultConfig_Stringify_System_Data_IDataParameter_" data-uid="Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDataParameter)">Stringify(IDataParameter)</h4>
-  <div class="markdown level1 summary"><p>See <a class="xref" href="Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_Stringify_System_Data_IDataParameter_">Stringify(IDataParameter)</a></p>
+  <a id="Solti_Utils_SQL_Interfaces_IConfig_Stringify_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.Stringify*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_IConfig_Stringify_System_Data_IDataParameter_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDataParameter)">Stringify(IDataParameter)</h4>
+  <div class="markdown level1 summary"><p>Stringifies the given parameter.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual string Stringify(IDataParameter parameter)</code></pre>
+    <pre><code class="lang-csharp hljs">string Stringify(IDataParameter parameter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -250,13 +217,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="Solti_Utils_SQL_DefaultConfig_Stringify_System_Data_IDataParameter__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This is a basic implementation intended for testing purposes only. You have to override it in the derived configuration.</p>
-</div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="Solti.Utils.SQL.IConfig.html">IConfig</a>
-  </div>
 </article>
           </div>
           

@@ -48,11 +48,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Config.Instance
   nameWithType: Config.Instance
-- uid: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.IConfig)
+- uid: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IConfig)
   name: Use(IConfig)
-  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use_Solti_Utils_SQL_IConfig_
-  commentId: M:Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.IConfig)
-  fullName: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.IConfig)
+  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use_Solti_Utils_SQL_Interfaces_IConfig_
+  commentId: M:Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IConfig)
+  fullName: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IConfig)
   nameWithType: Config.Use(IConfig)
 - uid: Solti.Utils.SQL.Config.Use*
   name: Use
@@ -70,64 +70,6 @@ references:
   fullName.vb: Solti.Utils.SQL.Config.Use(Of T)()
   nameWithType: Config.Use<T>()
   nameWithType.vb: Config.Use(Of T)()
-- uid: Solti.Utils.SQL.DefaultConfig
-  name: DefaultConfig
-  href: Solti.Utils.SQL.DefaultConfig.html
-  commentId: T:Solti.Utils.SQL.DefaultConfig
-  fullName: Solti.Utils.SQL.DefaultConfig
-  nameWithType: DefaultConfig
-- uid: Solti.Utils.SQL.DefaultConfig.IsDatabaseEntity(System.Type)
-  name: IsDatabaseEntity(Type)
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_IsDatabaseEntity_System_Type_
-  commentId: M:Solti.Utils.SQL.DefaultConfig.IsDatabaseEntity(System.Type)
-  fullName: Solti.Utils.SQL.DefaultConfig.IsDatabaseEntity(System.Type)
-  nameWithType: DefaultConfig.IsDatabaseEntity(Type)
-- uid: Solti.Utils.SQL.DefaultConfig.IsDatabaseEntity*
-  name: IsDatabaseEntity
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_IsDatabaseEntity_
-  commentId: Overload:Solti.Utils.SQL.DefaultConfig.IsDatabaseEntity
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.DefaultConfig.IsDatabaseEntity
-  nameWithType: DefaultConfig.IsDatabaseEntity
-- uid: Solti.Utils.SQL.DefaultConfig.IsIgnored(System.Reflection.PropertyInfo)
-  name: IsIgnored(PropertyInfo)
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_IsIgnored_System_Reflection_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.DefaultConfig.IsIgnored(System.Reflection.PropertyInfo)
-  fullName: Solti.Utils.SQL.DefaultConfig.IsIgnored(System.Reflection.PropertyInfo)
-  nameWithType: DefaultConfig.IsIgnored(PropertyInfo)
-- uid: Solti.Utils.SQL.DefaultConfig.IsIgnored*
-  name: IsIgnored
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_IsIgnored_
-  commentId: Overload:Solti.Utils.SQL.DefaultConfig.IsIgnored
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.DefaultConfig.IsIgnored
-  nameWithType: DefaultConfig.IsIgnored
-- uid: Solti.Utils.SQL.DefaultConfig.IsWrapped(System.Reflection.PropertyInfo)
-  name: IsWrapped(PropertyInfo)
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_IsWrapped_System_Reflection_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.DefaultConfig.IsWrapped(System.Reflection.PropertyInfo)
-  fullName: Solti.Utils.SQL.DefaultConfig.IsWrapped(System.Reflection.PropertyInfo)
-  nameWithType: DefaultConfig.IsWrapped(PropertyInfo)
-- uid: Solti.Utils.SQL.DefaultConfig.IsWrapped*
-  name: IsWrapped
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_IsWrapped_
-  commentId: Overload:Solti.Utils.SQL.DefaultConfig.IsWrapped
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.DefaultConfig.IsWrapped
-  nameWithType: DefaultConfig.IsWrapped
-- uid: Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDataParameter)
-  name: Stringify(IDataParameter)
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_Stringify_System_Data_IDataParameter_
-  commentId: M:Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDataParameter)
-  fullName: Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDataParameter)
-  nameWithType: DefaultConfig.Stringify(IDataParameter)
-- uid: Solti.Utils.SQL.DefaultConfig.Stringify*
-  name: Stringify
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_Stringify_
-  commentId: Overload:Solti.Utils.SQL.DefaultConfig.Stringify
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.DefaultConfig.Stringify
-  nameWithType: DefaultConfig.Stringify
 - uid: Solti.Utils.SQL.IBulkedDbConnection
   name: IBulkedDbConnection
   href: Solti.Utils.SQL.IBulkedDbConnection.html
@@ -147,64 +89,6 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.IBulkedDbConnection.Flush
   nameWithType: IBulkedDbConnection.Flush
-- uid: Solti.Utils.SQL.IConfig
-  name: IConfig
-  href: Solti.Utils.SQL.IConfig.html
-  commentId: T:Solti.Utils.SQL.IConfig
-  fullName: Solti.Utils.SQL.IConfig
-  nameWithType: IConfig
-- uid: Solti.Utils.SQL.IConfig.IsDatabaseEntity(System.Type)
-  name: IsDatabaseEntity(Type)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsDatabaseEntity_System_Type_
-  commentId: M:Solti.Utils.SQL.IConfig.IsDatabaseEntity(System.Type)
-  fullName: Solti.Utils.SQL.IConfig.IsDatabaseEntity(System.Type)
-  nameWithType: IConfig.IsDatabaseEntity(Type)
-- uid: Solti.Utils.SQL.IConfig.IsDatabaseEntity*
-  name: IsDatabaseEntity
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsDatabaseEntity_
-  commentId: Overload:Solti.Utils.SQL.IConfig.IsDatabaseEntity
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.IConfig.IsDatabaseEntity
-  nameWithType: IConfig.IsDatabaseEntity
-- uid: Solti.Utils.SQL.IConfig.IsIgnored(System.Reflection.PropertyInfo)
-  name: IsIgnored(PropertyInfo)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsIgnored_System_Reflection_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.IConfig.IsIgnored(System.Reflection.PropertyInfo)
-  fullName: Solti.Utils.SQL.IConfig.IsIgnored(System.Reflection.PropertyInfo)
-  nameWithType: IConfig.IsIgnored(PropertyInfo)
-- uid: Solti.Utils.SQL.IConfig.IsIgnored*
-  name: IsIgnored
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsIgnored_
-  commentId: Overload:Solti.Utils.SQL.IConfig.IsIgnored
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.IConfig.IsIgnored
-  nameWithType: IConfig.IsIgnored
-- uid: Solti.Utils.SQL.IConfig.IsWrapped(System.Reflection.PropertyInfo)
-  name: IsWrapped(PropertyInfo)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsWrapped_System_Reflection_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.IConfig.IsWrapped(System.Reflection.PropertyInfo)
-  fullName: Solti.Utils.SQL.IConfig.IsWrapped(System.Reflection.PropertyInfo)
-  nameWithType: IConfig.IsWrapped(PropertyInfo)
-- uid: Solti.Utils.SQL.IConfig.IsWrapped*
-  name: IsWrapped
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsWrapped_
-  commentId: Overload:Solti.Utils.SQL.IConfig.IsWrapped
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.IConfig.IsWrapped
-  nameWithType: IConfig.IsWrapped
-- uid: Solti.Utils.SQL.IConfig.Stringify(System.Data.IDataParameter)
-  name: Stringify(IDataParameter)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_Stringify_System_Data_IDataParameter_
-  commentId: M:Solti.Utils.SQL.IConfig.Stringify(System.Data.IDataParameter)
-  fullName: Solti.Utils.SQL.IConfig.Stringify(System.Data.IDataParameter)
-  nameWithType: IConfig.Stringify(IDataParameter)
-- uid: Solti.Utils.SQL.IConfig.Stringify*
-  name: Stringify
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_Stringify_
-  commentId: Overload:Solti.Utils.SQL.IConfig.Stringify
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.IConfig.Stringify
-  nameWithType: IConfig.Stringify
 - uid: Solti.Utils.SQL.IDbConnectionExtensions
   name: IDbConnectionExtensions
   href: Solti.Utils.SQL.IDbConnectionExtensions.html
@@ -542,6 +426,64 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.DataAnnotations.ReferencesAttribute.Type
   nameWithType: ReferencesAttribute.Type
+- uid: Solti.Utils.SQL.Interfaces.DefaultConfig
+  name: DefaultConfig
+  href: Solti.Utils.SQL.Interfaces.DefaultConfig.html
+  commentId: T:Solti.Utils.SQL.Interfaces.DefaultConfig
+  fullName: Solti.Utils.SQL.Interfaces.DefaultConfig
+  nameWithType: DefaultConfig
+- uid: Solti.Utils.SQL.Interfaces.DefaultConfig.IsDatabaseEntity(System.Type)
+  name: IsDatabaseEntity(Type)
+  href: Solti.Utils.SQL.Interfaces.DefaultConfig.html#Solti_Utils_SQL_Interfaces_DefaultConfig_IsDatabaseEntity_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.DefaultConfig.IsDatabaseEntity(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.DefaultConfig.IsDatabaseEntity(System.Type)
+  nameWithType: DefaultConfig.IsDatabaseEntity(Type)
+- uid: Solti.Utils.SQL.Interfaces.DefaultConfig.IsDatabaseEntity*
+  name: IsDatabaseEntity
+  href: Solti.Utils.SQL.Interfaces.DefaultConfig.html#Solti_Utils_SQL_Interfaces_DefaultConfig_IsDatabaseEntity_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.DefaultConfig.IsDatabaseEntity
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.DefaultConfig.IsDatabaseEntity
+  nameWithType: DefaultConfig.IsDatabaseEntity
+- uid: Solti.Utils.SQL.Interfaces.DefaultConfig.IsIgnored(System.Reflection.PropertyInfo)
+  name: IsIgnored(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.DefaultConfig.html#Solti_Utils_SQL_Interfaces_DefaultConfig_IsIgnored_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.DefaultConfig.IsIgnored(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.DefaultConfig.IsIgnored(System.Reflection.PropertyInfo)
+  nameWithType: DefaultConfig.IsIgnored(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.DefaultConfig.IsIgnored*
+  name: IsIgnored
+  href: Solti.Utils.SQL.Interfaces.DefaultConfig.html#Solti_Utils_SQL_Interfaces_DefaultConfig_IsIgnored_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.DefaultConfig.IsIgnored
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.DefaultConfig.IsIgnored
+  nameWithType: DefaultConfig.IsIgnored
+- uid: Solti.Utils.SQL.Interfaces.DefaultConfig.IsWrapped(System.Reflection.PropertyInfo)
+  name: IsWrapped(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.DefaultConfig.html#Solti_Utils_SQL_Interfaces_DefaultConfig_IsWrapped_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.DefaultConfig.IsWrapped(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.DefaultConfig.IsWrapped(System.Reflection.PropertyInfo)
+  nameWithType: DefaultConfig.IsWrapped(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.DefaultConfig.IsWrapped*
+  name: IsWrapped
+  href: Solti.Utils.SQL.Interfaces.DefaultConfig.html#Solti_Utils_SQL_Interfaces_DefaultConfig_IsWrapped_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.DefaultConfig.IsWrapped
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.DefaultConfig.IsWrapped
+  nameWithType: DefaultConfig.IsWrapped
+- uid: Solti.Utils.SQL.Interfaces.DefaultConfig.Stringify(System.Data.IDataParameter)
+  name: Stringify(IDataParameter)
+  href: Solti.Utils.SQL.Interfaces.DefaultConfig.html#Solti_Utils_SQL_Interfaces_DefaultConfig_Stringify_System_Data_IDataParameter_
+  commentId: M:Solti.Utils.SQL.Interfaces.DefaultConfig.Stringify(System.Data.IDataParameter)
+  fullName: Solti.Utils.SQL.Interfaces.DefaultConfig.Stringify(System.Data.IDataParameter)
+  nameWithType: DefaultConfig.Stringify(IDataParameter)
+- uid: Solti.Utils.SQL.Interfaces.DefaultConfig.Stringify*
+  name: Stringify
+  href: Solti.Utils.SQL.Interfaces.DefaultConfig.html#Solti_Utils_SQL_Interfaces_DefaultConfig_Stringify_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.DefaultConfig.Stringify
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.DefaultConfig.Stringify
+  nameWithType: DefaultConfig.Stringify
 - uid: Solti.Utils.SQL.Interfaces.EmptyListMarkerAttribute
   name: EmptyListMarkerAttribute
   href: Solti.Utils.SQL.Interfaces.EmptyListMarkerAttribute.html
@@ -567,6 +509,64 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.IBuildable.Builder
   nameWithType: IBuildable.Builder
+- uid: Solti.Utils.SQL.Interfaces.IConfig
+  name: IConfig
+  href: Solti.Utils.SQL.Interfaces.IConfig.html
+  commentId: T:Solti.Utils.SQL.Interfaces.IConfig
+  fullName: Solti.Utils.SQL.Interfaces.IConfig
+  nameWithType: IConfig
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity(System.Type)
+  name: IsDatabaseEntity(Type)
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsDatabaseEntity_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity(System.Type)
+  nameWithType: IConfig.IsDatabaseEntity(Type)
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity*
+  name: IsDatabaseEntity
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsDatabaseEntity_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity
+  nameWithType: IConfig.IsDatabaseEntity
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsIgnored(System.Reflection.PropertyInfo)
+  name: IsIgnored(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsIgnored_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.IsIgnored(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsIgnored(System.Reflection.PropertyInfo)
+  nameWithType: IConfig.IsIgnored(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsIgnored*
+  name: IsIgnored
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsIgnored_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IConfig.IsIgnored
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsIgnored
+  nameWithType: IConfig.IsIgnored
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsWrapped(System.Reflection.PropertyInfo)
+  name: IsWrapped(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsWrapped_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.IsWrapped(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsWrapped(System.Reflection.PropertyInfo)
+  nameWithType: IConfig.IsWrapped(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsWrapped*
+  name: IsWrapped
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsWrapped_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IConfig.IsWrapped
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsWrapped
+  nameWithType: IConfig.IsWrapped
+- uid: Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDataParameter)
+  name: Stringify(IDataParameter)
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_Stringify_System_Data_IDataParameter_
+  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDataParameter)
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDataParameter)
+  nameWithType: IConfig.Stringify(IDataParameter)
+- uid: Solti.Utils.SQL.Interfaces.IConfig.Stringify*
+  name: Stringify
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_Stringify_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IConfig.Stringify
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.Stringify
+  nameWithType: IConfig.Stringify
 - uid: Solti.Utils.SQL.Interfaces.IFragment
   name: IFragment
   href: Solti.Utils.SQL.Interfaces.IFragment.html

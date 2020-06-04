@@ -13,6 +13,8 @@ using NUnit.Framework;
 
 namespace Solti.Utils.SQL.Tests
 {
+    using Interfaces;
+
     [TestFixture]
     public class CommandTextTests: TestsBase
     {

@@ -4,15 +4,13 @@
 * Author: Denes Solti                                                           *
 ********************************************************************************/
 using System;
-using System.Collections;
 using System.Data;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace Solti.Utils.SQL
+namespace Solti.Utils.SQL.Interfaces
 {
-    using Interfaces;
-    using Interfaces.DataAnnotations;
+    using DataAnnotations;
 
     /// <summary>
     /// Default configuration.

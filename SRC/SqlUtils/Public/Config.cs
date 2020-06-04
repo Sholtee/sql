@@ -7,6 +7,7 @@ using System;
 
 namespace Solti.Utils.SQL
 {
+    using Interfaces;
     using Primitives.Patterns;
 
     /// <summary>

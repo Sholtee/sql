@@ -4,11 +4,16 @@
 * Author: Denes Solti                                                           *
 ********************************************************************************/
 using System;
+using System.Collections;
 using System.Data;
+using System.Reflection;
 using System.Text.RegularExpressions;
 
 namespace Solti.Utils.SQL
 {
+    using Interfaces;
+    using Interfaces.DataAnnotations;
+
     /// <summary>
     /// Default configuration.
     /// </summary>
@@ -39,6 +44,39 @@ namespace Solti.Utils.SQL
             });
 
             return $"\"{escaped}\"";
+        }
+
+        /// <summary>
+        /// See <see cref="IConfig.IsWrapped(PropertyInfo)"/>.
+        /// </summary>
+        public virtual bool IsWrapped(PropertyInfo prop)
+        {
+            if (prop == null) 
+                throw new ArgumentNullException(nameof(prop));
+
+            return prop.GetCustomAttribute<WrappedAttribute>() != null;
+        }
+
+        /// <summary>
+        /// See <see cref="IConfig.IsIgnored(PropertyInfo)"/>.
+        /// </summary>
+        public virtual bool IsIgnored(PropertyInfo prop) 
+        {
+            if (prop == null)
+                throw new ArgumentNullException(nameof(prop));
+
+            return prop.GetCustomAttribute<IgnoreAttribute>() != null;
+        }
+
+        /// <summary>
+        /// See <see cref="IConfig.IsDatabaseEntity(Type)"/>.
+        /// </summary>
+        public virtual bool IsDatabaseEntity(Type type) 
+        {
+            if (type == null)
+                throw new ArgumentNullException(nameof(type));
+
+            return type.GetCustomAttribute<DatabaseEntityAttribute>(inherit: false) != null;
         }
     }
 }

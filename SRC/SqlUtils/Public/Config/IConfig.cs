@@ -3,8 +3,9 @@
 *                                                                               *
 * Author: Denes Solti                                                           *
 ********************************************************************************/
-using System.Collections.Generic;
+using System;
 using System.Data;
+using System.Reflection;
 
 namespace Solti.Utils.SQL
 {
@@ -18,5 +19,19 @@ namespace Solti.Utils.SQL
         /// </summary>
         string Stringify(IDataParameter parameter);
 
+        /// <summary>
+        /// Returns true if the property represents a list and should be used in relation mapping.
+        /// </summary>
+        bool IsWrapped(PropertyInfo prop);
+
+        /// <summary>
+        /// Returns true if the property should be ignored.
+        /// </summary>
+        bool IsIgnored(PropertyInfo prop);
+
+        /// <summary>
+        /// Returns true if the type represents a database entity.
+        /// </summary>
+        bool IsDatabaseEntity(Type type);
     }
 }

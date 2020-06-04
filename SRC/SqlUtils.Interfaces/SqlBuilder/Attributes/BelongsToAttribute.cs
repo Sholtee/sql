@@ -69,7 +69,7 @@ namespace Solti.Utils.SQL.Interfaces
                 typeof(bool), 
                 typeof(string), 
                 typeof(Order) 
-            }) ?? throw new MissingMemberException(GetType().Name, "Ctor"),
+            }) ?? throw new MissingMethodException(GetType().Name, "Ctor"),
             new object?[]
             {
                 OrmType,

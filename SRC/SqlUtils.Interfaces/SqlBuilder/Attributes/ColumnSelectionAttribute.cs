@@ -44,7 +44,7 @@ namespace Solti.Utils.SQL.Interfaces
         {
             if (expr == null) throw new ArgumentNullException(nameof(expr));
 
-            return ((MethodCallExpression)expr.Body).Method;
+            return ((MethodCallExpression) expr.Body).Method;
         }
 
         IEnumerable<MethodCallExpression> IFragment.GetFragments(ParameterExpression bldr, PropertyInfo viewProperty, bool isGroupBy) => GetFragments(

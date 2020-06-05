@@ -54,6 +54,10 @@ namespace Solti.Utils.SQL.Tests
             Assert.AreSame(typeof(WrappedView1).GetWrappedSelections(), typeof(WrappedView1).GetWrappedSelections());
 
         [Test]
+        public void GetWrappedSelection_ShouldValidateTheList() => 
+            Assert.Throws<ArgumentException>(() => typeof(WrappedView5_Bad).GetWrappedSelections());
+
+        [Test]
         public void GetColumnSelections_ShouldHandleViewsBasedOnORMTypes()
         {
             //

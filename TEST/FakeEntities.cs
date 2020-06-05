@@ -190,6 +190,14 @@ namespace Solti.Utils.SQL.Tests
         public List<WrappedView1> AnotherViewList { get; set; }
     }
 
+    public class WrappedView5_Bad
+    {
+        [BelongsTo(typeof(Start_Node))]
+        public int NagyonId { get; set; }
+        [Wrapped]
+        public View1[] AnotherViewList { get; set; }
+    }
+
     public class Node7_View : Node7 // Ez kell h a kicsomagolo megtalalja
     {
         [Ignore]  // Ne legyen property nev utkozes

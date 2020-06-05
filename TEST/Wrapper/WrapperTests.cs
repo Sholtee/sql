@@ -477,5 +477,32 @@ namespace Solti.Utils.SQL.Tests
             Assert.That(result[1].View.Id, Is.EqualTo("2"));
             Assert.That(result[1].View.Count, Is.EqualTo(0));
         }
+
+        [Test]
+        public void Wrapper_ShouldValidateTheSourceList() 
+        {
+            Type unwrapped = Unwrapped<WrappedView1>.Type;
+
+            Assert.Throws<ArgumentException>(() => Wrapper.Wrap<WrappedView1>(Array.CreateInstance(unwrapped, 0)), Resources.NOT_A_LIST);
+            Assert.Throws<ArgumentException>(() => Wrapper.Wrap<WrappedView1>(new List<object>()), Resources.INCOMPATIBLE_LIST);
+        }
+
+        [Test]
+        public void Wrapper_ShouldThrowIfTheViewIsAmbiguous() 
+        {
+            Type unwrapped = Unwrapped<WrappedView3>.Type;
+
+            var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
+            objs.Add(unwrapped.MakeInstance()
+                .Set("Azonosito", 2)
+                .Set("Id", 1.ToString())
+                .Set("Count", 10));
+            objs.Add(unwrapped.MakeInstance()
+                .Set("Azonosito", 2)
+                .Set("Id", 1.ToString())
+                .Set("Count", 0));
+
+            Assert.Throws<InvalidOperationException>(() => Wrapper.Wrap<WrappedView3>(objs), Resources.AMBIGUOUS_RESULT);
+        }
     }
 }

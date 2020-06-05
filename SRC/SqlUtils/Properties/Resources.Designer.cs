@@ -61,6 +61,15 @@ namespace Solti.Utils.SQL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The view cannot be determined obviously from the input sequence..
+        /// </summary>
+        internal static string AMBIGUOUS_RESULT {
+            get {
+                return ResourceManager.GetString("AMBIGUOUS_RESULT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The list type is not compatible..
         /// </summary>
         internal static string INCOMPATIBLE_LIST {

@@ -15,7 +15,7 @@ namespace Solti.Utils.SQL.Internals
 
     internal class Wrapper
     {
-        #region Instance
+        #region Instance members
         private Type ViewType { get; }
         private Type UnwrappedType { get; }
         private MapperContext Mappers{ get; }
@@ -66,7 +66,7 @@ namespace Solti.Utils.SQL.Internals
             if (!wrapToList) 
             {
                 if (lst.Count != 1)
-                    throw new InvalidOperationException(); // TODO
+                    throw new InvalidOperationException(Resources.AMBIGUOUS_RESULT);
 
                 return lst[0];
             }

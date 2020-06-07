@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Config
+    <title>Class KnownOrmTypes
    | SqlUtils.NET </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Config
+    <meta name="title" content="Class KnownOrmTypes
    | SqlUtils.NET ">
     <meta name="generator" content="docfx 2.46.0.0">
     
@@ -37,18 +37,24 @@
       <div role="main" class="container body-content hide-when-search">
         <div class="article row grid">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Solti.Utils.SQL.Config">
+            <article class="content wrap" id="_content" data-uid="Solti.Utils.SQL.Interfaces.KnownOrmTypes">
   
   
-  <h1 id="Solti_Utils_SQL_Config" data-uid="Solti.Utils.SQL.Config" class="text-break">Class Config
+  <h1 id="Solti_Utils_SQL_Interfaces_KnownOrmTypes" data-uid="Solti.Utils.SQL.Interfaces.KnownOrmTypes" class="text-break">Class KnownOrmTypes
   </h1>
-  <div class="markdown level0 summary"><p>Exposes the configuration of this library.</p>
+  <div class="markdown level0 summary"><p>The default implementation of the <a class="xref" href="Solti.Utils.SQL.Interfaces.IKnownOrmTypes.html">IKnownOrmTypes</a> interface.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">Config</span></div>
+    <div class="level1"><span class="xref">KnownOrmTypes</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Solti.Utils.SQL.Interfaces.IKnownOrmTypes.html">IKnownOrmTypes</a></div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a>&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -74,22 +80,22 @@
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Solti.Utils.SQL.html">Solti.Utils.SQL</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Solti.Utils.SQL.Interfaces.html">Solti.Utils.SQL.Interfaces</a></h6>
   <h6><strong>Assembly</strong>: Solti.Utils.SQL.dll</h6>
-  <h5 id="Solti_Utils_SQL_Config_syntax">Syntax</h5>
+  <h5 id="Solti_Utils_SQL_Interfaces_KnownOrmTypes_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class Config</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class KnownOrmTypes : IKnownOrmTypes, IEnumerable&lt;Type&gt;, IEnumerable</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
-  <a id="Solti_Utils_SQL_Config_Instance_" data-uid="Solti.Utils.SQL.Config.Instance*"></a>
-  <h4 id="Solti_Utils_SQL_Config_Instance" data-uid="Solti.Utils.SQL.Config.Instance">Instance</h4>
-  <div class="markdown level1 summary"><p>The config instance.</p>
+  <a id="Solti_Utils_SQL_Interfaces_KnownOrmTypes_AssemblySearchPattern_" data-uid="Solti.Utils.SQL.Interfaces.KnownOrmTypes.AssemblySearchPattern*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_KnownOrmTypes_AssemblySearchPattern" data-uid="Solti.Utils.SQL.Interfaces.KnownOrmTypes.AssemblySearchPattern">AssemblySearchPattern</h4>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a> search pattern.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IConfig Instance { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static string AssemblySearchPattern { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -101,114 +107,72 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.IConfig.html">IConfig</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Solti_Utils_SQL_Config_KnownOrmTypes_" data-uid="Solti.Utils.SQL.Config.KnownOrmTypes*"></a>
-  <h4 id="Solti_Utils_SQL_Config_KnownOrmTypes" data-uid="Solti.Utils.SQL.Config.KnownOrmTypes">KnownOrmTypes</h4>
-  <div class="markdown level1 summary"><p>See <a class="xref" href="Solti.Utils.SQL.Interfaces.IKnownOrmTypes.html">IKnownOrmTypes</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IKnownOrmTypes KnownOrmTypes { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.IKnownOrmTypes.html">IKnownOrmTypes</a></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="methods">Methods
   </h3>
-  <a id="Solti_Utils_SQL_Config_Use_" data-uid="Solti.Utils.SQL.Config.Use*"></a>
-  <h4 id="Solti_Utils_SQL_Config_Use_Solti_Utils_SQL_Interfaces_IConfig_" data-uid="Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IConfig)">Use(IConfig)</h4>
-  <div class="markdown level1 summary"><p>Uses the given config.</p>
+  <a id="Solti_Utils_SQL_Interfaces_KnownOrmTypes_GetEnumerator_" data-uid="Solti.Utils.SQL.Interfaces.KnownOrmTypes.GetEnumerator*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_KnownOrmTypes_GetEnumerator" data-uid="Solti.Utils.SQL.Interfaces.KnownOrmTypes.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>Enumerates the known ORM types.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Use(IConfig instance)</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerator GetEnumerator()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.IConfig.html">IConfig</a></td>
-        <td><span class="parametername">instance</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <a id="Solti_Utils_SQL_Config_Use_" data-uid="Solti.Utils.SQL.Config.Use*"></a>
-  <h4 id="Solti_Utils_SQL_Config_Use_Solti_Utils_SQL_Interfaces_IKnownOrmTypes_" data-uid="Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IKnownOrmTypes)">Use(IKnownOrmTypes)</h4>
-  <div class="markdown level1 summary"><p>Uses the given ORM types.</p>
-</div>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <a id="Solti_Utils_SQL_Interfaces_KnownOrmTypes_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator_" data-uid="Solti.Utils.SQL.Interfaces.KnownOrmTypes.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_KnownOrmTypes_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator" data-uid="Solti.Utils.SQL.Interfaces.KnownOrmTypes.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator">IEnumerable&lt;Type&gt;.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Use(IKnownOrmTypes instance)</code></pre>
+    <pre><code class="lang-csharp hljs">IEnumerator&lt;Type&gt; IEnumerable&lt;Type&gt;.GetEnumerator()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.IKnownOrmTypes.html">IKnownOrmTypes</a></td>
-        <td><span class="parametername">instance</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <a id="Solti_Utils_SQL_Config_Use_" data-uid="Solti.Utils.SQL.Config.Use*"></a>
-  <h4 id="Solti_Utils_SQL_Config_Use__1" data-uid="Solti.Utils.SQL.Config.Use``1">Use&lt;T&gt;()</h4>
-  <div class="markdown level1 summary"><p>Uses the given config.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Use&lt;T&gt;()
-    where T : new()</code></pre>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Solti.Utils.SQL.Interfaces.IKnownOrmTypes.html">IKnownOrmTypes</a>
   </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
 </article>
           </div>
           

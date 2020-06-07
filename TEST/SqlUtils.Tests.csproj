@@ -29,6 +29,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="2.1.41" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+    <PackageReference Include="Solti.Utils.Primitives" Version="1.*" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SRC\SqlUtils\SqlUtils.csproj" />

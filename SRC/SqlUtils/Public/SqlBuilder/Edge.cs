@@ -82,21 +82,22 @@ namespace Solti.Utils.SQL
         /// </summary>
         public override string ToString() => $"Edge({SourceTable.FullName} -> {DestinationTable.FullName})";
 
-        #region EqualityComparer
-        private sealed class EdgeComparer : ComparerBase<EdgeComparer, Edge>
+        /// <summary>
+        /// Gets the hash code of this instance.
+        /// </summary>
+        public override int GetHashCode() => new 
         {
-            public override bool Equals(Edge x, Edge y)
-            {
-                return x.SourceTable == y.SourceTable && x.DestinationTable == y.DestinationTable;
-            }
-
-            public override int GetHashCode(Edge obj) => throw new NotImplementedException();
-        }
+            SourceProperty,
+            DestinationProperty
+        }.GetHashCode();
 
         /// <summary>
-        /// Thread safe equaluty comparer instance.
+        /// See <see cref="object.Equals(object)"/>.
         /// </summary>
-        public static readonly IEqualityComparer<Edge> EqualityComparer = EdgeComparer.Instance;
-        #endregion
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Edge that)) return false;
+            return GetHashCode() == that.GetHashCode();
+        }
     }
 }

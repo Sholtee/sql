@@ -144,9 +144,9 @@ namespace Solti.Utils.SQL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to The SmartSqlBuilder is uninitialized. You should call the Initialize() method..
         /// </summary>
-        internal static string UNINITIALIZED {
+        internal static string UNINITIALIZED_BUILDER {
             get {
-                return ResourceManager.GetString("UNINITIALIZED", resourceCulture);
+                return ResourceManager.GetString("UNINITIALIZED_BUILDER", resourceCulture);
             }
         }
     }

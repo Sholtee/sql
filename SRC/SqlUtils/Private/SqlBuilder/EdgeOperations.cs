@@ -39,7 +39,7 @@ namespace Solti.Utils.SQL.Internals
             select edge
         ).ToArray();
 
-        internal static IReadOnlyList<Edge> GetEdges(Type type) => Cache.GetOrAdd(type, () => GetEdgesFrom(type).Concat(GetEdgesTo(type)).ToArray());
+        internal static IReadOnlyList<Edge> GetEdges(Type type) => Cache.GetOrAdd(type, () => (IReadOnlyList<Edge>) GetEdgesFrom(type).Concat(GetEdgesTo(type)).ToArray());
 
         private static IReadOnlyList<Edge>? ShortestPath(Type src, Type dst, IReadOnlyList<Edge> customEdges, IReadOnlyList<Edge> currentPath)
         {
@@ -58,7 +58,7 @@ namespace Solti.Utils.SQL.Internals
 
             foreach (Edge edge in GetEdges(src)
                 .Concat(customEdges.Where(edge => edge.SourceTable == src || edge.DestinationTable == src)) // Az egyedi elek kozul amik a csomoponthoz tartoznak
-                .Where(edge => !currentPath.Contains(edge, Edge.EqualityComparer)))
+                .Where(edge => !currentPath.Contains(edge)))
             {
                 //
                 // Ha az adott elen keresztul elerjuk "dst"-t es ez az el meg rovidebb is
@@ -85,8 +85,8 @@ namespace Solti.Utils.SQL.Internals
         public static IReadOnlyList<Edge> ShortestPath(Type src, Type dst, params Edge[] customEdges)
         {
             IReadOnlyList<Edge>? result = Cache.GetOrAdd(
-                    new {src, dst, customEdges = ValueComparer.Instance.GetHashCode(customEdges)}, 
-                    () => ShortestPath(src, dst, customEdges, Array.Empty<Edge>()));
+                (src, dst, ValueComparer.Instance.GetHashCode(customEdges)), 
+                () => ShortestPath(src, dst, customEdges, Array.Empty<Edge>()));
 
             if (result == null)
             {

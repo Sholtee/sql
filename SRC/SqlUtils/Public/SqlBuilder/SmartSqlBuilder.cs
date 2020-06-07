@@ -23,15 +23,13 @@ namespace Solti.Utils.SQL
         /// Represents the build action related to the given <typeparamref name="TView"/> and <typeparamref name="TBasePoco"/>.
         /// </summary>
         [SuppressMessage("Design", "CA1000:Do not declare static members on generic types", Justification = "It's intended because all the specialized builders must have their own build method.")]
-        public static Action<ISqlQuery> Build
+        public static ISqlQuery Build(ISqlQuery query)
         {
-            get
-            {
-                if (FBuild == null)
-                    throw new InvalidOperationException(Resources.UNINITIALIZED);
+            if (FBuild == null)
+                throw new InvalidOperationException(Resources.UNINITIALIZED_BUILDER);
 
-                return FBuild;
-            }
+            FBuild.Invoke(query);
+            return query;
         }
 
         /// <summary>

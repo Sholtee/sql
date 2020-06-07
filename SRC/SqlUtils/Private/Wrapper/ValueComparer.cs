@@ -51,15 +51,25 @@ namespace Solti.Utils.SQL.Internals
 
             if (obj is IEnumerable @enum)
                 foreach (object i in @enum)
-                    hc.Add(i, this);
+                    hc.Add(i, GetComparerFor(i));
             else
                 foreach (PropertyInfo prop in type.GetProperties().Where(p => p.CanRead))
                 {
                     hc.Add(prop.Name);
-                    hc.Add(prop.FastGetValue(obj), this);
+
+                    object val = prop.FastGetValue(obj);
+                    hc.Add(val, GetComparerFor(val));
                 }
 
             return hc.ToHashCode();
+
+            IEqualityComparer<object> GetComparerFor(object val) => ReferenceEquals(val, obj)
+                //
+                // Ha az ertek geci modon az objektum maga lenne (pl.: obj.Self)
+                //
+
+                ? EqualityComparer<object>.Default
+                : (IEqualityComparer<object>) this;
         }
     }
 }

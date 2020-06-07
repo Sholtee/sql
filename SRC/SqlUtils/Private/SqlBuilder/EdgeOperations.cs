@@ -57,7 +57,14 @@ namespace Solti.Utils.SQL.Internals
             IReadOnlyList<Edge>? shortestPath = null;
 
             foreach (Edge edge in GetEdges(src)
-                .Concat(customEdges.Where(edge => edge.SourceTable == src || edge.DestinationTable == src)) // Az egyedi elek kozul amik a csomoponthoz tartoznak
+                .Concat
+                (
+                    //
+                    // Az egyedi elek kozul amik a csomoponthoz tartoznak
+                    //
+
+                    customEdges.Where(edge => edge.SourceTable == src || edge.DestinationTable == src)
+                )
                 .Where(edge => !currentPath.Contains(edge)))
             {
                 //
@@ -65,7 +72,7 @@ namespace Solti.Utils.SQL.Internals
                 // mint az eddig nyilvantartott, akkor uj utvonalunk van.
                 //
 
-                IReadOnlyList<Edge>? newPath = currentPath.Concat(new[] { edge }).ToArray();
+                IReadOnlyList<Edge>? newPath = currentPath.Append(edge).ToArray();
                 Type newSrc = (edge.SourceTable == src) ? edge.DestinationTable : edge.SourceTable;
 
                 if ((newPath = ShortestPath(newSrc, dst, customEdges, newPath)) != null && (shortestPath == null || newPath.Count < shortestPath.Count))

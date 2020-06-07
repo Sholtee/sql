@@ -78,10 +78,7 @@ namespace Solti.Utils.SQL.Internals
             {
                 if (t.IsPrimitive || t == typeof(String) || typeof(IEnumerable).IsAssignableFrom(t))
                 {
-                    var ex = new NotSupportedException(Resources.MAPPING_NOT_SUPPORTED);
-                    ex.Data["mapping"] = $"{srcType} -> {dstType}";
-
-                    throw ex;
+                    throw MappingNotSupported(srcType, dstType);
                 }
             }
         }
@@ -90,15 +87,17 @@ namespace Solti.Utils.SQL.Internals
         {
             if (source == null) return null;
 
-            Func<object, object> map = Cache.GetOrAdd((srcType, dstType), new Func<Func<object, object>>(() => 
-            {
-                var ex = new NotSupportedException(Resources.MAPPING_NOT_SUPPORTED);
-                ex.Data["mapping"] = $"{srcType} -> {dstType}";
-
-                throw ex;
-            }), nameof(Mapper));
+            Func<object, object> map = Cache.GetOrAdd((srcType, dstType), new Func<Func<object, object>>(() => throw MappingNotSupported(srcType, dstType)), nameof(Mapper));
 
             return map.Invoke(source);
+        }
+
+        private static NotSupportedException MappingNotSupported(Type srcType, Type dstType) 
+        {
+            var ex = new NotSupportedException(Resources.MAPPING_NOT_SUPPORTED);
+            ex.Data["mapping"] = $"{srcType} -> {dstType}";
+
+            return ex;
         }
     }
 }

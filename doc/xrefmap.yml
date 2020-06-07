@@ -840,19 +840,19 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending
   nameWithType: ISqlQuery.OrderByDescending
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Query(System.Type)
-  name: Query(Type)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Query_System_Type_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.Query(System.Type)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Query(System.Type)
-  nameWithType: ISqlQuery.Query(Type)
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Query*
-  name: Query
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Query_
-  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.Query
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Type)
+  name: Run(Type)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Run_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Type)
+  nameWithType: ISqlQuery.Run(Type)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Run*
+  name: Run
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Run_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.Run
   isSpec: "True"
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Query
-  nameWithType: ISqlQuery.Query
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Run
+  nameWithType: ISqlQuery.Run
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Select(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
   name: Select(PropertyInfo, PropertyInfo)
   href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Select_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
@@ -1022,6 +1022,28 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.WrappedAttribute
   fullName: Solti.Utils.SQL.Interfaces.WrappedAttribute
   nameWithType: WrappedAttribute
+- uid: Solti.Utils.SQL.ISqlQueryExtensions
+  name: ISqlQueryExtensions
+  href: Solti.Utils.SQL.ISqlQueryExtensions.html
+  commentId: T:Solti.Utils.SQL.ISqlQueryExtensions
+  fullName: Solti.Utils.SQL.ISqlQueryExtensions
+  nameWithType: ISqlQueryExtensions
+- uid: Solti.Utils.SQL.ISqlQueryExtensions.Select*
+  name: Select
+  href: Solti.Utils.SQL.ISqlQueryExtensions.html#Solti_Utils_SQL_ISqlQueryExtensions_Select_
+  commentId: Overload:Solti.Utils.SQL.ISqlQueryExtensions.Select
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.ISqlQueryExtensions.Select
+  nameWithType: ISqlQueryExtensions.Select
+- uid: Solti.Utils.SQL.ISqlQueryExtensions.Select``1(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  name: Select<TView>(ISqlQuery)
+  href: Solti.Utils.SQL.ISqlQueryExtensions.html#Solti_Utils_SQL_ISqlQueryExtensions_Select__1_Solti_Utils_SQL_Interfaces_ISqlQuery_
+  commentId: M:Solti.Utils.SQL.ISqlQueryExtensions.Select``1(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  name.vb: Select(Of TView)(ISqlQuery)
+  fullName: Solti.Utils.SQL.ISqlQueryExtensions.Select<TView>(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  fullName.vb: Solti.Utils.SQL.ISqlQueryExtensions.Select(Of TView)(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  nameWithType: ISqlQueryExtensions.Select<TView>(ISqlQuery)
+  nameWithType.vb: ISqlQueryExtensions.Select(Of TView)(ISqlQuery)
 - uid: Solti.Utils.SQL.SmartSqlBuilder`2
   name: SmartSqlBuilder<TView, TBasePoco>
   href: Solti.Utils.SQL.SmartSqlBuilder-2.html

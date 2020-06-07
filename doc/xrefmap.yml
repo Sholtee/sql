@@ -1022,3 +1022,47 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.WrappedAttribute
   fullName: Solti.Utils.SQL.Interfaces.WrappedAttribute
   nameWithType: WrappedAttribute
+- uid: Solti.Utils.SQL.SmartSqlBuilder`2
+  name: SmartSqlBuilder<TView, TBasePoco>
+  href: Solti.Utils.SQL.SmartSqlBuilder-2.html
+  commentId: T:Solti.Utils.SQL.SmartSqlBuilder`2
+  name.vb: SmartSqlBuilder(Of TView, TBasePoco)
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBasePoco>
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBasePoco)
+  nameWithType: SmartSqlBuilder<TView, TBasePoco>
+  nameWithType.vb: SmartSqlBuilder(Of TView, TBasePoco)
+- uid: Solti.Utils.SQL.SmartSqlBuilder`2.Build
+  name: Build
+  href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Build
+  commentId: P:Solti.Utils.SQL.SmartSqlBuilder`2.Build
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBasePoco>.Build
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBasePoco).Build
+  nameWithType: SmartSqlBuilder<TView, TBasePoco>.Build
+  nameWithType.vb: SmartSqlBuilder(Of TView, TBasePoco).Build
+- uid: Solti.Utils.SQL.SmartSqlBuilder`2.Build*
+  name: Build
+  href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Build_
+  commentId: Overload:Solti.Utils.SQL.SmartSqlBuilder`2.Build
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBasePoco>.Build
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBasePoco).Build
+  nameWithType: SmartSqlBuilder<TView, TBasePoco>.Build
+  nameWithType.vb: SmartSqlBuilder(Of TView, TBasePoco).Build
+- uid: Solti.Utils.SQL.SmartSqlBuilder`2.Initialize(Solti.Utils.SQL.Edge[])
+  name: Initialize(Edge[])
+  href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Initialize_Solti_Utils_SQL_Edge___
+  commentId: M:Solti.Utils.SQL.SmartSqlBuilder`2.Initialize(Solti.Utils.SQL.Edge[])
+  name.vb: Initialize(Edge())
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBasePoco>.Initialize(Solti.Utils.SQL.Edge[])
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBasePoco).Initialize(Solti.Utils.SQL.Edge())
+  nameWithType: SmartSqlBuilder<TView, TBasePoco>.Initialize(Edge[])
+  nameWithType.vb: SmartSqlBuilder(Of TView, TBasePoco).Initialize(Edge())
+- uid: Solti.Utils.SQL.SmartSqlBuilder`2.Initialize*
+  name: Initialize
+  href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Initialize_
+  commentId: Overload:Solti.Utils.SQL.SmartSqlBuilder`2.Initialize
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBasePoco>.Initialize
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBasePoco).Initialize
+  nameWithType: SmartSqlBuilder<TView, TBasePoco>.Initialize
+  nameWithType.vb: SmartSqlBuilder(Of TView, TBasePoco).Initialize

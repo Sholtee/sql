@@ -30,8 +30,18 @@ namespace Solti.Utils.SQL.Interfaces
         bool IsIgnored(PropertyInfo prop);
 
         /// <summary>
+        /// Returns true if the property represents a PK column.
+        /// </summary>
+        bool IsPrimaryKey(PropertyInfo prop);
+
+        /// <summary>
         /// Returns true if the type represents a database entity.
         /// </summary>
         bool IsDatabaseEntity(Type type);
+
+        /// <summary>
+        /// Gets the data table referred by the foreign key.
+        /// </summary>
+        Type? GetReferencedType(PropertyInfo prop);
     }
 }

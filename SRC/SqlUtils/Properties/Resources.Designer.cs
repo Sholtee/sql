@@ -97,11 +97,38 @@ namespace Solti.Utils.SQL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Primary key can not be found on the ORM type..
+        /// </summary>
+        internal static string NO_PRIMARY_KEY {
+            get {
+                return ResourceManager.GetString("NO_PRIMARY_KEY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shortest path could not be determined..
+        /// </summary>
+        internal static string NO_SHORTEST_PATH {
+            get {
+                return ResourceManager.GetString("NO_SHORTEST_PATH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Only List&lt;&gt;&apos;s are supported..
         /// </summary>
         internal static string NOT_A_LIST {
             get {
                 return ResourceManager.GetString("NOT_A_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The expression should be a property read operation..
+        /// </summary>
+        internal static string NOT_A_PROPERTY {
+            get {
+                return ResourceManager.GetString("NOT_A_PROPERTY", resourceCulture);
             }
         }
         

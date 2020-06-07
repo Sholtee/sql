@@ -132,6 +132,15 @@
   <data name="NOT_A_LIST" xml:space="preserve">
     <value>Only List&lt;&gt;'s are supported.</value>
   </data>
+  <data name="NOT_A_PROPERTY" xml:space="preserve">
+    <value>The expression should be a property read operation.</value>
+  </data>
+  <data name="NO_PRIMARY_KEY" xml:space="preserve">
+    <value>Primary key can not be found on the ORM type.</value>
+  </data>
+  <data name="NO_SHORTEST_PATH" xml:space="preserve">
+    <value>Shortest path could not be determined.</value>
+  </data>
   <data name="PROPERTY_NAME_COLLISSION" xml:space="preserve">
     <value>Cannot create temporary type from views having same named properties.</value>
   </data>

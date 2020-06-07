@@ -67,6 +67,28 @@ namespace Solti.Utils.SQL.Interfaces
         }
 
         /// <summary>
+        /// See <see cref="IConfig.IsPrimaryKey(PropertyInfo)"/>.
+        /// </summary>
+        public virtual bool IsPrimaryKey(PropertyInfo prop)
+        {
+            if (prop == null)
+                throw new ArgumentNullException(nameof(prop));
+
+            return prop.GetCustomAttribute<PrimaryKeyAttribute>() != null;
+        }
+
+        /// <summary>
+        /// See <see cref="IConfig.GetReferencedType(PropertyInfo)"/>.
+        /// </summary>
+        public virtual Type? GetReferencedType(PropertyInfo prop)
+        {
+            if (prop == null)
+                throw new ArgumentNullException(nameof(prop));
+
+            return prop.GetCustomAttribute<ReferencesAttribute>()?.Type;
+        }
+
+        /// <summary>
         /// See <see cref="IConfig.IsDatabaseEntity(Type)"/>.
         /// </summary>
         public virtual bool IsDatabaseEntity(Type type) 

@@ -137,12 +137,32 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Edge.DestinationTable
   nameWithType: Edge.DestinationTable
-- uid: Solti.Utils.SQL.Edge.EqualityComparer
-  name: EqualityComparer
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_EqualityComparer
-  commentId: F:Solti.Utils.SQL.Edge.EqualityComparer
-  fullName: Solti.Utils.SQL.Edge.EqualityComparer
-  nameWithType: Edge.EqualityComparer
+- uid: Solti.Utils.SQL.Edge.Equals(System.Object)
+  name: Equals(Object)
+  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_Equals_System_Object_
+  commentId: M:Solti.Utils.SQL.Edge.Equals(System.Object)
+  fullName: Solti.Utils.SQL.Edge.Equals(System.Object)
+  nameWithType: Edge.Equals(Object)
+- uid: Solti.Utils.SQL.Edge.Equals*
+  name: Equals
+  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_Equals_
+  commentId: Overload:Solti.Utils.SQL.Edge.Equals
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Edge.Equals
+  nameWithType: Edge.Equals
+- uid: Solti.Utils.SQL.Edge.GetHashCode
+  name: GetHashCode()
+  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_GetHashCode
+  commentId: M:Solti.Utils.SQL.Edge.GetHashCode
+  fullName: Solti.Utils.SQL.Edge.GetHashCode()
+  nameWithType: Edge.GetHashCode()
+- uid: Solti.Utils.SQL.Edge.GetHashCode*
+  name: GetHashCode
+  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_GetHashCode_
+  commentId: Overload:Solti.Utils.SQL.Edge.GetHashCode
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Edge.GetHashCode
+  nameWithType: Edge.GetHashCode
 - uid: Solti.Utils.SQL.Edge.SourceProperty
   name: SourceProperty
   href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_SourceProperty
@@ -1053,14 +1073,14 @@ references:
   fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBasePoco)
   nameWithType: SmartSqlBuilder<TView, TBasePoco>
   nameWithType.vb: SmartSqlBuilder(Of TView, TBasePoco)
-- uid: Solti.Utils.SQL.SmartSqlBuilder`2.Build
-  name: Build
-  href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Build
-  commentId: P:Solti.Utils.SQL.SmartSqlBuilder`2.Build
-  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBasePoco>.Build
-  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBasePoco).Build
-  nameWithType: SmartSqlBuilder<TView, TBasePoco>.Build
-  nameWithType.vb: SmartSqlBuilder(Of TView, TBasePoco).Build
+- uid: Solti.Utils.SQL.SmartSqlBuilder`2.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  name: Build(ISqlQuery)
+  href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Build_Solti_Utils_SQL_Interfaces_ISqlQuery_
+  commentId: M:Solti.Utils.SQL.SmartSqlBuilder`2.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBasePoco>.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBasePoco).Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  nameWithType: SmartSqlBuilder<TView, TBasePoco>.Build(ISqlQuery)
+  nameWithType.vb: SmartSqlBuilder(Of TView, TBasePoco).Build(ISqlQuery)
 - uid: Solti.Utils.SQL.SmartSqlBuilder`2.Build*
   name: Build
   href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Build_

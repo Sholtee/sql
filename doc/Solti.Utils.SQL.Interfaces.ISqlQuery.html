@@ -86,7 +86,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ISqlQuery GroupBy(PropertyInfo tableColumn)</code></pre>
+    <pre><code class="lang-csharp hljs">void GroupBy(PropertyInfo tableColumn)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -105,29 +105,14 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <a id="Solti_Utils_SQL_Interfaces_ISqlQuery_InnerJoin_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin*"></a>
   <h4 id="Solti_Utils_SQL_Interfaces_ISqlQuery_InnerJoin_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)">InnerJoin(PropertyInfo, PropertyInfo)</h4>
-  <div class="markdown level1 summary"><p>Creates a &quot;inner join&quot; clause for this query.</p>
+  <div class="markdown level1 summary"><p>Creates an &quot;inner join&quot; clause for this query.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ISqlQuery InnerJoin(PropertyInfo left, PropertyInfo right)</code></pre>
+    <pre><code class="lang-csharp hljs">void InnerJoin(PropertyInfo left, PropertyInfo right)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -147,21 +132,6 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -173,7 +143,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ISqlQuery LeftJoin(PropertyInfo left, PropertyInfo right)</code></pre>
+    <pre><code class="lang-csharp hljs">void LeftJoin(PropertyInfo left, PropertyInfo right)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -197,21 +167,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <a id="Solti_Utils_SQL_Interfaces_ISqlQuery_OrderBy_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy*"></a>
   <h4 id="Solti_Utils_SQL_Interfaces_ISqlQuery_OrderBy_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy(System.Reflection.PropertyInfo)">OrderBy(PropertyInfo)</h4>
   <div class="markdown level1 summary"><p>Extends/creates the &quot;order by&quot; clause of this query.</p>
@@ -219,7 +174,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ISqlQuery OrderBy(PropertyInfo tableColumn)</code></pre>
+    <pre><code class="lang-csharp hljs">void OrderBy(PropertyInfo tableColumn)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -234,21 +189,6 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
         <td><span class="parametername">tableColumn</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -260,7 +200,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ISqlQuery OrderByDescending(PropertyInfo tableColumn)</code></pre>
+    <pre><code class="lang-csharp hljs">void OrderByDescending(PropertyInfo tableColumn)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -275,21 +215,6 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
         <td><span class="parametername">tableColumn</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -342,7 +267,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ISqlQuery Select(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+    <pre><code class="lang-csharp hljs">void Select(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -362,21 +287,6 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
         <td><span class="parametername">viewColumn</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -388,7 +298,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ISqlQuery SelectCount(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+    <pre><code class="lang-csharp hljs">void SelectCount(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -408,21 +318,6 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
         <td><span class="parametername">viewColumn</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -434,7 +329,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ISqlQuery SelectMax(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+    <pre><code class="lang-csharp hljs">void SelectMax(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -454,21 +349,6 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
         <td><span class="parametername">viewColumn</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -480,7 +360,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ISqlQuery SelectMin(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+    <pre><code class="lang-csharp hljs">void SelectMin(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -500,21 +380,6 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
         <td><span class="parametername">viewColumn</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a></td>
         <td></td>
       </tr>
     </tbody>

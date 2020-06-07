@@ -144,4 +144,7 @@
   <data name="PROPERTY_NAME_COLLISSION" xml:space="preserve">
     <value>Cannot create temporary type from views having same named properties.</value>
   </data>
+  <data name="UNINITIALIZED" xml:space="preserve">
+    <value>The SmartSqlBuilder is uninitialized. You should call the Initialize() method.</value>
+  </data>
 </root>

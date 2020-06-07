@@ -140,5 +140,14 @@ namespace Solti.Utils.SQL.Properties {
                 return ResourceManager.GetString("PROPERTY_NAME_COLLISSION", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The SmartSqlBuilder is uninitialized. You should call the Initialize() method..
+        /// </summary>
+        internal static string UNINITIALIZED {
+            get {
+                return ResourceManager.GetString("UNINITIALIZED", resourceCulture);
+            }
+        }
     }
 }

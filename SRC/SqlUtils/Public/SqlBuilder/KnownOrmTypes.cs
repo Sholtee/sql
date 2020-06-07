@@ -4,6 +4,7 @@
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,7 +13,6 @@ using System.Reflection;
 namespace Solti.Utils.SQL.Interfaces
 {
     using Primitives;
-    using System.Collections;
 
     /// <summary>
     /// The default implementation of the <see cref="IKnownOrmTypes"/> interface.

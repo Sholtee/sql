@@ -18,13 +18,13 @@ namespace Solti.Utils.SQL.Internals
         #region Instance members
         private Type ViewType { get; }
         private Type UnwrappedType { get; }
-        private MapperContext Mappers{ get; }
+        private MappingContext Mappers{ get; }
 
         private Wrapper(Type viewType, Type unwrappedType)
         {
             ViewType      = viewType;
             UnwrappedType = unwrappedType;
-            Mappers       = MapperContext.Create(unwrappedType, viewType);
+            Mappers       = MappingContext.Create(unwrappedType, viewType);
         }
 
         private void AssignWrappedProperties(object target, IEnumerable group)

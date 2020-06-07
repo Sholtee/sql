@@ -1,5 +1,5 @@
 /********************************************************************************
-*  MapperContext.cs                                                             *
+*  MappingContext.cs                                                            *
 *                                                                               *
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
@@ -10,13 +10,13 @@ namespace Solti.Utils.SQL.Internals
 {
     using Primitives;
 
-    internal sealed class MapperContext
+    internal sealed class MappingContext
     {
-        public Func<object, object> MapToKey { get; private set; }
-        public Func<object, object> MapToView { get; private set; }
+        public Func<object, object> MapToKey { get; }
+        public Func<object, object> MapToView { get; }
 
         #region Private stuffs
-        private MapperContext(Func<object, object> mapToKey, Func<object, object> mapToView)
+        private MappingContext(Func<object, object> mapToKey, Func<object, object> mapToView)
         {
             MapToKey = mapToKey;
             MapToView = mapToView;
@@ -33,13 +33,12 @@ namespace Solti.Utils.SQL.Internals
 
             return tb.CreateTypeInfo()!.AsType();
         });
-
         #endregion
 
         #region Static stuffs
         public static IMapper Mapper = new Mapper(); // tesztekben felulirhato
 
-        public static MapperContext Create(Type unwrappedType, Type viewType) => Cache.GetOrAdd((unwrappedType, viewType), () =>
+        public static MappingContext Create(Type unwrappedType, Type viewType) => Cache.GetOrAdd((unwrappedType, viewType), () =>
         {
             //
             // Az eredeti nezet nem lista property-eibol letrehozunk egy kulcs tipust.
@@ -68,7 +67,7 @@ namespace Solti.Utils.SQL.Internals
             // .Select(x => x.Key.MapTo<View>())
             //
 
-            return new MapperContext
+            return new MappingContext
             (
                 mapToKey:  src => Mapper.MapTo(unwrappedType, keyType, src)!,
                 mapToView: src => Mapper.MapTo(keyType, viewType, src)!

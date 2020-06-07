@@ -70,6 +70,6 @@ namespace Solti.Utils.SQL.Interfaces
         /// <summary>
         /// Runs a select query to get a list from the given <paramref name="view"/>.
         /// </summary>
-        IList Query(Type view);
+        IList Run(Type view);
     }
 }

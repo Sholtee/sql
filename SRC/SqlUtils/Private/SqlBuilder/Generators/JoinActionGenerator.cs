@@ -10,7 +10,7 @@ using System.Linq.Expressions;
 
 namespace Solti.Utils.SQL.Internals
 {
-    internal sealed class JoinActionGenerator<TView, TBasePoco> : ActionGenerator<TView>
+    internal sealed class JoinActionGenerator<TView, TBaseTable> : ActionGenerator<TView>
     {
         public Edge[] CustomEdges { get; }
 
@@ -20,12 +20,16 @@ namespace Solti.Utils.SQL.Internals
         {
             ISet<Type> joinedTables = new HashSet<Type>(new[]
             {
-                typeof(TBasePoco)
+                typeof(TBaseTable)
             });
 
             foreach (var table in Selections
                 .GroupBy(sel => sel.Reason.OrmType)
-                .Select(grp => new {Type = grp.Key, Required = grp.Any(sel => sel.Reason.Required)}))
+                .Select(grp => new 
+                {
+                    Type = grp.Key, 
+                    Required = grp.Any(sel => sel.Reason.Required)
+                }))
             {
                 //
                 // A legrovidebb ut megkeresese a kiindulo tablabol az adott (property-k feltoltesehez szukseges)
@@ -34,8 +38,11 @@ namespace Solti.Utils.SQL.Internals
                 //
 
                 foreach (Edge edge in EdgeOperations
-                    .ShortestPath(typeof(TBasePoco), table.Type, CustomEdges)
-                    .Where(edge => joinedTables.Add(edge.SourceTable) || joinedTables.Add(edge.DestinationTable)))
+                    .ShortestPath(typeof(TBaseTable), table.Type, CustomEdges)
+                    .Where
+                    (
+                        edge => joinedTables.Add(edge.SourceTable) || joinedTables.Add(edge.DestinationTable)
+                    ))
                 {
                     //
                     // Akcio letrehozasa ami a letrehozott metodust hivja tetszoleges builder-en

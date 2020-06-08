@@ -27,7 +27,7 @@ namespace Solti.Utils.SQL.Interfaces
         IEnumerator<Type> IEnumerable<Type>.GetEnumerator() => (IEnumerator<Type>) GetEnumerator();
 
         /// <summary>
-        /// Enumerates the known ORM types.
+        /// Enumerates the known data tables.
         /// </summary>
         public IEnumerator GetEnumerator() => Cache.GetOrAdd(nameof(KnownTables), () =>
         (

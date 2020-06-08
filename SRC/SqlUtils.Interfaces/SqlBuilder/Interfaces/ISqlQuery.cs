@@ -37,6 +37,11 @@ namespace Solti.Utils.SQL.Interfaces
         void SelectMin(PropertyInfo tableColumn, PropertyInfo viewColumn);
 
         /// <summary>
+        /// Extends/creates the select clause with an "AVG()" selection.
+        /// </summary>
+        void SelectAvg(PropertyInfo tableColumn, PropertyInfo viewColumn);
+
+        /// <summary>
         /// Creates an "inner join" clause for this query.
         /// </summary>
         void InnerJoin(PropertyInfo left, PropertyInfo right);

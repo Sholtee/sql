@@ -468,40 +468,6 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Required
   nameWithType: ColumnSelectionAttribute.Required
-- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Solti#Utils#SQL#Interfaces#IBuildable#Builder
-  name: IBuildable.Builder
-  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Solti_Utils_SQL_Interfaces_IBuildable_Builder
-  commentId: P:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Solti#Utils#SQL#Interfaces#IBuildable#Builder
-  name.vb: Solti.Utils.SQL.Interfaces.IBuildable.Builder
-  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Solti.Utils.SQL.Interfaces.IBuildable.Builder
-  nameWithType: ColumnSelectionAttribute.IBuildable.Builder
-  nameWithType.vb: ColumnSelectionAttribute.Solti.Utils.SQL.Interfaces.IBuildable.Builder
-- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Solti#Utils#SQL#Interfaces#IBuildable#Builder*
-  name: IBuildable.Builder
-  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Solti_Utils_SQL_Interfaces_IBuildable_Builder_
-  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Solti#Utils#SQL#Interfaces#IBuildable#Builder
-  isSpec: "True"
-  name.vb: Solti.Utils.SQL.Interfaces.IBuildable.Builder
-  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Solti.Utils.SQL.Interfaces.IBuildable.Builder
-  nameWithType: ColumnSelectionAttribute.IBuildable.Builder
-  nameWithType.vb: ColumnSelectionAttribute.Solti.Utils.SQL.Interfaces.IBuildable.Builder
-- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Solti#Utils#SQL#Interfaces#IFragment#GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
-  name: IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
-  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Solti_Utils_SQL_Interfaces_IFragment_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_
-  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Solti#Utils#SQL#Interfaces#IFragment#GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
-  name.vb: Solti.Utils.SQL.Interfaces.IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
-  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Solti.Utils.SQL.Interfaces.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression, System.Reflection.PropertyInfo, System.Boolean)
-  nameWithType: ColumnSelectionAttribute.IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
-  nameWithType.vb: ColumnSelectionAttribute.Solti.Utils.SQL.Interfaces.IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
-- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Solti#Utils#SQL#Interfaces#IFragment#GetFragments*
-  name: IFragment.GetFragments
-  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Solti_Utils_SQL_Interfaces_IFragment_GetFragments_
-  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Solti#Utils#SQL#Interfaces#IFragment#GetFragments
-  isSpec: "True"
-  name.vb: Solti.Utils.SQL.Interfaces.IFragment.GetFragments
-  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Solti.Utils.SQL.Interfaces.IFragment.GetFragments
-  nameWithType: ColumnSelectionAttribute.IFragment.GetFragments
-  nameWithType.vb: ColumnSelectionAttribute.Solti.Utils.SQL.Interfaces.IFragment.GetFragments
 - uid: Solti.Utils.SQL.Interfaces.CountOfAttribute
   name: CountOfAttribute
   href: Solti.Utils.SQL.Interfaces.CountOfAttribute.html
@@ -667,25 +633,25 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.EmptyListMarkerAttribute
   fullName: Solti.Utils.SQL.Interfaces.EmptyListMarkerAttribute
   nameWithType: EmptyListMarkerAttribute
-- uid: Solti.Utils.SQL.Interfaces.IBuildable
-  name: IBuildable
-  href: Solti.Utils.SQL.Interfaces.IBuildable.html
-  commentId: T:Solti.Utils.SQL.Interfaces.IBuildable
-  fullName: Solti.Utils.SQL.Interfaces.IBuildable
-  nameWithType: IBuildable
-- uid: Solti.Utils.SQL.Interfaces.IBuildable.Builder
-  name: Builder
-  href: Solti.Utils.SQL.Interfaces.IBuildable.html#Solti_Utils_SQL_Interfaces_IBuildable_Builder
-  commentId: P:Solti.Utils.SQL.Interfaces.IBuildable.Builder
-  fullName: Solti.Utils.SQL.Interfaces.IBuildable.Builder
-  nameWithType: IBuildable.Builder
-- uid: Solti.Utils.SQL.Interfaces.IBuildable.Builder*
-  name: Builder
-  href: Solti.Utils.SQL.Interfaces.IBuildable.html#Solti_Utils_SQL_Interfaces_IBuildable_Builder_
-  commentId: Overload:Solti.Utils.SQL.Interfaces.IBuildable.Builder
+- uid: Solti.Utils.SQL.Interfaces.IBuildableAttribute
+  name: IBuildableAttribute
+  href: Solti.Utils.SQL.Interfaces.IBuildableAttribute.html
+  commentId: T:Solti.Utils.SQL.Interfaces.IBuildableAttribute
+  fullName: Solti.Utils.SQL.Interfaces.IBuildableAttribute
+  nameWithType: IBuildableAttribute
+- uid: Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder
+  name: GetBuilder()
+  href: Solti.Utils.SQL.Interfaces.IBuildableAttribute.html#Solti_Utils_SQL_Interfaces_IBuildableAttribute_GetBuilder
+  commentId: M:Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder
+  fullName: Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder()
+  nameWithType: IBuildableAttribute.GetBuilder()
+- uid: Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder*
+  name: GetBuilder
+  href: Solti.Utils.SQL.Interfaces.IBuildableAttribute.html#Solti_Utils_SQL_Interfaces_IBuildableAttribute_GetBuilder_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder
   isSpec: "True"
-  fullName: Solti.Utils.SQL.Interfaces.IBuildable.Builder
-  nameWithType: IBuildable.Builder
+  fullName: Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder
+  nameWithType: IBuildableAttribute.GetBuilder
 - uid: Solti.Utils.SQL.Interfaces.IConfig
   name: IConfig
   href: Solti.Utils.SQL.Interfaces.IConfig.html

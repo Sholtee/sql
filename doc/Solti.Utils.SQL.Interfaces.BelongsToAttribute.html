@@ -55,7 +55,7 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Solti.Utils.SQL.Interfaces.IFragment.html">IFragment</a></div>
-    <div><a class="xref" href="Solti.Utils.SQL.Interfaces.IBuildable.html">IBuildable</a></div>
+    <div><a class="xref" href="Solti.Utils.SQL.Interfaces.IBuildableAttribute.html">IBuildableAttribute</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -73,12 +73,6 @@
     </div>
     <div>
       <a class="xref" href="Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_GetQueryMethod_System_Linq_Expressions_Expression_System_Action_Solti_Utils_SQL_Interfaces_ISqlQuery___">ColumnSelectionAttribute.GetQueryMethod(Expression&lt;Action&lt;ISqlQuery&gt;&gt;)</a>
-    </div>
-    <div>
-      <a class="xref" href="Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Solti_Utils_SQL_Interfaces_IFragment_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_">ColumnSelectionAttribute.IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)</a>
-    </div>
-    <div>
-      <a class="xref" href="Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Solti_Utils_SQL_Interfaces_IBuildable_Builder">ColumnSelectionAttribute.IBuildable.Builder</a>
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.attribute.equals#System_Attribute_Equals_System_Object_">Attribute.Equals(Object)</a>
@@ -211,7 +205,7 @@
   <h6><strong>Assembly</strong>: Solti.Utils.SQL.Interfaces.dll</h6>
   <h5 id="Solti_Utils_SQL_Interfaces_BelongsToAttribute_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class BelongsToAttribute : ColumnSelectionAttribute, IFragment, IBuildable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class BelongsToAttribute : ColumnSelectionAttribute, IFragment, IBuildableAttribute</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -294,7 +288,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override CustomAttributeBuilder GetBuilder()</code></pre>
+    <pre><code class="lang-csharp hljs">public override CustomAttributeBuilder GetBuilder()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -315,12 +309,12 @@
   <div><a class="xref" href="Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_GetBuilder">ColumnSelectionAttribute.GetBuilder()</a></div>
   <a id="Solti_Utils_SQL_Interfaces_BelongsToAttribute_GetFragments_" data-uid="Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetFragments*"></a>
   <h4 id="Solti_Utils_SQL_Interfaces_BelongsToAttribute_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_" data-uid="Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)">GetFragments(ParameterExpression, PropertyInfo, Boolean)</h4>
-  <div class="markdown level1 summary"><p>See <a class="xref" href="Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_">GetFragments(ParameterExpression, PropertyInfo, Boolean)</a></p>
+  <div class="markdown level1 summary"><p>See <a class="xref" href="Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_">GetFragments(ParameterExpression, PropertyInfo, Boolean)</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override IEnumerable&lt;MethodCallExpression&gt; GetFragments(ParameterExpression bldr, PropertyInfo viewProperty, bool isGroupBy)</code></pre>
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;MethodCallExpression&gt; GetFragments(ParameterExpression bldr, PropertyInfo viewProperty, bool isGroupBy)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -371,7 +365,7 @@
       <a class="xref" href="Solti.Utils.SQL.Interfaces.IFragment.html">IFragment</a>
   </div>
   <div>
-      <a class="xref" href="Solti.Utils.SQL.Interfaces.IBuildable.html">IBuildable</a>
+      <a class="xref" href="Solti.Utils.SQL.Interfaces.IBuildableAttribute.html">IBuildableAttribute</a>
   </div>
 </article>
           </div>

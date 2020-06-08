@@ -1097,46 +1097,46 @@ references:
   nameWithType: ISqlQueryExtensions.Select<TView>(ISqlQuery)
   nameWithType.vb: ISqlQueryExtensions.Select(Of TView)(ISqlQuery)
 - uid: Solti.Utils.SQL.SmartSqlBuilder`2
-  name: SmartSqlBuilder<TView, TBasePoco>
+  name: SmartSqlBuilder<TView, TBaseTable>
   href: Solti.Utils.SQL.SmartSqlBuilder-2.html
   commentId: T:Solti.Utils.SQL.SmartSqlBuilder`2
-  name.vb: SmartSqlBuilder(Of TView, TBasePoco)
-  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBasePoco>
-  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBasePoco)
-  nameWithType: SmartSqlBuilder<TView, TBasePoco>
-  nameWithType.vb: SmartSqlBuilder(Of TView, TBasePoco)
+  name.vb: SmartSqlBuilder(Of TView, TBaseTable)
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBaseTable>
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBaseTable)
+  nameWithType: SmartSqlBuilder<TView, TBaseTable>
+  nameWithType.vb: SmartSqlBuilder(Of TView, TBaseTable)
 - uid: Solti.Utils.SQL.SmartSqlBuilder`2.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
   name: Build(ISqlQuery)
   href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Build_Solti_Utils_SQL_Interfaces_ISqlQuery_
   commentId: M:Solti.Utils.SQL.SmartSqlBuilder`2.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBasePoco>.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBasePoco).Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  nameWithType: SmartSqlBuilder<TView, TBasePoco>.Build(ISqlQuery)
-  nameWithType.vb: SmartSqlBuilder(Of TView, TBasePoco).Build(ISqlQuery)
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBaseTable>.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBaseTable).Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  nameWithType: SmartSqlBuilder<TView, TBaseTable>.Build(ISqlQuery)
+  nameWithType.vb: SmartSqlBuilder(Of TView, TBaseTable).Build(ISqlQuery)
 - uid: Solti.Utils.SQL.SmartSqlBuilder`2.Build*
   name: Build
   href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Build_
   commentId: Overload:Solti.Utils.SQL.SmartSqlBuilder`2.Build
   isSpec: "True"
-  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBasePoco>.Build
-  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBasePoco).Build
-  nameWithType: SmartSqlBuilder<TView, TBasePoco>.Build
-  nameWithType.vb: SmartSqlBuilder(Of TView, TBasePoco).Build
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBaseTable>.Build
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBaseTable).Build
+  nameWithType: SmartSqlBuilder<TView, TBaseTable>.Build
+  nameWithType.vb: SmartSqlBuilder(Of TView, TBaseTable).Build
 - uid: Solti.Utils.SQL.SmartSqlBuilder`2.Initialize(Solti.Utils.SQL.Edge[])
   name: Initialize(Edge[])
   href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Initialize_Solti_Utils_SQL_Edge___
   commentId: M:Solti.Utils.SQL.SmartSqlBuilder`2.Initialize(Solti.Utils.SQL.Edge[])
   name.vb: Initialize(Edge())
-  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBasePoco>.Initialize(Solti.Utils.SQL.Edge[])
-  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBasePoco).Initialize(Solti.Utils.SQL.Edge())
-  nameWithType: SmartSqlBuilder<TView, TBasePoco>.Initialize(Edge[])
-  nameWithType.vb: SmartSqlBuilder(Of TView, TBasePoco).Initialize(Edge())
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBaseTable>.Initialize(Solti.Utils.SQL.Edge[])
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBaseTable).Initialize(Solti.Utils.SQL.Edge())
+  nameWithType: SmartSqlBuilder<TView, TBaseTable>.Initialize(Edge[])
+  nameWithType.vb: SmartSqlBuilder(Of TView, TBaseTable).Initialize(Edge())
 - uid: Solti.Utils.SQL.SmartSqlBuilder`2.Initialize*
   name: Initialize
   href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Initialize_
   commentId: Overload:Solti.Utils.SQL.SmartSqlBuilder`2.Initialize
   isSpec: "True"
-  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBasePoco>.Initialize
-  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBasePoco).Initialize
-  nameWithType: SmartSqlBuilder<TView, TBasePoco>.Initialize
-  nameWithType.vb: SmartSqlBuilder(Of TView, TBasePoco).Initialize
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBaseTable>.Initialize
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBaseTable).Initialize
+  nameWithType: SmartSqlBuilder<TView, TBaseTable>.Initialize
+  nameWithType.vb: SmartSqlBuilder(Of TView, TBaseTable).Initialize

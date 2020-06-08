@@ -89,9 +89,9 @@ namespace Solti.Utils.SQL.Interfaces
         }
 
         /// <summary>
-        /// See <see cref="IConfig.IsDatabaseEntity(Type)"/>.
+        /// See <see cref="IConfig.IsDataTable(Type)"/>.
         /// </summary>
-        public virtual bool IsDatabaseEntity(Type type) 
+        public virtual bool IsDataTable(Type type) 
         {
             if (type == null)
                 throw new ArgumentNullException(nameof(type));

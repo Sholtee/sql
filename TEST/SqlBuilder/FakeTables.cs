@@ -1,5 +1,5 @@
 /********************************************************************************
-* TestOrmTypes.cs                                                               *
+* FakeTables.cs                                                                 *
 *                                                                               *
 * Author: Denes Solti                                                           *
 ********************************************************************************/
@@ -11,11 +11,11 @@ namespace Solti.Utils.SQL.Tests
 {
     using Interfaces;
     
-    public sealed class TestOrmTypes : IKnownOrmTypes
+    public sealed class FakeTables : IKnownDataTables
     {
         private readonly Type[] FTypes;
 
-        public TestOrmTypes(params Type[] types) => FTypes = types;
+        public FakeTables(params Type[] types) => FTypes = types;
 
         public IEnumerator<Type> GetEnumerator() => ((IEnumerable<Type>) FTypes).GetEnumerator();
 

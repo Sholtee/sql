@@ -33,8 +33,8 @@ namespace Solti.Utils.SQL.Internals
         //
 
         (
-            from   ormType in Config.KnownOrmTypes
-            let    edge = GetEdgesFrom(ormType).SingleOrDefault(e => e.DestinationTable == type)
+            from   table in Config.KnownTables
+            let    edge = GetEdgesFrom(table).SingleOrDefault(e => e.DestinationTable == type)
             where  edge != null
             select edge
         ).ToArray();

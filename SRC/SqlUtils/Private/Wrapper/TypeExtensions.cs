@@ -90,7 +90,7 @@ namespace Solti.Utils.SQL.Internals
 
         public static Type GetBaseOrmType(this Type entityType)
         {
-            while (entityType != null && !Config.Instance.IsDatabaseEntity(entityType))
+            while (entityType != null && !Config.Instance.IsDataTable(entityType))
             {
                 entityType = entityType.BaseType;
             }

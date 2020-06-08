@@ -37,7 +37,7 @@ namespace Solti.Utils.SQL.Interfaces
         /// <summary>
         /// Returns true if the type represents a database entity.
         /// </summary>
-        bool IsDatabaseEntity(Type type);
+        bool IsDataTable(Type type);
 
         /// <summary>
         /// Gets the data table referred by the foreign key.

@@ -21,9 +21,9 @@ namespace Solti.Utils.SQL
         public static IConfig Instance { get; private set; }
 
         /// <summary>
-        /// See <see cref="IKnownOrmTypes"/>.
+        /// See <see cref="IKnownDataTables"/>.
         /// </summary>
-        public static IKnownOrmTypes KnownOrmTypes { get; private set; }
+        public static IKnownDataTables KnownTables { get; private set; }
 
         /// <summary>
         /// Uses the given config.
@@ -31,7 +31,7 @@ namespace Solti.Utils.SQL
         public static void Use<T>() where T : new() 
         {
             if (typeof(IConfig).IsAssignableFrom(typeof(T))) Use((IConfig) new T());
-            if (typeof(IKnownOrmTypes).IsAssignableFrom(typeof(T))) Use((IKnownOrmTypes) new T());
+            if (typeof(IKnownDataTables).IsAssignableFrom(typeof(T))) Use((IKnownDataTables) new T());
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Solti.Utils.SQL
 #pragma warning restore CS8618 // Non-nullable field is uninitialized. Consider declaring as nullable.
         {
             Use<DefaultConfig>();
-            Use<KnownOrmTypes>();
+            Use<KnownTables>();
         }
 
         internal static IDisposable UseTemporarily(IConfig instance) 
@@ -66,6 +66,6 @@ namespace Solti.Utils.SQL
         /// <summary>
         /// Uses the given ORM types.
         /// </summary>
-        public static void Use(IKnownOrmTypes instance) => KnownOrmTypes = instance ?? throw new ArgumentNullException(nameof(instance));
+        public static void Use(IKnownDataTables instance) => KnownTables = instance ?? throw new ArgumentNullException(nameof(instance));
     }
 }

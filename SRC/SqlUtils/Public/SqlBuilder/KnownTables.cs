@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*  KnownOrmTypes.cs                                                             *
+*  KnownTables.cs                                                               *
 *                                                                               *
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
@@ -15,9 +15,9 @@ namespace Solti.Utils.SQL.Interfaces
     using Primitives;
 
     /// <summary>
-    /// The default implementation of the <see cref="IKnownOrmTypes"/> interface.
+    /// The default implementation of the <see cref="IKnownDataTables"/> interface.
     /// </summary>
-    public sealed class KnownOrmTypes : IKnownOrmTypes
+    public sealed class KnownTables : IKnownDataTables
     {
         /// <summary>
         /// The <see cref="Assembly"/> search pattern.
@@ -29,11 +29,11 @@ namespace Solti.Utils.SQL.Interfaces
         /// <summary>
         /// Enumerates the known ORM types.
         /// </summary>
-        public IEnumerator GetEnumerator() => Cache.GetOrAdd(nameof(KnownOrmTypes), () =>
+        public IEnumerator GetEnumerator() => Cache.GetOrAdd(nameof(KnownTables), () =>
         (
             from asm in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, AssemblySearchPattern).Select(Assembly.LoadFile)
             from type in asm.GetTypes()
-            where Config.Instance.IsDatabaseEntity(type)
+            where Config.Instance.IsDataTable(type)
             select type
         ).ToArray()).GetEnumerator();
     }

@@ -48,31 +48,31 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Config.Instance
   nameWithType: Config.Instance
-- uid: Solti.Utils.SQL.Config.KnownOrmTypes
-  name: KnownOrmTypes
-  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_KnownOrmTypes
-  commentId: P:Solti.Utils.SQL.Config.KnownOrmTypes
-  fullName: Solti.Utils.SQL.Config.KnownOrmTypes
-  nameWithType: Config.KnownOrmTypes
-- uid: Solti.Utils.SQL.Config.KnownOrmTypes*
-  name: KnownOrmTypes
-  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_KnownOrmTypes_
-  commentId: Overload:Solti.Utils.SQL.Config.KnownOrmTypes
+- uid: Solti.Utils.SQL.Config.KnownTables
+  name: KnownTables
+  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_KnownTables
+  commentId: P:Solti.Utils.SQL.Config.KnownTables
+  fullName: Solti.Utils.SQL.Config.KnownTables
+  nameWithType: Config.KnownTables
+- uid: Solti.Utils.SQL.Config.KnownTables*
+  name: KnownTables
+  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_KnownTables_
+  commentId: Overload:Solti.Utils.SQL.Config.KnownTables
   isSpec: "True"
-  fullName: Solti.Utils.SQL.Config.KnownOrmTypes
-  nameWithType: Config.KnownOrmTypes
+  fullName: Solti.Utils.SQL.Config.KnownTables
+  nameWithType: Config.KnownTables
 - uid: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IConfig)
   name: Use(IConfig)
   href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use_Solti_Utils_SQL_Interfaces_IConfig_
   commentId: M:Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IConfig)
   fullName: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IConfig)
   nameWithType: Config.Use(IConfig)
-- uid: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IKnownOrmTypes)
-  name: Use(IKnownOrmTypes)
-  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use_Solti_Utils_SQL_Interfaces_IKnownOrmTypes_
-  commentId: M:Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IKnownOrmTypes)
-  fullName: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IKnownOrmTypes)
-  nameWithType: Config.Use(IKnownOrmTypes)
+- uid: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IKnownDataTables)
+  name: Use(IKnownDataTables)
+  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use_Solti_Utils_SQL_Interfaces_IKnownDataTables_
+  commentId: M:Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IKnownDataTables)
+  fullName: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IKnownDataTables)
+  nameWithType: Config.Use(IKnownDataTables)
 - uid: Solti.Utils.SQL.Config.Use*
   name: Use
   href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use_
@@ -596,19 +596,19 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.DefaultConfig.GetReferencedType
   nameWithType: DefaultConfig.GetReferencedType
-- uid: Solti.Utils.SQL.Interfaces.DefaultConfig.IsDatabaseEntity(System.Type)
-  name: IsDatabaseEntity(Type)
-  href: Solti.Utils.SQL.Interfaces.DefaultConfig.html#Solti_Utils_SQL_Interfaces_DefaultConfig_IsDatabaseEntity_System_Type_
-  commentId: M:Solti.Utils.SQL.Interfaces.DefaultConfig.IsDatabaseEntity(System.Type)
-  fullName: Solti.Utils.SQL.Interfaces.DefaultConfig.IsDatabaseEntity(System.Type)
-  nameWithType: DefaultConfig.IsDatabaseEntity(Type)
-- uid: Solti.Utils.SQL.Interfaces.DefaultConfig.IsDatabaseEntity*
-  name: IsDatabaseEntity
-  href: Solti.Utils.SQL.Interfaces.DefaultConfig.html#Solti_Utils_SQL_Interfaces_DefaultConfig_IsDatabaseEntity_
-  commentId: Overload:Solti.Utils.SQL.Interfaces.DefaultConfig.IsDatabaseEntity
+- uid: Solti.Utils.SQL.Interfaces.DefaultConfig.IsDataTable(System.Type)
+  name: IsDataTable(Type)
+  href: Solti.Utils.SQL.Interfaces.DefaultConfig.html#Solti_Utils_SQL_Interfaces_DefaultConfig_IsDataTable_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.DefaultConfig.IsDataTable(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.DefaultConfig.IsDataTable(System.Type)
+  nameWithType: DefaultConfig.IsDataTable(Type)
+- uid: Solti.Utils.SQL.Interfaces.DefaultConfig.IsDataTable*
+  name: IsDataTable
+  href: Solti.Utils.SQL.Interfaces.DefaultConfig.html#Solti_Utils_SQL_Interfaces_DefaultConfig_IsDataTable_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.DefaultConfig.IsDataTable
   isSpec: "True"
-  fullName: Solti.Utils.SQL.Interfaces.DefaultConfig.IsDatabaseEntity
-  nameWithType: DefaultConfig.IsDatabaseEntity
+  fullName: Solti.Utils.SQL.Interfaces.DefaultConfig.IsDataTable
+  nameWithType: DefaultConfig.IsDataTable
 - uid: Solti.Utils.SQL.Interfaces.DefaultConfig.IsIgnored(System.Reflection.PropertyInfo)
   name: IsIgnored(PropertyInfo)
   href: Solti.Utils.SQL.Interfaces.DefaultConfig.html#Solti_Utils_SQL_Interfaces_DefaultConfig_IsIgnored_System_Reflection_PropertyInfo_
@@ -705,19 +705,19 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.IConfig.GetReferencedType
   nameWithType: IConfig.GetReferencedType
-- uid: Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity(System.Type)
-  name: IsDatabaseEntity(Type)
-  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsDatabaseEntity_System_Type_
-  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity(System.Type)
-  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity(System.Type)
-  nameWithType: IConfig.IsDatabaseEntity(Type)
-- uid: Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity*
-  name: IsDatabaseEntity
-  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsDatabaseEntity_
-  commentId: Overload:Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsDataTable(System.Type)
+  name: IsDataTable(Type)
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsDataTable_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.IsDataTable(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsDataTable(System.Type)
+  nameWithType: IConfig.IsDataTable(Type)
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsDataTable*
+  name: IsDataTable
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsDataTable_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IConfig.IsDataTable
   isSpec: "True"
-  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsDatabaseEntity
-  nameWithType: IConfig.IsDatabaseEntity
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsDataTable
+  nameWithType: IConfig.IsDataTable
 - uid: Solti.Utils.SQL.Interfaces.IConfig.IsIgnored(System.Reflection.PropertyInfo)
   name: IsIgnored(PropertyInfo)
   href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsIgnored_System_Reflection_PropertyInfo_
@@ -789,12 +789,12 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.IFragment.GetFragments
   nameWithType: IFragment.GetFragments
-- uid: Solti.Utils.SQL.Interfaces.IKnownOrmTypes
-  name: IKnownOrmTypes
-  href: Solti.Utils.SQL.Interfaces.IKnownOrmTypes.html
-  commentId: T:Solti.Utils.SQL.Interfaces.IKnownOrmTypes
-  fullName: Solti.Utils.SQL.Interfaces.IKnownOrmTypes
-  nameWithType: IKnownOrmTypes
+- uid: Solti.Utils.SQL.Interfaces.IKnownDataTables
+  name: IKnownDataTables
+  href: Solti.Utils.SQL.Interfaces.IKnownDataTables.html
+  commentId: T:Solti.Utils.SQL.Interfaces.IKnownDataTables
+  fullName: Solti.Utils.SQL.Interfaces.IKnownDataTables
+  nameWithType: IKnownDataTables
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery
   name: ISqlQuery
   href: Solti.Utils.SQL.Interfaces.ISqlQuery.html
@@ -957,55 +957,55 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin
   nameWithType: ISqlQuery.SelectMin
-- uid: Solti.Utils.SQL.Interfaces.KnownOrmTypes
-  name: KnownOrmTypes
-  href: Solti.Utils.SQL.Interfaces.KnownOrmTypes.html
-  commentId: T:Solti.Utils.SQL.Interfaces.KnownOrmTypes
-  fullName: Solti.Utils.SQL.Interfaces.KnownOrmTypes
-  nameWithType: KnownOrmTypes
-- uid: Solti.Utils.SQL.Interfaces.KnownOrmTypes.AssemblySearchPattern
+- uid: Solti.Utils.SQL.Interfaces.KnownTables
+  name: KnownTables
+  href: Solti.Utils.SQL.Interfaces.KnownTables.html
+  commentId: T:Solti.Utils.SQL.Interfaces.KnownTables
+  fullName: Solti.Utils.SQL.Interfaces.KnownTables
+  nameWithType: KnownTables
+- uid: Solti.Utils.SQL.Interfaces.KnownTables.AssemblySearchPattern
   name: AssemblySearchPattern
-  href: Solti.Utils.SQL.Interfaces.KnownOrmTypes.html#Solti_Utils_SQL_Interfaces_KnownOrmTypes_AssemblySearchPattern
-  commentId: P:Solti.Utils.SQL.Interfaces.KnownOrmTypes.AssemblySearchPattern
-  fullName: Solti.Utils.SQL.Interfaces.KnownOrmTypes.AssemblySearchPattern
-  nameWithType: KnownOrmTypes.AssemblySearchPattern
-- uid: Solti.Utils.SQL.Interfaces.KnownOrmTypes.AssemblySearchPattern*
+  href: Solti.Utils.SQL.Interfaces.KnownTables.html#Solti_Utils_SQL_Interfaces_KnownTables_AssemblySearchPattern
+  commentId: P:Solti.Utils.SQL.Interfaces.KnownTables.AssemblySearchPattern
+  fullName: Solti.Utils.SQL.Interfaces.KnownTables.AssemblySearchPattern
+  nameWithType: KnownTables.AssemblySearchPattern
+- uid: Solti.Utils.SQL.Interfaces.KnownTables.AssemblySearchPattern*
   name: AssemblySearchPattern
-  href: Solti.Utils.SQL.Interfaces.KnownOrmTypes.html#Solti_Utils_SQL_Interfaces_KnownOrmTypes_AssemblySearchPattern_
-  commentId: Overload:Solti.Utils.SQL.Interfaces.KnownOrmTypes.AssemblySearchPattern
+  href: Solti.Utils.SQL.Interfaces.KnownTables.html#Solti_Utils_SQL_Interfaces_KnownTables_AssemblySearchPattern_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.KnownTables.AssemblySearchPattern
   isSpec: "True"
-  fullName: Solti.Utils.SQL.Interfaces.KnownOrmTypes.AssemblySearchPattern
-  nameWithType: KnownOrmTypes.AssemblySearchPattern
-- uid: Solti.Utils.SQL.Interfaces.KnownOrmTypes.GetEnumerator
+  fullName: Solti.Utils.SQL.Interfaces.KnownTables.AssemblySearchPattern
+  nameWithType: KnownTables.AssemblySearchPattern
+- uid: Solti.Utils.SQL.Interfaces.KnownTables.GetEnumerator
   name: GetEnumerator()
-  href: Solti.Utils.SQL.Interfaces.KnownOrmTypes.html#Solti_Utils_SQL_Interfaces_KnownOrmTypes_GetEnumerator
-  commentId: M:Solti.Utils.SQL.Interfaces.KnownOrmTypes.GetEnumerator
-  fullName: Solti.Utils.SQL.Interfaces.KnownOrmTypes.GetEnumerator()
-  nameWithType: KnownOrmTypes.GetEnumerator()
-- uid: Solti.Utils.SQL.Interfaces.KnownOrmTypes.GetEnumerator*
+  href: Solti.Utils.SQL.Interfaces.KnownTables.html#Solti_Utils_SQL_Interfaces_KnownTables_GetEnumerator
+  commentId: M:Solti.Utils.SQL.Interfaces.KnownTables.GetEnumerator
+  fullName: Solti.Utils.SQL.Interfaces.KnownTables.GetEnumerator()
+  nameWithType: KnownTables.GetEnumerator()
+- uid: Solti.Utils.SQL.Interfaces.KnownTables.GetEnumerator*
   name: GetEnumerator
-  href: Solti.Utils.SQL.Interfaces.KnownOrmTypes.html#Solti_Utils_SQL_Interfaces_KnownOrmTypes_GetEnumerator_
-  commentId: Overload:Solti.Utils.SQL.Interfaces.KnownOrmTypes.GetEnumerator
+  href: Solti.Utils.SQL.Interfaces.KnownTables.html#Solti_Utils_SQL_Interfaces_KnownTables_GetEnumerator_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.KnownTables.GetEnumerator
   isSpec: "True"
-  fullName: Solti.Utils.SQL.Interfaces.KnownOrmTypes.GetEnumerator
-  nameWithType: KnownOrmTypes.GetEnumerator
-- uid: Solti.Utils.SQL.Interfaces.KnownOrmTypes.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
+  fullName: Solti.Utils.SQL.Interfaces.KnownTables.GetEnumerator
+  nameWithType: KnownTables.GetEnumerator
+- uid: Solti.Utils.SQL.Interfaces.KnownTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
   name: IEnumerable<Type>.GetEnumerator()
-  href: Solti.Utils.SQL.Interfaces.KnownOrmTypes.html#Solti_Utils_SQL_Interfaces_KnownOrmTypes_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator
-  commentId: M:Solti.Utils.SQL.Interfaces.KnownOrmTypes.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
+  href: Solti.Utils.SQL.Interfaces.KnownTables.html#Solti_Utils_SQL_Interfaces_KnownTables_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator
+  commentId: M:Solti.Utils.SQL.Interfaces.KnownTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
   name.vb: System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator()
-  fullName: Solti.Utils.SQL.Interfaces.KnownOrmTypes.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator()
-  nameWithType: KnownOrmTypes.IEnumerable<Type>.GetEnumerator()
-  nameWithType.vb: KnownOrmTypes.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator()
-- uid: Solti.Utils.SQL.Interfaces.KnownOrmTypes.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator*
+  fullName: Solti.Utils.SQL.Interfaces.KnownTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator()
+  nameWithType: KnownTables.IEnumerable<Type>.GetEnumerator()
+  nameWithType.vb: KnownTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator()
+- uid: Solti.Utils.SQL.Interfaces.KnownTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator*
   name: IEnumerable<Type>.GetEnumerator
-  href: Solti.Utils.SQL.Interfaces.KnownOrmTypes.html#Solti_Utils_SQL_Interfaces_KnownOrmTypes_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator_
-  commentId: Overload:Solti.Utils.SQL.Interfaces.KnownOrmTypes.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
+  href: Solti.Utils.SQL.Interfaces.KnownTables.html#Solti_Utils_SQL_Interfaces_KnownTables_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.KnownTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
   isSpec: "True"
   name.vb: System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
-  fullName: Solti.Utils.SQL.Interfaces.KnownOrmTypes.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
-  nameWithType: KnownOrmTypes.IEnumerable<Type>.GetEnumerator
-  nameWithType.vb: KnownOrmTypes.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
+  fullName: Solti.Utils.SQL.Interfaces.KnownTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
+  nameWithType: KnownTables.IEnumerable<Type>.GetEnumerator
+  nameWithType.vb: KnownTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
 - uid: Solti.Utils.SQL.Interfaces.MaxOfAttribute
   name: MaxOfAttribute
   href: Solti.Utils.SQL.Interfaces.MaxOfAttribute.html

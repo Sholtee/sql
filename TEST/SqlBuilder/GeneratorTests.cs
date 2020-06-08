@@ -23,7 +23,7 @@ namespace Solti.Utils.SQL.Tests
         private static void CallActions(Func<ParameterExpression, IEnumerable<MethodCallExpression>> getActions, ISqlQuery mock)
         {
             ParameterExpression bldr = Expression.Parameter(typeof(ISqlQuery));
-            Expression.Lambda<Action<ISqlQuery>>(Expression.Block(getActions(bldr)), bldr).Compile()(mock);
+            Expression.Lambda<Action<ISqlQuery>>(Expression.Block(getActions(bldr)), bldr).Compile().Invoke(mock);
         }
 
         [TearDown]
@@ -80,6 +80,25 @@ namespace Solti.Utils.SQL.Tests
         }
 
         [Test]
+        public void FragmentActionGenerator_ShouldOrderByMultipleColumns() 
+        {
+            var mockSqlBuilder = new Mock<ISqlQuery>(MockBehavior.Loose);
+            var seq = new MockSequence();
+
+            mockSqlBuilder
+                .InSequence(seq)
+                .Setup(x => x.OrderBy(typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id))));
+            mockSqlBuilder
+                .InSequence(seq)
+                .Setup(x => x.OrderByDescending(typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute))));
+
+            CallActions(((IActionGenerator) new FragmentActionGenerator<View4>()).Generate, mockSqlBuilder.Object);
+
+            mockSqlBuilder.Verify(x => x.OrderBy(It.IsAny<PropertyInfo>()), Times.Once);
+            mockSqlBuilder.Verify(x => x.OrderByDescending(It.IsAny<PropertyInfo>()), Times.Once);
+        }
+
+        [Test]
         public void FragmentActionGenerator_ShouldWorkWithComplexViews()
         {
             var mockSqlBuilder = new Mock<ISqlQuery>(MockBehavior.Strict);
@@ -124,23 +143,23 @@ namespace Solti.Utils.SQL.Tests
         public void JoinActionGenerator_ShouldGenerateJoinsInTheAppropriateOrder()
         {
             var mockSqlBuilder = new Mock<ISqlQuery>(MockBehavior.Strict);
+            var seq = new MockSequence();
 
-            int order = 0;
             mockSqlBuilder
+                .InSequence(seq)
                 .Setup(x => x.InnerJoin(
                     It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference))),
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))))
-                .Callback(() => Assert.That(order++, Is.EqualTo(0)));
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
             mockSqlBuilder
+                .InSequence(seq)
                 .Setup(x => x.InnerJoin(
                     It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference2))),
-                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id)))))
-                .Callback(() => Assert.That(order++, Is.EqualTo(1)));
+                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id)))));
             mockSqlBuilder
+                .InSequence(seq)
                 .Setup(x => x.LeftJoin(
                     It.Is<PropertyInfo>(y => y == typeof(Node5).GetProperty(nameof(Node5.Reference))),
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))))
-                .Callback(() => Assert.That(order++, Is.EqualTo(2)));
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
 
             Config.Use(new FakeTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 
@@ -154,53 +173,53 @@ namespace Solti.Utils.SQL.Tests
         public void SmartSqlBuilder_ShouldUseTheGeneratorsInTheAppropriateOrder()
         {
             var mockSqlBuilder = new Mock<ISqlQuery>(MockBehavior.Strict);
-            int order = 0;
+            var seq = new MockSequence();
 
             mockSqlBuilder
-                .Setup(x => x.Select(
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute))),
-                    It.Is<PropertyInfo>(y => y == Unwrapped<View1>.Type.GetProperty(nameof(View1.SimpleColumnSelection)))))
-                .Callback(() => order++);
-            mockSqlBuilder
-                .Setup(x => x.Select(
-                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id))),
-                    It.Is<PropertyInfo>(y => y == Unwrapped<View1>.Type.GetProperty(nameof(View1.IdSelection)))))
-                .Callback(() => order++);
-            mockSqlBuilder
-                .Setup(x => x.Select(
-                    It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Foo))),
-                    It.Is<PropertyInfo>(y => y == Unwrapped<View1>.Type.GetProperty(nameof(View1.SelectionFromAlreadyJoinedTable)))))
-                .Callback(() => order++);
-            mockSqlBuilder
-                .Setup(x => x.Select(
-                    It.Is<PropertyInfo>(y => y == typeof(Node5).GetProperty(nameof(Node5.Id))),
-                    It.Is<PropertyInfo>(y => y == Unwrapped<View1>.Type.GetProperty(nameof(View1.SelectionFromAnotherRoute)))))
-                .Callback(() => order++);
-            mockSqlBuilder
-                .Setup(x => x.Select(
-                    It.Is<PropertyInfo>(y => y == typeof(Node5).GetProperty(nameof(Node5.Reference))),
-                    It.Is<PropertyInfo>(y => y == Unwrapped<View1>.Type.GetProperty(nameof(View1.SecondSelectionFromAnotherRoute)))))
-                .Callback(() => order++);
-
-            mockSqlBuilder
+                .InSequence(seq)
                 .Setup(x => x.InnerJoin(
                     It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference))),
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))))
-                .Callback(() => Assert.That(order++, Is.EqualTo(0)));
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
             mockSqlBuilder
+                .InSequence(seq)
                 .Setup(x => x.InnerJoin(
                     It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference2))),
-                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id)))))
-                .Callback(() => Assert.That(order++, Is.EqualTo(1)));
+                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id)))));
             mockSqlBuilder
+                .InSequence(seq)
                 .Setup(x => x.LeftJoin(
                     It.Is<PropertyInfo>(y => y == typeof(Node5).GetProperty(nameof(Node5.Reference))),
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))))
-                .Callback(() => Assert.That(order++, Is.EqualTo(2)));
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
 
             mockSqlBuilder
-                .Setup(x => x.Finalize(It.Is<Type>(y => y == typeof(View1))))
-                .Callback(() => Assert.That(order++, Is.EqualTo(8)));
+                .InSequence(seq)
+                .Setup(x => x.Select(
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute))),
+                    It.Is<PropertyInfo>(y => y == Unwrapped<View1>.Type.GetProperty(nameof(View1.SimpleColumnSelection)))));
+            mockSqlBuilder
+                .InSequence(seq)
+                .Setup(x => x.Select(
+                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id))),
+                    It.Is<PropertyInfo>(y => y == Unwrapped<View1>.Type.GetProperty(nameof(View1.IdSelection)))));
+            mockSqlBuilder
+                .InSequence(seq)
+                .Setup(x => x.Select(
+                    It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Foo))),
+                    It.Is<PropertyInfo>(y => y == Unwrapped<View1>.Type.GetProperty(nameof(View1.SelectionFromAlreadyJoinedTable)))));
+            mockSqlBuilder
+                .InSequence(seq)
+                .Setup(x => x.Select(
+                    It.Is<PropertyInfo>(y => y == typeof(Node5).GetProperty(nameof(Node5.Id))),
+                    It.Is<PropertyInfo>(y => y == Unwrapped<View1>.Type.GetProperty(nameof(View1.SelectionFromAnotherRoute)))));
+            mockSqlBuilder
+                .InSequence(seq)
+                .Setup(x => x.Select(
+                    It.Is<PropertyInfo>(y => y == typeof(Node5).GetProperty(nameof(Node5.Reference))),
+                    It.Is<PropertyInfo>(y => y == Unwrapped<View1>.Type.GetProperty(nameof(View1.SecondSelectionFromAnotherRoute)))));
+
+            mockSqlBuilder
+                .InSequence(seq)
+                .Setup(x => x.Finalize(It.Is<Type>(y => y == typeof(View1))));
 
             Config.Use(new FakeTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 
@@ -217,38 +236,38 @@ namespace Solti.Utils.SQL.Tests
         public void SmartSqlBuilder_ShouldWorkWithComplexViews()
         {
             var mockSqlBuilder = new Mock<ISqlQuery>(MockBehavior.Strict);
-            int order = 0;
+            var seq = new MockSequence();
 
             mockSqlBuilder
-                .Setup(x => x.Select(
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id))),
-                    It.Is<PropertyInfo>(y => y == Unwrapped<Extension1>.Type.GetProperty(nameof(Extension1.Id)))))
-                .Callback(() => order++);
-            mockSqlBuilder
-                .Setup(x => x.Select(
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute))),
-                    It.Is<PropertyInfo>(y => y == Unwrapped<Extension1>.Type.GetProperty(nameof(Extension1.ReferenceWithoutAttribute)))))
-                .Callback(() => order++);
-            mockSqlBuilder
-                .Setup(x => x.Select(
-                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id))),
-                    It.Is<PropertyInfo>(y => y == Unwrapped<Extension1>.Type.GetProperty(nameof(Extension1.IdSelection)))))
-                .Callback(() => order++);
-
-            mockSqlBuilder
+                .InSequence(seq)
                 .Setup(x => x.InnerJoin(
                     It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference))),
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))))
-                .Callback(() => Assert.That(order++, Is.EqualTo(0)));
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
             mockSqlBuilder
+                .InSequence(seq)
                 .Setup(x => x.InnerJoin(
                     It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference2))),
-                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id)))))
-                .Callback(() => Assert.That(order++, Is.EqualTo(1)));
+                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id)))));
 
             mockSqlBuilder
-                .Setup(x => x.Finalize(It.Is<Type>(y => y == typeof(Extension1))))
-                .Callback(() => Assert.That(order, Is.EqualTo(5)));
+                .InSequence(seq)
+                .Setup(x => x.Select(
+                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id))),
+                    It.Is<PropertyInfo>(y => y == Unwrapped<Extension1>.Type.GetProperty(nameof(Extension1.IdSelection)))));
+            mockSqlBuilder
+                .InSequence(seq)
+                .Setup(x => x.Select(
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id))),
+                    It.Is<PropertyInfo>(y => y == Unwrapped<Extension1>.Type.GetProperty(nameof(Extension1.Id)))));
+            mockSqlBuilder
+                .InSequence(seq)
+                .Setup(x => x.Select(
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute))),
+                    It.Is<PropertyInfo>(y => y == Unwrapped<Extension1>.Type.GetProperty(nameof(Extension1.ReferenceWithoutAttribute)))));
+
+            mockSqlBuilder
+                .InSequence(seq)
+                .Setup(x => x.Finalize(It.Is<Type>(y => y == typeof(Extension1))));
 
             Config.Use(new FakeTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 

@@ -140,6 +140,14 @@ namespace Solti.Utils.SQL.Tests
         public int Count { get; set; }
     }
 
+    public class View4
+    {
+        [BelongsTo(typeof(Goal_Node), order: Order.Ascending)]
+        public string Id { get; set; }
+        [BelongsTo(typeof(Start_Node), order: Order.Descending)]
+        public int ReferenceWithoutAttribute { get; set; }
+    }
+
     public class WrappedView1_Bad
     {
         [BelongsTo(typeof(Start_Node))]

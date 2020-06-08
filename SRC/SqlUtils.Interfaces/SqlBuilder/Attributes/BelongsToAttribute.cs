@@ -79,8 +79,9 @@ namespace Solti.Utils.SQL.Interfaces
             });
 
         /// <summary>
-        /// Should the result be ordered by this column.
+        /// Should the result be sorted by this column?
         /// </summary>
+        /// <remarks>The result can be sorted by multiple columns. In this case, the order of columns in ORDER BY clause will match the order of properties in your view.</remarks>
         public Order Order { get; }
 
         /// <summary>

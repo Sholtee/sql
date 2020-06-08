@@ -5,7 +5,6 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -15,7 +14,7 @@ namespace Solti.Utils.SQL.Interfaces
     /// <summary>
     /// Represents an abstract database column selection.
     /// </summary>
-    public abstract class ColumnSelectionAttribute : Attribute, IFragment, IBuildable
+    public abstract class ColumnSelectionAttribute : Attribute, IFragment, IBuildableAttribute
     {
         /// <summary>
         /// The <see cref="Type"/> that represents the data table.
@@ -47,15 +46,10 @@ namespace Solti.Utils.SQL.Interfaces
             return ((MethodCallExpression) expr.Body).Method;
         }
 
-        IEnumerable<MethodCallExpression> IFragment.GetFragments(ParameterExpression bldr, PropertyInfo viewProperty, bool isGroupBy) => GetFragments(
-            bldr ?? throw new ArgumentNullException(nameof(bldr)), 
-            viewProperty ?? throw new ArgumentNullException(nameof(viewProperty)), 
-            isGroupBy);
-
         /// <summary>
-        /// Gets the generator methods.
+        /// See <see cref="IFragment.GetFragments(ParameterExpression, PropertyInfo, bool)"/>.
         /// </summary>
-        protected virtual IEnumerable<MethodCallExpression> GetFragments(ParameterExpression bldr, PropertyInfo viewProperty, bool isGroupBy)
+        public virtual IEnumerable<MethodCallExpression> GetFragments(ParameterExpression bldr, PropertyInfo viewProperty, bool isGroupBy)
         {
             if (bldr == null)
                 throw new ArgumentNullException(nameof(bldr));
@@ -77,13 +71,10 @@ namespace Solti.Utils.SQL.Interfaces
                 Expression.Constant(viewProperty));
         }
 
-        [SuppressMessage("Design", "CA1033:Interface methods should be callable by child types")]
-        CustomAttributeBuilder IBuildable.Builder => GetBuilder();
-
         /// <summary>
-        /// Gets the related <see cref="CustomAttributeBuilder"/>. For mire information see the <see cref="IBuildable"/> interface.
+        /// See <see cref="IBuildableAttribute.GetBuilder"/>.
         /// </summary>
-        protected abstract CustomAttributeBuilder GetBuilder();
+        public abstract CustomAttributeBuilder GetBuilder();
 
         /// <summary>
         /// Creates a new <see cref="ColumnSelectionAttribute"/> instance.

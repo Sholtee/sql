@@ -41,7 +41,7 @@ namespace Solti.Utils.SQL.Internals
             {
                 tb
                     .AddProperty(sel.Column)
-                    .SetCustomAttribute(((IBuildable) sel.Reason).Builder);
+                    .SetCustomAttribute(sel.Reason.GetBuilder());
             }
 
             return tb.CreateTypeInfo()!.AsType();

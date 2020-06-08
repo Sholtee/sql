@@ -29,9 +29,9 @@ namespace Solti.Utils.SQL.Interfaces
         #endregion
 
         /// <summary>
-        /// See <see cref="ColumnSelectionAttribute.GetFragments(ParameterExpression, PropertyInfo, bool)"/>
+        /// See <see cref="ColumnSelectionAttribute.GetFragments(ParameterExpression, PropertyInfo, bool)"/>.
         /// </summary>
-        protected override IEnumerable<MethodCallExpression> GetFragments(ParameterExpression bldr, PropertyInfo viewProperty, bool isGroupBy)
+        public override IEnumerable<MethodCallExpression> GetFragments(ParameterExpression bldr, PropertyInfo viewProperty, bool isGroupBy)
         {
             if (bldr == null)
                 throw new ArgumentNullException(nameof(bldr));
@@ -62,7 +62,8 @@ namespace Solti.Utils.SQL.Interfaces
         /// See <see cref="ColumnSelectionAttribute.GetBuilder"/>.
         /// </summary>
         /// <returns></returns>
-        protected override CustomAttributeBuilder GetBuilder() => new CustomAttributeBuilder(
+        public override CustomAttributeBuilder GetBuilder() => new CustomAttributeBuilder
+        (
             GetType().GetConstructor(new[] 
             { 
                 typeof(Type), 
@@ -76,7 +77,8 @@ namespace Solti.Utils.SQL.Interfaces
                 Required,
                 Alias,
                 Order
-            });
+            }
+        );
 
         /// <summary>
         /// Should the result be sorted by this column?

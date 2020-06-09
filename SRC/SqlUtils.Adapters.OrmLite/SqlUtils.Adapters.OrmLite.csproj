@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>Solti.Utils.SQL.OrmLite</AssemblyName>
+    <RootNamespace>Solti.Utils.SQL</RootNamespace>
+  </PropertyGroup>
+
+  <Import Project="../Common.targets" />
+
+  <PropertyGroup>
+    <Description>TODO</Description>
+    <PackageId>SqlUtils.NET.Adapters.OrmLite</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ServiceStack.OrmLite.Core" Version="5.8.0" />
+    <PackageReference Include="Solti.Utils.Primitives" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SqlUtils.Interfaces\SqlUtils.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

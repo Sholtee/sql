@@ -1,0 +1,989 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TypedSqlQuery
+   | SqlUtils.NET </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TypedSqlQuery
+   | SqlUtils.NET ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="icon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Solti.Utils.SQL.TypedSqlQuery">
+  
+  
+  <h1 id="Solti_Utils_SQL_TypedSqlQuery" data-uid="Solti.Utils.SQL.TypedSqlQuery" class="text-break">Class TypedSqlQuery
+  </h1>
+  <div class="markdown level0 summary"><p>Represents an abstract typed SQL query.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">TypedSqlQuery</span></div>
+      <div class="level2"><a class="xref" href="Solti.Utils.SQL.OrmLiteSqlQuery-1.html">OrmLiteSqlQuery&lt;TBaseTable&gt;</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Solti.Utils.SQL.html">Solti.Utils.SQL</a></h6>
+  <h6><strong>Assembly</strong>: Solti.Utils.SQL.OrmLite.dll</h6>
+  <h5 id="Solti_Utils_SQL_TypedSqlQuery_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TypedSqlQuery : object, ISqlQuery</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_Finalize_" data-uid="Solti.Utils.SQL.TypedSqlQuery.Finalize*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_Finalize_Type_" data-uid="Solti.Utils.SQL.TypedSqlQuery.Finalize(Type)">Finalize(Type)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.Finalize(Type)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Finalize(Type view)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">view</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_Finalize_" data-uid="Solti.Utils.SQL.TypedSqlQuery.Finalize*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_Finalize__1" data-uid="Solti.Utils.SQL.TypedSqlQuery.Finalize``1">Finalize&lt;TView&gt;()</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.Finalize(Type)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Finalize&lt;TView&gt;()</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TView</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_GoupBy_" data-uid="Solti.Utils.SQL.TypedSqlQuery.GoupBy*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_GoupBy__1_Expression_Func___0_System_Object___" data-uid="Solti.Utils.SQL.TypedSqlQuery.GoupBy``1(Expression{Func{``0,System.Object}})">GoupBy&lt;TTable&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.GroupBy(PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void GoupBy&lt;TTable&gt;(Expression&lt;Func&lt;TTable, object&gt;&gt; column)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TTable, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">column</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TTable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_GroupBy_" data-uid="Solti.Utils.SQL.TypedSqlQuery.GroupBy*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_GroupBy_PropertyInfo_" data-uid="Solti.Utils.SQL.TypedSqlQuery.GroupBy(PropertyInfo)">GroupBy(PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.GroupBy(PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void GroupBy(PropertyInfo column)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">column</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_InnerJoin_" data-uid="Solti.Utils.SQL.TypedSqlQuery.InnerJoin*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_InnerJoin_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.TypedSqlQuery.InnerJoin(PropertyInfo,PropertyInfo)">InnerJoin(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.InnerJoin(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void InnerJoin(PropertyInfo left, PropertyInfo right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">left</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_InnerJoin_" data-uid="Solti.Utils.SQL.TypedSqlQuery.InnerJoin*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_InnerJoin__2_Expression_Func___0___1_System_Boolean___" data-uid="Solti.Utils.SQL.TypedSqlQuery.InnerJoin``2(Expression{Func{``0,``1,System.Boolean}})">InnerJoin&lt;TTable1, TTable2&gt;(Expression&lt;Func&lt;TTable1, TTable2, Boolean&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.InnerJoin(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void InnerJoin&lt;TTable1, TTable2&gt;(Expression&lt;Func&lt;TTable1, TTable2, bool&gt;&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TTable1, TTable2, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TTable1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TTable2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_LeftJoin_" data-uid="Solti.Utils.SQL.TypedSqlQuery.LeftJoin*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_LeftJoin_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.TypedSqlQuery.LeftJoin(PropertyInfo,PropertyInfo)">LeftJoin(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.LeftJoin(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void LeftJoin(PropertyInfo left, PropertyInfo right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">left</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_LeftJoin_" data-uid="Solti.Utils.SQL.TypedSqlQuery.LeftJoin*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_LeftJoin__2_Expression_Func___0___1_System_Boolean___" data-uid="Solti.Utils.SQL.TypedSqlQuery.LeftJoin``2(Expression{Func{``0,``1,System.Boolean}})">LeftJoin&lt;TTable1, TTable2&gt;(Expression&lt;Func&lt;TTable1, TTable2, Boolean&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.LeftJoin(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void LeftJoin&lt;TTable1, TTable2&gt;(Expression&lt;Func&lt;TTable1, TTable2, bool&gt;&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TTable1, TTable2, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TTable1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TTable2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_OrderBy_" data-uid="Solti.Utils.SQL.TypedSqlQuery.OrderBy*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_OrderBy_PropertyInfo_" data-uid="Solti.Utils.SQL.TypedSqlQuery.OrderBy(PropertyInfo)">OrderBy(PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.OrderBy(PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OrderBy(PropertyInfo column)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">column</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_OrderBy_" data-uid="Solti.Utils.SQL.TypedSqlQuery.OrderBy*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_OrderBy__1_Expression_Func___0_System_Object___" data-uid="Solti.Utils.SQL.TypedSqlQuery.OrderBy``1(Expression{Func{``0,System.Object}})">OrderBy&lt;TTable&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.OrderBy(PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OrderBy&lt;TTable&gt;(Expression&lt;Func&lt;TTable, object&gt;&gt; column)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TTable, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">column</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TTable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_OrderByDescending_" data-uid="Solti.Utils.SQL.TypedSqlQuery.OrderByDescending*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_OrderByDescending_PropertyInfo_" data-uid="Solti.Utils.SQL.TypedSqlQuery.OrderByDescending(PropertyInfo)">OrderByDescending(PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.OrderByDescending(PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OrderByDescending(PropertyInfo column)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">column</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_OrderByDescending_" data-uid="Solti.Utils.SQL.TypedSqlQuery.OrderByDescending*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_OrderByDescending__1_Expression_Func___0_System_Object___" data-uid="Solti.Utils.SQL.TypedSqlQuery.OrderByDescending``1(Expression{Func{``0,System.Object}})">OrderByDescending&lt;TTable&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.OrderByDescending(PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OrderByDescending&lt;TTable&gt;(Expression&lt;Func&lt;TTable, object&gt;&gt; column)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TTable, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">column</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TTable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_Run_" data-uid="Solti.Utils.SQL.TypedSqlQuery.Run*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_Run_Type_" data-uid="Solti.Utils.SQL.TypedSqlQuery.Run(Type)">Run(Type)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.Run(Type)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IList Run(Type view)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">view</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IList</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_Run_" data-uid="Solti.Utils.SQL.TypedSqlQuery.Run*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_Run__1" data-uid="Solti.Utils.SQL.TypedSqlQuery.Run``1">Run&lt;TView&gt;()</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.Run(Type)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual List&lt;TView&gt; Run&lt;TView&gt;()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;TView&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TView</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_Select_" data-uid="Solti.Utils.SQL.TypedSqlQuery.Select*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_Select_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.TypedSqlQuery.Select(PropertyInfo,PropertyInfo)">Select(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.Select(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Select(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_Select_" data-uid="Solti.Utils.SQL.TypedSqlQuery.Select*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_Select__2_Expression_Func___0_System_Object___Expression_Func___1_System_Object___" data-uid="Solti.Utils.SQL.TypedSqlQuery.Select``2(Expression{Func{``0,System.Object}},Expression{Func{``1,System.Object}})">Select&lt;TTable, TView&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;, Expression&lt;Func&lt;TView, Object&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.Select(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Select&lt;TTable, TView&gt;(Expression&lt;Func&lt;TTable, object&gt;&gt; tableColumn, Expression&lt;Func&lt;TView, object&gt;&gt; viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TTable, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TView, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TTable</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TView</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_SelectAvg_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectAvg*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_SelectAvg_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectAvg(PropertyInfo,PropertyInfo)">SelectAvg(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SelectAvg(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SelectAvg(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_SelectAvg_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectAvg*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_SelectAvg__2_Expression_Func___0_System_Object___Expression_Func___1_System_Object___" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectAvg``2(Expression{Func{``0,System.Object}},Expression{Func{``1,System.Object}})">SelectAvg&lt;TTable, TView&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;, Expression&lt;Func&lt;TView, Object&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SelectAvg(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void SelectAvg&lt;TTable, TView&gt;(Expression&lt;Func&lt;TTable, object&gt;&gt; tableColumn, Expression&lt;Func&lt;TView, object&gt;&gt; viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TTable, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TView, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TTable</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TView</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_SelectCount_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectCount*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_SelectCount_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectCount(PropertyInfo,PropertyInfo)">SelectCount(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SelectCount(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SelectCount(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_SelectCount_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectCount*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_SelectCount__2_Expression_Func___0_System_Object___Expression_Func___1_System_Object___" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectCount``2(Expression{Func{``0,System.Object}},Expression{Func{``1,System.Object}})">SelectCount&lt;TTable, TView&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;, Expression&lt;Func&lt;TView, Object&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SelectCount(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void SelectCount&lt;TTable, TView&gt;(Expression&lt;Func&lt;TTable, object&gt;&gt; tableColumn, Expression&lt;Func&lt;TView, object&gt;&gt; viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TTable, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TView, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TTable</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TView</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_SelectMax_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectMax*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_SelectMax_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectMax(PropertyInfo,PropertyInfo)">SelectMax(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SelectMax(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SelectMax(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_SelectMax_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectMax*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_SelectMax__2_Expression_Func___0_System_Object___Expression_Func___1_System_Object___" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectMax``2(Expression{Func{``0,System.Object}},Expression{Func{``1,System.Object}})">SelectMax&lt;TTable, TView&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;, Expression&lt;Func&lt;TView, Object&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SelectMax(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void SelectMax&lt;TTable, TView&gt;(Expression&lt;Func&lt;TTable, object&gt;&gt; tableColumn, Expression&lt;Func&lt;TView, object&gt;&gt; viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TTable, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TView, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TTable</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TView</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_SelectMin_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectMin*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_SelectMin_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectMin(PropertyInfo,PropertyInfo)">SelectMin(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SelectMin(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SelectMin(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">PropertyInfo</span></td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_SelectMin_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectMin*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_SelectMin__2_Expression_Func___0_System_Object___Expression_Func___1_System_Object___" data-uid="Solti.Utils.SQL.TypedSqlQuery.SelectMin``2(Expression{Func{``0,System.Object}},Expression{Func{``1,System.Object}})">SelectMin&lt;TTable, TView&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;, Expression&lt;Func&lt;TView, Object&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SelectMin(PropertyInfo, PropertyInfo)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void SelectMin&lt;TTable, TView&gt;(Expression&lt;Func&lt;TTable, object&gt;&gt; tableColumn, Expression&lt;Func&lt;TView, object&gt;&gt; viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TTable, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TView, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TTable</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TView</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

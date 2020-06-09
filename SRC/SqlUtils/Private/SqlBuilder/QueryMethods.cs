@@ -18,6 +18,6 @@ namespace Solti.Utils.SQL.Internals
         public static readonly MethodInfo
             InnerJoin = GetQueryMethod(bldr => bldr.InnerJoin(null!, null!)),
             LeftJoin  = GetQueryMethod(bldr => bldr.LeftJoin(null!, null!)),
-            Finalize  = GetQueryMethod(bldr => bldr.Finalize(null!));
+            SetBase   = GetQueryMethod(bldr => bldr.SetBase(null!));
     }
 }

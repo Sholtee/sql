@@ -19,13 +19,13 @@ namespace Solti.Utils.SQL
     /// <summary>
     /// The OrmLite specific implementation of the <see cref="ISqlQuery"/> interface.
     /// </summary>
-    public class OrmLiteSqlQuery<TBaseTable> : TypedSqlQuery
+    public class OrmLiteSqlQuery : TypedSqlQuery
     {
         #region Private
         private int FThenBy;
         private readonly IDbConnection FConnection;
         private readonly IOrmLiteDialectProvider FDialectProvider;
-        private readonly SqlExpression<TBaseTable> FSqlExpression;
+        private IUntypedSqlExpression? FSqlExpression;
 
         //
         // Select() es GroupBy() csak egyszer lehet hivva.
@@ -38,26 +38,26 @@ namespace Solti.Utils.SQL
 
         #region Protected
         /// <summary>
-        /// See <see cref="ISqlQuery.Finalize(Type)"/>.
+        /// See <see cref="ISqlQuery.SetBase(Type)"/>.
         /// </summary>
-        protected override void Finalize<TView>() {}
+        protected override void SetBase<TBase>() => FSqlExpression = FConnection.From<TBase>().GetUntyped();
 
         /// <summary>
         /// See <see cref="ISqlQuery.InnerJoin(PropertyInfo, PropertyInfo)"/>.
         /// </summary>
-        protected override void InnerJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, bool>> selector) => FSqlExpression.Join(selector);
+        protected override void InnerJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, bool>> selector) => FSqlExpression!.Join(selector);
 
         /// <summary>
         /// See <see cref="ISqlQuery.LeftJoin(PropertyInfo, PropertyInfo)"/>.
         /// </summary>
-        protected override void LeftJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, bool>> selector) => FSqlExpression.LeftJoin(selector);
+        protected override void LeftJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, bool>> selector) => FSqlExpression!.LeftJoin(selector);
 
         /// <summary>
         /// See <see cref="ISqlQuery.OrderBy(PropertyInfo)"/>.
         /// </summary>
         protected override void OrderBy<TTable>(Expression<Func<TTable, object>> column)
         {
-            if (FThenBy++ == 0) FSqlExpression.OrderBy(column); else FSqlExpression.ThenBy(column);
+            if (FThenBy++ == 0) FSqlExpression!.OrderBy(column); else FSqlExpression!.ThenBy(column);
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Solti.Utils.SQL
         /// </summary>
         protected override void OrderByDescending<TTable>(Expression<Func<TTable, object>> column)
         {
-            if (FThenBy++ == 0) FSqlExpression.OrderByDescending(column); else FSqlExpression.ThenByDescending(column);
+            if (FThenBy++ == 0) FSqlExpression!.OrderByDescending(column); else FSqlExpression!.ThenByDescending(column);
         }
 
         /// <summary>
@@ -75,8 +75,8 @@ namespace Solti.Utils.SQL
         {
             const string sep = ", ";
 
-            if (FGroupByCols.Any()) FSqlExpression.GroupBy(string.Join(sep, FGroupByCols));
-            FSqlExpression.UnsafeSelect(string.Join(sep, FSelectCols), distinct: false);
+            if (FGroupByCols.Any()) FSqlExpression!.GroupBy(string.Join(sep, FGroupByCols));
+            FSqlExpression!.UnsafeSelect(string.Join(sep, FSelectCols));
 
             return FConnection.Select<TView>(FSqlExpression);
         }
@@ -84,13 +84,12 @@ namespace Solti.Utils.SQL
 
         #region Public
         /// <summary>
-        /// Creates a new <see cref="OrmLiteSqlQuery{TBaseTable}"/> instance.
+        /// Creates a new <see cref="OrmLiteSqlQuery"/> instance.
         /// </summary>
-        public OrmLiteSqlQuery(IDbConnection connection, SqlExpression<TBaseTable> sqlExpression)
+        public OrmLiteSqlQuery(IDbConnection connection)
         {
-            FSqlExpression = sqlExpression ?? throw new ArgumentNullException(nameof(sqlExpression));
             FConnection = connection ?? throw new ArgumentNullException(nameof(connection));
-            FDialectProvider = FConnection.GetDialectProvider();
+            FDialectProvider = connection.GetDialectProvider();
         }
 
         /// <summary>

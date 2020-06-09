@@ -9,6 +9,7 @@ using System.Reflection;
 
 namespace Solti.Utils.SQL.Internals
 {
+    using Interfaces;
     using Primitives;
     using Properties;
 
@@ -29,5 +30,7 @@ namespace Solti.Utils.SQL.Internals
 
             return pk;
         });
+
+        public static Type GetQueryBase(this Type type) => type.GetCustomAttribute<ViewAttribute>(inherit: false)?.Base ?? type.GetBaseDataType() ?? throw new InvalidOperationException(Resources.BASE_CANNOT_BE_DETERMINED);
     }
 }

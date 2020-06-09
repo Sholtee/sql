@@ -15,12 +15,12 @@ namespace Solti.Utils.SQL
     /// <summary>
     /// Builds the SQL query for the given view. 
     /// </summary>
-    public static class SmartSqlBuilder<TView, TBaseTable>
+    public static class SmartSqlBuilder<TView>
     {
         private static Action<ISqlQuery>? FBuild;
 
         /// <summary>
-        /// Represents the build action related to the given <typeparamref name="TView"/> and <typeparamref name="TBaseTable"/>.
+        /// Represents the build action related to the given <typeparamref name="TView"/>.
         /// </summary>
         [SuppressMessage("Design", "CA1000:Do not declare static members on generic types", Justification = "It's intended because all the specialized builders must have their own build method.")]
         public static ISqlQuery Build(ISqlQuery query)
@@ -43,9 +43,9 @@ namespace Solti.Utils.SQL
 
             FBuild = Compiler.Compile
             (
-                new JoinActionGenerator<TView, TBaseTable>(customEdges),
-                new FragmentActionGenerator<TView>(),
-                new FinalActionGenerator<TView>()
+                new InitActionGenerator<TView>(),
+                new JoinActionGenerator<TView>(customEdges),
+                new FragmentActionGenerator<TView>()
             );
         }
     }

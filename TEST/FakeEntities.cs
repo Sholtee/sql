@@ -108,6 +108,7 @@ namespace Solti.Utils.SQL.Tests
         public string Reference { get; set; }
     }
 
+    [View(Base = typeof(Start_Node))]
     public class View1
     {
         [BelongsTo(typeof(Start_Node), alias: nameof(Start_Node.ReferenceWithoutAttribute))]
@@ -122,6 +123,7 @@ namespace Solti.Utils.SQL.Tests
         public string SecondSelectionFromAnotherRoute { get; set; }
     }
 
+    [View(Base = typeof(Start_Node))]
     public class View2
     {
         [CountOf(typeof(Node2), alias: nameof(Node2.Id))]
@@ -131,6 +133,7 @@ namespace Solti.Utils.SQL.Tests
         public int Ignored { get; set; }
     }
 
+    [View(Base = typeof(Node2))]
     public class View3
     {
         [EmptyListMarker]
@@ -140,6 +143,7 @@ namespace Solti.Utils.SQL.Tests
         public int Count { get; set; }
     }
 
+    [View(Base = typeof(Start_Node))]
     public class View4
     {
         [BelongsTo(typeof(Goal_Node), order: Order.Ascending)]
@@ -148,6 +152,7 @@ namespace Solti.Utils.SQL.Tests
         public int ReferenceWithoutAttribute { get; set; }
     }
 
+    [View(Base = typeof(Start_Node))]
     public class WrappedView1_Bad
     {
         [BelongsTo(typeof(Start_Node))]
@@ -156,6 +161,7 @@ namespace Solti.Utils.SQL.Tests
         public List<View3> ViewList { get; set; }
     }
 
+    [View(Base = typeof(Start_Node))]
     public class WrappedView1
     {
         [BelongsTo(typeof(Start_Node), alias: nameof(Start_Node.Id))]
@@ -164,6 +170,7 @@ namespace Solti.Utils.SQL.Tests
         public List<View3> ViewList { get; set; }
     }
 
+    [View(Base = typeof(Start_Node))]
     public class WrappedView2
     {
         [BelongsTo(typeof(Start_Node), alias: nameof(Start_Node.Id))]
@@ -174,6 +181,7 @@ namespace Solti.Utils.SQL.Tests
         public List<View2> ViewList2 { get; set; }
     }
 
+    [View(Base = typeof(Start_Node))]
     public class WrappedView3
     {
         [BelongsTo(typeof(Start_Node), alias: nameof(Start_Node.Id))]
@@ -182,6 +190,7 @@ namespace Solti.Utils.SQL.Tests
         public View3 View { get; set; }
     }
 
+    [View(Base = typeof(Start_Node))]
     public class WrappedView3_Extesnion
     {
         [BelongsTo(typeof(Start_Node), alias: nameof(Start_Node.Id))]
@@ -190,6 +199,7 @@ namespace Solti.Utils.SQL.Tests
         public List<Extension1> ViewList { get; set; }
     }
 
+    [View(Base = typeof(Start_Node))]
     public class WrappedView4_Complex
     {
         [BelongsTo(typeof(Start_Node), alias: nameof(Start_Node.Id))]
@@ -198,6 +208,7 @@ namespace Solti.Utils.SQL.Tests
         public List<WrappedView1> AnotherViewList { get; set; }
     }
 
+    [View(Base = typeof(Start_Node))]
     public class WrappedView5_Bad
     {
         [BelongsTo(typeof(Start_Node))]

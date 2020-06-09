@@ -75,7 +75,7 @@ namespace Solti.Utils.SQL.Tests
                         if (originalAttr == null)
                         {
                             Assert.That(queriedAttr.GetType(), Is.EqualTo(typeof(BelongsToAttribute)));
-                            Assert.That(queriedAttr.OrmType, Is.EqualTo(typeof(Extension1).GetBaseOrmType()));
+                            Assert.That(queriedAttr.OrmType, Is.EqualTo(typeof(Extension1).GetBaseDataType()));
                         }
                         else
                         {
@@ -190,7 +190,7 @@ namespace Solti.Utils.SQL.Tests
                         if (originalAttr == null)
                         {
                             Assert.That(queriedAttr.GetType(), Is.EqualTo(typeof(BelongsToAttribute)));
-                            Assert.That(queriedAttr.OrmType, Is.EqualTo(typeof(Extension1).GetBaseOrmType()));
+                            Assert.That(queriedAttr.OrmType, Is.EqualTo(typeof(Extension1).GetBaseDataType()));
                         }
                         else
                         {

@@ -29,7 +29,7 @@ namespace Solti.Utils.SQL.Internals
 
         public static IReadOnlyList<ColumnSelection> GetColumnSelections(this Type src) => Cache.GetOrAdd(src, () => 
         {
-            Type baseOrmType = src.GetBaseOrmType();
+            Type? @base = src.GetBaseDataType();
 
             return 
             (
@@ -37,16 +37,16 @@ namespace Solti.Utils.SQL.Internals
                 let attr = prop.GetCustomAttribute<ColumnSelectionAttribute>()
 
                 //
-                // Ha a nezet egy mar meglevo ORM entitas leszarmazottja akkor azon property-ket
-                // is kivalasztjuk melyek az os (ORM) entitashoz tartoznak.
+                // Ha a nezet egy mar meglevo adattabla leszarmazottja akkor azon property-ket
+                // is kivalasztjuk melyek az os entitashoz tartoznak.
                 //
 
-                where attr != null || (baseOrmType != null && !Config.Instance.IsIgnored(prop) && prop.DeclaringType.IsAssignableFrom(baseOrmType))
+                where attr != null || (@base != null && !Config.Instance.IsIgnored(prop) && prop.DeclaringType.IsAssignableFrom(@base))
                 select new ColumnSelection
                 (
                     column: prop,
                     kind: attr != null ? SelectionKind.Explicit : SelectionKind.Implicit,
-                    reason: attr ?? new BelongsToAttribute(baseOrmType)
+                    reason: attr ?? new BelongsToAttribute(@base!)
                 )
             ).ToArray();
         });
@@ -88,13 +88,13 @@ namespace Solti.Utils.SQL.Internals
             return result;
         });
 
-        public static Type GetBaseOrmType(this Type entityType)
+        public static Type? GetBaseDataType(this Type entityType)
         {
             while (entityType != null && !Config.Instance.IsDataTable(entityType))
             {
                 entityType = entityType.BaseType;
             }
-            return entityType!;
+            return entityType;
         }
 
         public static object GetDefaultValue(this Type src) => Cache

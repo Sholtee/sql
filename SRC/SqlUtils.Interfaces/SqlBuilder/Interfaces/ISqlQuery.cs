@@ -16,6 +16,11 @@ namespace Solti.Utils.SQL.Interfaces
     public interface ISqlQuery
     {
         /// <summary>
+        /// Sets the base data table that should appear in the FROM clause.
+        /// </summary>
+        void SetBase(Type table);
+
+        /// <summary>
         /// Extends/creates the select clause with a simple selection.
         /// </summary>
         [SuppressMessage("Naming", "CA1716:Identifiers should not match keywords")]
@@ -65,12 +70,6 @@ namespace Solti.Utils.SQL.Interfaces
         /// Extends/creates the "group by" clause of this query.
         /// </summary>
         void GroupBy(PropertyInfo tableColumn);
-
-        /// <summary>
-        /// Place for custom finalization routins. This method will be called once the query is assembled.
-        /// </summary>
-        /// <param name="view"></param>
-        void Finalize(Type view);
 
         /// <summary>
         /// Runs a select query to get a list from the given <paramref name="view"/>.

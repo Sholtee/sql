@@ -120,6 +120,9 @@
   <data name="AMBIGUOUS_RESULT" xml:space="preserve">
     <value>The view cannot be determined obviously from the input sequence.</value>
   </data>
+  <data name="BASE_CANNOT_BE_DETERMINED" xml:space="preserve">
+    <value>The base data table cannot be determined.</value>
+  </data>
   <data name="INCOMPATIBLE_LIST" xml:space="preserve">
     <value>The list type is not compatible.</value>
   </data>

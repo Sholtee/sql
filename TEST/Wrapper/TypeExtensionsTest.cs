@@ -112,15 +112,15 @@ namespace Solti.Utils.SQL.Tests
 
         [Test]
         public void GetBaseOrmType_ShouldReturnTheBaseOrmType() =>
-            Assert.That(typeof(Extension1).GetBaseOrmType(), Is.EqualTo(typeof(Start_Node)));
+            Assert.That(typeof(Extension1).GetBaseDataType(), Is.EqualTo(typeof(Start_Node)));
 
         [Test]
         public void GetBaseOrmType_ShouldHandleTheOrmTypes() =>
-            Assert.That(typeof(Start_Node).GetBaseOrmType(), Is.EqualTo(typeof(Start_Node)));
+            Assert.That(typeof(Start_Node).GetBaseDataType(), Is.EqualTo(typeof(Start_Node)));
 
         [Test]
         public void GetBaseOrmType_ShouldReturnNullIfNoBase() =>
-            Assert.IsNull(typeof(object).GetBaseOrmType());
+            Assert.IsNull(typeof(object).GetBaseDataType());
 
         [Test]
         public void GetDefaultValue_ShouldHandlePrimitiveTypes() =>

@@ -21,17 +21,17 @@ namespace Solti.Utils.SQL
     {
         private static MethodInfo GetGenericMethod(Expression<Action<TypedSqlQuery>> expr) => ((MethodCallExpression) expr.Body).Method.GetGenericMethodDefinition();
 
-        private static readonly MethodInfo FFinalize = GetGenericMethod(self => self.Finalize<object>());
+        private static readonly MethodInfo FSetBase = GetGenericMethod(self => self.SetBase<object>());
 
         /// <summary>
-        /// See <see cref="ISqlQuery.Finalize(Type)"/>.
+        /// See <see cref="ISqlQuery.SetBase(Type)"/>.
         /// </summary>
-        public virtual void Finalize(Type view) => FFinalize.MakeGenericMethod(view ?? throw new ArgumentNullException(nameof(view))).Call();
+        public virtual void SetBase(Type view) => FSetBase.MakeGenericMethod(view ?? throw new ArgumentNullException(nameof(view))).Call();
 
         /// <summary>
-        /// See <see cref="ISqlQuery.Finalize(Type)"/>.
+        /// See <see cref="ISqlQuery.SetBase(Type)"/>.
         /// </summary>
-        protected virtual void Finalize<TView>() => throw new NotImplementedException();
+        protected virtual void SetBase<TView>() => throw new NotImplementedException();
 
         private static readonly MethodInfo FGroupBy = GetGenericMethod(self => self.GoupBy<object>(null!));
 

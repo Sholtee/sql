@@ -70,6 +70,15 @@ namespace Solti.Utils.SQL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The base data table cannot be determined..
+        /// </summary>
+        internal static string BASE_CANNOT_BE_DETERMINED {
+            get {
+                return ResourceManager.GetString("BASE_CANNOT_BE_DETERMINED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The list type is not compatible..
         /// </summary>
         internal static string INCOMPATIBLE_LIST {

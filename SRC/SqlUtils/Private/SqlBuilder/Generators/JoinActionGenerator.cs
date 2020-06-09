@@ -10,7 +10,7 @@ using System.Linq.Expressions;
 
 namespace Solti.Utils.SQL.Internals
 {
-    internal sealed class JoinActionGenerator<TView, TBaseTable> : ActionGenerator<TView>
+    internal sealed class JoinActionGenerator<TView> : ActionGenerator<TView>
     {
         public Edge[] CustomEdges { get; }
 
@@ -18,9 +18,11 @@ namespace Solti.Utils.SQL.Internals
 
         protected override IEnumerable<MethodCallExpression> Generate(ParameterExpression bldr)
         {
+            Type @base = typeof(TView).GetQueryBase();
+
             ISet<Type> joinedTables = new HashSet<Type>(new[]
             {
-                typeof(TBaseTable)
+                @base
             });
 
             foreach (var table in Selections
@@ -38,7 +40,7 @@ namespace Solti.Utils.SQL.Internals
                 //
 
                 foreach (Edge edge in EdgeOperations
-                    .ShortestPath(typeof(TBaseTable), table.Type, CustomEdges)
+                    .ShortestPath(@base, table.Type, CustomEdges)
                     .Where
                     (
                         edge => joinedTables.Add(edge.SourceTable) || joinedTables.Add(edge.DestinationTable)

@@ -1,5 +1,5 @@
 /********************************************************************************
-*  FinalActionGenerator.cs                                                      *
+*  InitActionGenerator.cs                                                       *
 *                                                                               *
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
@@ -8,11 +8,11 @@ using System.Linq.Expressions;
 
 namespace Solti.Utils.SQL.Internals
 {
-    internal sealed class FinalActionGenerator<TView>: IActionGenerator
+    internal sealed class InitActionGenerator<TView>: ActionGenerator<TView>
     {
-        IEnumerable<MethodCallExpression> IActionGenerator.Generate(ParameterExpression bldr)
+        protected override IEnumerable<MethodCallExpression> Generate(ParameterExpression bldr)
         {
-            yield return Expression.Call(bldr, QueryMethods.Finalize, Expression.Constant(typeof(TView)));
+            yield return Expression.Call(bldr, QueryMethods.SetBase, Expression.Constant(typeof(TView).GetQueryBase()));
         }
     }
 }

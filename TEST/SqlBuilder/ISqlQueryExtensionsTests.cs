@@ -20,7 +20,7 @@ namespace Solti.Utils.SQL.Tests
     public sealed class ISqlQueryExtensionsTests
     {
         [Test]
-        public void SelectTest()
+        public void RunTest()
         {
             Type unwrapped = Unwrapped<WrappedView1>.Type;
 
@@ -36,7 +36,7 @@ namespace Solti.Utils.SQL.Tests
                 .Returns((IList) null);
 
             ISqlQuery sqlQuery = mockSqlQuery.Object;
-            sqlQuery.Select<WrappedView1>();
+            sqlQuery.Run<WrappedView1>();
 
             mockSqlQuery.Verify(expr, Times.Once);
         }

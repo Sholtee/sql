@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SqlUtils.Interfaces\SqlUtils.Interfaces.csproj" />
+    <ProjectReference Include="..\SqlUtils\SqlUtils.csproj" />
   </ItemGroup>
 
 </Project>

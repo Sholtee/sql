@@ -20,7 +20,7 @@ namespace Solti.Utils.SQL
         /// <summary>
         /// Queries the given view.
         /// </summary>
-        public static List<TView> Select<TView>(this ISqlQuery query)
+        public static List<TView> Run<TView>(this ISqlQuery query)
         {
             if (query == null)
                 throw new ArgumentNullException(nameof(query));

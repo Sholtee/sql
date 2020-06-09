@@ -767,19 +767,6 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.ISqlQuery
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery
   nameWithType: ISqlQuery
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize(System.Type)
-  name: Finalize(Type)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Finalize_System_Type_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize(System.Type)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize(System.Type)
-  nameWithType: ISqlQuery.Finalize(Type)
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize*
-  name: Finalize
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Finalize_
-  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize
-  nameWithType: ISqlQuery.Finalize
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy(System.Reflection.PropertyInfo)
   name: GroupBy(PropertyInfo)
   href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_GroupBy_System_Reflection_PropertyInfo_
@@ -923,6 +910,19 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin
   nameWithType: ISqlQuery.SelectMin
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(System.Type)
+  name: SetBase(Type)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SetBase_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(System.Type)
+  nameWithType: ISqlQuery.SetBase(Type)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase*
+  name: SetBase
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SetBase_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase
+  nameWithType: ISqlQuery.SetBase
 - uid: Solti.Utils.SQL.Interfaces.KnownTables
   name: KnownTables
   href: Solti.Utils.SQL.Interfaces.KnownTables.html
@@ -1034,6 +1034,25 @@ references:
   commentId: F:Solti.Utils.SQL.Interfaces.Order.None
   fullName: Solti.Utils.SQL.Interfaces.Order.None
   nameWithType: Order.None
+- uid: Solti.Utils.SQL.Interfaces.ViewAttribute
+  name: ViewAttribute
+  href: Solti.Utils.SQL.Interfaces.ViewAttribute.html
+  commentId: T:Solti.Utils.SQL.Interfaces.ViewAttribute
+  fullName: Solti.Utils.SQL.Interfaces.ViewAttribute
+  nameWithType: ViewAttribute
+- uid: Solti.Utils.SQL.Interfaces.ViewAttribute.Base
+  name: Base
+  href: Solti.Utils.SQL.Interfaces.ViewAttribute.html#Solti_Utils_SQL_Interfaces_ViewAttribute_Base
+  commentId: P:Solti.Utils.SQL.Interfaces.ViewAttribute.Base
+  fullName: Solti.Utils.SQL.Interfaces.ViewAttribute.Base
+  nameWithType: ViewAttribute.Base
+- uid: Solti.Utils.SQL.Interfaces.ViewAttribute.Base*
+  name: Base
+  href: Solti.Utils.SQL.Interfaces.ViewAttribute.html#Solti_Utils_SQL_Interfaces_ViewAttribute_Base_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ViewAttribute.Base
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ViewAttribute.Base
+  nameWithType: ViewAttribute.Base
 - uid: Solti.Utils.SQL.Interfaces.WrappedAttribute
   name: WrappedAttribute
   href: Solti.Utils.SQL.Interfaces.WrappedAttribute.html
@@ -1062,315 +1081,249 @@ references:
   fullName.vb: Solti.Utils.SQL.ISqlQueryExtensions.Select(Of TView)(Solti.Utils.SQL.Interfaces.ISqlQuery)
   nameWithType: ISqlQueryExtensions.Select<TView>(ISqlQuery)
   nameWithType.vb: ISqlQueryExtensions.Select(Of TView)(ISqlQuery)
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1
-  name: OrmLiteSqlQuery<TBaseTable>
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html
-  commentId: T:Solti.Utils.SQL.OrmLiteSqlQuery`1
-  name.vb: OrmLiteSqlQuery(Of TBaseTable)
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable)
-  nameWithType: OrmLiteSqlQuery<TBaseTable>
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable)
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.#ctor(IDbConnection,SqlExpression{`0})
-  name: OrmLiteSqlQuery(IDbConnection, SqlExpression<TBaseTable>)
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1__ctor_IDbConnection_SqlExpression__0__
-  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery`1.#ctor(IDbConnection,SqlExpression{`0})
-  name.vb: OrmLiteSqlQuery(IDbConnection, SqlExpression(Of TBaseTable))
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.OrmLiteSqlQuery(IDbConnection, SqlExpression<TBaseTable>)
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).OrmLiteSqlQuery(IDbConnection, SqlExpression(Of TBaseTable))
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.OrmLiteSqlQuery(IDbConnection, SqlExpression<TBaseTable>)
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).OrmLiteSqlQuery(IDbConnection, SqlExpression(Of TBaseTable))
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.#ctor*
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery
   name: OrmLiteSqlQuery
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1__ctor_
-  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery`1.#ctor
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html
+  commentId: T:Solti.Utils.SQL.OrmLiteSqlQuery
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery
+  nameWithType: OrmLiteSqlQuery
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.#ctor(IDbConnection)
+  name: OrmLiteSqlQuery(IDbConnection)
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery__ctor_IDbConnection_
+  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery.#ctor(IDbConnection)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.OrmLiteSqlQuery(IDbConnection)
+  nameWithType: OrmLiteSqlQuery.OrmLiteSqlQuery(IDbConnection)
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.#ctor*
+  name: OrmLiteSqlQuery
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery__ctor_
+  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery.#ctor
   isSpec: "True"
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.OrmLiteSqlQuery
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).OrmLiteSqlQuery
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.OrmLiteSqlQuery
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).OrmLiteSqlQuery
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.Finalize*
-  name: Finalize
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_Finalize_
-  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery`1.Finalize
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.Finalize
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).Finalize
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.Finalize
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).Finalize
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.Finalize``1
-  name: Finalize<TView>()
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_Finalize__1
-  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery`1.Finalize``1
-  name.vb: Finalize(Of TView)()
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.Finalize<TView>()
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).Finalize(Of TView)()
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.Finalize<TView>()
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).Finalize(Of TView)()
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.GroupBy(PropertyInfo)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.OrmLiteSqlQuery
+  nameWithType: OrmLiteSqlQuery.OrmLiteSqlQuery
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.GroupBy(PropertyInfo)
   name: GroupBy(PropertyInfo)
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_GroupBy_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery`1.GroupBy(PropertyInfo)
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.GroupBy(PropertyInfo)
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).GroupBy(PropertyInfo)
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.GroupBy(PropertyInfo)
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).GroupBy(PropertyInfo)
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.GroupBy*
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_GroupBy_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery.GroupBy(PropertyInfo)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.GroupBy(PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.GroupBy(PropertyInfo)
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.GroupBy*
   name: GroupBy
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_GroupBy_
-  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery`1.GroupBy
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_GroupBy_
+  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery.GroupBy
   isSpec: "True"
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.GroupBy
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).GroupBy
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.GroupBy
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).GroupBy
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.InnerJoin*
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.GroupBy
+  nameWithType: OrmLiteSqlQuery.GroupBy
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.InnerJoin*
   name: InnerJoin
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_InnerJoin_
-  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery`1.InnerJoin
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_InnerJoin_
+  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery.InnerJoin
   isSpec: "True"
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.InnerJoin
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).InnerJoin
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.InnerJoin
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).InnerJoin
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.InnerJoin``2(Expression{Func{``0,``1,System.Boolean}})
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.InnerJoin
+  nameWithType: OrmLiteSqlQuery.InnerJoin
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.InnerJoin``2(Expression{Func{``0,``1,System.Boolean}})
   name: InnerJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, Boolean>>)
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_InnerJoin__2_Expression_Func___0___1_System_Boolean___
-  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery`1.InnerJoin``2(Expression{Func{``0,``1,System.Boolean}})
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_InnerJoin__2_Expression_Func___0___1_System_Boolean___
+  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery.InnerJoin``2(Expression{Func{``0,``1,System.Boolean}})
   name.vb: InnerJoin(Of TTable1, TTable2)(Expression(Of Func(Of TTable1, TTable2, Boolean)))
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.InnerJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, System.Boolean>>)
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).InnerJoin(Of TTable1, TTable2)(Expression(Of Func(Of TTable1, TTable2, System.Boolean)))
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.InnerJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, Boolean>>)
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).InnerJoin(Of TTable1, TTable2)(Expression(Of Func(Of TTable1, TTable2, Boolean)))
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.LeftJoin*
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.InnerJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, System.Boolean>>)
+  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery.InnerJoin(Of TTable1, TTable2)(Expression(Of Func(Of TTable1, TTable2, System.Boolean)))
+  nameWithType: OrmLiteSqlQuery.InnerJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, Boolean>>)
+  nameWithType.vb: OrmLiteSqlQuery.InnerJoin(Of TTable1, TTable2)(Expression(Of Func(Of TTable1, TTable2, Boolean)))
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.LeftJoin*
   name: LeftJoin
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_LeftJoin_
-  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery`1.LeftJoin
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_LeftJoin_
+  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery.LeftJoin
   isSpec: "True"
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.LeftJoin
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).LeftJoin
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.LeftJoin
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).LeftJoin
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.LeftJoin``2(Expression{Func{``0,``1,System.Boolean}})
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.LeftJoin
+  nameWithType: OrmLiteSqlQuery.LeftJoin
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.LeftJoin``2(Expression{Func{``0,``1,System.Boolean}})
   name: LeftJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, Boolean>>)
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_LeftJoin__2_Expression_Func___0___1_System_Boolean___
-  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery`1.LeftJoin``2(Expression{Func{``0,``1,System.Boolean}})
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_LeftJoin__2_Expression_Func___0___1_System_Boolean___
+  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery.LeftJoin``2(Expression{Func{``0,``1,System.Boolean}})
   name.vb: LeftJoin(Of TTable1, TTable2)(Expression(Of Func(Of TTable1, TTable2, Boolean)))
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.LeftJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, System.Boolean>>)
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).LeftJoin(Of TTable1, TTable2)(Expression(Of Func(Of TTable1, TTable2, System.Boolean)))
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.LeftJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, Boolean>>)
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).LeftJoin(Of TTable1, TTable2)(Expression(Of Func(Of TTable1, TTable2, Boolean)))
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.OrderBy*
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.LeftJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, System.Boolean>>)
+  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery.LeftJoin(Of TTable1, TTable2)(Expression(Of Func(Of TTable1, TTable2, System.Boolean)))
+  nameWithType: OrmLiteSqlQuery.LeftJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, Boolean>>)
+  nameWithType.vb: OrmLiteSqlQuery.LeftJoin(Of TTable1, TTable2)(Expression(Of Func(Of TTable1, TTable2, Boolean)))
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.OrderBy*
   name: OrderBy
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_OrderBy_
-  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery`1.OrderBy
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_OrderBy_
+  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery.OrderBy
   isSpec: "True"
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.OrderBy
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).OrderBy
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.OrderBy
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).OrderBy
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.OrderBy``1(Expression{Func{``0,System.Object}})
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.OrderBy
+  nameWithType: OrmLiteSqlQuery.OrderBy
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.OrderBy``1(Expression{Func{``0,System.Object}})
   name: OrderBy<TTable>(Expression<Func<TTable, Object>>)
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_OrderBy__1_Expression_Func___0_System_Object___
-  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery`1.OrderBy``1(Expression{Func{``0,System.Object}})
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_OrderBy__1_Expression_Func___0_System_Object___
+  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery.OrderBy``1(Expression{Func{``0,System.Object}})
   name.vb: OrderBy(Of TTable)(Expression(Of Func(Of TTable, Object)))
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.OrderBy<TTable>(Expression<Func<TTable, System.Object>>)
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).OrderBy(Of TTable)(Expression(Of Func(Of TTable, System.Object)))
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.OrderBy<TTable>(Expression<Func<TTable, Object>>)
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).OrderBy(Of TTable)(Expression(Of Func(Of TTable, Object)))
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.OrderByDescending*
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.OrderBy<TTable>(Expression<Func<TTable, System.Object>>)
+  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery.OrderBy(Of TTable)(Expression(Of Func(Of TTable, System.Object)))
+  nameWithType: OrmLiteSqlQuery.OrderBy<TTable>(Expression<Func<TTable, Object>>)
+  nameWithType.vb: OrmLiteSqlQuery.OrderBy(Of TTable)(Expression(Of Func(Of TTable, Object)))
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.OrderByDescending*
   name: OrderByDescending
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_OrderByDescending_
-  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery`1.OrderByDescending
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_OrderByDescending_
+  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery.OrderByDescending
   isSpec: "True"
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.OrderByDescending
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).OrderByDescending
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.OrderByDescending
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).OrderByDescending
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.OrderByDescending``1(Expression{Func{``0,System.Object}})
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.OrderByDescending
+  nameWithType: OrmLiteSqlQuery.OrderByDescending
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.OrderByDescending``1(Expression{Func{``0,System.Object}})
   name: OrderByDescending<TTable>(Expression<Func<TTable, Object>>)
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_OrderByDescending__1_Expression_Func___0_System_Object___
-  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery`1.OrderByDescending``1(Expression{Func{``0,System.Object}})
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_OrderByDescending__1_Expression_Func___0_System_Object___
+  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery.OrderByDescending``1(Expression{Func{``0,System.Object}})
   name.vb: OrderByDescending(Of TTable)(Expression(Of Func(Of TTable, Object)))
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.OrderByDescending<TTable>(Expression<Func<TTable, System.Object>>)
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).OrderByDescending(Of TTable)(Expression(Of Func(Of TTable, System.Object)))
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.OrderByDescending<TTable>(Expression<Func<TTable, Object>>)
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).OrderByDescending(Of TTable)(Expression(Of Func(Of TTable, Object)))
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.Run*
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.OrderByDescending<TTable>(Expression<Func<TTable, System.Object>>)
+  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery.OrderByDescending(Of TTable)(Expression(Of Func(Of TTable, System.Object)))
+  nameWithType: OrmLiteSqlQuery.OrderByDescending<TTable>(Expression<Func<TTable, Object>>)
+  nameWithType.vb: OrmLiteSqlQuery.OrderByDescending(Of TTable)(Expression(Of Func(Of TTable, Object)))
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.Run*
   name: Run
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_Run_
-  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery`1.Run
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_Run_
+  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery.Run
   isSpec: "True"
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.Run
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).Run
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.Run
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).Run
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.Run``1
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.Run
+  nameWithType: OrmLiteSqlQuery.Run
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.Run``1
   name: Run<TView>()
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_Run__1
-  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery`1.Run``1
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_Run__1
+  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery.Run``1
   name.vb: Run(Of TView)()
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.Run<TView>()
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).Run(Of TView)()
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.Run<TView>()
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).Run(Of TView)()
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.Select(PropertyInfo,PropertyInfo)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.Run<TView>()
+  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery.Run(Of TView)()
+  nameWithType: OrmLiteSqlQuery.Run<TView>()
+  nameWithType.vb: OrmLiteSqlQuery.Run(Of TView)()
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.Select(PropertyInfo,PropertyInfo)
   name: Select(PropertyInfo, PropertyInfo)
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_Select_PropertyInfo_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery`1.Select(PropertyInfo,PropertyInfo)
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.Select(PropertyInfo, PropertyInfo)
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).Select(PropertyInfo, PropertyInfo)
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.Select(PropertyInfo, PropertyInfo)
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).Select(PropertyInfo, PropertyInfo)
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.Select*
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_Select_PropertyInfo_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery.Select(PropertyInfo,PropertyInfo)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.Select(PropertyInfo, PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.Select(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.Select*
   name: Select
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_Select_
-  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery`1.Select
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_Select_
+  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery.Select
   isSpec: "True"
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.Select
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).Select
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.Select
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).Select
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectAvg(PropertyInfo,PropertyInfo)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.Select
+  nameWithType: OrmLiteSqlQuery.Select
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.SelectAvg(PropertyInfo,PropertyInfo)
   name: SelectAvg(PropertyInfo, PropertyInfo)
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectAvg_PropertyInfo_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectAvg(PropertyInfo,PropertyInfo)
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.SelectAvg(PropertyInfo, PropertyInfo)
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).SelectAvg(PropertyInfo, PropertyInfo)
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.SelectAvg(PropertyInfo, PropertyInfo)
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).SelectAvg(PropertyInfo, PropertyInfo)
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectAvg*
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_SelectAvg_PropertyInfo_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery.SelectAvg(PropertyInfo,PropertyInfo)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.SelectAvg(PropertyInfo, PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.SelectAvg(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.SelectAvg*
   name: SelectAvg
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectAvg_
-  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectAvg
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_SelectAvg_
+  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery.SelectAvg
   isSpec: "True"
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.SelectAvg
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).SelectAvg
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.SelectAvg
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).SelectAvg
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectCount(PropertyInfo,PropertyInfo)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.SelectAvg
+  nameWithType: OrmLiteSqlQuery.SelectAvg
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.SelectCount(PropertyInfo,PropertyInfo)
   name: SelectCount(PropertyInfo, PropertyInfo)
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectCount_PropertyInfo_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectCount(PropertyInfo,PropertyInfo)
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.SelectCount(PropertyInfo, PropertyInfo)
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).SelectCount(PropertyInfo, PropertyInfo)
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.SelectCount(PropertyInfo, PropertyInfo)
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).SelectCount(PropertyInfo, PropertyInfo)
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectCount*
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_SelectCount_PropertyInfo_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery.SelectCount(PropertyInfo,PropertyInfo)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.SelectCount(PropertyInfo, PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.SelectCount(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.SelectCount*
   name: SelectCount
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectCount_
-  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectCount
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_SelectCount_
+  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery.SelectCount
   isSpec: "True"
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.SelectCount
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).SelectCount
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.SelectCount
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).SelectCount
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectMax(PropertyInfo,PropertyInfo)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.SelectCount
+  nameWithType: OrmLiteSqlQuery.SelectCount
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.SelectMax(PropertyInfo,PropertyInfo)
   name: SelectMax(PropertyInfo, PropertyInfo)
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectMax_PropertyInfo_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectMax(PropertyInfo,PropertyInfo)
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.SelectMax(PropertyInfo, PropertyInfo)
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).SelectMax(PropertyInfo, PropertyInfo)
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.SelectMax(PropertyInfo, PropertyInfo)
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).SelectMax(PropertyInfo, PropertyInfo)
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectMax*
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_SelectMax_PropertyInfo_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery.SelectMax(PropertyInfo,PropertyInfo)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.SelectMax(PropertyInfo, PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.SelectMax(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.SelectMax*
   name: SelectMax
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectMax_
-  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectMax
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_SelectMax_
+  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery.SelectMax
   isSpec: "True"
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.SelectMax
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).SelectMax
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.SelectMax
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).SelectMax
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectMin(PropertyInfo,PropertyInfo)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.SelectMax
+  nameWithType: OrmLiteSqlQuery.SelectMax
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.SelectMin(PropertyInfo,PropertyInfo)
   name: SelectMin(PropertyInfo, PropertyInfo)
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectMin_PropertyInfo_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectMin(PropertyInfo,PropertyInfo)
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.SelectMin(PropertyInfo, PropertyInfo)
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).SelectMin(PropertyInfo, PropertyInfo)
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.SelectMin(PropertyInfo, PropertyInfo)
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).SelectMin(PropertyInfo, PropertyInfo)
-- uid: Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectMin*
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_SelectMin_PropertyInfo_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery.SelectMin(PropertyInfo,PropertyInfo)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.SelectMin(PropertyInfo, PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.SelectMin(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.SelectMin*
   name: SelectMin
-  href: Solti.Utils.SQL.OrmLiteSqlQuery-1.html#Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectMin_
-  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectMin
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_SelectMin_
+  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery.SelectMin
   isSpec: "True"
-  fullName: Solti.Utils.SQL.OrmLiteSqlQuery<TBaseTable>.SelectMin
-  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery(Of TBaseTable).SelectMin
-  nameWithType: OrmLiteSqlQuery<TBaseTable>.SelectMin
-  nameWithType.vb: OrmLiteSqlQuery(Of TBaseTable).SelectMin
-- uid: Solti.Utils.SQL.SmartSqlBuilder`2
-  name: SmartSqlBuilder<TView, TBaseTable>
-  href: Solti.Utils.SQL.SmartSqlBuilder-2.html
-  commentId: T:Solti.Utils.SQL.SmartSqlBuilder`2
-  name.vb: SmartSqlBuilder(Of TView, TBaseTable)
-  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBaseTable>
-  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBaseTable)
-  nameWithType: SmartSqlBuilder<TView, TBaseTable>
-  nameWithType.vb: SmartSqlBuilder(Of TView, TBaseTable)
-- uid: Solti.Utils.SQL.SmartSqlBuilder`2.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.SelectMin
+  nameWithType: OrmLiteSqlQuery.SelectMin
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.SetBase*
+  name: SetBase
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_SetBase_
+  commentId: Overload:Solti.Utils.SQL.OrmLiteSqlQuery.SetBase
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.SetBase
+  nameWithType: OrmLiteSqlQuery.SetBase
+- uid: Solti.Utils.SQL.OrmLiteSqlQuery.SetBase``1
+  name: SetBase<TBase>()
+  href: Solti.Utils.SQL.OrmLiteSqlQuery.html#Solti_Utils_SQL_OrmLiteSqlQuery_SetBase__1
+  commentId: M:Solti.Utils.SQL.OrmLiteSqlQuery.SetBase``1
+  name.vb: SetBase(Of TBase)()
+  fullName: Solti.Utils.SQL.OrmLiteSqlQuery.SetBase<TBase>()
+  fullName.vb: Solti.Utils.SQL.OrmLiteSqlQuery.SetBase(Of TBase)()
+  nameWithType: OrmLiteSqlQuery.SetBase<TBase>()
+  nameWithType.vb: OrmLiteSqlQuery.SetBase(Of TBase)()
+- uid: Solti.Utils.SQL.SmartSqlBuilder`1
+  name: SmartSqlBuilder<TView>
+  href: Solti.Utils.SQL.SmartSqlBuilder-1.html
+  commentId: T:Solti.Utils.SQL.SmartSqlBuilder`1
+  name.vb: SmartSqlBuilder(Of TView)
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView>
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView)
+  nameWithType: SmartSqlBuilder<TView>
+  nameWithType.vb: SmartSqlBuilder(Of TView)
+- uid: Solti.Utils.SQL.SmartSqlBuilder`1.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
   name: Build(ISqlQuery)
-  href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Build_Solti_Utils_SQL_Interfaces_ISqlQuery_
-  commentId: M:Solti.Utils.SQL.SmartSqlBuilder`2.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBaseTable>.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBaseTable).Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  nameWithType: SmartSqlBuilder<TView, TBaseTable>.Build(ISqlQuery)
-  nameWithType.vb: SmartSqlBuilder(Of TView, TBaseTable).Build(ISqlQuery)
-- uid: Solti.Utils.SQL.SmartSqlBuilder`2.Build*
+  href: Solti.Utils.SQL.SmartSqlBuilder-1.html#Solti_Utils_SQL_SmartSqlBuilder_1_Build_Solti_Utils_SQL_Interfaces_ISqlQuery_
+  commentId: M:Solti.Utils.SQL.SmartSqlBuilder`1.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView>.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView).Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
+  nameWithType: SmartSqlBuilder<TView>.Build(ISqlQuery)
+  nameWithType.vb: SmartSqlBuilder(Of TView).Build(ISqlQuery)
+- uid: Solti.Utils.SQL.SmartSqlBuilder`1.Build*
   name: Build
-  href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Build_
-  commentId: Overload:Solti.Utils.SQL.SmartSqlBuilder`2.Build
+  href: Solti.Utils.SQL.SmartSqlBuilder-1.html#Solti_Utils_SQL_SmartSqlBuilder_1_Build_
+  commentId: Overload:Solti.Utils.SQL.SmartSqlBuilder`1.Build
   isSpec: "True"
-  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBaseTable>.Build
-  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBaseTable).Build
-  nameWithType: SmartSqlBuilder<TView, TBaseTable>.Build
-  nameWithType.vb: SmartSqlBuilder(Of TView, TBaseTable).Build
-- uid: Solti.Utils.SQL.SmartSqlBuilder`2.Initialize(Solti.Utils.SQL.Edge[])
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView>.Build
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView).Build
+  nameWithType: SmartSqlBuilder<TView>.Build
+  nameWithType.vb: SmartSqlBuilder(Of TView).Build
+- uid: Solti.Utils.SQL.SmartSqlBuilder`1.Initialize(Solti.Utils.SQL.Edge[])
   name: Initialize(Edge[])
-  href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Initialize_Solti_Utils_SQL_Edge___
-  commentId: M:Solti.Utils.SQL.SmartSqlBuilder`2.Initialize(Solti.Utils.SQL.Edge[])
+  href: Solti.Utils.SQL.SmartSqlBuilder-1.html#Solti_Utils_SQL_SmartSqlBuilder_1_Initialize_Solti_Utils_SQL_Edge___
+  commentId: M:Solti.Utils.SQL.SmartSqlBuilder`1.Initialize(Solti.Utils.SQL.Edge[])
   name.vb: Initialize(Edge())
-  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBaseTable>.Initialize(Solti.Utils.SQL.Edge[])
-  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBaseTable).Initialize(Solti.Utils.SQL.Edge())
-  nameWithType: SmartSqlBuilder<TView, TBaseTable>.Initialize(Edge[])
-  nameWithType.vb: SmartSqlBuilder(Of TView, TBaseTable).Initialize(Edge())
-- uid: Solti.Utils.SQL.SmartSqlBuilder`2.Initialize*
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView>.Initialize(Solti.Utils.SQL.Edge[])
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView).Initialize(Solti.Utils.SQL.Edge())
+  nameWithType: SmartSqlBuilder<TView>.Initialize(Edge[])
+  nameWithType.vb: SmartSqlBuilder(Of TView).Initialize(Edge())
+- uid: Solti.Utils.SQL.SmartSqlBuilder`1.Initialize*
   name: Initialize
-  href: Solti.Utils.SQL.SmartSqlBuilder-2.html#Solti_Utils_SQL_SmartSqlBuilder_2_Initialize_
-  commentId: Overload:Solti.Utils.SQL.SmartSqlBuilder`2.Initialize
+  href: Solti.Utils.SQL.SmartSqlBuilder-1.html#Solti_Utils_SQL_SmartSqlBuilder_1_Initialize_
+  commentId: Overload:Solti.Utils.SQL.SmartSqlBuilder`1.Initialize
   isSpec: "True"
-  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView, TBaseTable>.Initialize
-  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView, TBaseTable).Initialize
-  nameWithType: SmartSqlBuilder<TView, TBaseTable>.Initialize
-  nameWithType.vb: SmartSqlBuilder(Of TView, TBaseTable).Initialize
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView>.Initialize
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView).Initialize
+  nameWithType: SmartSqlBuilder<TView>.Initialize
+  nameWithType.vb: SmartSqlBuilder(Of TView).Initialize
 - uid: Solti.Utils.SQL.TypedSqlQuery
   name: TypedSqlQuery
   href: Solti.Utils.SQL.TypedSqlQuery.html
   commentId: T:Solti.Utils.SQL.TypedSqlQuery
   fullName: Solti.Utils.SQL.TypedSqlQuery
   nameWithType: TypedSqlQuery
-- uid: Solti.Utils.SQL.TypedSqlQuery.Finalize(Type)
-  name: Finalize(Type)
-  href: Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_Finalize_Type_
-  commentId: M:Solti.Utils.SQL.TypedSqlQuery.Finalize(Type)
-  fullName: Solti.Utils.SQL.TypedSqlQuery.Finalize(Type)
-  nameWithType: TypedSqlQuery.Finalize(Type)
-- uid: Solti.Utils.SQL.TypedSqlQuery.Finalize*
-  name: Finalize
-  href: Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_Finalize_
-  commentId: Overload:Solti.Utils.SQL.TypedSqlQuery.Finalize
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.TypedSqlQuery.Finalize
-  nameWithType: TypedSqlQuery.Finalize
-- uid: Solti.Utils.SQL.TypedSqlQuery.Finalize``1
-  name: Finalize<TView>()
-  href: Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_Finalize__1
-  commentId: M:Solti.Utils.SQL.TypedSqlQuery.Finalize``1
-  name.vb: Finalize(Of TView)()
-  fullName: Solti.Utils.SQL.TypedSqlQuery.Finalize<TView>()
-  fullName.vb: Solti.Utils.SQL.TypedSqlQuery.Finalize(Of TView)()
-  nameWithType: TypedSqlQuery.Finalize<TView>()
-  nameWithType.vb: TypedSqlQuery.Finalize(Of TView)()
 - uid: Solti.Utils.SQL.TypedSqlQuery.GoupBy*
   name: GoupBy
   href: Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_GoupBy_
@@ -1620,3 +1573,25 @@ references:
   fullName.vb: Solti.Utils.SQL.TypedSqlQuery.SelectMin(Of TTable, TView)(Expression(Of Func(Of TTable, System.Object)), Expression(Of Func(Of TView, System.Object)))
   nameWithType: TypedSqlQuery.SelectMin<TTable, TView>(Expression<Func<TTable, Object>>, Expression<Func<TView, Object>>)
   nameWithType.vb: TypedSqlQuery.SelectMin(Of TTable, TView)(Expression(Of Func(Of TTable, Object)), Expression(Of Func(Of TView, Object)))
+- uid: Solti.Utils.SQL.TypedSqlQuery.SetBase(Type)
+  name: SetBase(Type)
+  href: Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_SetBase_Type_
+  commentId: M:Solti.Utils.SQL.TypedSqlQuery.SetBase(Type)
+  fullName: Solti.Utils.SQL.TypedSqlQuery.SetBase(Type)
+  nameWithType: TypedSqlQuery.SetBase(Type)
+- uid: Solti.Utils.SQL.TypedSqlQuery.SetBase*
+  name: SetBase
+  href: Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_SetBase_
+  commentId: Overload:Solti.Utils.SQL.TypedSqlQuery.SetBase
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.TypedSqlQuery.SetBase
+  nameWithType: TypedSqlQuery.SetBase
+- uid: Solti.Utils.SQL.TypedSqlQuery.SetBase``1
+  name: SetBase<TView>()
+  href: Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_SetBase__1
+  commentId: M:Solti.Utils.SQL.TypedSqlQuery.SetBase``1
+  name.vb: SetBase(Of TView)()
+  fullName: Solti.Utils.SQL.TypedSqlQuery.SetBase<TView>()
+  fullName.vb: Solti.Utils.SQL.TypedSqlQuery.SetBase(Of TView)()
+  nameWithType: TypedSqlQuery.SetBase<TView>()
+  nameWithType.vb: TypedSqlQuery.SetBase(Of TView)()

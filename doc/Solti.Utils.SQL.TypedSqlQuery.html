@@ -49,7 +49,7 @@
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">TypedSqlQuery</span></div>
-      <div class="level2"><a class="xref" href="Solti.Utils.SQL.OrmLiteSqlQuery-1.html">OrmLiteSqlQuery&lt;TBaseTable&gt;</a></div>
+      <div class="level2"><a class="xref" href="Solti.Utils.SQL.OrmLiteSqlQuery.html">OrmLiteSqlQuery</a></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
@@ -63,56 +63,6 @@
   </div>
   <h3 id="methods">Methods
   </h3>
-  <a id="Solti_Utils_SQL_TypedSqlQuery_Finalize_" data-uid="Solti.Utils.SQL.TypedSqlQuery.Finalize*"></a>
-  <h4 id="Solti_Utils_SQL_TypedSqlQuery_Finalize_Type_" data-uid="Solti.Utils.SQL.TypedSqlQuery.Finalize(Type)">Finalize(Type)</h4>
-  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.Finalize(Type)"></see>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void Finalize(Type view)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Type</span></td>
-        <td><span class="parametername">view</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Solti_Utils_SQL_TypedSqlQuery_Finalize_" data-uid="Solti.Utils.SQL.TypedSqlQuery.Finalize*"></a>
-  <h4 id="Solti_Utils_SQL_TypedSqlQuery_Finalize__1" data-uid="Solti.Utils.SQL.TypedSqlQuery.Finalize``1">Finalize&lt;TView&gt;()</h4>
-  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.Finalize(Type)"></see>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Finalize&lt;TView&gt;()</code></pre>
-  </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TView</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <a id="Solti_Utils_SQL_TypedSqlQuery_GoupBy_" data-uid="Solti.Utils.SQL.TypedSqlQuery.GoupBy*"></a>
   <h4 id="Solti_Utils_SQL_TypedSqlQuery_GoupBy__1_Expression_Func___0_System_Object___" data-uid="Solti.Utils.SQL.TypedSqlQuery.GoupBy``1(Expression{Func{``0,System.Object}})">GoupBy&lt;TTable&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.GroupBy(PropertyInfo)"></see>.</p>
@@ -945,6 +895,56 @@
         <td><span class="parametername">TTable</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="parametername">TView</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_SetBase_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SetBase*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_SetBase_Type_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SetBase(Type)">SetBase(Type)</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SetBase(Type)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SetBase(Type view)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">view</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_TypedSqlQuery_SetBase_" data-uid="Solti.Utils.SQL.TypedSqlQuery.SetBase*"></a>
+  <h4 id="Solti_Utils_SQL_TypedSqlQuery_SetBase__1" data-uid="Solti.Utils.SQL.TypedSqlQuery.SetBase``1">SetBase&lt;TView&gt;()</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SetBase(Type)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void SetBase&lt;TView&gt;()</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
       <tr>
         <td><span class="parametername">TView</span></td>
         <td></td>

@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class OrmLiteSqlQuery&lt;TBaseTable&gt;
+    <title>Class OrmLiteSqlQuery
    | SqlUtils.NET </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class OrmLiteSqlQuery&lt;TBaseTable&gt;
+    <meta name="title" content="Class OrmLiteSqlQuery
    | SqlUtils.NET ">
     <meta name="generator" content="docfx 2.46.0.0">
     
@@ -37,10 +37,10 @@
       <div role="main" class="container body-content hide-when-search">
         <div class="article row grid">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1">
+            <article class="content wrap" id="_content" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery">
   
   
-  <h1 id="Solti_Utils_SQL_OrmLiteSqlQuery_1" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1" class="text-break">Class OrmLiteSqlQuery&lt;TBaseTable&gt;
+  <h1 id="Solti_Utils_SQL_OrmLiteSqlQuery" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery" class="text-break">Class OrmLiteSqlQuery
   </h1>
   <div class="markdown level0 summary"><p>The OrmLite specific implementation of the <a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a> interface.</p>
 </div>
@@ -49,7 +49,7 @@
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><a class="xref" href="Solti.Utils.SQL.TypedSqlQuery.html">TypedSqlQuery</a></div>
-    <div class="level2"><span class="xref">OrmLiteSqlQuery&lt;TBaseTable&gt;</span></div>
+    <div class="level2"><span class="xref">OrmLiteSqlQuery</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
@@ -58,7 +58,7 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_Finalize_Type_">TypedSqlQuery.Finalize(Type)</a>
+      <a class="xref" href="Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_SetBase_Type_">TypedSqlQuery.SetBase(Type)</a>
     </div>
     <div>
       <a class="xref" href="Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_GoupBy__1_Expression_Func___0_System_Object___">TypedSqlQuery.GoupBy&lt;TTable&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;)</a>
@@ -96,35 +96,20 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Solti.Utils.SQL.html">Solti.Utils.SQL</a></h6>
   <h6><strong>Assembly</strong>: Solti.Utils.SQL.OrmLite.dll</h6>
-  <h5 id="Solti_Utils_SQL_OrmLiteSqlQuery_1_syntax">Syntax</h5>
+  <h5 id="Solti_Utils_SQL_OrmLiteSqlQuery_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class OrmLiteSqlQuery&lt;TBaseTable&gt; : TypedSqlQuery, ISqlQuery</code></pre>
+    <pre><code class="lang-csharp hljs">public class OrmLiteSqlQuery : TypedSqlQuery, ISqlQuery</code></pre>
   </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TBaseTable</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="constructors">Constructors
   </h3>
-  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_1__ctor_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.#ctor*"></a>
-  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_1__ctor_IDbConnection_SqlExpression__0__" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.#ctor(IDbConnection,SqlExpression{`0})">OrmLiteSqlQuery(IDbConnection, SqlExpression&lt;TBaseTable&gt;)</h4>
-  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Solti.Utils.SQL.OrmLiteSqlQuery-1.html">OrmLiteSqlQuery&lt;TBaseTable&gt;</a> instance.</p>
+  <a id="Solti_Utils_SQL_OrmLiteSqlQuery__ctor_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.#ctor*"></a>
+  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery__ctor_IDbConnection_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.#ctor(IDbConnection)">OrmLiteSqlQuery(IDbConnection)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Solti.Utils.SQL.OrmLiteSqlQuery.html">OrmLiteSqlQuery</a> instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public OrmLiteSqlQuery(IDbConnection connection, SqlExpression&lt;TBaseTable&gt; sqlExpression)</code></pre>
+    <pre><code class="lang-csharp hljs">public OrmLiteSqlQuery(IDbConnection connection)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -141,43 +126,12 @@
         <td><span class="parametername">connection</span></td>
         <td></td>
       </tr>
-      <tr>
-        <td><span class="xref">SqlExpression</span>&lt;TBaseTable&gt;</td>
-        <td><span class="parametername">sqlExpression</span></td>
-        <td></td>
-      </tr>
     </tbody>
   </table>
   <h3 id="methods">Methods
   </h3>
-  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_1_Finalize_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.Finalize*"></a>
-  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_1_Finalize__1" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.Finalize``1">Finalize&lt;TView&gt;()</h4>
-  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.Finalize(Type)"></see>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void Finalize&lt;TView&gt;()</code></pre>
-  </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TView</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_Finalize__1">TypedSqlQuery.Finalize&lt;TView&gt;()</a></div>
-  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_1_GroupBy_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.GroupBy*"></a>
-  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_1_GroupBy_PropertyInfo_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.GroupBy(PropertyInfo)">GroupBy(PropertyInfo)</h4>
+  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_GroupBy_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.GroupBy*"></a>
+  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_GroupBy_PropertyInfo_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.GroupBy(PropertyInfo)">GroupBy(PropertyInfo)</h4>
   <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.GroupBy(PropertyInfo)"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -204,8 +158,8 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_GroupBy_PropertyInfo_">TypedSqlQuery.GroupBy(PropertyInfo)</a></div>
-  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_1_InnerJoin_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.InnerJoin*"></a>
-  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_1_InnerJoin__2_Expression_Func___0___1_System_Boolean___" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.InnerJoin``2(Expression{Func{``0,``1,System.Boolean}})">InnerJoin&lt;TTable1, TTable2&gt;(Expression&lt;Func&lt;TTable1, TTable2, Boolean&gt;&gt;)</h4>
+  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_InnerJoin_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.InnerJoin*"></a>
+  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_InnerJoin__2_Expression_Func___0___1_System_Boolean___" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.InnerJoin``2(Expression{Func{``0,``1,System.Boolean}})">InnerJoin&lt;TTable1, TTable2&gt;(Expression&lt;Func&lt;TTable1, TTable2, Boolean&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.InnerJoin(PropertyInfo, PropertyInfo)"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -251,8 +205,8 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">Solti.Utils.SQL.TypedSqlQuery.InnerJoin&lt;TTable1, TTable2&gt;(Expression&lt;Func&lt;TTable1, TTable2, System.Boolean&gt;&gt;)</span></div>
-  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_1_LeftJoin_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.LeftJoin*"></a>
-  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_1_LeftJoin__2_Expression_Func___0___1_System_Boolean___" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.LeftJoin``2(Expression{Func{``0,``1,System.Boolean}})">LeftJoin&lt;TTable1, TTable2&gt;(Expression&lt;Func&lt;TTable1, TTable2, Boolean&gt;&gt;)</h4>
+  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_LeftJoin_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.LeftJoin*"></a>
+  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_LeftJoin__2_Expression_Func___0___1_System_Boolean___" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.LeftJoin``2(Expression{Func{``0,``1,System.Boolean}})">LeftJoin&lt;TTable1, TTable2&gt;(Expression&lt;Func&lt;TTable1, TTable2, Boolean&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.LeftJoin(PropertyInfo, PropertyInfo)"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -298,8 +252,8 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">Solti.Utils.SQL.TypedSqlQuery.LeftJoin&lt;TTable1, TTable2&gt;(Expression&lt;Func&lt;TTable1, TTable2, System.Boolean&gt;&gt;)</span></div>
-  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_1_OrderBy_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.OrderBy*"></a>
-  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_1_OrderBy__1_Expression_Func___0_System_Object___" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.OrderBy``1(Expression{Func{``0,System.Object}})">OrderBy&lt;TTable&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;)</h4>
+  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_OrderBy_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.OrderBy*"></a>
+  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_OrderBy__1_Expression_Func___0_System_Object___" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.OrderBy``1(Expression{Func{``0,System.Object}})">OrderBy&lt;TTable&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.OrderBy(PropertyInfo)"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -341,8 +295,8 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">Solti.Utils.SQL.TypedSqlQuery.OrderBy&lt;TTable&gt;(Expression&lt;Func&lt;TTable, System.Object&gt;&gt;)</span></div>
-  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_1_OrderByDescending_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.OrderByDescending*"></a>
-  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_1_OrderByDescending__1_Expression_Func___0_System_Object___" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.OrderByDescending``1(Expression{Func{``0,System.Object}})">OrderByDescending&lt;TTable&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;)</h4>
+  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_OrderByDescending_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.OrderByDescending*"></a>
+  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_OrderByDescending__1_Expression_Func___0_System_Object___" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.OrderByDescending``1(Expression{Func{``0,System.Object}})">OrderByDescending&lt;TTable&gt;(Expression&lt;Func&lt;TTable, Object&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.OrderByDescending(PropertyInfo)"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -384,8 +338,8 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">Solti.Utils.SQL.TypedSqlQuery.OrderByDescending&lt;TTable&gt;(Expression&lt;Func&lt;TTable, System.Object&gt;&gt;)</span></div>
-  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_1_Run_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.Run*"></a>
-  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_1_Run__1" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.Run``1">Run&lt;TView&gt;()</h4>
+  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_Run_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.Run*"></a>
+  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_Run__1" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.Run``1">Run&lt;TView&gt;()</h4>
   <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.Run(Type)"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -425,8 +379,8 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_Run__1">TypedSqlQuery.Run&lt;TView&gt;()</a></div>
-  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_1_Select_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.Select*"></a>
-  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_1_Select_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.Select(PropertyInfo,PropertyInfo)">Select(PropertyInfo, PropertyInfo)</h4>
+  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_Select_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.Select*"></a>
+  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_Select_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.Select(PropertyInfo,PropertyInfo)">Select(PropertyInfo, PropertyInfo)</h4>
   <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.Select(PropertyInfo, PropertyInfo)"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -458,8 +412,8 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_Select_PropertyInfo_PropertyInfo_">TypedSqlQuery.Select(PropertyInfo, PropertyInfo)</a></div>
-  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectAvg_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectAvg*"></a>
-  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectAvg_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectAvg(PropertyInfo,PropertyInfo)">SelectAvg(PropertyInfo, PropertyInfo)</h4>
+  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_SelectAvg_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.SelectAvg*"></a>
+  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_SelectAvg_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.SelectAvg(PropertyInfo,PropertyInfo)">SelectAvg(PropertyInfo, PropertyInfo)</h4>
   <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SelectAvg(PropertyInfo, PropertyInfo)"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -491,8 +445,8 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_SelectAvg_PropertyInfo_PropertyInfo_">TypedSqlQuery.SelectAvg(PropertyInfo, PropertyInfo)</a></div>
-  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectCount_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectCount*"></a>
-  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectCount_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectCount(PropertyInfo,PropertyInfo)">SelectCount(PropertyInfo, PropertyInfo)</h4>
+  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_SelectCount_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.SelectCount*"></a>
+  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_SelectCount_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.SelectCount(PropertyInfo,PropertyInfo)">SelectCount(PropertyInfo, PropertyInfo)</h4>
   <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SelectCount(PropertyInfo, PropertyInfo)"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -524,8 +478,8 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_SelectCount_PropertyInfo_PropertyInfo_">TypedSqlQuery.SelectCount(PropertyInfo, PropertyInfo)</a></div>
-  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectMax_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectMax*"></a>
-  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectMax_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectMax(PropertyInfo,PropertyInfo)">SelectMax(PropertyInfo, PropertyInfo)</h4>
+  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_SelectMax_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.SelectMax*"></a>
+  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_SelectMax_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.SelectMax(PropertyInfo,PropertyInfo)">SelectMax(PropertyInfo, PropertyInfo)</h4>
   <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SelectMax(PropertyInfo, PropertyInfo)"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -557,8 +511,8 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_SelectMax_PropertyInfo_PropertyInfo_">TypedSqlQuery.SelectMax(PropertyInfo, PropertyInfo)</a></div>
-  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectMin_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectMin*"></a>
-  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_1_SelectMin_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery`1.SelectMin(PropertyInfo,PropertyInfo)">SelectMin(PropertyInfo, PropertyInfo)</h4>
+  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_SelectMin_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.SelectMin*"></a>
+  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_SelectMin_PropertyInfo_PropertyInfo_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.SelectMin(PropertyInfo,PropertyInfo)">SelectMin(PropertyInfo, PropertyInfo)</h4>
   <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SelectMin(PropertyInfo, PropertyInfo)"></see>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -590,6 +544,32 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_SelectMin_PropertyInfo_PropertyInfo_">TypedSqlQuery.SelectMin(PropertyInfo, PropertyInfo)</a></div>
+  <a id="Solti_Utils_SQL_OrmLiteSqlQuery_SetBase_" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.SetBase*"></a>
+  <h4 id="Solti_Utils_SQL_OrmLiteSqlQuery_SetBase__1" data-uid="Solti.Utils.SQL.OrmLiteSqlQuery.SetBase``1">SetBase&lt;TBase&gt;()</h4>
+  <div class="markdown level1 summary"><p>See <see cref="!:ISqlQuery.SetBase(Type)"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SetBase&lt;TBase&gt;()</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TBase</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Solti.Utils.SQL.TypedSqlQuery.html#Solti_Utils_SQL_TypedSqlQuery_SetBase__1">TypedSqlQuery.SetBase&lt;TView&gt;()</a></div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a>

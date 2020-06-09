@@ -53,32 +53,6 @@
   </div>
   <h3 id="methods">Methods
   </h3>
-  <a id="Solti_Utils_SQL_Interfaces_ISqlQuery_Finalize_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize*"></a>
-  <h4 id="Solti_Utils_SQL_Interfaces_ISqlQuery_Finalize_System_Type_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.Finalize(System.Type)">Finalize(Type)</h4>
-  <div class="markdown level1 summary"><p>Place for custom finalization routins. This method will be called once the query is assembled.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Finalize(Type view)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">view</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <a id="Solti_Utils_SQL_Interfaces_ISqlQuery_GroupBy_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy*"></a>
   <h4 id="Solti_Utils_SQL_Interfaces_ISqlQuery_GroupBy_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy(System.Reflection.PropertyInfo)">GroupBy(PropertyInfo)</h4>
   <div class="markdown level1 summary"><p>Extends/creates the &quot;group by&quot; clause of this query.</p>
@@ -411,6 +385,32 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
         <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_Interfaces_ISqlQuery_SetBase_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_ISqlQuery_SetBase_System_Type_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(System.Type)">SetBase(Type)</h4>
+  <div class="markdown level1 summary"><p>Sets the base data table that should appear in the FROM clause.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetBase(Type table)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">table</span></td>
         <td></td>
       </tr>
     </tbody>

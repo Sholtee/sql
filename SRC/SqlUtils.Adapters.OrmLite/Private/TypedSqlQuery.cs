@@ -10,7 +10,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Solti.Utils.SQL
+namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
 

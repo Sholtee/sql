@@ -8,7 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Solti.Utils.SQL
+namespace Solti.Utils.SQL.Internals
 {
     using Primitives;
 

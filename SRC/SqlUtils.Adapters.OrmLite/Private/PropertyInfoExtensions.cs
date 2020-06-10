@@ -10,7 +10,7 @@ using System.Reflection;
 
 using ServiceStack.OrmLite;
 
-namespace Solti.Utils.SQL
+namespace Solti.Utils.SQL.Internals
 {
     internal static class PropertyInfoExtensions
     {

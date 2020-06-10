@@ -11,6 +11,8 @@ using ServiceStack.OrmLite;
 
 namespace Solti.Utils.SQL
 {
+    using Internals;
+
     /// <summary>
     /// Defines some handy extensions to the <see cref="IDbConnection"/> interface.
     /// </summary>

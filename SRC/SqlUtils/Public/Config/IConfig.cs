@@ -7,7 +7,7 @@ using System;
 using System.Data;
 using System.Reflection;
 
-namespace Solti.Utils.SQL.Interfaces
+namespace Solti.Utils.SQL
 {
     /// <summary>
     /// Defines the abstract configuration related to this library.

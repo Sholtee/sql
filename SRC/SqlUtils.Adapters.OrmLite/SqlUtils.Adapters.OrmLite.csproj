@@ -13,12 +13,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ServiceStack.OrmLite.Core" Version="5.8.0" />
-    <PackageReference Include="Solti.Utils.Primitives" Version="1.1.0" />
+    <PackageReference Include="ServiceStack.OrmLite.Core" Version="5.*" />
+    <PackageReference Include="Solti.Utils.Primitives" Version="1.*" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SqlUtils.Interfaces\SqlUtils.Interfaces.csproj" />
     <ProjectReference Include="..\SqlUtils\SqlUtils.csproj" />
   </ItemGroup>
 

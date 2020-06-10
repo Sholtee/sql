@@ -8,7 +8,7 @@ using System;
 namespace Solti.Utils.SQL.Interfaces
 {
     /// <summary>
-    /// Marks a class that represents a view.
+    /// Marks a class to be used as a view.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public sealed class ViewAttribute : Attribute

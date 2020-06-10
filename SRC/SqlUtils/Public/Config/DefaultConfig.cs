@@ -8,9 +8,10 @@ using System.Data;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace Solti.Utils.SQL.Interfaces
+namespace Solti.Utils.SQL
 {
-    using DataAnnotations;
+    using Interfaces;
+    using Interfaces.DataAnnotations;
 
     /// <summary>
     /// Default configuration.

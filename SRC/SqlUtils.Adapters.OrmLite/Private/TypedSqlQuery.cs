@@ -13,6 +13,7 @@ using System.Reflection;
 namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
+    using Primitives;
 
     internal class TypedSqlQuery : ISqlQuery
     {
@@ -20,7 +21,7 @@ namespace Solti.Utils.SQL.Internals
 
         private static readonly MethodInfo FSetBase = GetGenericMethod(self => self.SetBase<object>());
 
-        public virtual void SetBase(Type view) => FSetBase.MakeGenericMethod(view ?? throw new ArgumentNullException(nameof(view))).Call(this);
+        public virtual void SetBase(Type view) => FSetBase.MakeGenericMethod(view ?? throw new ArgumentNullException(nameof(view))).ToInstanceDelegate().Invoke(this, Array.Empty<object>());
 
         protected virtual void SetBase<TView>() => throw new NotImplementedException();
 
@@ -30,10 +31,10 @@ namespace Solti.Utils.SQL.Internals
         {
             if (column == null) throw new ArgumentNullException(nameof(column));
 
-            FGroupBy.MakeGenericMethod(column.ReflectedType).Call
+            FGroupBy.MakeGenericMethod(column.ReflectedType).ToInstanceDelegate().Invoke
             (
                 this,
-                column.ToSelectExpression()
+                new object[] { column.ToSelectExpression() }
             );
         }
 
@@ -49,10 +50,10 @@ namespace Solti.Utils.SQL.Internals
             if (right == null)
                 throw new ArgumentNullException(nameof(right));
 
-            FInnerJoin.MakeGenericMethod(left.ReflectedType, right.ReflectedType).Call
+            FInnerJoin.MakeGenericMethod(left.ReflectedType, right.ReflectedType).ToInstanceDelegate().Invoke
             (
                 this,
-                left.ToEqualsExpression(right)
+                new object[] { left.ToEqualsExpression(right) }
             );
         }
 
@@ -68,10 +69,10 @@ namespace Solti.Utils.SQL.Internals
             if (right == null)
                 throw new ArgumentNullException(nameof(right));
 
-            FLeftJoin.MakeGenericMethod(left.ReflectedType, right.ReflectedType).Call
+            FLeftJoin.MakeGenericMethod(left.ReflectedType, right.ReflectedType).ToInstanceDelegate().Invoke
             (
                 this,
-                left.ToEqualsExpression(right)
+                new object[] { left.ToEqualsExpression(right) }
             );
         }
 
@@ -84,10 +85,10 @@ namespace Solti.Utils.SQL.Internals
             if (column == null)
                 throw new ArgumentNullException(nameof(column));
 
-            FOrderBy.MakeGenericMethod(column.ReflectedType).Call
+            FOrderBy.MakeGenericMethod(column.ReflectedType).ToInstanceDelegate().Invoke
             (
                 this,
-                column.ToSelectExpression()
+                new object[] { column.ToSelectExpression() }
             );
         }
 
@@ -100,10 +101,10 @@ namespace Solti.Utils.SQL.Internals
             if (column == null)
                 throw new ArgumentNullException(nameof(column));
 
-            FOrderByDescending.MakeGenericMethod(column.ReflectedType).Call
+            FOrderByDescending.MakeGenericMethod(column.ReflectedType).ToInstanceDelegate().Invoke
             (
                 this,
-                column.ToSelectExpression()
+                new object[] { column.ToSelectExpression() }
             );
         }
 
@@ -111,7 +112,7 @@ namespace Solti.Utils.SQL.Internals
 
         private static readonly MethodInfo FRun = GetGenericMethod(self => self.Run<object>());
 
-        public virtual IList Run(Type view) => (IList) FRun.MakeGenericMethod(view ?? throw new ArgumentNullException(nameof(view))).Call(this);
+        public virtual IList Run(Type view) => (IList) FRun.MakeGenericMethod(view ?? throw new ArgumentNullException(nameof(view))).ToInstanceDelegate().Invoke(this, Array.Empty<object>());
 
         protected virtual List<TView> Run<TView>() => throw new NotImplementedException();
 
@@ -126,11 +127,14 @@ namespace Solti.Utils.SQL.Internals
             if (viewColumn == null)
                 throw new ArgumentNullException(nameof(viewColumn));
 
-            FSelect.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).Call
+            FSelect.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).ToInstanceDelegate().Invoke
             (
                 this,
-                tableColumn.ToSelectExpression(),
-                viewColumn.ToSelectExpression()
+                new object[]
+                {
+                    tableColumn.ToSelectExpression(),
+                    viewColumn.ToSelectExpression()
+                }
             );
         }
 
@@ -147,11 +151,14 @@ namespace Solti.Utils.SQL.Internals
             if (viewColumn == null)
                 throw new ArgumentNullException(nameof(viewColumn));
 
-            FSelectAvg.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).Call
+            FSelectAvg.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).ToInstanceDelegate().Invoke
             (
                 this,
-                tableColumn.ToSelectExpression(),
-                viewColumn.ToSelectExpression()
+                new object[]
+                {
+                    tableColumn.ToSelectExpression(),
+                    viewColumn.ToSelectExpression()
+                }
             );
         }
 
@@ -167,11 +174,14 @@ namespace Solti.Utils.SQL.Internals
             if (viewColumn == null)
                 throw new ArgumentNullException(nameof(viewColumn));
 
-            FSelectCount.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).Call
+            FSelectCount.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).ToInstanceDelegate().Invoke
             (
                 this,
-                tableColumn.ToSelectExpression(),
-                viewColumn.ToSelectExpression()
+                new object[]
+                {
+                    tableColumn.ToSelectExpression(),
+                    viewColumn.ToSelectExpression()
+                }
             );
         }
 
@@ -187,11 +197,14 @@ namespace Solti.Utils.SQL.Internals
             if (viewColumn == null)
                 throw new ArgumentNullException(nameof(viewColumn));
 
-            FSelectMax.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).Call
+            FSelectMax.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).ToInstanceDelegate().Invoke
             (
                 this,
-                tableColumn.ToSelectExpression(),
-                viewColumn.ToSelectExpression()
+                new object[]
+                {
+                    tableColumn.ToSelectExpression(),
+                    viewColumn.ToSelectExpression()
+                }
             );
         }
 
@@ -207,11 +220,14 @@ namespace Solti.Utils.SQL.Internals
             if (viewColumn == null)
                 throw new ArgumentNullException(nameof(viewColumn));
 
-            FSelectMin.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).Call
+            FSelectMin.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).ToInstanceDelegate().Invoke
             (
                 this,
-                tableColumn.ToSelectExpression(),
-                viewColumn.ToSelectExpression()
+                new object[]
+                {
+                    tableColumn.ToSelectExpression(),
+                    viewColumn.ToSelectExpression()
+                }
             );
         }
 

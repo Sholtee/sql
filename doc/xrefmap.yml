@@ -1034,6 +1034,64 @@ references:
   commentId: F:Solti.Utils.SQL.Interfaces.Order.None
   fullName: Solti.Utils.SQL.Interfaces.Order.None
   nameWithType: Order.None
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig
+  name: OrmLiteConfig
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html
+  commentId: T:Solti.Utils.SQL.Interfaces.OrmLiteConfig
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig
+  nameWithType: OrmLiteConfig
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType(PropertyInfo)
+  name: GetReferencedType(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_GetReferencedType_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType(PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType(PropertyInfo)
+  nameWithType: OrmLiteConfig.GetReferencedType(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType*
+  name: GetReferencedType
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_GetReferencedType_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType
+  nameWithType: OrmLiteConfig.GetReferencedType
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored(PropertyInfo)
+  name: IsIgnored(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_IsIgnored_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored(PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored(PropertyInfo)
+  nameWithType: OrmLiteConfig.IsIgnored(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored*
+  name: IsIgnored
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_IsIgnored_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored
+  nameWithType: OrmLiteConfig.IsIgnored
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey(PropertyInfo)
+  name: IsPrimaryKey(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_IsPrimaryKey_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey(PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey(PropertyInfo)
+  nameWithType: OrmLiteConfig.IsPrimaryKey(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey*
+  name: IsPrimaryKey
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_IsPrimaryKey_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey
+  nameWithType: OrmLiteConfig.IsPrimaryKey
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(IDataParameter)
+  name: Stringify(IDataParameter)
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_Stringify_IDataParameter_
+  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(IDataParameter)
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(IDataParameter)
+  nameWithType: OrmLiteConfig.Stringify(IDataParameter)
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify*
+  name: Stringify
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_Stringify_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify
+  nameWithType: OrmLiteConfig.Stringify
 - uid: Solti.Utils.SQL.Interfaces.ViewAttribute
   name: ViewAttribute
   href: Solti.Utils.SQL.Interfaces.ViewAttribute.html

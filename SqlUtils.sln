@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlUtils", "SRC\SqlUtils\Sq
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlUtils.Interfaces", "SRC\SqlUtils.Interfaces\SqlUtils.Interfaces.csproj", "{473BA635-31C1-4670-A972-94644D1BDB65}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlUtils.Tests", "TEST\SqlUtils.Tests.csproj", "{57E475E0-9B36-4743-A1DA-8945050E9FCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlUtils.Tests", "TEST\SqlUtils.Tests\SqlUtils.Tests.csproj", "{57E475E0-9B36-4743-A1DA-8945050E9FCE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlUtils.Adapters.OrmLite", "SRC\SqlUtils.Adapters.OrmLite\SqlUtils.Adapters.OrmLite.csproj", "{409B67BE-FAB8-42D5-B6F8-3858A0E3FD91}"
 EndProject

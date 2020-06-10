@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>Solti.Utils.SQL.Tests</AssemblyName>
+    <RootNamespace>Solti.Utils.SQL.Tests</RootNamespace>
+  </PropertyGroup>
+  
+  <Import Project="../Common.targets" />
+  
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+    <PackageReference Include="Solti.Utils.Primitives" Version="1.*" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\SRC\SqlUtils\SqlUtils.csproj" />
+  </ItemGroup>
+
+</Project>

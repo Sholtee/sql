@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlUtils.Interfaces", "SRC\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlUtils.Tests", "TEST\SqlUtils.Tests\SqlUtils.Tests.csproj", "{57E475E0-9B36-4743-A1DA-8945050E9FCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlUtils.Adapters.OrmLite", "SRC\SqlUtils.Adapters.OrmLite\SqlUtils.Adapters.OrmLite.csproj", "{409B67BE-FAB8-42D5-B6F8-3858A0E3FD91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlUtils.Adapters.OrmLite", "SRC\SqlUtils.Adapters.OrmLite\SqlUtils.Adapters.OrmLite.csproj", "{409B67BE-FAB8-42D5-B6F8-3858A0E3FD91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlUtils.Adapters.OrmLite.Tests", "TEST\SqlUtils.Adapters.OrmLite.Tests\SqlUtils.Adapters.OrmLite.Tests.csproj", "{07441EC7-8588-4B47-8295-C0055EADC36E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{409B67BE-FAB8-42D5-B6F8-3858A0E3FD91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{409B67BE-FAB8-42D5-B6F8-3858A0E3FD91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{409B67BE-FAB8-42D5-B6F8-3858A0E3FD91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07441EC7-8588-4B47-8295-C0055EADC36E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07441EC7-8588-4B47-8295-C0055EADC36E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07441EC7-8588-4B47-8295-C0055EADC36E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07441EC7-8588-4B47-8295-C0055EADC36E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

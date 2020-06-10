@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>Solti.Utils.SQL.OrmLite.Tests</AssemblyName>
+    <RootNamespace>Solti.Utils.SQL.OrmLite.Tests</RootNamespace>
+  </PropertyGroup>
+
+  <Import Project="../Common.targets" />
+
+  <ItemGroup>
+    <PackageReference Include="ServiceStack.OrmLite.Sqlite.Core" Version="5.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SRC\SqlUtils.Adapters.OrmLite\SqlUtils.Adapters.OrmLite.csproj" />
+  </ItemGroup>
+
+</Project>

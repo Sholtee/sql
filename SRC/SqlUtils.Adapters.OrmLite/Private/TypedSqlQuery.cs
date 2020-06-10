@@ -20,7 +20,7 @@ namespace Solti.Utils.SQL.Internals
 
         private static readonly MethodInfo FSetBase = GetGenericMethod(self => self.SetBase<object>());
 
-        public virtual void SetBase(Type view) => FSetBase.MakeGenericMethod(view ?? throw new ArgumentNullException(nameof(view))).Call();
+        public virtual void SetBase(Type view) => FSetBase.MakeGenericMethod(view ?? throw new ArgumentNullException(nameof(view))).Call(this);
 
         protected virtual void SetBase<TView>() => throw new NotImplementedException();
 
@@ -32,6 +32,7 @@ namespace Solti.Utils.SQL.Internals
 
             FGroupBy.MakeGenericMethod(column.ReflectedType).Call
             (
+                this,
                 column.ToSelectExpression()
             );
         }
@@ -50,6 +51,7 @@ namespace Solti.Utils.SQL.Internals
 
             FInnerJoin.MakeGenericMethod(left.ReflectedType, right.ReflectedType).Call
             (
+                this,
                 left.ToEqualsExpression(right)
             );
         }
@@ -68,6 +70,7 @@ namespace Solti.Utils.SQL.Internals
 
             FLeftJoin.MakeGenericMethod(left.ReflectedType, right.ReflectedType).Call
             (
+                this,
                 left.ToEqualsExpression(right)
             );
         }
@@ -83,6 +86,7 @@ namespace Solti.Utils.SQL.Internals
 
             FOrderBy.MakeGenericMethod(column.ReflectedType).Call
             (
+                this,
                 column.ToSelectExpression()
             );
         }
@@ -98,6 +102,7 @@ namespace Solti.Utils.SQL.Internals
 
             FOrderByDescending.MakeGenericMethod(column.ReflectedType).Call
             (
+                this,
                 column.ToSelectExpression()
             );
         }
@@ -106,7 +111,7 @@ namespace Solti.Utils.SQL.Internals
 
         private static readonly MethodInfo FRun = GetGenericMethod(self => self.Run<object>());
 
-        public virtual IList Run(Type view) => (IList) FRun.MakeGenericMethod(view ?? throw new ArgumentNullException(nameof(view))).Call();
+        public virtual IList Run(Type view) => (IList) FRun.MakeGenericMethod(view ?? throw new ArgumentNullException(nameof(view))).Call(this);
 
         protected virtual List<TView> Run<TView>() => throw new NotImplementedException();
 
@@ -123,6 +128,7 @@ namespace Solti.Utils.SQL.Internals
 
             FSelect.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).Call
             (
+                this,
                 tableColumn.ToSelectExpression(),
                 viewColumn.ToSelectExpression()
             );
@@ -143,6 +149,7 @@ namespace Solti.Utils.SQL.Internals
 
             FSelectAvg.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).Call
             (
+                this,
                 tableColumn.ToSelectExpression(),
                 viewColumn.ToSelectExpression()
             );
@@ -162,6 +169,7 @@ namespace Solti.Utils.SQL.Internals
 
             FSelectCount.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).Call
             (
+                this,
                 tableColumn.ToSelectExpression(),
                 viewColumn.ToSelectExpression()
             );
@@ -181,6 +189,7 @@ namespace Solti.Utils.SQL.Internals
 
             FSelectMax.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).Call
             (
+                this,
                 tableColumn.ToSelectExpression(),
                 viewColumn.ToSelectExpression()
             );
@@ -200,6 +209,7 @@ namespace Solti.Utils.SQL.Internals
 
             FSelectMin.MakeGenericMethod(tableColumn.ReflectedType, viewColumn.ReflectedType).Call
             (
+                this,
                 tableColumn.ToSelectExpression(),
                 viewColumn.ToSelectExpression()
             );

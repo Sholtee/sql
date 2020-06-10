@@ -14,13 +14,21 @@ namespace Solti.Utils.SQL.Internals
 
     internal static class MethodInfoExtensions
     {
-        public static Expression<TLambda> ToLambda<TLambda>(this MethodInfo method, Func<ParameterInfo, int, Expression> getArgument, params ParameterExpression[] parameters)
+        public static Expression<TLambda> ToLambda<TLambda>(this MethodInfo method, Func<ParameterInfo, int, Expression> getArgument, ParameterExpression instance, params ParameterExpression[] parameters)
         {
-            Expression call = Expression.Call(method, method.GetParameters().Select((param, i) => Expression.Convert
+            Expression call = Expression.Call
             (
-                getArgument(param, i),
-                param.ParameterType
-            )));
+                Expression.Convert(instance, method.ReflectedType), 
+                method, 
+                method.GetParameters().Select
+                (
+                    (param, i) => Expression.Convert
+                    (
+                        getArgument(param, i),
+                        param.ParameterType
+                    )
+                )
+            );
 
             call = method.ReturnType != typeof(void)
                 ? (Expression) Expression.Convert(call, typeof(object))
@@ -29,21 +37,24 @@ namespace Solti.Utils.SQL.Internals
             return Expression.Lambda<TLambda>
             (
                 call,
-                parameters
+                new[] { instance }.Concat(parameters)
             );
         }
 
-        public static Func<object?[], object> ToDelegate(this MethodInfo method) => Cache.GetOrAdd(method, () =>
+        public static Func<object, object?[], object> ToDelegate(this MethodInfo method) => Cache.GetOrAdd(method, () =>
         {
-            ParameterExpression paramz = Expression.Parameter(typeof(object[]), nameof(paramz));
+            ParameterExpression 
+                instance = Expression.Parameter(typeof(object), nameof(instance)),
+                paramz   = Expression.Parameter(typeof(object[]), nameof(paramz));
 
-            return method.ToLambda<Func<object?[], object>>
+            return method.ToLambda<Func<object, object?[], object>>
             (
                 (param, i) => Expression.ArrayAccess(paramz, Expression.Constant(i)),
+                instance,
                 paramz
             ).Compile();
         });
 
-        public static object Call(this MethodInfo method, params object?[] args) => method.ToDelegate().Invoke(args);
+        public static object Call(this MethodInfo method, object instance, params object?[] args) => method.ToDelegate().Invoke(instance, args);
     }
 }

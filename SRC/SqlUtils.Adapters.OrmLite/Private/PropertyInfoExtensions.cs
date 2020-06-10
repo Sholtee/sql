@@ -48,7 +48,7 @@ namespace Solti.Utils.SQL.Internals
         {
             ParameterExpression 
                 para1 = Expression.Parameter(@this.ReflectedType),
-                para2 = Expression.Parameter(@this.ReflectedType);
+                para2 = Expression.Parameter(that.ReflectedType);
 
             return Expression.Lambda
             (

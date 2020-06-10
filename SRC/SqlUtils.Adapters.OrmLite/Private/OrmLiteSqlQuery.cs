@@ -32,7 +32,13 @@ namespace Solti.Utils.SQL.Internals
         #endregion
 
         #region Protected
-        protected override void SetBase<TBase>() => FSqlExpression = FConnection.From<TBase>().GetUntyped();
+        protected override void SetBase<TBase>()
+        {
+            if (FSqlExpression != null)
+                throw new InvalidOperationException(); // TODO
+
+            FSqlExpression = FConnection.From<TBase>().GetUntyped();
+        }
 
         protected override void InnerJoin<TTable1, TTable2>(Expression<Func<TTable1, TTable2, bool>> selector) => FSqlExpression!.Join(selector);
 
@@ -64,8 +70,13 @@ namespace Solti.Utils.SQL.Internals
 
         public OrmLiteSqlQuery(IDbConnection connection)
         {
-            FConnection = connection ?? throw new ArgumentNullException(nameof(connection));
+            FConnection = connection;
             FDialectProvider = connection.GetDialectProvider();
+        }
+
+        public OrmLiteSqlQuery(IDbConnection connection, IUntypedSqlExpression sqlExpression): this(connection) 
+        {
+            FSqlExpression = sqlExpression;
         }
 
         public override void GroupBy(PropertyInfo column)

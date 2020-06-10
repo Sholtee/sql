@@ -18,28 +18,33 @@ namespace Solti.Utils.SQL
     /// </summary>
     public static class IDbConnectionExtensions
     {
-        private static OrmLiteSqlQuery CreateQuery<TView>(this IDbConnection connection) 
-        {
-            var query = new OrmLiteSqlQuery(connection ?? throw new ArgumentNullException(nameof(connection)));
-
-            SmartSqlBuilder<TView>.Build(query);
-
-            return query;
-        }
-
-        /// <summary>
-        /// Creates the query expression from the given <typeparamref name="TView"/>.
-        /// </summary>
-        public static IUntypedSqlExpression FromView<TView>(this IDbConnection connection) => connection.CreateQuery<TView>().UnderlyingExpression;
-
         /// <summary>
         /// Queries the given <typeparamref name="TView"/>.
         /// </summary>
         public static List<TView> Query<TView>(this IDbConnection connection, Action<IUntypedSqlExpression>? additions = null)
         {
-            var query = connection.CreateQuery<TView>();
+            var query = new OrmLiteSqlQuery(connection ?? throw new ArgumentNullException(nameof(connection)));
+            SmartSqlBuilder<TView>.Build(query);
             additions?.Invoke(query.UnderlyingExpression);
             return query.Run<TView>();      
         }
+
+        /// <summary>
+        /// Queries the given <typeparamref name="TView"/>.
+        /// </summary>
+        public static List<TView> Query<TView>(this IDbConnection connection, IUntypedSqlExpression expr) => new OrmLiteSqlQuery
+        (
+            connection ?? throw new ArgumentNullException(nameof(connection)), 
+            expr ?? throw new ArgumentNullException(nameof(expr))
+        ).Run<TView>();
+
+        /// <summary>
+        /// Queries the given <typeparamref name="TView"/>.
+        /// </summary>
+        public static List<TView> Query<TView>(this IDbConnection connection, string sql) => new StringBasedOrmLiteSqlQuery
+        (
+            connection ?? throw new ArgumentNullException(nameof(connection)),
+            sql ?? throw new ArgumentNullException(nameof(sql))
+        ).Run<TView>();
     }
 }

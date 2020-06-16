@@ -567,19 +567,19 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Action
   nameWithType: ColumnSelectionAttribute.Action
-- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Alias
-  name: Alias
-  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Alias
-  commentId: P:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Alias
-  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Alias
-  nameWithType: ColumnSelectionAttribute.Alias
-- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Alias*
-  name: Alias
-  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Alias_
-  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Alias
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Column
+  name: Column
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Column
+  commentId: P:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Column
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Column
+  nameWithType: ColumnSelectionAttribute.Column
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Column*
+  name: Column
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Column_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Column
   isSpec: "True"
-  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Alias
-  nameWithType: ColumnSelectionAttribute.Alias
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Column
+  nameWithType: ColumnSelectionAttribute.Column
 - uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetBuilder
   name: GetBuilder()
   href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_GetBuilder

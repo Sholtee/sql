@@ -72,7 +72,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ColumnSelectionAttribute(Type ormType, bool required, string? alias, MethodInfo action)</code></pre>
+    <pre><code class="lang-csharp hljs">protected ColumnSelectionAttribute(Type ormType, bool required, string? column, MethodInfo action)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -96,7 +96,7 @@
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
-        <td><span class="parametername">alias</span></td>
+        <td><span class="parametername">column</span></td>
         <td></td>
       </tr>
       <tr>
@@ -132,14 +132,14 @@
       </tr>
     </tbody>
   </table>
-  <a id="Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Alias_" data-uid="Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Alias*"></a>
-  <h4 id="Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Alias" data-uid="Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Alias">Alias</h4>
-  <div class="markdown level1 summary"><p>The (optional) alias of the column name.</p>
+  <a id="Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Column_" data-uid="Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Column*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_Column" data-uid="Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Column">Column</h4>
+  <div class="markdown level1 summary"><p>The name of the data table column (if it differs from the view column).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? Alias { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Column { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">

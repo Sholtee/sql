@@ -19,7 +19,7 @@ namespace Solti.Utils.SQL.Interfaces
         /// <summary>
         /// Creates a new <see cref="MinOfAttribute"/> instance.
         /// </summary>
-        public MinOfAttribute(Type ormType, bool required = true, string? alias = null): base(ormType, required, alias, FSelect)
+        public MinOfAttribute(Type ormType, bool required = true, string? column = null): base(ormType, required, column, FSelect)
         {
         }
     }

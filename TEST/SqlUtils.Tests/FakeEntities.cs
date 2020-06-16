@@ -111,24 +111,24 @@ namespace Solti.Utils.SQL.Tests
     [View(Base = typeof(Start_Node))]
     public class View1
     {
-        [BelongsTo(typeof(Start_Node), alias: nameof(Start_Node.ReferenceWithoutAttribute))]
+        [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.ReferenceWithoutAttribute))]
         public string SimpleColumnSelection { get; set; }
-        [BelongsTo(typeof(Goal_Node), alias: nameof(Goal_Node.Id))]
+        [BelongsTo(typeof(Goal_Node), column: nameof(Goal_Node.Id))]
         public string IdSelection { get; set; }
-        [BelongsTo(typeof(Node2), alias: nameof(Node2.Foo))] // mar join-olva lett a GOAL_NODE-nal
+        [BelongsTo(typeof(Node2), column: nameof(Node2.Foo))] // mar join-olva lett a GOAL_NODE-nal
         public int SelectionFromAlreadyJoinedTable { get; set; }
-        [BelongsTo(typeof(Node5), alias: nameof(Node5.Id), required: false)]
+        [BelongsTo(typeof(Node5), column: nameof(Node5.Id), required: false)]
         public string SelectionFromAnotherRoute { get; set; }
-        [BelongsTo(typeof(Node5), alias: nameof(Node5.Reference), required: false)]
+        [BelongsTo(typeof(Node5), column: nameof(Node5.Reference), required: false)]
         public string SecondSelectionFromAnotherRoute { get; set; }
     }
 
     [View(Base = typeof(Start_Node))]
     public class View2
     {
-        [CountOf(typeof(Node2), alias: nameof(Node2.Id))]
+        [CountOf(typeof(Node2), column: nameof(Node2.Id))]
         public int Count { get; set; }
-        [BelongsTo(typeof(Start_Node), alias: nameof(Start_Node.ReferenceWithoutAttribute))]
+        [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.ReferenceWithoutAttribute))]
         public int Foo { get; set; }
         public int Ignored { get; set; }
     }
@@ -139,7 +139,7 @@ namespace Solti.Utils.SQL.Tests
         [EmptyListMarker]
         [BelongsTo(typeof(Goal_Node), order: Order.Ascending)]
         public string Id { get; set; }
-        [CountOf(typeof(Node2), alias: nameof(Node2.Id))]
+        [CountOf(typeof(Node2), column: nameof(Node2.Id))]
         public int Count { get; set; }
     }
 
@@ -164,7 +164,7 @@ namespace Solti.Utils.SQL.Tests
     [View(Base = typeof(Start_Node))]
     public class WrappedView1
     {
-        [BelongsTo(typeof(Start_Node), alias: nameof(Start_Node.Id))]
+        [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.Id))]
         public int Azonosito { get; set; }
         [Wrapped]
         public List<View3> ViewList { get; set; }
@@ -173,7 +173,7 @@ namespace Solti.Utils.SQL.Tests
     [View(Base = typeof(Start_Node))]
     public class WrappedView2
     {
-        [BelongsTo(typeof(Start_Node), alias: nameof(Start_Node.Id))]
+        [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.Id))]
         public int Azonosito { get; set; }
         [Wrapped]
         public List<View1> ViewList { get; set; }
@@ -184,7 +184,7 @@ namespace Solti.Utils.SQL.Tests
     [View(Base = typeof(Start_Node))]
     public class WrappedView3
     {
-        [BelongsTo(typeof(Start_Node), alias: nameof(Start_Node.Id))]
+        [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.Id))]
         public int Azonosito { get; set; }
         [Wrapped]
         public View3 View { get; set; }
@@ -193,7 +193,7 @@ namespace Solti.Utils.SQL.Tests
     [View(Base = typeof(Start_Node))]
     public class WrappedView3_Extesnion
     {
-        [BelongsTo(typeof(Start_Node), alias: nameof(Start_Node.Id))]
+        [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.Id))]
         public int Azonosito { get; set; }
         [Wrapped]
         public List<Extension1> ViewList { get; set; }
@@ -202,7 +202,7 @@ namespace Solti.Utils.SQL.Tests
     [View(Base = typeof(Start_Node))]
     public class WrappedView4_Complex
     {
-        [BelongsTo(typeof(Start_Node), alias: nameof(Start_Node.Id))]
+        [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.Id))]
         public int NagyonId { get; set; }
         [Wrapped]
         public List<WrappedView1> AnotherViewList { get; set; }
@@ -222,7 +222,7 @@ namespace Solti.Utils.SQL.Tests
         [Ignore]  // Ne legyen property nev utkozes
         public override Guid Id { get; set; }
 
-        [BelongsTo(typeof(Node7), alias: nameof(Node7.Id))] // Megoldas h az Id-ben a korrekt ertek legyen
+        [BelongsTo(typeof(Node7), column: nameof(Node7.Id))] // Megoldas h az Id-ben a korrekt ertek legyen
         public Guid Azonosito
         {
             set { Id = value; }
@@ -237,15 +237,15 @@ namespace Solti.Utils.SQL.Tests
 
     public class Extension1 : Start_Node
     {
-        [BelongsTo(typeof(Goal_Node), alias: nameof(Goal_Node.Id))]
+        [BelongsTo(typeof(Goal_Node), column: nameof(Goal_Node.Id))]
         public string IdSelection { get; set; }
     }
 
     public class Extension2 : Start_Node
     {
-        [BelongsTo(typeof(Goal_Node), alias: nameof(Goal_Node.Id), order: Order.Ascending)]
+        [BelongsTo(typeof(Goal_Node), column: nameof(Goal_Node.Id), order: Order.Ascending)]
         public string AnotherId { get; set; }
-        [CountOf(typeof(Node2), alias: nameof(Node2.Id))]
+        [CountOf(typeof(Node2), column: nameof(Node2.Id))]
         public int Count { get; set; }
     }
 }

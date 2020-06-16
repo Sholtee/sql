@@ -27,9 +27,9 @@ namespace Solti.Utils.SQL.Interfaces
         public bool Required { get; }
 
         /// <summary>
-        /// The (optional) alias of the column name.
+        /// The name of the data table column (if it differs from the view column).
         /// </summary>
-        public string? Alias { get; }
+        public string? Column { get; }
 
         /// <summary>
         /// The action belongs to this selection.
@@ -57,12 +57,7 @@ namespace Solti.Utils.SQL.Interfaces
             if (viewProperty == null)
                 throw new ArgumentNullException(nameof(viewProperty));
 
-            //
-            // Ha van Alias akkor a nezet oszlop neve nem egyezik meg a tabla oszlop nevevel (Alias kicsit geci modon itt a tabla
-            // oszlopnevet jelenti).
-            //
-
-            string property = Alias ?? viewProperty.Name;
+            string property = Column ?? viewProperty.Name;
 
             yield return Expression.Call(
                 bldr,
@@ -79,12 +74,12 @@ namespace Solti.Utils.SQL.Interfaces
         /// <summary>
         /// Creates a new <see cref="ColumnSelectionAttribute"/> instance.
         /// </summary>
-        protected ColumnSelectionAttribute(Type ormType, bool required, string? alias, MethodInfo action)
+        protected ColumnSelectionAttribute(Type ormType, bool required, string? column, MethodInfo action)
         {
             OrmType  = ormType ?? throw new ArgumentNullException(nameof(ormType));
             Action   = action  ?? throw new ArgumentNullException(nameof(action));
             Required = required;
-            Alias    = alias;         
+            Column   = column;         
         }
     }
 }

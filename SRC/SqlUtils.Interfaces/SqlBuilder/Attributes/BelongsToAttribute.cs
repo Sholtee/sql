@@ -47,7 +47,7 @@ namespace Solti.Utils.SQL.Interfaces
             if (!isGroupBy && Order == Order.None) 
                 yield break;
 
-            string propName = Alias ?? viewProperty.Name;
+            string propName = Column ?? viewProperty.Name;
 
             ConstantExpression sel = Expression.Constant(OrmType.GetProperty(propName) ?? throw new MissingMemberException(OrmType.Name, propName));
 
@@ -75,7 +75,7 @@ namespace Solti.Utils.SQL.Interfaces
             {
                 OrmType,
                 Required,
-                Alias,
+                Column,
                 Order
             }
         );
@@ -89,7 +89,7 @@ namespace Solti.Utils.SQL.Interfaces
         /// <summary>
         /// Creates a new <see cref="BelongsToAttribute"/> instance.
         /// </summary>
-        public BelongsToAttribute(Type ormType, bool required = true, string? alias = null, Order order = Order.None): base(ormType, required, alias, FSelect)
+        public BelongsToAttribute(Type ormType, bool required = true, string? column = null, Order order = Order.None): base(ormType, required, column, FSelect)
         {
             Order = order;
         }

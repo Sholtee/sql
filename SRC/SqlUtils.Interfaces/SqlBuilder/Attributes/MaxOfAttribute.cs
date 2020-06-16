@@ -19,7 +19,7 @@ namespace Solti.Utils.SQL.Interfaces
         /// <summary>
         /// Creates a new <see cref="MaxOfAttribute"/> instance.
         /// </summary>
-        public MaxOfAttribute(Type ormType, bool required = true, string? alias = null): base(ormType, required, alias, FSelect)
+        public MaxOfAttribute(Type ormType, bool required = true, string? column = null): base(ormType, required, column, FSelect)
         {
         }
     }

@@ -29,14 +29,14 @@ namespace Solti.Utils.SQL.Interfaces
             {
                 OrmType,
                 Required,
-                Alias
+                Column
             }
         );
 
         /// <summary>
         /// Creates a new <see cref="AggregateSelectionAttribute"/> instance.
         /// </summary>
-        protected AggregateSelectionAttribute(Type ormType, bool required, string? alias, MethodInfo select) : base(ormType, required, alias, select)
+        protected AggregateSelectionAttribute(Type ormType, bool required, string? column, MethodInfo select) : base(ormType, required, column, select)
         {
         }
     }

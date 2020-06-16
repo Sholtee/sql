@@ -33,12 +33,6 @@ namespace Solti.Utils.SQL.Interfaces
         /// </summary>
         public override IEnumerable<MethodCallExpression> GetFragments(ParameterExpression bldr, PropertyInfo viewProperty, bool isGroupBy)
         {
-            if (bldr == null)
-                throw new ArgumentNullException(nameof(bldr));
-
-            if (viewProperty == null)
-                throw new ArgumentNullException(nameof(viewProperty));
-
             foreach (MethodCallExpression action in base.GetFragments(bldr, viewProperty, isGroupBy))
             {
                 yield return action;

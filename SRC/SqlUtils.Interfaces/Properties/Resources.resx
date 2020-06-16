@@ -117,43 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AMBIGUOUS_RESULT" xml:space="preserve">
-    <value>The view cannot be determined obviously from the input sequence.</value>
-  </data>
-  <data name="BASE_CANNOT_BE_DETERMINED" xml:space="preserve">
-    <value>The base data table cannot be determined.</value>
-  </data>
-  <data name="CANT_WRAP" xml:space="preserve">
-    <value>The property type should be a data table or view.</value>
-  </data>
-  <data name="INCOMPATIBLE_LIST" xml:space="preserve">
-    <value>The list type is not compatible.</value>
-  </data>
-  <data name="MAPPING_NOT_SUPPORTED" xml:space="preserve">
-    <value>Mapping not supported.</value>
-  </data>
-  <data name="MULTIPLE_EMPTY_LIST_MARKER" xml:space="preserve">
-    <value>Only one property can be annotated as "empty list marker".</value>
-  </data>
-  <data name="NOT_A_LIST" xml:space="preserve">
-    <value>Only List&lt;&gt;'s are supported.</value>
-  </data>
-  <data name="NOT_A_PROPERTY" xml:space="preserve">
-    <value>The expression should be a property read operation.</value>
-  </data>
-  <data name="NO_COLUMN" xml:space="preserve">
-    <value>No column selected</value>
-  </data>
-  <data name="NO_PRIMARY_KEY" xml:space="preserve">
-    <value>Primary key can not be found on the ORM type.</value>
-  </data>
-  <data name="NO_SHORTEST_PATH" xml:space="preserve">
-    <value>Shortest path could not be determined.</value>
-  </data>
-  <data name="PROPERTY_NAME_COLLISSION" xml:space="preserve">
-    <value>Cannot create temporary type from views having same named properties.</value>
-  </data>
-  <data name="UNINITIALIZED_BUILDER" xml:space="preserve">
-    <value>The SmartSqlBuilder is uninitialized. You should call the Initialize() method.</value>
+  <data name="NOT_VALUE_TYPE" xml:space="preserve">
+    <value>Property type should be a value type.</value>
   </data>
 </root>

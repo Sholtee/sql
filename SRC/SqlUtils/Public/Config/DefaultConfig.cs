@@ -10,7 +10,6 @@ using System.Text.RegularExpressions;
 
 namespace Solti.Utils.SQL
 {
-    using Interfaces;
     using Interfaces.DataAnnotations;
 
     /// <summary>
@@ -43,17 +42,6 @@ namespace Solti.Utils.SQL
             });
 
             return $"\"{escaped}\"";
-        }
-
-        /// <summary>
-        /// See <see cref="IConfig.IsWrapped(PropertyInfo)"/>.
-        /// </summary>
-        public virtual bool IsWrapped(PropertyInfo prop)
-        {
-            if (prop == null) 
-                throw new ArgumentNullException(nameof(prop));
-
-            return prop.GetCustomAttribute<WrappedAttribute>() != null;
         }
 
         /// <summary>

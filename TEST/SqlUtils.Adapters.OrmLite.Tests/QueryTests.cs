@@ -96,7 +96,7 @@ namespace Solti.Utils.SQL.OrmLite.Tests
             public LoginView Login { get; set; }
             [Wrapped]
             public List<Post> Posts { get; set; }
-            [BelongsTo(typeof(Role), column: nameof(Role.Name))]
+            [BelongsTo(typeof(Role), column: nameof(Role.Name), required: true)]
             public List<string> Roles { get; set; }
             [BelongsTo(typeof(Ban), required: false, column: nameof(Ban.Until))]
             public DateTime? BannedUntil { get; set; }

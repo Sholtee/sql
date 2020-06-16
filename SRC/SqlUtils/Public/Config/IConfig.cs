@@ -20,11 +20,6 @@ namespace Solti.Utils.SQL
         string Stringify(IDataParameter parameter);
 
         /// <summary>
-        /// Returns true if the property represents a list and should be used in relation mapping.
-        /// </summary>
-        bool IsWrapped(PropertyInfo prop);
-
-        /// <summary>
         /// Returns true if the property should be ignored.
         /// </summary>
         bool IsIgnored(PropertyInfo prop);

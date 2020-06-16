@@ -5,6 +5,7 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -19,9 +20,11 @@ namespace Solti.Utils.SQL.Internals
     {
         private const BindingFlags BINDING_FLAGS = BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
 
+        public static bool IsWrapped(this PropertyInfo prop) => prop.GetCustomAttribute<WrappedAttribute>() != null || (prop.GetCustomAttribute<BelongsToAttribute>() != null && prop.PropertyType.IsList());
+
         public static IReadOnlyList<WrappedSelection> GetWrappedSelections(this Type src) => Cache.GetOrAdd(src, () => src
             .GetProperties(BINDING_FLAGS)
-            .Where(Config.Instance.IsWrapped)
+            .Where(IsWrapped)
             .Select(prop => new WrappedSelection(prop))
             .ToArray());
 
@@ -57,7 +60,62 @@ namespace Solti.Utils.SQL.Internals
                 .GetColumnSelections()
                 .Concat(src
                     .GetWrappedSelections()
-                    .SelectMany(sel => sel.UnderlyingType.ExtractColumnSelections()))
+                    .SelectMany(sel =>
+                    {
+                        Type underlyingType = sel.UnderlyingType;
+
+                        //
+                        // [Wrapped]
+                        // public List<Message> Messages {get; set;}
+                        //
+                        // ->
+                        //
+                        // [BelongsTo(typeof(Message))]
+                        // public string Text {get; set;}
+                        //
+                        // [BelongsTo(typeof(Message))]
+                        // public xXx OtherPropr {get; set;}
+                        //
+
+                        if (underlyingType.IsDatabaseEntityOrView())
+                            return underlyingType.ExtractColumnSelections();
+
+                        //
+                        // [BelongsTo(typeof(Message), column: "Text")]
+                        // public List<string> Messages {get; set;}
+                        //
+                        // ->
+                        //
+                        // [BelongsTo(typeof(Message))]
+                        // public string Text {get; set;}
+                        //
+
+                        if (underlyingType.IsValueType)
+                        {
+                            var reason = sel.Info.GetCustomAttribute<BelongsToAttribute>();
+                            Debug.Assert(reason != null);
+
+                            PropertyInfo column;
+                            if (reason!.Column == null || (column = reason.OrmType.GetProperty(reason.Column, BINDING_FLAGS)) == null)
+                            {
+                                var ex = new InvalidOperationException(Resources.NO_COLUMN);
+                                ex.Data["property"] = sel.Info;
+                                throw ex;
+                            }
+
+                            return new[] 
+                            {
+                                new ColumnSelection(column, SelectionKind.Explicit, reason)
+                            };
+                        }
+
+                        //
+                        // Minden mast a GetWrappedSelections()-nek elvileg mar ellenoriznie kellett.
+                        //
+
+                        Debug.Fail("Can't process the wrapped property");
+                        return Array.Empty<ColumnSelection>();
+                    }))
                 .ToArray();
 
             //
@@ -97,6 +155,8 @@ namespace Solti.Utils.SQL.Internals
             return entityType;
         }
 
+        public static bool IsDatabaseEntityOrView(this Type type) => type.IsClass && (type.GetCustomAttribute<ViewAttribute>(inherit: false) ?? (object?) type.GetBaseDataType()) != null;
+
         public static object GetDefaultValue(this Type src) => Cache
             .GetOrAdd(src, () => Expression
                 .Lambda<Func<object>>(Expression.Convert(Expression.Default(src), typeof(object)))
@@ -128,5 +188,7 @@ namespace Solti.Utils.SQL.Internals
         }
 
         public static bool HasOwnMethod(this Type src, string name, params Type[] args) => src.GetMethod(name, args)?.DeclaringType == src;
+
+        public static bool IsList(this Type src) => src.IsGenericType && src.GetGenericTypeDefinition() == typeof(List<>);
     }
 }

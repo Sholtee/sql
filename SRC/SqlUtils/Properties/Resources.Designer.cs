@@ -79,6 +79,15 @@ namespace Solti.Utils.SQL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The property type should be a data table or view..
+        /// </summary>
+        internal static string CANT_WRAP {
+            get {
+                return ResourceManager.GetString("CANT_WRAP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The list type is not compatible..
         /// </summary>
         internal static string INCOMPATIBLE_LIST {
@@ -102,6 +111,15 @@ namespace Solti.Utils.SQL.Properties {
         internal static string MULTIPLE_EMPTY_LIST_MARKER {
             get {
                 return ResourceManager.GetString("MULTIPLE_EMPTY_LIST_MARKER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No column selected.
+        /// </summary>
+        internal static string NO_COLUMN {
+            get {
+                return ResourceManager.GetString("NO_COLUMN", resourceCulture);
             }
         }
         

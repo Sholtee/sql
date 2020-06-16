@@ -11,6 +11,8 @@ using System.Reflection.Emit;
 
 namespace Solti.Utils.SQL.Interfaces
 {
+    using Properties;
+
     /// <summary>
     /// Represents an abstract database column selection.
     /// </summary>
@@ -56,6 +58,9 @@ namespace Solti.Utils.SQL.Interfaces
 
             if (viewProperty == null)
                 throw new ArgumentNullException(nameof(viewProperty));
+
+            if (!viewProperty.PropertyType.IsValueType && viewProperty.PropertyType != typeof(string))
+                throw new ArgumentException(Resources.NOT_VALUE_TYPE, nameof(viewProperty));
 
             string property = Column ?? viewProperty.Name;
 

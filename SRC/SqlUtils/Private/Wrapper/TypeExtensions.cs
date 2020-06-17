@@ -23,21 +23,17 @@ namespace Solti.Utils.SQL.Internals
         public static IReadOnlyList<WrappedSelection> GetWrappedSelections(this Type viewOrDatabaseEntity) => Cache.GetOrAdd
         (
             viewOrDatabaseEntity, 
-            () => viewOrDatabaseEntity.IsValueTypeOrString()
-                ? Array.Empty<WrappedSelection>()
-                : viewOrDatabaseEntity
-                    .GetProperties(BINDING_FLAGS)
-                    .Where(PropertyInfoExtensions.IsWrapped)
-                    .Select(prop => new WrappedSelection(prop))
-                    .ToArray()
+            () => viewOrDatabaseEntity
+                .GetProperties(BINDING_FLAGS)
+                .Where(PropertyInfoExtensions.IsWrapped)
+                .Select(prop => new WrappedSelection(prop))
+                .ToArray()
         );
 
         public static bool IsWrapped(this Type src) => src.GetWrappedSelections().Any();
 
         public static IReadOnlyList<ColumnSelection> GetColumnSelections(this Type viewOrDatabaseEntity) => Cache.GetOrAdd(viewOrDatabaseEntity, () => 
         {
-            if (viewOrDatabaseEntity.IsValueTypeOrString()) return Array.Empty<ColumnSelection>();
-
             Type? @base = viewOrDatabaseEntity.GetBaseDataType();
 
             return 
@@ -67,8 +63,6 @@ namespace Solti.Utils.SQL.Internals
 
         public static IReadOnlyList<ColumnSelection> ExtractColumnSelections(this Type viewOrDatabaseEntity) => Cache.GetOrAdd(viewOrDatabaseEntity, () =>
         {
-            if (viewOrDatabaseEntity.IsValueTypeOrString()) return Array.Empty<ColumnSelection>();
-
             ColumnSelection[] result = viewOrDatabaseEntity
                 .GetColumnSelections()
                 .Concat(viewOrDatabaseEntity
@@ -131,7 +125,7 @@ namespace Solti.Utils.SQL.Internals
             return viewOrDatabaseEntity;
         }
 
-        public static bool IsValueTypeOrString(this Type src) => src.IsPrimitive || src == typeof(string);
+        public static bool IsValueTypeOrString(this Type src) => src.IsValueType || src == typeof(string);
 
         public static bool IsDatabaseEntityOrView(this Type type) => type.IsClass && (type.GetCustomAttribute<ViewAttribute>(inherit: false) ?? (object?) type.GetBaseDataType()) != null;
 
@@ -143,8 +137,6 @@ namespace Solti.Utils.SQL.Internals
 
         public static PropertyInfo? GetEmptyListMarker(this Type view) => Cache.GetOrAdd(view, () =>
         {
-            if (view.IsValueTypeOrString()) return null;
-
             try
             {
                 return view

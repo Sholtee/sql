@@ -42,7 +42,7 @@ namespace Solti.Utils.SQL.Internals
                     
                     //
                     // TDst dst = (TDst) p;
-                    // return (object) dst;
+                    // return (object) dst; // cast-olas a boxing-hoz kell
                     //
 
                     Expression.Assign(dst, Expression.Convert(p, dstType)),
@@ -90,10 +90,10 @@ namespace Solti.Utils.SQL.Internals
                     .Append
                     (
                         //
-                        // return (object) dst;
+                        // return dst;
                         //
 
-                        Expression.Convert(dst, typeof(object))
+                        dst
                     )
                 );
             }

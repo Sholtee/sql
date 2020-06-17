@@ -24,7 +24,7 @@ namespace Solti.Utils.SQL.Internals
         {
             ViewType      = viewType;
             UnwrappedType = unwrappedType;
-            Mappers       = MappingContext.Create(unwrappedType, viewType);
+            Mappers       = MappingContext.Create(unwrappedType, viewType, new Mapper());
         }
 
         private void AssignWrappedProperties(object target, IEnumerable group)

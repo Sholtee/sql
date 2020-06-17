@@ -36,9 +36,7 @@ namespace Solti.Utils.SQL.Internals
         #endregion
 
         #region Static stuffs
-        public static IMapper Mapper = new Mapper(); // tesztekben felulirhato
-
-        public static MappingContext Create(Type unwrappedType, Type viewType) => Cache.GetOrAdd((unwrappedType, viewType), () =>
+        public static MappingContext Create(Type unwrappedType, Type viewType, IMapper mapper) => Cache.GetOrAdd((unwrappedType, viewType, mapper.GetType()), () =>
         {
             //
             // Az eredeti nezet nem lista property-eibol letrehozunk egy kulcs tipust.
@@ -53,14 +51,14 @@ namespace Solti.Utils.SQL.Internals
             //    nagyAdat => nagyAdat.MapTo<Kulcs>()
             //
 
-            Mapper.RegisterMapping(unwrappedType, keyType);
+            mapper.RegisterMapping(unwrappedType, keyType);
 
             //
             // A mappolas ami a kulcs egy peldanyat visszamappolja a nezet enitasba ami alapjan a kulcs
             // keszult (magyaran feltolti az eredeti nezet NEM lista tulajdonsagait).
             //
 
-            Mapper.RegisterMapping(keyType, viewType);
+            mapper.RegisterMapping(keyType, viewType);
 
             //
             // .GropBy(nagyAdat => nagyAdat.MapTo<Kulcs>())
@@ -69,8 +67,8 @@ namespace Solti.Utils.SQL.Internals
 
             return new MappingContext
             (
-                mapToKey:  src => Mapper.MapTo(unwrappedType, keyType, src)!,
-                mapToView: src => Mapper.MapTo(keyType, viewType, src)!
+                mapToKey:  src => mapper.MapTo(unwrappedType, keyType, src)!,
+                mapToView: src => mapper.MapTo(keyType, viewType, src)!
             );
         });
         #endregion

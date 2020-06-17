@@ -41,6 +41,7 @@ namespace Solti.Utils.SQL.Tests
             Mapper.RegisterMapping(typeof(A), typeof(B));
             Mapper.RegisterMapping(typeof(A), typeof(C));
             Mapper.RegisterMapping(typeof(C), typeof(B));
+            Mapper.RegisterMapping(typeof(string), typeof(string));
         }
 
         [Test]
@@ -48,12 +49,12 @@ namespace Solti.Utils.SQL.Tests
             Assert.That(Mapper.MapTo(typeof(A), typeof(B), null), Is.Null);
 
         [Test]
-        public void Mapper_ShouldNotMapPrimitiveValues() =>
-            Assert.Throws<NotSupportedException>(() => Mapper.RegisterMapping(typeof(string), typeof(string)), Resources.MAPPING_NOT_SUPPORTED);
+        public void Mapper_ShouldMapValueTypes() =>
+            Assert.That(Mapper.MapTo(typeof(string), typeof(string), "cica"), Is.EqualTo("cica"));
 
         [Test]
-        public void Mapper_ShouldNotMapEnumerableValues() =>
-            Assert.Throws<NotSupportedException>(() => Mapper.RegisterMapping(typeof(int[]), typeof(long[])), Resources.MAPPING_NOT_SUPPORTED);
+        public void Mapper_ShouldThrowIfMappingNotSupported() =>
+            Assert.Throws<NotSupportedException>(() => Mapper.RegisterMapping(typeof(int), typeof(long)), Resources.MAPPING_NOT_SUPPORTED);
 
         [Test]
         public void Mapper_ShouldMapObjects()

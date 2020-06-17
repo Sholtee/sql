@@ -4,7 +4,6 @@
 * Author: Denes Solti                                                           *
 ********************************************************************************/
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -17,25 +16,52 @@ namespace Solti.Utils.SQL.Internals
 
     internal sealed class Mapper: IMapper
     {
-        void IMapper.RegisterMapping(Type srcType, Type dstType)
+        void IMapper.RegisterMapping(Type srcType, Type dstType) => Cache.GetOrAdd((srcType, dstType), () =>
         {
-            CheckType(srcType);
-            CheckType(dstType);
+            if (srcType.IsValueType != dstType.IsValueType)
+                throw MappingNotSupported(srcType, dstType);
 
-            Cache.GetOrAdd((srcType, dstType), () =>
+            ParameterExpression p = Expression.Parameter(typeof(object));
+
+            Expression block;
+
+            if (srcType.IsValueType || srcType == typeof(string))
             {
+                //
+                // TODO: int32 -> int64 pl mukodnie kene
+                //
+
+                if (srcType != dstType)
+                    throw MappingNotSupported(srcType, dstType);
+
+                ParameterExpression dst = Expression.Variable(dstType, nameof(dst));
+
+                block = Expression.Block
+                (
+                    variables: new[] { dst },
+                    
+                    //
+                    // TDst dst = (TDst) p;
+                    // return (object) dst;
+                    //
+
+                    Expression.Assign(dst, Expression.Convert(p, dstType)),
+                    Expression.Convert(dst, typeof(object))
+                );
+            }
+            else 
+            { 
+                ParameterExpression
+                    src = Expression.Variable(srcType, nameof(src)),
+                    dst = Expression.Variable(dstType, nameof(dst));
+
                 const BindingFlags bindingFlagsBase = BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
 
                 IReadOnlyList<PropertyInfo>
                     srcProps = srcType.GetProperties(bindingFlagsBase | BindingFlags.GetProperty),
                     dstProps = dstType.GetProperties(bindingFlagsBase | BindingFlags.SetProperty);
 
-                ParameterExpression
-                    p   = Expression.Parameter(typeof(object)),
-                    src = Expression.Variable(srcType, nameof(src)),
-                    dst = Expression.Variable(dstType, nameof(dst));
-
-                Expression block = Expression.Block
+                block = Expression.Block
                 (
                     variables: new[] { src, dst }, 
                     expressions: new Expression[] 
@@ -70,18 +96,10 @@ namespace Solti.Utils.SQL.Internals
                         Expression.Convert(dst, typeof(object))
                     )
                 );
-
-                return Expression.Lambda<Func<object, object>>(block, p).Compile();
-            }, nameof(Mapper));
-
-            void CheckType(Type t)
-            {
-                if (t.IsPrimitive || t == typeof(String) || typeof(IEnumerable).IsAssignableFrom(t))
-                {
-                    throw MappingNotSupported(srcType, dstType);
-                }
             }
-        }
+
+            return Expression.Lambda<Func<object, object>>(block, p).Compile();
+        }, nameof(Mapper));
 
         object? IMapper.MapTo(Type srcType, Type dstType, object? source)
         {

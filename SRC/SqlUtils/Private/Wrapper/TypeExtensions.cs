@@ -20,11 +20,9 @@ namespace Solti.Utils.SQL.Internals
     {
         private const BindingFlags BINDING_FLAGS = BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
 
-        public static bool IsWrapped(this PropertyInfo prop) => prop.GetCustomAttribute<WrappedAttribute>() != null || (prop.GetCustomAttribute<BelongsToAttribute>() != null && prop.PropertyType.IsList());
-
         public static IReadOnlyList<WrappedSelection> GetWrappedSelections(this Type src) => Cache.GetOrAdd(src, () => src
             .GetProperties(BINDING_FLAGS)
-            .Where(IsWrapped)
+            .Where(PropertyInfoExtensions.IsWrapped)
             .Select(prop => new WrappedSelection(prop))
             .ToArray());
 
@@ -37,14 +35,19 @@ namespace Solti.Utils.SQL.Internals
             return 
             (
                 from prop in src.GetProperties(BINDING_FLAGS)
+                where !prop.IsWrapped()
+
+                //
+                // - Ha a nezet egy mar meglevo adattabla leszarmazottja akkor azon property-ket
+                //   is kivalasztjuk melyek az os entitashoz tartoznak.
+                //
+                // - Az h ignoralva van e a property csak adatbazis entitasnal kell vizsgaljuk (nezetnel
+                //   ha nincs ColumnSelectionAttribute rajt akkor automatikusan ignoralt).
+                // 
+
                 let attr = prop.GetCustomAttribute<ColumnSelectionAttribute>()
-
-                //
-                // Ha a nezet egy mar meglevo adattabla leszarmazottja akkor azon property-ket
-                // is kivalasztjuk melyek az os entitashoz tartoznak.
-                //
-
                 where attr != null || (@base != null && !Config.Instance.IsIgnored(prop) && prop.DeclaringType.IsAssignableFrom(@base))
+
                 select new ColumnSelection
                 (
                     column: prop,

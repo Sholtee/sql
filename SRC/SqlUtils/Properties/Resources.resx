@@ -123,6 +123,9 @@
   <data name="BASE_CANNOT_BE_DETERMINED" xml:space="preserve">
     <value>The base data table cannot be determined.</value>
   </data>
+  <data name="CANT_SELECT" xml:space="preserve">
+    <value>The property type should be a value type.</value>
+  </data>
   <data name="CANT_WRAP" xml:space="preserve">
     <value>The property type should be a data table or view.</value>
   </data>

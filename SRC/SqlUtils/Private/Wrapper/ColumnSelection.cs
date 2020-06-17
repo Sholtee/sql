@@ -3,17 +3,21 @@
 *                                                                               *
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
-
+using System;
 using System.Reflection;
 
 namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
+    using Properties;
 
     internal sealed class ColumnSelection
     {
         public ColumnSelection(PropertyInfo column, SelectionKind kind, ColumnSelectionAttribute reason)
         {
+            if (!column.PropertyType.IsValueType && column.PropertyType != typeof(string))
+                throw new NotSupportedException(Resources.CANT_SELECT);
+
             Column = column;
             Kind   = kind;
             Reason = reason;

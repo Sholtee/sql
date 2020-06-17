@@ -79,6 +79,15 @@ namespace Solti.Utils.SQL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The property type should be a value type..
+        /// </summary>
+        internal static string CANT_SELECT {
+            get {
+                return ResourceManager.GetString("CANT_SELECT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The property type should be a data table or view..
         /// </summary>
         internal static string CANT_WRAP {

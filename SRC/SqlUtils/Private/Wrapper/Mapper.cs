@@ -18,14 +18,14 @@ namespace Solti.Utils.SQL.Internals
     {
         void IMapper.RegisterMapping(Type srcType, Type dstType) => Cache.GetOrAdd((srcType, dstType), () =>
         {
-            if (srcType.IsValueType != dstType.IsValueType)
+            if (srcType.IsValueTypeOrString() != dstType.IsValueTypeOrString())
                 throw MappingNotSupported(srcType, dstType);
 
             ParameterExpression p = Expression.Parameter(typeof(object));
 
             Expression block;
 
-            if (srcType.IsValueType || srcType == typeof(string))
+            if (srcType.IsValueTypeOrString())
             {
                 //
                 // TODO: int32 -> int64 pl mukodnie kene

@@ -22,6 +22,12 @@ namespace Solti.Utils.SQL.Internals
 
         private Wrapper(Type viewType, Type unwrappedType)
         {
+            //
+            // Hogy a Wrap() metodus biztosan helyesen csoportositson, minden nezetben kell legyen PK
+            //
+
+            viewType.GetPrimaryKey(); // validal
+
             ViewType      = viewType;
             UnwrappedType = unwrappedType;
             Mappers       = MappingContext.Create(unwrappedType, viewType, new Mapper());
@@ -105,10 +111,6 @@ namespace Solti.Utils.SQL.Internals
             {
                 throw new ArgumentException(Resources.INCOMPATIBLE_LIST, nameof(sourceObjects));
             }
-
-            //
-            // TODO: a kiindulo nezetben mindenkepp kell legyen PK, kulomben a csoportositas rossz eredmenyt adhat vissza.
-            //
 
             return (List<TView>) new Wrapper(typeof(TView), unwrappedType).Wrap(sourceObjects, true);
         }

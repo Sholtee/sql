@@ -114,7 +114,7 @@ namespace Solti.Utils.SQL.Internals
                 
             if (collisions.Any())
             {
-                var ex = new InvalidOperationException(Resources.PROPERTY_NAME_COLLISSION);
+                var ex = new InvalidOperationException(Resources.PROPERTY_NAME_COLLISION);
                 ex.Data[nameof(collisions)] = collisions;
                 throw ex;
             }

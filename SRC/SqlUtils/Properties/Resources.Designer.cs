@@ -162,9 +162,9 @@ namespace Solti.Utils.SQL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cannot create temporary type from views having same named properties..
         /// </summary>
-        internal static string PROPERTY_NAME_COLLISSION {
+        internal static string PROPERTY_NAME_COLLISION {
             get {
-                return ResourceManager.GetString("PROPERTY_NAME_COLLISSION", resourceCulture);
+                return ResourceManager.GetString("PROPERTY_NAME_COLLISION", resourceCulture);
             }
         }
         

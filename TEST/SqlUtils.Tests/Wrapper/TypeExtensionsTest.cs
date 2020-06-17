@@ -104,7 +104,7 @@ namespace Solti.Utils.SQL.Tests
 
         [Test]
         public void ExtractColumnSelections_ShouldThrowOnPropertyCollision() =>
-            Assert.Throws<InvalidOperationException>(() => typeof(WrappedView1_Bad).ExtractColumnSelections(), Resources.PROPERTY_NAME_COLLISSION);
+            Assert.Throws<InvalidOperationException>(() => typeof(WrappedView1_Bad).ExtractColumnSelections(), Resources.PROPERTY_NAME_COLLISION);
 
         [Test]
         public void ExtractColumnSelections_ShouldCache() =>

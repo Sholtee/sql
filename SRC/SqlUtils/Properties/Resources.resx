@@ -150,7 +150,7 @@
   <data name="NO_SHORTEST_PATH" xml:space="preserve">
     <value>Shortest path could not be determined.</value>
   </data>
-  <data name="PROPERTY_NAME_COLLISSION" xml:space="preserve">
+  <data name="PROPERTY_NAME_COLLISION" xml:space="preserve">
     <value>Cannot create temporary type from views having same named properties.</value>
   </data>
   <data name="UNINITIALIZED_BUILDER" xml:space="preserve">

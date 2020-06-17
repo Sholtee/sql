@@ -25,7 +25,7 @@ namespace Solti.Utils.SQL.Internals
             viewOrDatabaseEntity, 
             () => viewOrDatabaseEntity.IsValueTypeOrString()
                 ? Array.Empty<WrappedSelection>()
-                :viewOrDatabaseEntity
+                : viewOrDatabaseEntity
                     .GetProperties(BINDING_FLAGS)
                     .Where(PropertyInfoExtensions.IsWrapped)
                     .Select(prop => new WrappedSelection(prop))
@@ -75,7 +75,7 @@ namespace Solti.Utils.SQL.Internals
                     .GetWrappedSelections()
                     .SelectMany(sel =>
                     {
-                        Type underlyingType = sel.UnderlyingType;
+                        Debug.Assert(sel.UnderlyingType.IsDatabaseEntityOrView());
 
                         //
                         // [Wrapped]
@@ -90,55 +90,18 @@ namespace Solti.Utils.SQL.Internals
                         // public xXx OtherPropr {get; set;}
                         //
 
-                        if (underlyingType.IsDatabaseEntityOrView())
-                            return underlyingType.ExtractColumnSelections();
-
-                        //
-                        // [BelongsTo(typeof(Message), column: "Text")]
-                        // public List<string> Messages {get; set;}
-                        //
-                        // ->
-                        //
-                        // [BelongsTo(typeof(Message))]
-                        // public string Text {get; set;}
-                        //
-
-                        if (underlyingType.IsValueTypeOrString())
-                        {
-                            var reason = sel.Info.GetCustomAttribute<BelongsToAttribute>();
-                            Debug.Assert(reason != null);
-
-                            PropertyInfo column;
-                            if (reason!.Column == null || (column = reason.OrmType.GetProperty(reason.Column, BINDING_FLAGS)) == null)
-                            {
-                                var ex = new InvalidOperationException(Resources.NO_COLUMN);
-                                ex.Data["property"] = sel.Info;
-                                throw ex;
-                            }
-
-                            return new[] 
-                            {
-                                new ColumnSelection(column, SelectionKind.Explicit, reason)
-                            };
-                        }
-
-                        //
-                        // Minden mast a GetWrappedSelections()-nek elvileg mar ellenoriznie kellett.
-                        //
-
-                        Debug.Fail("Can't process the wrapped property");
-                        return Array.Empty<ColumnSelection>();
+                        return sel.UnderlyingType.ExtractColumnSelections();
                     }))
                 .ToArray();
 
             //
-            //      class A {int Foo;}
-            //      class B {int Foo;}
-            //      class C
-            //      {
-            //        A A;
-            //        B B;
-            //      }
+            // class A {int Foo;}
+            // class B {int Foo;}
+            // class C
+            // {
+            //    A A;
+            //    B B;
+            // }
             //
 
             string[] collisions =

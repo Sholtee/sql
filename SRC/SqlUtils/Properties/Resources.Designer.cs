@@ -124,15 +124,6 @@ namespace Solti.Utils.SQL.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No column selected..
-        /// </summary>
-        internal static string NO_COLUMN {
-            get {
-                return ResourceManager.GetString("NO_COLUMN", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Data types must have, views must select a primary key..
         /// </summary>
         internal static string NO_PRIMARY_KEY {

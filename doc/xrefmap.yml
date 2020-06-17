@@ -13,13 +13,13 @@ references:
   commentId: T:Solti.Utils.SQL.CommandText
   fullName: Solti.Utils.SQL.CommandText
   nameWithType: CommandText
-- uid: Solti.Utils.SQL.CommandText.Format(System.String,IDataParameter[])
+- uid: Solti.Utils.SQL.CommandText.Format(System.String,System.Data.IDataParameter[])
   name: Format(String, IDataParameter[])
-  href: Solti.Utils.SQL.CommandText.html#Solti_Utils_SQL_CommandText_Format_System_String_IDataParameter___
-  commentId: M:Solti.Utils.SQL.CommandText.Format(System.String,IDataParameter[])
+  href: Solti.Utils.SQL.CommandText.html#Solti_Utils_SQL_CommandText_Format_System_String_System_Data_IDataParameter___
+  commentId: M:Solti.Utils.SQL.CommandText.Format(System.String,System.Data.IDataParameter[])
   name.vb: Format(String, IDataParameter())
-  fullName: Solti.Utils.SQL.CommandText.Format(System.String, IDataParameter[])
-  fullName.vb: Solti.Utils.SQL.CommandText.Format(System.String, IDataParameter())
+  fullName: Solti.Utils.SQL.CommandText.Format(System.String, System.Data.IDataParameter[])
+  fullName.vb: Solti.Utils.SQL.CommandText.Format(System.String, System.Data.IDataParameter())
   nameWithType: CommandText.Format(String, IDataParameter[])
   nameWithType.vb: CommandText.Format(String, IDataParameter())
 - uid: Solti.Utils.SQL.CommandText.Format*
@@ -95,11 +95,11 @@ references:
   commentId: T:Solti.Utils.SQL.DefaultConfig
   fullName: Solti.Utils.SQL.DefaultConfig
   nameWithType: DefaultConfig
-- uid: Solti.Utils.SQL.DefaultConfig.GetReferencedType(PropertyInfo)
+- uid: Solti.Utils.SQL.DefaultConfig.GetReferencedType(System.Reflection.PropertyInfo)
   name: GetReferencedType(PropertyInfo)
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_GetReferencedType_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.DefaultConfig.GetReferencedType(PropertyInfo)
-  fullName: Solti.Utils.SQL.DefaultConfig.GetReferencedType(PropertyInfo)
+  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_GetReferencedType_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.DefaultConfig.GetReferencedType(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.DefaultConfig.GetReferencedType(System.Reflection.PropertyInfo)
   nameWithType: DefaultConfig.GetReferencedType(PropertyInfo)
 - uid: Solti.Utils.SQL.DefaultConfig.GetReferencedType*
   name: GetReferencedType
@@ -108,11 +108,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.DefaultConfig.GetReferencedType
   nameWithType: DefaultConfig.GetReferencedType
-- uid: Solti.Utils.SQL.DefaultConfig.IsDataTable(Type)
+- uid: Solti.Utils.SQL.DefaultConfig.IsDataTable(System.Type)
   name: IsDataTable(Type)
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_IsDataTable_Type_
-  commentId: M:Solti.Utils.SQL.DefaultConfig.IsDataTable(Type)
-  fullName: Solti.Utils.SQL.DefaultConfig.IsDataTable(Type)
+  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_IsDataTable_System_Type_
+  commentId: M:Solti.Utils.SQL.DefaultConfig.IsDataTable(System.Type)
+  fullName: Solti.Utils.SQL.DefaultConfig.IsDataTable(System.Type)
   nameWithType: DefaultConfig.IsDataTable(Type)
 - uid: Solti.Utils.SQL.DefaultConfig.IsDataTable*
   name: IsDataTable
@@ -121,11 +121,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.DefaultConfig.IsDataTable
   nameWithType: DefaultConfig.IsDataTable
-- uid: Solti.Utils.SQL.DefaultConfig.IsIgnored(PropertyInfo)
+- uid: Solti.Utils.SQL.DefaultConfig.IsIgnored(System.Reflection.PropertyInfo)
   name: IsIgnored(PropertyInfo)
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_IsIgnored_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.DefaultConfig.IsIgnored(PropertyInfo)
-  fullName: Solti.Utils.SQL.DefaultConfig.IsIgnored(PropertyInfo)
+  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_IsIgnored_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.DefaultConfig.IsIgnored(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.DefaultConfig.IsIgnored(System.Reflection.PropertyInfo)
   nameWithType: DefaultConfig.IsIgnored(PropertyInfo)
 - uid: Solti.Utils.SQL.DefaultConfig.IsIgnored*
   name: IsIgnored
@@ -134,11 +134,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.DefaultConfig.IsIgnored
   nameWithType: DefaultConfig.IsIgnored
-- uid: Solti.Utils.SQL.DefaultConfig.IsPrimaryKey(PropertyInfo)
+- uid: Solti.Utils.SQL.DefaultConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
   name: IsPrimaryKey(PropertyInfo)
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_IsPrimaryKey_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.DefaultConfig.IsPrimaryKey(PropertyInfo)
-  fullName: Solti.Utils.SQL.DefaultConfig.IsPrimaryKey(PropertyInfo)
+  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_IsPrimaryKey_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.DefaultConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.DefaultConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
   nameWithType: DefaultConfig.IsPrimaryKey(PropertyInfo)
 - uid: Solti.Utils.SQL.DefaultConfig.IsPrimaryKey*
   name: IsPrimaryKey
@@ -147,11 +147,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.DefaultConfig.IsPrimaryKey
   nameWithType: DefaultConfig.IsPrimaryKey
-- uid: Solti.Utils.SQL.DefaultConfig.Stringify(IDataParameter)
+- uid: Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDataParameter)
   name: Stringify(IDataParameter)
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_Stringify_IDataParameter_
-  commentId: M:Solti.Utils.SQL.DefaultConfig.Stringify(IDataParameter)
-  fullName: Solti.Utils.SQL.DefaultConfig.Stringify(IDataParameter)
+  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_Stringify_System_Data_IDataParameter_
+  commentId: M:Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDataParameter)
+  fullName: Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDataParameter)
   nameWithType: DefaultConfig.Stringify(IDataParameter)
 - uid: Solti.Utils.SQL.DefaultConfig.Stringify*
   name: Stringify
@@ -173,13 +173,13 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Edge.Create
   nameWithType: Edge.Create
-- uid: Solti.Utils.SQL.Edge.Create``2(Expression{Func{``0,System.Object}},Expression{Func{``1,System.Object}})
+- uid: Solti.Utils.SQL.Edge.Create``2(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Linq.Expressions.Expression{System.Func{``1,System.Object}})
   name: Create<TSrc, TDst>(Expression<Func<TSrc, Object>>, Expression<Func<TDst, Object>>)
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_Create__2_Expression_Func___0_System_Object___Expression_Func___1_System_Object___
-  commentId: M:Solti.Utils.SQL.Edge.Create``2(Expression{Func{``0,System.Object}},Expression{Func{``1,System.Object}})
+  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_Create__2_System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Linq_Expressions_Expression_System_Func___1_System_Object___
+  commentId: M:Solti.Utils.SQL.Edge.Create``2(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Linq.Expressions.Expression{System.Func{``1,System.Object}})
   name.vb: Create(Of TSrc, TDst)(Expression(Of Func(Of TSrc, Object)), Expression(Of Func(Of TDst, Object)))
-  fullName: Solti.Utils.SQL.Edge.Create<TSrc, TDst>(Expression<Func<TSrc, System.Object>>, Expression<Func<TDst, System.Object>>)
-  fullName.vb: Solti.Utils.SQL.Edge.Create(Of TSrc, TDst)(Expression(Of Func(Of TSrc, System.Object)), Expression(Of Func(Of TDst, System.Object)))
+  fullName: Solti.Utils.SQL.Edge.Create<TSrc, TDst>(System.Linq.Expressions.Expression<System.Func<TSrc, System.Object>>, System.Linq.Expressions.Expression<System.Func<TDst, System.Object>>)
+  fullName.vb: Solti.Utils.SQL.Edge.Create(Of TSrc, TDst)(System.Linq.Expressions.Expression(Of System.Func(Of TSrc, System.Object)), System.Linq.Expressions.Expression(Of System.Func(Of TDst, System.Object)))
   nameWithType: Edge.Create<TSrc, TDst>(Expression<Func<TSrc, Object>>, Expression<Func<TDst, Object>>)
   nameWithType.vb: Edge.Create(Of TSrc, TDst)(Expression(Of Func(Of TSrc, Object)), Expression(Of Func(Of TDst, Object)))
 - uid: Solti.Utils.SQL.Edge.DestinationProperty
@@ -298,11 +298,11 @@ references:
   commentId: T:Solti.Utils.SQL.IConfig
   fullName: Solti.Utils.SQL.IConfig
   nameWithType: IConfig
-- uid: Solti.Utils.SQL.IConfig.GetReferencedType(PropertyInfo)
+- uid: Solti.Utils.SQL.IConfig.GetReferencedType(System.Reflection.PropertyInfo)
   name: GetReferencedType(PropertyInfo)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_GetReferencedType_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.IConfig.GetReferencedType(PropertyInfo)
-  fullName: Solti.Utils.SQL.IConfig.GetReferencedType(PropertyInfo)
+  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_GetReferencedType_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.IConfig.GetReferencedType(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.IConfig.GetReferencedType(System.Reflection.PropertyInfo)
   nameWithType: IConfig.GetReferencedType(PropertyInfo)
 - uid: Solti.Utils.SQL.IConfig.GetReferencedType*
   name: GetReferencedType
@@ -311,11 +311,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.IConfig.GetReferencedType
   nameWithType: IConfig.GetReferencedType
-- uid: Solti.Utils.SQL.IConfig.IsDataTable(Type)
+- uid: Solti.Utils.SQL.IConfig.IsDataTable(System.Type)
   name: IsDataTable(Type)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsDataTable_Type_
-  commentId: M:Solti.Utils.SQL.IConfig.IsDataTable(Type)
-  fullName: Solti.Utils.SQL.IConfig.IsDataTable(Type)
+  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsDataTable_System_Type_
+  commentId: M:Solti.Utils.SQL.IConfig.IsDataTable(System.Type)
+  fullName: Solti.Utils.SQL.IConfig.IsDataTable(System.Type)
   nameWithType: IConfig.IsDataTable(Type)
 - uid: Solti.Utils.SQL.IConfig.IsDataTable*
   name: IsDataTable
@@ -324,11 +324,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.IConfig.IsDataTable
   nameWithType: IConfig.IsDataTable
-- uid: Solti.Utils.SQL.IConfig.IsIgnored(PropertyInfo)
+- uid: Solti.Utils.SQL.IConfig.IsIgnored(System.Reflection.PropertyInfo)
   name: IsIgnored(PropertyInfo)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsIgnored_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.IConfig.IsIgnored(PropertyInfo)
-  fullName: Solti.Utils.SQL.IConfig.IsIgnored(PropertyInfo)
+  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsIgnored_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.IConfig.IsIgnored(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.IConfig.IsIgnored(System.Reflection.PropertyInfo)
   nameWithType: IConfig.IsIgnored(PropertyInfo)
 - uid: Solti.Utils.SQL.IConfig.IsIgnored*
   name: IsIgnored
@@ -337,11 +337,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.IConfig.IsIgnored
   nameWithType: IConfig.IsIgnored
-- uid: Solti.Utils.SQL.IConfig.IsPrimaryKey(PropertyInfo)
+- uid: Solti.Utils.SQL.IConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
   name: IsPrimaryKey(PropertyInfo)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsPrimaryKey_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.IConfig.IsPrimaryKey(PropertyInfo)
-  fullName: Solti.Utils.SQL.IConfig.IsPrimaryKey(PropertyInfo)
+  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsPrimaryKey_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.IConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.IConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
   nameWithType: IConfig.IsPrimaryKey(PropertyInfo)
 - uid: Solti.Utils.SQL.IConfig.IsPrimaryKey*
   name: IsPrimaryKey
@@ -350,11 +350,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.IConfig.IsPrimaryKey
   nameWithType: IConfig.IsPrimaryKey
-- uid: Solti.Utils.SQL.IConfig.Stringify(IDataParameter)
+- uid: Solti.Utils.SQL.IConfig.Stringify(System.Data.IDataParameter)
   name: Stringify(IDataParameter)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_Stringify_IDataParameter_
-  commentId: M:Solti.Utils.SQL.IConfig.Stringify(IDataParameter)
-  fullName: Solti.Utils.SQL.IConfig.Stringify(IDataParameter)
+  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_Stringify_System_Data_IDataParameter_
+  commentId: M:Solti.Utils.SQL.IConfig.Stringify(System.Data.IDataParameter)
+  fullName: Solti.Utils.SQL.IConfig.Stringify(System.Data.IDataParameter)
   nameWithType: IConfig.Stringify(IDataParameter)
 - uid: Solti.Utils.SQL.IConfig.Stringify*
   name: Stringify
@@ -369,11 +369,11 @@ references:
   commentId: T:Solti.Utils.SQL.IDbConnectionExtensions
   fullName: Solti.Utils.SQL.IDbConnectionExtensions
   nameWithType: IDbConnectionExtensions
-- uid: Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection(IDbConnection)
+- uid: Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection(System.Data.IDbConnection)
   name: CreateBulkedDbConnection(IDbConnection)
-  href: Solti.Utils.SQL.IDbConnectionExtensions.html#Solti_Utils_SQL_IDbConnectionExtensions_CreateBulkedDbConnection_IDbConnection_
-  commentId: M:Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection(IDbConnection)
-  fullName: Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection(IDbConnection)
+  href: Solti.Utils.SQL.IDbConnectionExtensions.html#Solti_Utils_SQL_IDbConnectionExtensions_CreateBulkedDbConnection_System_Data_IDbConnection_
+  commentId: M:Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection(System.Data.IDbConnection)
+  fullName: Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection(System.Data.IDbConnection)
   nameWithType: IDbConnectionExtensions.CreateBulkedDbConnection(IDbConnection)
 - uid: Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection*
   name: CreateBulkedDbConnection
@@ -394,15 +394,12 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute
   fullName: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute
   nameWithType: AggregateSelectionAttribute
-- uid: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String},MethodInfo)
-  name: AggregateSelectionAttribute(Type, Boolean, Nullable<String>, MethodInfo)
-  href: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.html#Solti_Utils_SQL_Interfaces_AggregateSelectionAttribute__ctor_Type_System_Boolean_System_Nullable_System_String__MethodInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String},MethodInfo)
-  name.vb: AggregateSelectionAttribute(Type, Boolean, Nullable(Of String), MethodInfo)
-  fullName: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.AggregateSelectionAttribute(Type, System.Boolean, System.Nullable<System.String>, MethodInfo)
-  fullName.vb: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.AggregateSelectionAttribute(Type, System.Boolean, System.Nullable(Of System.String), MethodInfo)
-  nameWithType: AggregateSelectionAttribute.AggregateSelectionAttribute(Type, Boolean, Nullable<String>, MethodInfo)
-  nameWithType.vb: AggregateSelectionAttribute.AggregateSelectionAttribute(Type, Boolean, Nullable(Of String), MethodInfo)
+- uid: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.#ctor(System.Type,System.Boolean,System.String,System.Reflection.MethodInfo)
+  name: AggregateSelectionAttribute(Type, Boolean, String, MethodInfo)
+  href: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.html#Solti_Utils_SQL_Interfaces_AggregateSelectionAttribute__ctor_System_Type_System_Boolean_System_String_System_Reflection_MethodInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.#ctor(System.Type,System.Boolean,System.String,System.Reflection.MethodInfo)
+  fullName: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.AggregateSelectionAttribute(System.Type, System.Boolean, System.String, System.Reflection.MethodInfo)
+  nameWithType: AggregateSelectionAttribute.AggregateSelectionAttribute(Type, Boolean, String, MethodInfo)
 - uid: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.#ctor*
   name: AggregateSelectionAttribute
   href: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.html#Solti_Utils_SQL_Interfaces_AggregateSelectionAttribute__ctor_
@@ -429,15 +426,12 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.AverageOfAttribute
   fullName: Solti.Utils.SQL.Interfaces.AverageOfAttribute
   nameWithType: AverageOfAttribute
-- uid: Solti.Utils.SQL.Interfaces.AverageOfAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String})
-  name: AverageOfAttribute(Type, Boolean, Nullable<String>)
-  href: Solti.Utils.SQL.Interfaces.AverageOfAttribute.html#Solti_Utils_SQL_Interfaces_AverageOfAttribute__ctor_Type_System_Boolean_System_Nullable_System_String__
-  commentId: M:Solti.Utils.SQL.Interfaces.AverageOfAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String})
-  name.vb: AverageOfAttribute(Type, Boolean, Nullable(Of String))
-  fullName: Solti.Utils.SQL.Interfaces.AverageOfAttribute.AverageOfAttribute(Type, System.Boolean, System.Nullable<System.String>)
-  fullName.vb: Solti.Utils.SQL.Interfaces.AverageOfAttribute.AverageOfAttribute(Type, System.Boolean, System.Nullable(Of System.String))
-  nameWithType: AverageOfAttribute.AverageOfAttribute(Type, Boolean, Nullable<String>)
-  nameWithType.vb: AverageOfAttribute.AverageOfAttribute(Type, Boolean, Nullable(Of String))
+- uid: Solti.Utils.SQL.Interfaces.AverageOfAttribute.#ctor(System.Type,System.Boolean,System.String)
+  name: AverageOfAttribute(Type, Boolean, String)
+  href: Solti.Utils.SQL.Interfaces.AverageOfAttribute.html#Solti_Utils_SQL_Interfaces_AverageOfAttribute__ctor_System_Type_System_Boolean_System_String_
+  commentId: M:Solti.Utils.SQL.Interfaces.AverageOfAttribute.#ctor(System.Type,System.Boolean,System.String)
+  fullName: Solti.Utils.SQL.Interfaces.AverageOfAttribute.AverageOfAttribute(System.Type, System.Boolean, System.String)
+  nameWithType: AverageOfAttribute.AverageOfAttribute(Type, Boolean, String)
 - uid: Solti.Utils.SQL.Interfaces.AverageOfAttribute.#ctor*
   name: AverageOfAttribute
   href: Solti.Utils.SQL.Interfaces.AverageOfAttribute.html#Solti_Utils_SQL_Interfaces_AverageOfAttribute__ctor_
@@ -451,15 +445,12 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.BelongsToAttribute
   fullName: Solti.Utils.SQL.Interfaces.BelongsToAttribute
   nameWithType: BelongsToAttribute
-- uid: Solti.Utils.SQL.Interfaces.BelongsToAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String},Solti.Utils.SQL.Interfaces.Order)
-  name: BelongsToAttribute(Type, Boolean, Nullable<String>, Order)
-  href: Solti.Utils.SQL.Interfaces.BelongsToAttribute.html#Solti_Utils_SQL_Interfaces_BelongsToAttribute__ctor_Type_System_Boolean_System_Nullable_System_String__Solti_Utils_SQL_Interfaces_Order_
-  commentId: M:Solti.Utils.SQL.Interfaces.BelongsToAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String},Solti.Utils.SQL.Interfaces.Order)
-  name.vb: BelongsToAttribute(Type, Boolean, Nullable(Of String), Order)
-  fullName: Solti.Utils.SQL.Interfaces.BelongsToAttribute.BelongsToAttribute(Type, System.Boolean, System.Nullable<System.String>, Solti.Utils.SQL.Interfaces.Order)
-  fullName.vb: Solti.Utils.SQL.Interfaces.BelongsToAttribute.BelongsToAttribute(Type, System.Boolean, System.Nullable(Of System.String), Solti.Utils.SQL.Interfaces.Order)
-  nameWithType: BelongsToAttribute.BelongsToAttribute(Type, Boolean, Nullable<String>, Order)
-  nameWithType.vb: BelongsToAttribute.BelongsToAttribute(Type, Boolean, Nullable(Of String), Order)
+- uid: Solti.Utils.SQL.Interfaces.BelongsToAttribute.#ctor(System.Type,System.Boolean,System.String,Solti.Utils.SQL.Interfaces.Order)
+  name: BelongsToAttribute(Type, Boolean, String, Order)
+  href: Solti.Utils.SQL.Interfaces.BelongsToAttribute.html#Solti_Utils_SQL_Interfaces_BelongsToAttribute__ctor_System_Type_System_Boolean_System_String_Solti_Utils_SQL_Interfaces_Order_
+  commentId: M:Solti.Utils.SQL.Interfaces.BelongsToAttribute.#ctor(System.Type,System.Boolean,System.String,Solti.Utils.SQL.Interfaces.Order)
+  fullName: Solti.Utils.SQL.Interfaces.BelongsToAttribute.BelongsToAttribute(System.Type, System.Boolean, System.String, Solti.Utils.SQL.Interfaces.Order)
+  nameWithType: BelongsToAttribute.BelongsToAttribute(Type, Boolean, String, Order)
 - uid: Solti.Utils.SQL.Interfaces.BelongsToAttribute.#ctor*
   name: BelongsToAttribute
   href: Solti.Utils.SQL.Interfaces.BelongsToAttribute.html#Solti_Utils_SQL_Interfaces_BelongsToAttribute__ctor_
@@ -480,11 +471,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetBuilder
   nameWithType: BelongsToAttribute.GetBuilder
-- uid: Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetFragments(ParameterExpression,PropertyInfo,System.Boolean)
+- uid: Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
   name: GetFragments(ParameterExpression, PropertyInfo, Boolean)
-  href: Solti.Utils.SQL.Interfaces.BelongsToAttribute.html#Solti_Utils_SQL_Interfaces_BelongsToAttribute_GetFragments_ParameterExpression_PropertyInfo_System_Boolean_
-  commentId: M:Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetFragments(ParameterExpression,PropertyInfo,System.Boolean)
-  fullName: Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetFragments(ParameterExpression, PropertyInfo, System.Boolean)
+  href: Solti.Utils.SQL.Interfaces.BelongsToAttribute.html#Solti_Utils_SQL_Interfaces_BelongsToAttribute_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_
+  commentId: M:Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
+  fullName: Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetFragments(System.Linq.Expressions.ParameterExpression, System.Reflection.PropertyInfo, System.Boolean)
   nameWithType: BelongsToAttribute.GetFragments(ParameterExpression, PropertyInfo, Boolean)
 - uid: Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetFragments*
   name: GetFragments
@@ -512,15 +503,12 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute
   fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute
   nameWithType: ColumnSelectionAttribute
-- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String},MethodInfo)
-  name: ColumnSelectionAttribute(Type, Boolean, Nullable<String>, MethodInfo)
-  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute__ctor_Type_System_Boolean_System_Nullable_System_String__MethodInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String},MethodInfo)
-  name.vb: ColumnSelectionAttribute(Type, Boolean, Nullable(Of String), MethodInfo)
-  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.ColumnSelectionAttribute(Type, System.Boolean, System.Nullable<System.String>, MethodInfo)
-  fullName.vb: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.ColumnSelectionAttribute(Type, System.Boolean, System.Nullable(Of System.String), MethodInfo)
-  nameWithType: ColumnSelectionAttribute.ColumnSelectionAttribute(Type, Boolean, Nullable<String>, MethodInfo)
-  nameWithType.vb: ColumnSelectionAttribute.ColumnSelectionAttribute(Type, Boolean, Nullable(Of String), MethodInfo)
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.#ctor(System.Type,System.Boolean,System.String,System.Reflection.MethodInfo)
+  name: ColumnSelectionAttribute(Type, Boolean, String, MethodInfo)
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute__ctor_System_Type_System_Boolean_System_String_System_Reflection_MethodInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.#ctor(System.Type,System.Boolean,System.String,System.Reflection.MethodInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.ColumnSelectionAttribute(System.Type, System.Boolean, System.String, System.Reflection.MethodInfo)
+  nameWithType: ColumnSelectionAttribute.ColumnSelectionAttribute(Type, Boolean, String, MethodInfo)
 - uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.#ctor*
   name: ColumnSelectionAttribute
   href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute__ctor_
@@ -567,11 +555,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetBuilder
   nameWithType: ColumnSelectionAttribute.GetBuilder
-- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetFragments(ParameterExpression,PropertyInfo,System.Boolean)
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
   name: GetFragments(ParameterExpression, PropertyInfo, Boolean)
-  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_GetFragments_ParameterExpression_PropertyInfo_System_Boolean_
-  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetFragments(ParameterExpression,PropertyInfo,System.Boolean)
-  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetFragments(ParameterExpression, PropertyInfo, System.Boolean)
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_
+  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetFragments(System.Linq.Expressions.ParameterExpression, System.Reflection.PropertyInfo, System.Boolean)
   nameWithType: ColumnSelectionAttribute.GetFragments(ParameterExpression, PropertyInfo, Boolean)
 - uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetFragments*
   name: GetFragments
@@ -580,13 +568,13 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetFragments
   nameWithType: ColumnSelectionAttribute.GetFragments
-- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetQueryMethod(Expression{Action{Solti.Utils.SQL.Interfaces.ISqlQuery}})
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetQueryMethod(System.Linq.Expressions.Expression{System.Action{Solti.Utils.SQL.Interfaces.ISqlQuery}})
   name: GetQueryMethod(Expression<Action<ISqlQuery>>)
-  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_GetQueryMethod_Expression_Action_Solti_Utils_SQL_Interfaces_ISqlQuery___
-  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetQueryMethod(Expression{Action{Solti.Utils.SQL.Interfaces.ISqlQuery}})
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_GetQueryMethod_System_Linq_Expressions_Expression_System_Action_Solti_Utils_SQL_Interfaces_ISqlQuery___
+  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetQueryMethod(System.Linq.Expressions.Expression{System.Action{Solti.Utils.SQL.Interfaces.ISqlQuery}})
   name.vb: GetQueryMethod(Expression(Of Action(Of ISqlQuery)))
-  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetQueryMethod(Expression<Action<Solti.Utils.SQL.Interfaces.ISqlQuery>>)
-  fullName.vb: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetQueryMethod(Expression(Of Action(Of Solti.Utils.SQL.Interfaces.ISqlQuery)))
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetQueryMethod(System.Linq.Expressions.Expression<System.Action<Solti.Utils.SQL.Interfaces.ISqlQuery>>)
+  fullName.vb: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetQueryMethod(System.Linq.Expressions.Expression(Of System.Action(Of Solti.Utils.SQL.Interfaces.ISqlQuery)))
   nameWithType: ColumnSelectionAttribute.GetQueryMethod(Expression<Action<ISqlQuery>>)
   nameWithType.vb: ColumnSelectionAttribute.GetQueryMethod(Expression(Of Action(Of ISqlQuery)))
 - uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetQueryMethod*
@@ -628,15 +616,12 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.CountOfAttribute
   fullName: Solti.Utils.SQL.Interfaces.CountOfAttribute
   nameWithType: CountOfAttribute
-- uid: Solti.Utils.SQL.Interfaces.CountOfAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String})
-  name: CountOfAttribute(Type, Boolean, Nullable<String>)
-  href: Solti.Utils.SQL.Interfaces.CountOfAttribute.html#Solti_Utils_SQL_Interfaces_CountOfAttribute__ctor_Type_System_Boolean_System_Nullable_System_String__
-  commentId: M:Solti.Utils.SQL.Interfaces.CountOfAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String})
-  name.vb: CountOfAttribute(Type, Boolean, Nullable(Of String))
-  fullName: Solti.Utils.SQL.Interfaces.CountOfAttribute.CountOfAttribute(Type, System.Boolean, System.Nullable<System.String>)
-  fullName.vb: Solti.Utils.SQL.Interfaces.CountOfAttribute.CountOfAttribute(Type, System.Boolean, System.Nullable(Of System.String))
-  nameWithType: CountOfAttribute.CountOfAttribute(Type, Boolean, Nullable<String>)
-  nameWithType.vb: CountOfAttribute.CountOfAttribute(Type, Boolean, Nullable(Of String))
+- uid: Solti.Utils.SQL.Interfaces.CountOfAttribute.#ctor(System.Type,System.Boolean,System.String)
+  name: CountOfAttribute(Type, Boolean, String)
+  href: Solti.Utils.SQL.Interfaces.CountOfAttribute.html#Solti_Utils_SQL_Interfaces_CountOfAttribute__ctor_System_Type_System_Boolean_System_String_
+  commentId: M:Solti.Utils.SQL.Interfaces.CountOfAttribute.#ctor(System.Type,System.Boolean,System.String)
+  fullName: Solti.Utils.SQL.Interfaces.CountOfAttribute.CountOfAttribute(System.Type, System.Boolean, System.String)
+  nameWithType: CountOfAttribute.CountOfAttribute(Type, Boolean, String)
 - uid: Solti.Utils.SQL.Interfaces.CountOfAttribute.#ctor*
   name: CountOfAttribute
   href: Solti.Utils.SQL.Interfaces.CountOfAttribute.html#Solti_Utils_SQL_Interfaces_CountOfAttribute__ctor_
@@ -674,11 +659,11 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.DataAnnotations.ReferencesAttribute
   fullName: Solti.Utils.SQL.Interfaces.DataAnnotations.ReferencesAttribute
   nameWithType: ReferencesAttribute
-- uid: Solti.Utils.SQL.Interfaces.DataAnnotations.ReferencesAttribute.#ctor(Type)
+- uid: Solti.Utils.SQL.Interfaces.DataAnnotations.ReferencesAttribute.#ctor(System.Type)
   name: ReferencesAttribute(Type)
-  href: Solti.Utils.SQL.Interfaces.DataAnnotations.ReferencesAttribute.html#Solti_Utils_SQL_Interfaces_DataAnnotations_ReferencesAttribute__ctor_Type_
-  commentId: M:Solti.Utils.SQL.Interfaces.DataAnnotations.ReferencesAttribute.#ctor(Type)
-  fullName: Solti.Utils.SQL.Interfaces.DataAnnotations.ReferencesAttribute.ReferencesAttribute(Type)
+  href: Solti.Utils.SQL.Interfaces.DataAnnotations.ReferencesAttribute.html#Solti_Utils_SQL_Interfaces_DataAnnotations_ReferencesAttribute__ctor_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.DataAnnotations.ReferencesAttribute.#ctor(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.DataAnnotations.ReferencesAttribute.ReferencesAttribute(System.Type)
   nameWithType: ReferencesAttribute.ReferencesAttribute(Type)
 - uid: Solti.Utils.SQL.Interfaces.DataAnnotations.ReferencesAttribute.#ctor*
   name: ReferencesAttribute
@@ -731,11 +716,11 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.IFragment
   fullName: Solti.Utils.SQL.Interfaces.IFragment
   nameWithType: IFragment
-- uid: Solti.Utils.SQL.Interfaces.IFragment.GetFragments(ParameterExpression,PropertyInfo,System.Boolean)
+- uid: Solti.Utils.SQL.Interfaces.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
   name: GetFragments(ParameterExpression, PropertyInfo, Boolean)
-  href: Solti.Utils.SQL.Interfaces.IFragment.html#Solti_Utils_SQL_Interfaces_IFragment_GetFragments_ParameterExpression_PropertyInfo_System_Boolean_
-  commentId: M:Solti.Utils.SQL.Interfaces.IFragment.GetFragments(ParameterExpression,PropertyInfo,System.Boolean)
-  fullName: Solti.Utils.SQL.Interfaces.IFragment.GetFragments(ParameterExpression, PropertyInfo, System.Boolean)
+  href: Solti.Utils.SQL.Interfaces.IFragment.html#Solti_Utils_SQL_Interfaces_IFragment_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_
+  commentId: M:Solti.Utils.SQL.Interfaces.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
+  fullName: Solti.Utils.SQL.Interfaces.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression, System.Reflection.PropertyInfo, System.Boolean)
   nameWithType: IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
 - uid: Solti.Utils.SQL.Interfaces.IFragment.GetFragments*
   name: GetFragments
@@ -756,11 +741,11 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.ISqlQuery
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery
   nameWithType: ISqlQuery
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy(System.Reflection.PropertyInfo)
   name: GroupBy(PropertyInfo)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_GroupBy_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy(PropertyInfo)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_GroupBy_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy(System.Reflection.PropertyInfo)
   nameWithType: ISqlQuery.GroupBy(PropertyInfo)
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy*
   name: GroupBy
@@ -769,11 +754,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.GroupBy
   nameWithType: ISqlQuery.GroupBy
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin(PropertyInfo,PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
   name: InnerJoin(PropertyInfo, PropertyInfo)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_InnerJoin_PropertyInfo_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin(PropertyInfo,PropertyInfo)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_InnerJoin_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
   nameWithType: ISqlQuery.InnerJoin(PropertyInfo, PropertyInfo)
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin*
   name: InnerJoin
@@ -782,11 +767,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.InnerJoin
   nameWithType: ISqlQuery.InnerJoin
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin(PropertyInfo,PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
   name: LeftJoin(PropertyInfo, PropertyInfo)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_LeftJoin_PropertyInfo_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin(PropertyInfo,PropertyInfo)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_LeftJoin_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
   nameWithType: ISqlQuery.LeftJoin(PropertyInfo, PropertyInfo)
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin*
   name: LeftJoin
@@ -795,11 +780,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.LeftJoin
   nameWithType: ISqlQuery.LeftJoin
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy(System.Reflection.PropertyInfo)
   name: OrderBy(PropertyInfo)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_OrderBy_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy(PropertyInfo)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_OrderBy_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy(System.Reflection.PropertyInfo)
   nameWithType: ISqlQuery.OrderBy(PropertyInfo)
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy*
   name: OrderBy
@@ -808,11 +793,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderBy
   nameWithType: ISqlQuery.OrderBy
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending(System.Reflection.PropertyInfo)
   name: OrderByDescending(PropertyInfo)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_OrderByDescending_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending(PropertyInfo)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_OrderByDescending_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending(System.Reflection.PropertyInfo)
   nameWithType: ISqlQuery.OrderByDescending(PropertyInfo)
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending*
   name: OrderByDescending
@@ -821,11 +806,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending
   nameWithType: ISqlQuery.OrderByDescending
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Run(Type)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Type)
   name: Run(Type)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Run_Type_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.Run(Type)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Run(Type)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Run_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Type)
   nameWithType: ISqlQuery.Run(Type)
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Run*
   name: Run
@@ -834,11 +819,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Run
   nameWithType: ISqlQuery.Run
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Select(PropertyInfo,PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Select(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
   name: Select(PropertyInfo, PropertyInfo)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Select_PropertyInfo_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.Select(PropertyInfo,PropertyInfo)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Select(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Select_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.Select(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Select(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
   nameWithType: ISqlQuery.Select(PropertyInfo, PropertyInfo)
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Select*
   name: Select
@@ -847,11 +832,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Select
   nameWithType: ISqlQuery.Select
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectAvg(PropertyInfo,PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectAvg(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
   name: SelectAvg(PropertyInfo, PropertyInfo)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectAvg_PropertyInfo_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectAvg(PropertyInfo,PropertyInfo)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectAvg(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectAvg_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectAvg(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectAvg(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
   nameWithType: ISqlQuery.SelectAvg(PropertyInfo, PropertyInfo)
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectAvg*
   name: SelectAvg
@@ -860,11 +845,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectAvg
   nameWithType: ISqlQuery.SelectAvg
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount(PropertyInfo,PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
   name: SelectCount(PropertyInfo, PropertyInfo)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectCount_PropertyInfo_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount(PropertyInfo,PropertyInfo)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectCount_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
   nameWithType: ISqlQuery.SelectCount(PropertyInfo, PropertyInfo)
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount*
   name: SelectCount
@@ -873,11 +858,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectCount
   nameWithType: ISqlQuery.SelectCount
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax(PropertyInfo,PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
   name: SelectMax(PropertyInfo, PropertyInfo)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectMax_PropertyInfo_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax(PropertyInfo,PropertyInfo)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectMax_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
   nameWithType: ISqlQuery.SelectMax(PropertyInfo, PropertyInfo)
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax*
   name: SelectMax
@@ -886,11 +871,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMax
   nameWithType: ISqlQuery.SelectMax
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin(PropertyInfo,PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
   name: SelectMin(PropertyInfo, PropertyInfo)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectMin_PropertyInfo_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin(PropertyInfo,PropertyInfo)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SelectMin_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
   nameWithType: ISqlQuery.SelectMin(PropertyInfo, PropertyInfo)
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin*
   name: SelectMin
@@ -899,11 +884,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin
   nameWithType: ISqlQuery.SelectMin
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(Type)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(System.Type)
   name: SetBase(Type)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SetBase_Type_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(Type)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(Type)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SetBase_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(System.Type)
   nameWithType: ISqlQuery.SetBase(Type)
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase*
   name: SetBase
@@ -944,21 +929,35 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.KnownTables.GetEnumerator
   nameWithType: KnownTables.GetEnumerator
+- uid: Solti.Utils.SQL.Interfaces.KnownTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
+  name: IEnumerable<Type>.GetEnumerator()
+  href: Solti.Utils.SQL.Interfaces.KnownTables.html#Solti_Utils_SQL_Interfaces_KnownTables_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator
+  commentId: M:Solti.Utils.SQL.Interfaces.KnownTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
+  name.vb: System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator()
+  fullName: Solti.Utils.SQL.Interfaces.KnownTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator()
+  nameWithType: KnownTables.IEnumerable<Type>.GetEnumerator()
+  nameWithType.vb: KnownTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator()
+- uid: Solti.Utils.SQL.Interfaces.KnownTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator*
+  name: IEnumerable<Type>.GetEnumerator
+  href: Solti.Utils.SQL.Interfaces.KnownTables.html#Solti_Utils_SQL_Interfaces_KnownTables_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.KnownTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
+  fullName: Solti.Utils.SQL.Interfaces.KnownTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
+  nameWithType: KnownTables.IEnumerable<Type>.GetEnumerator
+  nameWithType.vb: KnownTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
 - uid: Solti.Utils.SQL.Interfaces.MaxOfAttribute
   name: MaxOfAttribute
   href: Solti.Utils.SQL.Interfaces.MaxOfAttribute.html
   commentId: T:Solti.Utils.SQL.Interfaces.MaxOfAttribute
   fullName: Solti.Utils.SQL.Interfaces.MaxOfAttribute
   nameWithType: MaxOfAttribute
-- uid: Solti.Utils.SQL.Interfaces.MaxOfAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String})
-  name: MaxOfAttribute(Type, Boolean, Nullable<String>)
-  href: Solti.Utils.SQL.Interfaces.MaxOfAttribute.html#Solti_Utils_SQL_Interfaces_MaxOfAttribute__ctor_Type_System_Boolean_System_Nullable_System_String__
-  commentId: M:Solti.Utils.SQL.Interfaces.MaxOfAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String})
-  name.vb: MaxOfAttribute(Type, Boolean, Nullable(Of String))
-  fullName: Solti.Utils.SQL.Interfaces.MaxOfAttribute.MaxOfAttribute(Type, System.Boolean, System.Nullable<System.String>)
-  fullName.vb: Solti.Utils.SQL.Interfaces.MaxOfAttribute.MaxOfAttribute(Type, System.Boolean, System.Nullable(Of System.String))
-  nameWithType: MaxOfAttribute.MaxOfAttribute(Type, Boolean, Nullable<String>)
-  nameWithType.vb: MaxOfAttribute.MaxOfAttribute(Type, Boolean, Nullable(Of String))
+- uid: Solti.Utils.SQL.Interfaces.MaxOfAttribute.#ctor(System.Type,System.Boolean,System.String)
+  name: MaxOfAttribute(Type, Boolean, String)
+  href: Solti.Utils.SQL.Interfaces.MaxOfAttribute.html#Solti_Utils_SQL_Interfaces_MaxOfAttribute__ctor_System_Type_System_Boolean_System_String_
+  commentId: M:Solti.Utils.SQL.Interfaces.MaxOfAttribute.#ctor(System.Type,System.Boolean,System.String)
+  fullName: Solti.Utils.SQL.Interfaces.MaxOfAttribute.MaxOfAttribute(System.Type, System.Boolean, System.String)
+  nameWithType: MaxOfAttribute.MaxOfAttribute(Type, Boolean, String)
 - uid: Solti.Utils.SQL.Interfaces.MaxOfAttribute.#ctor*
   name: MaxOfAttribute
   href: Solti.Utils.SQL.Interfaces.MaxOfAttribute.html#Solti_Utils_SQL_Interfaces_MaxOfAttribute__ctor_
@@ -972,15 +971,12 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.MinOfAttribute
   fullName: Solti.Utils.SQL.Interfaces.MinOfAttribute
   nameWithType: MinOfAttribute
-- uid: Solti.Utils.SQL.Interfaces.MinOfAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String})
-  name: MinOfAttribute(Type, Boolean, Nullable<String>)
-  href: Solti.Utils.SQL.Interfaces.MinOfAttribute.html#Solti_Utils_SQL_Interfaces_MinOfAttribute__ctor_Type_System_Boolean_System_Nullable_System_String__
-  commentId: M:Solti.Utils.SQL.Interfaces.MinOfAttribute.#ctor(Type,System.Boolean,System.Nullable{System.String})
-  name.vb: MinOfAttribute(Type, Boolean, Nullable(Of String))
-  fullName: Solti.Utils.SQL.Interfaces.MinOfAttribute.MinOfAttribute(Type, System.Boolean, System.Nullable<System.String>)
-  fullName.vb: Solti.Utils.SQL.Interfaces.MinOfAttribute.MinOfAttribute(Type, System.Boolean, System.Nullable(Of System.String))
-  nameWithType: MinOfAttribute.MinOfAttribute(Type, Boolean, Nullable<String>)
-  nameWithType.vb: MinOfAttribute.MinOfAttribute(Type, Boolean, Nullable(Of String))
+- uid: Solti.Utils.SQL.Interfaces.MinOfAttribute.#ctor(System.Type,System.Boolean,System.String)
+  name: MinOfAttribute(Type, Boolean, String)
+  href: Solti.Utils.SQL.Interfaces.MinOfAttribute.html#Solti_Utils_SQL_Interfaces_MinOfAttribute__ctor_System_Type_System_Boolean_System_String_
+  commentId: M:Solti.Utils.SQL.Interfaces.MinOfAttribute.#ctor(System.Type,System.Boolean,System.String)
+  fullName: Solti.Utils.SQL.Interfaces.MinOfAttribute.MinOfAttribute(System.Type, System.Boolean, System.String)
+  nameWithType: MinOfAttribute.MinOfAttribute(Type, Boolean, String)
 - uid: Solti.Utils.SQL.Interfaces.MinOfAttribute.#ctor*
   name: MinOfAttribute
   href: Solti.Utils.SQL.Interfaces.MinOfAttribute.html#Solti_Utils_SQL_Interfaces_MinOfAttribute__ctor_
@@ -1018,11 +1014,11 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.OrmLiteConfig
   fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig
   nameWithType: OrmLiteConfig
-- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType(System.Reflection.PropertyInfo)
   name: GetReferencedType(PropertyInfo)
-  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_GetReferencedType_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType(PropertyInfo)
-  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_GetReferencedType_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType(System.Reflection.PropertyInfo)
   nameWithType: OrmLiteConfig.GetReferencedType(PropertyInfo)
 - uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType*
   name: GetReferencedType
@@ -1031,11 +1027,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType
   nameWithType: OrmLiteConfig.GetReferencedType
-- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored(System.Reflection.PropertyInfo)
   name: IsIgnored(PropertyInfo)
-  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_IsIgnored_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored(PropertyInfo)
-  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_IsIgnored_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored(System.Reflection.PropertyInfo)
   nameWithType: OrmLiteConfig.IsIgnored(PropertyInfo)
 - uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored*
   name: IsIgnored
@@ -1044,11 +1040,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsIgnored
   nameWithType: OrmLiteConfig.IsIgnored
-- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
   name: IsPrimaryKey(PropertyInfo)
-  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_IsPrimaryKey_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey(PropertyInfo)
-  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_IsPrimaryKey_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
   nameWithType: OrmLiteConfig.IsPrimaryKey(PropertyInfo)
 - uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey*
   name: IsPrimaryKey
@@ -1057,11 +1053,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey
   nameWithType: OrmLiteConfig.IsPrimaryKey
-- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(IDataParameter)
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(System.Data.IDataParameter)
   name: Stringify(IDataParameter)
-  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_Stringify_IDataParameter_
-  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(IDataParameter)
-  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(IDataParameter)
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_Stringify_System_Data_IDataParameter_
+  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(System.Data.IDataParameter)
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(System.Data.IDataParameter)
   nameWithType: OrmLiteConfig.Stringify(IDataParameter)
 - uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify*
   name: Stringify

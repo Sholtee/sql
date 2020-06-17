@@ -53,19 +53,44 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Solti.Utils.SQL.Interfaces.IKnownDataTables.html">IKnownDataTables</a></div>
-    <div><span class="xref">IEnumerable</span>&lt;<span class="xref">Type</span>&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a>&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Solti.Utils.SQL.Interfaces.html">Solti.Utils.SQL.Interfaces</a></h6>
   <h6><strong>Assembly</strong>: Solti.Utils.SQL.dll</h6>
   <h5 id="Solti_Utils_SQL_Interfaces_KnownTables_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class KnownTables : object, IKnownDataTables, IEnumerable&lt;Type&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class KnownTables : IKnownDataTables, IEnumerable&lt;Type&gt;, IEnumerable</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
   <a id="Solti_Utils_SQL_Interfaces_KnownTables_AssemblySearchPattern_" data-uid="Solti.Utils.SQL.Interfaces.KnownTables.AssemblySearchPattern*"></a>
   <h4 id="Solti_Utils_SQL_Interfaces_KnownTables_AssemblySearchPattern" data-uid="Solti.Utils.SQL.Interfaces.KnownTables.AssemblySearchPattern">AssemblySearchPattern</h4>
-  <div class="markdown level1 summary"><p>The <see cref="!:Assembly"></see> search pattern.</p>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a> search pattern.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -108,7 +133,32 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerator</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <a id="Solti_Utils_SQL_Interfaces_KnownTables_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator_" data-uid="Solti.Utils.SQL.Interfaces.KnownTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_KnownTables_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator" data-uid="Solti.Utils.SQL.Interfaces.KnownTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator">IEnumerable&lt;Type&gt;.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator&lt;Type&gt; IEnumerable&lt;Type&gt;.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -118,7 +168,10 @@
       <a class="xref" href="Solti.Utils.SQL.Interfaces.IKnownDataTables.html">IKnownDataTables</a>
   </div>
   <div>
-      <span class="xref">IEnumerable&lt;&gt;</span>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
   </div>
 </article>
           </div>

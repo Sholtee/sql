@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace Solti.Utils.SQL.Internals
 {
@@ -15,13 +16,15 @@ namespace Solti.Utils.SQL.Internals
     internal static class EdgeOperations
     {
         #region Private stuffs
+        private const BindingFlags BINDING_FLAGS = BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
+
         internal static IReadOnlyList<Edge> GetEdgesFrom(Type type) => 
         //
         // Nem kell gyorsitotarazni magaban ugy sincs hasznalva
         //
 
         (
-            from   prop in type.GetProperties()
+            from   prop in type.GetProperties(BINDING_FLAGS)
             let    referenced = Config.Instance.GetReferencedType(prop)
             where  referenced != null
             select new Edge(prop, referenced.GetPrimaryKey())

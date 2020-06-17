@@ -4,7 +4,7 @@
   "commonprops": "\\SRC\\Common.targets",
   "app": "\\SRC\\SqlUtils\\SqlUtils.csproj",
   "vendor": "\\Vendor",
-  "tests": "\\TEST\\SqlUtils.Tests.csproj",
+  "tests": "\\SqlUtils.sln",
   "testtarget": "netcoreapp2.2",
   "testresults": "testresults.xml",
   "coveragereport": "coverage.xml",

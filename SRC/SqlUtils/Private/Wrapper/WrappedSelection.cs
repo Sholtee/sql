@@ -45,7 +45,7 @@ namespace Solti.Utils.SQL.Internals
                 // public List<string> Messages {get; set;}
                 //
 
-                if (type.IsClass && !type.IsDatabaseEntityOrView())
+                if (!type.IsValueTypeOrString() && !type.IsDatabaseEntityOrView())
                     throw new ArgumentException(Resources.CANT_WRAP, nameof(property));
 
                 IsList = true;

@@ -115,7 +115,7 @@ namespace Solti.Utils.SQL.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Only one property can be annotated as &quot;empty list marker&quot;..
+        ///   Looks up a localized string similar to Only one property can be marked as &quot;empty list marker&quot;..
         /// </summary>
         internal static string MULTIPLE_EMPTY_LIST_MARKER {
             get {
@@ -124,7 +124,7 @@ namespace Solti.Utils.SQL.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No column selected.
+        ///   Looks up a localized string similar to No column selected..
         /// </summary>
         internal static string NO_COLUMN {
             get {
@@ -133,7 +133,7 @@ namespace Solti.Utils.SQL.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Primary key can not be found on the ORM type..
+        ///   Looks up a localized string similar to Data types must have, views must select a primary key..
         /// </summary>
         internal static string NO_PRIMARY_KEY {
             get {

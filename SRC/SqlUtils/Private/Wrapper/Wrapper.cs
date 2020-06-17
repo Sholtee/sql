@@ -106,6 +106,10 @@ namespace Solti.Utils.SQL.Internals
                 throw new ArgumentException(Resources.INCOMPATIBLE_LIST, nameof(sourceObjects));
             }
 
+            //
+            // TODO: a kiindulo nezetben mindenkepp kell legyen PK, kulomben a csoportositas rossz eredmenyt adhat vissza.
+            //
+
             return (List<TView>) new Wrapper(typeof(TView), unwrappedType).Wrap(sourceObjects, true);
         }
     }

@@ -20,21 +20,29 @@ namespace Solti.Utils.SQL.Internals
     {
         private const BindingFlags BINDING_FLAGS = BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
 
-        public static IReadOnlyList<WrappedSelection> GetWrappedSelections(this Type src) => Cache.GetOrAdd(src, () => src
-            .GetProperties(BINDING_FLAGS)
-            .Where(PropertyInfoExtensions.IsWrapped)
-            .Select(prop => new WrappedSelection(prop))
-            .ToArray());
+        public static IReadOnlyList<WrappedSelection> GetWrappedSelections(this Type viewOrDatabaseEntity) => Cache.GetOrAdd
+        (
+            viewOrDatabaseEntity, 
+            () => viewOrDatabaseEntity.IsValueTypeOrString()
+                ? Array.Empty<WrappedSelection>()
+                :viewOrDatabaseEntity
+                    .GetProperties(BINDING_FLAGS)
+                    .Where(PropertyInfoExtensions.IsWrapped)
+                    .Select(prop => new WrappedSelection(prop))
+                    .ToArray()
+        );
 
         public static bool IsWrapped(this Type src) => src.GetWrappedSelections().Any();
 
-        public static IReadOnlyList<ColumnSelection> GetColumnSelections(this Type src) => Cache.GetOrAdd(src, () => 
+        public static IReadOnlyList<ColumnSelection> GetColumnSelections(this Type viewOrDatabaseEntity) => Cache.GetOrAdd(viewOrDatabaseEntity, () => 
         {
-            Type? @base = src.GetBaseDataType();
+            if (viewOrDatabaseEntity.IsValueTypeOrString()) return Array.Empty<ColumnSelection>();
+
+            Type? @base = viewOrDatabaseEntity.GetBaseDataType();
 
             return 
             (
-                from prop in src.GetProperties(BINDING_FLAGS)
+                from prop in viewOrDatabaseEntity.GetProperties(BINDING_FLAGS)
                 where !prop.IsWrapped()
 
                 //
@@ -57,11 +65,13 @@ namespace Solti.Utils.SQL.Internals
             ).ToArray();
         });
 
-        public static IReadOnlyList<ColumnSelection> ExtractColumnSelections(this Type src) => Cache.GetOrAdd(src, () =>
+        public static IReadOnlyList<ColumnSelection> ExtractColumnSelections(this Type viewOrDatabaseEntity) => Cache.GetOrAdd(viewOrDatabaseEntity, () =>
         {
-            ColumnSelection[] result = src
+            if (viewOrDatabaseEntity.IsValueTypeOrString()) return Array.Empty<ColumnSelection>();
+
+            ColumnSelection[] result = viewOrDatabaseEntity
                 .GetColumnSelections()
-                .Concat(src
+                .Concat(viewOrDatabaseEntity
                     .GetWrappedSelections()
                     .SelectMany(sel =>
                     {
@@ -93,7 +103,7 @@ namespace Solti.Utils.SQL.Internals
                         // public string Text {get; set;}
                         //
 
-                        if (underlyingType.IsValueType)
+                        if (underlyingType.IsValueTypeOrString())
                         {
                             var reason = sel.Info.GetCustomAttribute<BelongsToAttribute>();
                             Debug.Assert(reason != null);
@@ -149,14 +159,16 @@ namespace Solti.Utils.SQL.Internals
             return result;
         });
 
-        public static Type? GetBaseDataType(this Type entityType)
+        public static Type? GetBaseDataType(this Type viewOrDatabaseEntity)
         {
-            while (entityType != null && !Config.Instance.IsDataTable(entityType))
+            while (viewOrDatabaseEntity != null && !Config.Instance.IsDataTable(viewOrDatabaseEntity))
             {
-                entityType = entityType.BaseType;
+                viewOrDatabaseEntity = viewOrDatabaseEntity.BaseType;
             }
-            return entityType;
+            return viewOrDatabaseEntity;
         }
+
+        public static bool IsValueTypeOrString(this Type src) => src.IsPrimitive || src == typeof(string);
 
         public static bool IsDatabaseEntityOrView(this Type type) => type.IsClass && (type.GetCustomAttribute<ViewAttribute>(inherit: false) ?? (object?) type.GetBaseDataType()) != null;
 
@@ -166,11 +178,13 @@ namespace Solti.Utils.SQL.Internals
                 .Compile())
             .Invoke();
 
-        public static PropertyInfo? GetEmptyListMarker(this Type src) => Cache.GetOrAdd(src, () =>
+        public static PropertyInfo? GetEmptyListMarker(this Type view) => Cache.GetOrAdd(view, () =>
         {
+            if (view.IsValueTypeOrString()) return null;
+
             try
             {
-                return src
+                return view
                     .GetColumnSelections()
                     .SingleOrDefault(sel => sel.Column.GetCustomAttribute<EmptyListMarkerAttribute>() != null)
                     ?.Column;

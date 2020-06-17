@@ -15,22 +15,48 @@ namespace Solti.Utils.SQL.Internals
 
     internal static partial class TypeExtensions
     {
-        public static PropertyInfo GetPrimaryKey(this Type type) => Cache.GetOrAdd(type, () =>
+        public static PropertyInfo GetPrimaryKey(this Type viewOrDatabaseEntity) => Cache.GetOrAdd(viewOrDatabaseEntity, () =>
         {
-            PropertyInfo? pk = type
-                .GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy)
+            PropertyInfo? pk;
+
+            //
+            // Ha a parameter adattabla v olyan nezet ami adattablabol szarmazik akkor 
+            // egyszeruen vissza tudjuk adni az elsodleges kulcsot.
+            //
+
+            Type? databaseEntity = viewOrDatabaseEntity.GetBaseDataType();
+
+            if (databaseEntity != null) pk = databaseEntity
+                .GetProperties(BINDING_FLAGS)
                 .SingleOrDefault(Config.Instance.IsPrimaryKey);
+
+            //
+            // Kulomben megkeressuk azt a nezet tulajdonsagot ami az elsodleges kulcsra hivatkozik
+            //
+
+            else
+            {
+                pk = viewOrDatabaseEntity
+                    .GetQueryBase()
+                    .GetPrimaryKey();
+
+                pk = viewOrDatabaseEntity
+                    .GetColumnSelections()
+                    .Where(sel => (sel.Reason.Column ?? sel.Column.Name) == pk.Name)
+                    .Select(sel => sel.Column)
+                    .SingleOrDefault();
+            }
 
             if (pk == null)
             {
                 var ex = new MissingMemberException(Resources.NO_PRIMARY_KEY);
-                ex.Data[nameof(type)] = type;
+                ex.Data[nameof(viewOrDatabaseEntity)] = viewOrDatabaseEntity;
                 throw ex;
             }
 
             return pk;
         });
 
-        public static Type GetQueryBase(this Type type) => type.GetCustomAttribute<ViewAttribute>(inherit: false)?.Base ?? type.GetBaseDataType() ?? throw new InvalidOperationException(Resources.BASE_CANNOT_BE_DETERMINED);
+        public static Type GetQueryBase(this Type viewOrDatabaseEntity) => viewOrDatabaseEntity.GetCustomAttribute<ViewAttribute>(inherit: false)?.Base ?? viewOrDatabaseEntity.GetBaseDataType() ?? throw new InvalidOperationException(Resources.BASE_CANNOT_BE_DETERMINED);
     }
 }

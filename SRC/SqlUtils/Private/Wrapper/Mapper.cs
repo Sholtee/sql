@@ -18,42 +18,75 @@ namespace Solti.Utils.SQL.Internals
     {
         void IMapper.RegisterMapping(Type srcType, Type dstType) => Cache.GetOrAdd((srcType, dstType), () =>
         {
-            if (srcType.IsValueTypeOrString() != dstType.IsValueTypeOrString())
-                throw MappingNotSupported(srcType, dstType);
-
             ParameterExpression p = Expression.Parameter(typeof(object));
 
-            Expression block;
+            BlockExpression block;
 
             if (srcType.IsValueTypeOrString())
+            {
+                block = MapValueType(null);
+            }
+            else
+            {
+                string? propertyToMap = srcType.GetCustomAttribute<MapFromAttribute>()?.Property;
+
+                block = propertyToMap == null 
+                    ? MapClass() 
+                    : MapValueType(srcType.GetProperty(propertyToMap) ?? throw new MissingMemberException(srcType.Name, propertyToMap));
+            }
+
+            return Expression.Lambda<Func<object, object>>(block, p).Compile();
+
+            BlockExpression MapValueType(PropertyInfo? property) 
             {
                 //
                 // TODO: int32 -> int64 pl mukodnie kene
                 //
 
-                if (srcType != dstType) // dstType.IsAssignableFrom(srcType) itt nem jatszik
+                if (srcType != dstType && property?.PropertyType != dstType)
                     throw MappingNotSupported(srcType, dstType);
+
+                Expression src = property == null
+                    //
+                    // (TDst) p
+                    //
+
+                    ? (Expression) Expression.Convert(p, dstType)
+
+                    //
+                    // (TType p).Prop
+                    //
+
+                    : Expression.Property
+                    (
+                        Expression.Convert(p, property.DeclaringType),
+                        property
+                    );
 
                 ParameterExpression dst = Expression.Variable(dstType, nameof(dst));
 
-                block = Expression.Block
+                return Expression.Block
                 (
                     variables: new[] { dst },
-                    
+
                     //
-                    // TDst dst = (TDst) p;
+                    // TDst dst = ...
                     // return (object) dst; // cast-olas a boxing-hoz kell
                     //
 
-                    Expression.Assign(dst, Expression.Convert(p, dstType)),
+                    Expression.Assign(dst, src),
                     Expression.Convert(dst, typeof(object))
-                );
+                )!;
             }
-            else 
-            { 
+
+            BlockExpression MapClass() 
+            {
+                if (!srcType.IsClass || !dstType.IsClass)
+                    throw MappingNotSupported(srcType, dstType);
+
                 ParameterExpression
-                    src = Expression.Variable(srcType, nameof(src)),
-                    dst = Expression.Variable(dstType, nameof(dst));
+                     src = Expression.Variable(srcType, nameof(src)),
+                     dst = Expression.Variable(dstType, nameof(dst));
 
                 const BindingFlags bindingFlagsBase = BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
 
@@ -61,18 +94,18 @@ namespace Solti.Utils.SQL.Internals
                     srcProps = srcType.GetProperties(bindingFlagsBase | BindingFlags.GetProperty),
                     dstProps = dstType.GetProperties(bindingFlagsBase | BindingFlags.SetProperty);
 
-                block = Expression.Block
+                return Expression.Block
                 (
-                    variables: new[] { src, dst }, 
-                    expressions: new Expression[] 
+                    variables: new[] { src, dst },
+                    expressions: new Expression[]
                     {
                         //
                         // TSrc src = (TSrc) p;
                         // TDst dst = new TDst();
                         //
 
-                        Expression.Assign(src, Expression.Convert(p, srcType)), 
-                        Expression.Assign(dst, Expression.New(dstType)) 
+                        Expression.Assign(src, Expression.Convert(p, srcType)),
+                        Expression.Assign(dst, Expression.New(dstType))
                     }
                     .Concat
                     (
@@ -82,9 +115,9 @@ namespace Solti.Utils.SQL.Internals
                         // dst.Prop_N = src.Prop_N;
                         //
 
-                        from   srcProp in srcProps
-                        let    dstProp = dstProps.SingleOrDefault(dstProp => dstProp.Name == srcProp.Name && dstProp.PropertyType.IsAssignableFrom(srcProp.PropertyType))
-                        where  dstProp != null
+                        from srcProp in srcProps
+                        let dstProp = dstProps.SingleOrDefault(dstProp => dstProp.Name == srcProp.Name && dstProp.PropertyType.IsAssignableFrom(srcProp.PropertyType))
+                        where dstProp != null
                         select Expression.Assign(Expression.Property(dst, dstProp), Expression.Property(src, srcProp))
                     )
                     .Append
@@ -95,10 +128,8 @@ namespace Solti.Utils.SQL.Internals
 
                         dst
                     )
-                );
+                )!;
             }
-
-            return Expression.Lambda<Func<object, object>>(block, p).Compile();
         }, nameof(Mapper));
 
         object? IMapper.MapTo(Type srcType, Type dstType, object? source)

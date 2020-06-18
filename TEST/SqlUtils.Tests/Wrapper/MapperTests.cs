@@ -32,6 +32,12 @@ namespace Solti.Utils.SQL.Tests
             public int Foo { get; set; }
         }
 
+        [MapFrom(nameof(Foo))]
+        private sealed class D 
+        {
+            public string Foo { get; set; }
+        }
+
         private IMapper Mapper { get; set; }
 
         [SetUp]
@@ -42,6 +48,7 @@ namespace Solti.Utils.SQL.Tests
             Mapper.RegisterMapping(typeof(A), typeof(C));
             Mapper.RegisterMapping(typeof(C), typeof(B));
             Mapper.RegisterMapping(typeof(string), typeof(string));
+            Mapper.RegisterMapping(typeof(D), typeof(string));
         }
 
         [Test]
@@ -73,5 +80,9 @@ namespace Solti.Utils.SQL.Tests
             Assert.That(b.Bar, Is.Null);
             Assert.That(b.Foo, Is.EqualTo(a.Foo));
         }
+
+        [Test]
+        public void Mapper_ShouldMapPropertyToValueType() =>
+            Assert.That(Mapper.MapTo(typeof(D), typeof(string), new D { Foo = "cica" }), Is.EqualTo("cica"));
     }
 }

@@ -685,12 +685,6 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.DataAnnotations.ReferencesAttribute.Type
   nameWithType: ReferencesAttribute.Type
-- uid: Solti.Utils.SQL.Interfaces.EmptyListMarkerAttribute
-  name: EmptyListMarkerAttribute
-  href: Solti.Utils.SQL.Interfaces.EmptyListMarkerAttribute.html
-  commentId: T:Solti.Utils.SQL.Interfaces.EmptyListMarkerAttribute
-  fullName: Solti.Utils.SQL.Interfaces.EmptyListMarkerAttribute
-  nameWithType: EmptyListMarkerAttribute
 - uid: Solti.Utils.SQL.Interfaces.IBuildableAttribute
   name: IBuildableAttribute
   href: Solti.Utils.SQL.Interfaces.IBuildableAttribute.html

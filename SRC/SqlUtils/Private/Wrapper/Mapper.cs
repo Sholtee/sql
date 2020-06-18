@@ -31,7 +31,7 @@ namespace Solti.Utils.SQL.Internals
                 // TODO: int32 -> int64 pl mukodnie kene
                 //
 
-                if (srcType != dstType)
+                if (srcType != dstType) // dstType.IsAssignableFrom(srcType) itt nem jatszik
                     throw MappingNotSupported(srcType, dstType);
 
                 ParameterExpression dst = Expression.Variable(dstType, nameof(dst));

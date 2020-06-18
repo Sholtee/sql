@@ -4,12 +4,9 @@
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
 using System;
-using System.Reflection.Emit;
 
 namespace Solti.Utils.SQL.Internals
 {
-    using Interfaces;
-
     internal static class Unwrapped<TView>
     {
         private static readonly object FLock = new object();
@@ -23,28 +20,14 @@ namespace Solti.Utils.SQL.Internals
                 if (FType == null)
                     lock (FLock)
                         if (FType == null)
-                            FType = GetUnwrappedType();
+                            FType = ViewFactory.CreateView
+                            (
+                                $"{$"Unwrapped{typeof(TView).Name}"}_Key",
+                                typeof(TView).GetQueryBase(),
+                                typeof(TView).ExtractColumnSelections()
+                            );
                 return FType;
             }
-        }
-
-        private static Type GetUnwrappedType()
-        {
-            Type viewType = typeof(TView);
-            TypeBuilder tb = MyTypeBuilder.Create($"Unwrapped{viewType.Name}");
-
-            //
-            // Property-k masolasa.
-            //
-
-            foreach (ColumnSelection sel in viewType.ExtractColumnSelections())
-            {
-                tb
-                    .AddProperty(sel.Column)
-                    .SetCustomAttribute(sel.Reason.GetBuilder());
-            }
-
-            return tb.CreateTypeInfo()!.AsType();
         }
     }
 }

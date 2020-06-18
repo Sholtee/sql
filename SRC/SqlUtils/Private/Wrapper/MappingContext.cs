@@ -4,7 +4,6 @@
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
 using System;
-using System.Reflection.Emit;
 
 namespace Solti.Utils.SQL.Internals
 {
@@ -22,17 +21,12 @@ namespace Solti.Utils.SQL.Internals
             MapToView = mapToView;
         }
 
-        private static Type DefineKey(Type viewType) => Cache.GetOrAdd(viewType, () =>
-        {
-            TypeBuilder tb = MyTypeBuilder.Create($"{viewType.FullName}_Key");
-
-            foreach (ColumnSelection sel in viewType.GetColumnSelections())
-            {
-                tb.AddProperty(sel.Column);
-            }
-
-            return tb.CreateTypeInfo()!.AsType();
-        });
+        private static Type DefineKey(Type viewType) => Cache.GetOrAdd(viewType, () => ViewFactory.CreateView
+        (
+            $"{viewType.FullName}_Key", 
+            viewType.GetQueryBase(), 
+            viewType.GetColumnSelections())
+        );
         #endregion
 
         #region Static stuffs

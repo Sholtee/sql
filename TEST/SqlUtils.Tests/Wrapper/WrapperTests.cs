@@ -94,7 +94,7 @@ namespace Solti.Utils.SQL.Tests
 
         [Test]
         public void UnwrappedView_ShouldThrowOnPropertyNameCollission() =>
-            Assert.Throws<InvalidOperationException>(() => Unwrapped<WrappedView1_Bad>.Type.ToString(), Resources.PROPERTY_NAME_COLLISSION);
+            Assert.Throws<InvalidOperationException>(() => Unwrapped<WrappedView1_Bad>.Type.ToString(), Resources.PROPERTY_NAME_COLLISION);
 
         [TestCase(typeof(WrappedView1), nameof(WrappedView1.ViewList))]
         [TestCase(typeof(WrappedView3), nameof(WrappedView3.View))]
@@ -503,6 +503,31 @@ namespace Solti.Utils.SQL.Tests
                 .Set("Count", 0));
 
             Assert.Throws<InvalidOperationException>(() => Wrapper.Wrap<WrappedView3>(objs), Resources.AMBIGUOUS_RESULT);
+        }
+
+        //[Test]
+        public void Wrapper_ShouldAcceptValueLists() 
+        {
+            Type unwrapped = Unwrapped<Start_Node_View_ValueList>.Type;
+
+            var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
+
+            Guid id1 = Guid.NewGuid();
+
+            objs.Add(unwrapped.MakeInstance()
+                .Set("Id", id1)
+                .Set("Reference", 1.ToString()));
+
+            Guid id2 = Guid.NewGuid();
+
+            objs.Add(unwrapped.MakeInstance()
+                .Set("Id", id2)
+                .Set("Reference", 2.ToString()));
+            objs.Add(unwrapped.MakeInstance()
+                .Set("Id", id2)
+                .Set("Reference", 3.ToString()));
+
+            List<Start_Node_View_ValueList> result = Wrapper.Wrap<Start_Node_View_ValueList>(objs);
         }
     }
 }

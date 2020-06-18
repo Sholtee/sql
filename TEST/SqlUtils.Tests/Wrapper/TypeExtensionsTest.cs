@@ -33,7 +33,7 @@ namespace Solti.Utils.SQL.Tests
         {
             [BelongsTo(typeof(object))]
             public int Foo { get; set; }
-            [EmptyListMarker]
+            [PrimaryKey]
             [BelongsTo(typeof(object))]
             public string Bar { get; set; }
         }
@@ -148,32 +148,6 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void MakeInstance_ShouldNotHandlePrimitiveTypes() =>
             Assert.Throws<MissingMethodException>(() => typeof(int).MakeInstance());
-
-        [Test]
-        public void GetEmptyListMarker_ShouldReturnTheMarkerProperty()
-        {
-            PropertyInfo marker = typeof(View3).GetProperties().First(prop => prop.GetCustomAttribute<EmptyListMarkerAttribute>() != null);
-
-            Assert.That(typeof(View3).GetEmptyListMarker(), Is.Not.Null);
-            Assert.AreSame(typeof(View3).GetEmptyListMarker(), marker);
-        }
-
-        [Test]
-        public void GetEmptyListMarker_ShouldReturnNullIfNoMarker()
-        {
-            Assert.That(typeof(object).GetEmptyListMarker(), Is.Null);
-        }
-
-        private class BadListItem : ListItem
-        {
-            [EmptyListMarker]
-            [BelongsTo(typeof(object))]
-            public int Cica { get; set; }
-        }
-
-        [Test]
-        public void GetEmptyListMarker_ShouldThrowOnMultipleMarkers() =>
-            Assert.Throws<InvalidOperationException>(() => typeof(BadListItem).GetEmptyListMarker(), Resources.MULTIPLE_EMPTY_LIST_MARKER);
 
         [Test]
         public void HasOwnMethod_ShouldReturnTrueIfTheMethodIsDeclaredOnTheSource()

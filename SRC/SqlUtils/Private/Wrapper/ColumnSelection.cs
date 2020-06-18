@@ -26,5 +26,7 @@ namespace Solti.Utils.SQL.Internals
         public PropertyInfo Column { get; }
         public SelectionKind Kind { get; }
         public ColumnSelectionAttribute Reason { get; }
+
+        public override string ToString() => $"{Reason.OrmType}.{Reason.OrmType.GetProperty(Reason.Column ?? Column.Name).Name}";
     }
 }

@@ -115,15 +115,6 @@ namespace Solti.Utils.SQL.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Only one property can be marked as &quot;empty list marker&quot;..
-        /// </summary>
-        internal static string MULTIPLE_EMPTY_LIST_MARKER {
-            get {
-                return ResourceManager.GetString("MULTIPLE_EMPTY_LIST_MARKER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Data types must have, views must select a primary key..
         /// </summary>
         internal static string NO_PRIMARY_KEY {

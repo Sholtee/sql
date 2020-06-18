@@ -42,7 +42,12 @@ namespace Solti.Utils.SQL.Internals
 
                 pk = viewOrDatabaseEntity
                     .GetColumnSelections()
-                    .Where(sel => (sel.Reason.Column ?? sel.Column.Name) == pk.Name)
+                    .Where(sel => 
+                        //
+                        // Aggregatum kivalasztasok nem jatszanak
+                        // 
+
+                        sel.Reason is BelongsToAttribute && (sel.Reason.Column ?? sel.Column.Name) == pk.Name)
                     .Select(sel => sel.Column)
                     .SingleOrDefault();
             }
@@ -57,6 +62,16 @@ namespace Solti.Utils.SQL.Internals
             return pk;
         });
 
-        public static Type GetQueryBase(this Type viewOrDatabaseEntity) => viewOrDatabaseEntity.GetCustomAttribute<ViewAttribute>(inherit: false)?.Base ?? viewOrDatabaseEntity.GetBaseDataType() ?? throw new InvalidOperationException(Resources.BASE_CANNOT_BE_DETERMINED);
+        public static Type GetQueryBase(this Type viewOrDatabaseEntity)
+        {
+            Type? result = viewOrDatabaseEntity.GetCustomAttribute<ViewAttribute>(inherit: false)?.Base ?? viewOrDatabaseEntity.GetBaseDataType();
+            if (result == null)
+            {
+                var ex = new InvalidOperationException(Resources.BASE_CANNOT_BE_DETERMINED);
+                ex.Data[nameof(viewOrDatabaseEntity)] = viewOrDatabaseEntity;
+                throw ex;
+            }
+            return result;
+        }
     }
 }

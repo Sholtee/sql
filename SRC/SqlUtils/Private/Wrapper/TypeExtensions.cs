@@ -135,18 +135,6 @@ namespace Solti.Utils.SQL.Internals
                 .Compile())
             .Invoke();
 
-        public static PropertyInfo? GetEmptyListMarker(this Type view) => Cache.GetOrAdd(view, () =>
-        {
-            try
-            {
-                return view
-                    .GetColumnSelections()
-                    .SingleOrDefault(sel => sel.Column.GetCustomAttribute<EmptyListMarkerAttribute>() != null)
-                    ?.Column;
-            }
-            catch (InvalidOperationException) { throw new InvalidOperationException(Resources.MULTIPLE_EMPTY_LIST_MARKER); }
-        });
-
         public static object MakeInstance(this Type src, params Type[] typeArguments)
         {
             if (typeArguments.Any())

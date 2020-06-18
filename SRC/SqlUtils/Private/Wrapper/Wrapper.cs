@@ -18,7 +18,7 @@ namespace Solti.Utils.SQL.Internals
         #region Instance members
         private Type ViewType { get; }
         private Type UnwrappedType { get; }
-        private MappingContext Mappers{ get; }
+        private MappingContext Mappers { get; }
 
         private Wrapper(Type viewType, Type unwrappedType)
         {
@@ -54,6 +54,16 @@ namespace Solti.Utils.SQL.Internals
             foreach (IGrouping<object, object> group in unwrappedObjects.Cast<object>().GroupBy(Mappers.MapToKey, ValueComparer.Instance))
             {
                 //
+                // Ha az entitas ures (LEFT JOIN miatt kaptuk vissza) akkor nem vesszuk fel (ne a "view" oljektumon vizsgaljuk 
+                // mert az a mappolas miatt elterhet).
+                //
+
+                PropertyInfo pk = group.Key.GetType().GetPrimaryKey(); // sose lehetne ures
+
+                if (pk.FastGetValue(group.Key) == pk.PropertyType.GetDefaultValue())
+                    continue;
+
+                //
                 // A csoport kulcsa megadja az aktualis nezet peldany nem lista tulajdonsagait -> tolajdonsagok masolasa.
                 //
 
@@ -75,21 +85,6 @@ namespace Solti.Utils.SQL.Internals
                     throw new InvalidOperationException(Resources.AMBIGUOUS_RESULT);
 
                 return lst[0];
-            }
-
-            if (lst.Count == 1)
-            {
-                //
-                // Ha a lista 1 elemu es a lista tulajdonsag rendelkezik EmptyListMarker-rel akkor meg ellenoriznunk 
-                // kell azt is h nem csak a LEFTJOIN miatt van e egy elem a listaban.
-                //
-
-                PropertyInfo? marker = ViewType.GetEmptyListMarker();
-
-                if (marker != null && marker.FastGetValue(lst[0]) == marker.PropertyType.GetDefaultValue())
-                {
-                    lst.Clear();
-                }
             }
 
             return lst;

@@ -136,7 +136,6 @@ namespace Solti.Utils.SQL.Tests
     [View(Base = typeof(Node2))]
     public class View3
     {
-        [EmptyListMarker]
         [BelongsTo(typeof(Goal_Node), order: Order.Ascending)]
         public string Id { get; set; }
         [CountOf(typeof(Node2), column: nameof(Node2.Id))]
@@ -233,6 +232,12 @@ namespace Solti.Utils.SQL.Tests
     {
         [Wrapped]
         public List<Node7_View> Children { get; set; }
+    }
+
+    public class Start_Node_View_ValueList : Start_Node
+    {
+        [BelongsTo(typeof(Node5), column: nameof(Node5.Reference))]
+        public List<string> References { get; set; }
     }
 
     public class Extension1 : Start_Node

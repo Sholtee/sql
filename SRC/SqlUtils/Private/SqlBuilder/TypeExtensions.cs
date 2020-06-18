@@ -47,7 +47,7 @@ namespace Solti.Utils.SQL.Internals
                         // Aggregatum kivalasztasok nem jatszanak
                         // 
 
-                        sel.Reason is BelongsToAttribute && (sel.Reason.Column ?? sel.Column.Name) == pk.Name)
+                        sel.Reason is BelongsToAttribute bta && bta.OrmType == pk.DeclaringType && (bta.Column ?? sel.Column.Name) == pk.Name)
                     .Select(sel => sel.Column)
                     .SingleOrDefault();
             }

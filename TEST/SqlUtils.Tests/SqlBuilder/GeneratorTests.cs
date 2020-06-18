@@ -198,12 +198,12 @@ namespace Solti.Utils.SQL.Tests
             mockSqlBuilder
                 .InSequence(seq)
                 .Setup(x => x.Select(
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute))),
+                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Reference))),
                     It.Is<PropertyInfo>(y => y == Unwrapped<View1>.Type.GetProperty(nameof(View1.SimpleColumnSelection)))));
             mockSqlBuilder
                 .InSequence(seq)
                 .Setup(x => x.Select(
-                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id))),
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id))),
                     It.Is<PropertyInfo>(y => y == Unwrapped<View1>.Type.GetProperty(nameof(View1.IdSelection)))));
             mockSqlBuilder
                 .InSequence(seq)
@@ -287,6 +287,10 @@ namespace Solti.Utils.SQL.Tests
                 .Setup(x => x.SetBase(It.Is<Type>(y => y == typeof(Start_Node))));
             mockSqlBuilder
                 .Setup(x => x.Select(
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id))),
+                    It.Is<PropertyInfo>(y => y == Unwrapped<View2>.Type.GetProperty(nameof(View2.Id)))));
+            mockSqlBuilder
+                .Setup(x => x.Select(
                     It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute))),
                     It.Is<PropertyInfo>(y => y == Unwrapped<View2>.Type.GetProperty(nameof(View2.Foo)))));
             mockSqlBuilder
@@ -298,6 +302,10 @@ namespace Solti.Utils.SQL.Tests
                 .Setup(x => x.InnerJoin(
                     It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference))),
                     It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
+
+            mockSqlBuilder
+                .Setup(x => x.GroupBy(
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
             mockSqlBuilder
                 .Setup(x => x.GroupBy(
                     It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute)))));
@@ -308,9 +316,19 @@ namespace Solti.Utils.SQL.Tests
             SmartSqlBuilder<View2>.Build(mockSqlBuilder.Object);
 
             mockSqlBuilder.Verify(x => x.InnerJoin(It.IsAny<PropertyInfo>(), It.IsAny<PropertyInfo>()), Times.Once);
-            mockSqlBuilder.Verify(x => x.Select(It.IsAny<PropertyInfo>(), It.IsAny<PropertyInfo>()), Times.Once);
+            mockSqlBuilder.Verify(
+                x => x.Select(
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id))),
+                    It.Is<PropertyInfo>(y => y == Unwrapped<View2>.Type.GetProperty(nameof(View2.Id)))), 
+                Times.Once);
+            mockSqlBuilder.Verify(
+                x => x.Select(
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute))),
+                    It.Is<PropertyInfo>(y => y == Unwrapped<View2>.Type.GetProperty(nameof(View2.Foo)))),
+                Times.Once);
             mockSqlBuilder.Verify(x => x.SelectCount(It.IsAny<PropertyInfo>(), It.IsAny<PropertyInfo>()), Times.Once);
-            mockSqlBuilder.Verify(x => x.GroupBy(It.IsAny<PropertyInfo>()), Times.Once);
+            mockSqlBuilder.Verify(x => x.GroupBy(typeof(Start_Node).GetProperty(nameof(Start_Node.Id))), Times.Once);
+            mockSqlBuilder.Verify(x => x.GroupBy(typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute))), Times.Once);
         }
     }
 }

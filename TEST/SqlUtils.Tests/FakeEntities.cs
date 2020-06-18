@@ -111,9 +111,9 @@ namespace Solti.Utils.SQL.Tests
     [View(Base = typeof(Start_Node))]
     public class View1
     {
-        [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.ReferenceWithoutAttribute))]
+        [BelongsTo(typeof(Goal_Node), column: nameof(Goal_Node.Reference))]
         public string SimpleColumnSelection { get; set; }
-        [BelongsTo(typeof(Goal_Node), column: nameof(Goal_Node.Id))]
+        [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.Id))]
         public string IdSelection { get; set; }
         [BelongsTo(typeof(Node2), column: nameof(Node2.Foo))] // mar join-olva lett a GOAL_NODE-nal
         public int SelectionFromAlreadyJoinedTable { get; set; }
@@ -126,6 +126,8 @@ namespace Solti.Utils.SQL.Tests
     [View(Base = typeof(Start_Node))]
     public class View2
     {
+        [BelongsTo(typeof(Start_Node))]
+        public Guid Id { get; set; }
         [CountOf(typeof(Node2), column: nameof(Node2.Id))]
         public int Count { get; set; }
         [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.ReferenceWithoutAttribute))]
@@ -133,7 +135,7 @@ namespace Solti.Utils.SQL.Tests
         public int Ignored { get; set; }
     }
 
-    [View(Base = typeof(Node2))]
+    [View(Base = typeof(Goal_Node))]
     public class View3
     {
         [BelongsTo(typeof(Goal_Node), order: Order.Ascending)]
@@ -142,7 +144,7 @@ namespace Solti.Utils.SQL.Tests
         public int Count { get; set; }
     }
 
-    [View(Base = typeof(Start_Node))]
+    [View(Base = typeof(Goal_Node))]
     public class View4
     {
         [BelongsTo(typeof(Goal_Node), order: Order.Ascending)]

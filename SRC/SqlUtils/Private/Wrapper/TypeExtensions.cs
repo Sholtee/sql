@@ -125,6 +125,18 @@ namespace Solti.Utils.SQL.Internals
             return viewOrDatabaseEntity;
         }
 
+        public static Type GetMapperTarget(this Type view) 
+        {
+            string? mapFromProperty = view.GetCustomAttribute<MapFromAttribute>(inherit: false)?.Property;
+
+            if (mapFromProperty != null) return
+            (
+                view.GetProperty(mapFromProperty) ?? throw new MissingMemberException(view.Name, mapFromProperty)
+            ).PropertyType;
+
+            return view;
+        }
+
         public static bool IsValueTypeOrString(this Type src) => src.IsValueType || src == typeof(string);
 
         public static bool IsDatabaseEntityOrView(this Type type) => type.IsClass && (type.GetCustomAttribute<ViewAttribute>(inherit: false) ?? (object?) type.GetBaseDataType()) != null;

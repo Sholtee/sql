@@ -43,7 +43,7 @@ namespace Solti.Utils.SQL.Internals
 
         private object Wrap(IEnumerable unwrappedObjects, bool wrapToList)
         {
-            IList lst = (IList) typeof(List<>).MakeInstance(ViewType);
+            IList lst = (IList) typeof(List<>).MakeInstance(ViewType.GetMapperTarget());
 
             //
             // A kicsomagolt entitasokat csoportositjuk az eredeti nezet NEM listatulajdosagai szerint. Az igy

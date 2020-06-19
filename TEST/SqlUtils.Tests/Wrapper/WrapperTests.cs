@@ -505,7 +505,7 @@ namespace Solti.Utils.SQL.Tests
             Assert.Throws<InvalidOperationException>(() => Wrapper.Wrap<WrappedView3>(objs), Resources.AMBIGUOUS_RESULT);
         }
 
-        //[Test]
+        [Test]
         public void Wrapper_ShouldAcceptValueLists() 
         {
             Type unwrapped = Unwrapped<Start_Node_View_ValueList>.Type;
@@ -528,6 +528,13 @@ namespace Solti.Utils.SQL.Tests
                 .Set("Reference", 2.ToString()));
 
             List<Start_Node_View_ValueList> result = Wrapper.Wrap<Start_Node_View_ValueList>(objs);
+
+            Assert.That(result.Count, Is.EqualTo(2));
+            Assert.That(result[0].References.Count, Is.EqualTo(1));
+            Assert.That(result[0].References[0], Is.EqualTo(1.ToString()));
+            Assert.That(result[1].References.Count, Is.EqualTo(2));
+            Assert.That(result[1].References[0], Is.EqualTo(1.ToString()));
+            Assert.That(result[1].References[1], Is.EqualTo(2.ToString()));
         }
     }
 }

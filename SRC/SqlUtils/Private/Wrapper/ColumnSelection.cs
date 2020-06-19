@@ -29,6 +29,6 @@ namespace Solti.Utils.SQL.Internals
 
         public ColumnSelectionAttribute Reason { get; }
 
-        public override string ToString() => $"{Reason.OrmType}.{Reason.OrmType.GetProperty(Reason.Column ?? ViewProperty.Name).Name}";
+        public override string ToString() => $"{Reason.OrmType}.{Reason.Column ?? ViewProperty.Name}";
     }
 }

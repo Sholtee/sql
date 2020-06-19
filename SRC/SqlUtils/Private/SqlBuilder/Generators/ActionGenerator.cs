@@ -12,7 +12,7 @@ namespace Solti.Utils.SQL.Internals
     {
         //
         // Ha van lista tulajdonsag a nezetben akkor a nezetet le kell cserelni listakat nem
-        // tartalmazo parjara.
+        // tartalmazo parjara -> Unwrapped.
         //
 
         protected static readonly IReadOnlyList<ColumnSelection> Selections = Unwrapped<TView>

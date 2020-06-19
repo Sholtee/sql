@@ -46,7 +46,7 @@ namespace Solti.Utils.SQL.Tests
             Assert.That(ws, Is.Not.Null);
             Assert.That(ws.Count, Is.EqualTo(1));
             Assert.That(ws[0].UnderlyingType, Is.EqualTo(typeof(View3)));
-            Assert.That(ws[0].Info.GetCustomAttribute<WrappedAttribute>(), Is.Not.Null);         
+            Assert.That(ws[0].ViewProperty.GetCustomAttribute<WrappedAttribute>(), Is.Not.Null);         
         }
 
         [Test]
@@ -66,8 +66,8 @@ namespace Solti.Utils.SQL.Tests
 
             IReadOnlyList<ColumnSelection> selections = typeof(Extension1).GetColumnSelections();
 
-            Assert.That(selections.Where(sel => sel.Kind == SelectionKind.Implicit).All(sel => sel.Column.DeclaringType == typeof(Start_Node) && sel.Reason is BelongsToAttribute));
-            Assert.That(selections.Where(sel => sel.Kind == SelectionKind.Explicit).All(sel => sel.Column.DeclaringType == typeof(Extension1)));        
+            Assert.That(selections.Where(sel => sel.Kind == SelectionKind.Implicit).All(sel => sel.ViewProperty.DeclaringType == typeof(Start_Node) && sel.Reason is BelongsToAttribute));
+            Assert.That(selections.Where(sel => sel.Kind == SelectionKind.Explicit).All(sel => sel.ViewProperty.DeclaringType == typeof(Extension1)));        
         }
 
         [Test]
@@ -75,7 +75,7 @@ namespace Solti.Utils.SQL.Tests
         {
             // Start_Node.Ignored
             Assert.That(typeof(Extension1).GetProperties().Count(prop => prop.GetCustomAttribute<IgnoreAttribute>() != null), Is.EqualTo(1));
-            Assert.That(typeof(Extension1).GetColumnSelections().Where(sel => sel.Column.GetCustomAttribute<IgnoreAttribute>() != null), Is.Empty);
+            Assert.That(typeof(Extension1).GetColumnSelections().Where(sel => sel.ViewProperty.GetCustomAttribute<IgnoreAttribute>() != null), Is.Empty);
         }
 
         [Test]
@@ -87,11 +87,11 @@ namespace Solti.Utils.SQL.Tests
         {
             IReadOnlyList<ColumnSelection> sel = typeof(WrappedView2).ExtractColumnSelections();
 
-            Assert.That(sel.Select(s => s.Column).SequenceEqual(typeof(WrappedView2)
+            Assert.That(sel.Select(s => s.ViewProperty).SequenceEqual(typeof(WrappedView2)
                 .GetColumnSelections()
                 .Concat(typeof(View1).GetColumnSelections())
                 .Concat(typeof(View2).GetColumnSelections())
-                .Select(s => s.Column)));
+                .Select(s => s.ViewProperty)));
         }
 
         [Test]
@@ -99,7 +99,7 @@ namespace Solti.Utils.SQL.Tests
         {
             // Start_Node.Ignored
             Assert.That(typeof(Extension1).GetProperties().Count(prop => prop.GetCustomAttribute<IgnoreAttribute>() != null), Is.EqualTo(1));
-            Assert.That(typeof(Extension1).ExtractColumnSelections().Where(sel => sel.Column.GetCustomAttribute<IgnoreAttribute>() != null), Is.Empty);
+            Assert.That(typeof(Extension1).ExtractColumnSelections().Where(sel => sel.ViewProperty.GetCustomAttribute<IgnoreAttribute>() != null), Is.Empty);
         }
 
         [Test]

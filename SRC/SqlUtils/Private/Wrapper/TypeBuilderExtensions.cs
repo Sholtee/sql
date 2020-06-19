@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*  TypeBuilder.cs                                                               *
+*  TypeBuilderExtensions.cs                                                     *
 *                                                                               *
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
@@ -9,30 +9,30 @@ using System.Reflection.Emit;
 
 namespace Solti.Utils.SQL.Internals
 {
-    internal static class MyTypeBuilder
+    internal static class TypeBuilderExtensions
     {
-        public static PropertyBuilder AddProperty(this TypeBuilder tb, PropertyInfo prop)
+        public static PropertyBuilder AddProperty(this TypeBuilder tb, string name, Type type)
         {
             //
             // public XXX {}
             //
 
-            PropertyBuilder property = tb.DefineProperty(prop.Name, prop.Attributes, prop.PropertyType, Array.Empty<Type>());
+            PropertyBuilder property = tb.DefineProperty(name, PropertyAttributes.None, type, Array.Empty<Type>());
 
             //
             // FXxX
             //
 
-            FieldBuilder field = tb.DefineField($"F{prop.Name}", prop.PropertyType, FieldAttributes.Private);
+            FieldBuilder field = tb.DefineField($"F{name}", type, FieldAttributes.Private);
 
             //
             // {get => FXxX;}
             //
 
             MethodBuilder getPropMthdBldr = tb.DefineMethod(
-                $"Get{prop.Name}",
+                $"Get{name}",
                 MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.HideBySig,
-                prop.PropertyType,
+                type,
                 Type.EmptyTypes);
 
             ILGenerator ilGenerator = getPropMthdBldr.GetILGenerator();
@@ -46,10 +46,10 @@ namespace Solti.Utils.SQL.Internals
             //
 
             MethodBuilder setPropMthdBldr = tb.DefineMethod(
-                $"Set{prop.Name}",
+                $"Set{name}",
                 MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.HideBySig,
                 null,
-                new[] { prop.PropertyType });
+                new[] { type });
 
             ilGenerator = setPropMthdBldr.GetILGenerator();
 
@@ -68,7 +68,7 @@ namespace Solti.Utils.SQL.Internals
             return property;
         }
 
-        public static TypeBuilder Create(string name) => AssemblyBuilder
+        public static TypeBuilder CreateBuilder(string name) => AssemblyBuilder
             .DefineDynamicAssembly(new AssemblyName(name), AssemblyBuilderAccess.Run)
             .DefineDynamicModule("MainModule")
             .DefineType(name, TypeAttributes.Public | TypeAttributes.Class);

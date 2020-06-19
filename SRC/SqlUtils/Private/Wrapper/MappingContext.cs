@@ -21,11 +21,18 @@ namespace Solti.Utils.SQL.Internals
             MapToView = mapToView;
         }
 
-        private static Type DefineKey(Type viewType) => Cache.GetOrAdd(viewType, () => ViewFactory.CreateView
+        private static Type DefineKey(Type viewType) => Cache.GetOrAdd
         (
-            $"{viewType.FullName}_Key", 
-            viewType.GetQueryBase(), 
-            viewType.GetColumnSelections())
+            viewType, 
+            () => ViewFactory.CreateView
+            (
+                new MemberDefinition
+                (
+                    $"{viewType.FullName}_Key", 
+                    viewType.GetQueryBase()
+                ),
+                viewType.GetColumnSelections()
+            )
         );
         #endregion
 

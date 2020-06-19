@@ -11,22 +11,24 @@ namespace Solti.Utils.SQL.Internals
     using Interfaces;
     using Properties;
 
-    internal sealed class ColumnSelection
+    internal sealed class ColumnSelection: ISelection
     {
-        public ColumnSelection(PropertyInfo column, SelectionKind kind, ColumnSelectionAttribute reason)
+        public ColumnSelection(PropertyInfo viewProperty, SelectionKind kind, ColumnSelectionAttribute reason)
         {
-            if (!column.PropertyType.IsValueType && column.PropertyType != typeof(string))
+            if (!viewProperty.PropertyType.IsValueType && viewProperty.PropertyType != typeof(string))
                 throw new NotSupportedException(Resources.CANT_SELECT);
 
-            Column = column;
-            Kind   = kind;
+            ViewProperty = viewProperty;
+            Kind = kind;
             Reason = reason;
         }
 
-        public PropertyInfo Column { get; }
+        public PropertyInfo ViewProperty { get; }
+
         public SelectionKind Kind { get; }
+
         public ColumnSelectionAttribute Reason { get; }
 
-        public override string ToString() => $"{Reason.OrmType}.{Reason.OrmType.GetProperty(Reason.Column ?? Column.Name).Name}";
+        public override string ToString() => $"{Reason.OrmType}.{Reason.OrmType.GetProperty(Reason.Column ?? ViewProperty.Name).Name}";
     }
 }

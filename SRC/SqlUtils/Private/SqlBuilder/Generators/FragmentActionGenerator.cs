@@ -22,7 +22,7 @@ namespace Solti.Utils.SQL.Internals
             {
                 IFragment fragment = sel.Reason;
 
-                foreach (MethodCallExpression action in fragment.GetFragments(bldr, sel.Column, IsAggregate))
+                foreach (MethodCallExpression action in fragment.GetFragments(bldr, sel.ViewProperty, IsAggregate))
                 {
                     yield return action;
                 }

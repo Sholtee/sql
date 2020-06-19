@@ -37,7 +37,7 @@ namespace Solti.Utils.SQL.Internals
         {
             foreach (WrappedSelection sel in ViewType.GetWrappedSelections())
             {
-                sel.Info.FastSetValue(target, new Wrapper(sel.UnderlyingType, UnwrappedType).Wrap(group, sel.IsList));          
+                sel.ViewProperty.FastSetValue(target, new Wrapper(sel.UnderlyingType, UnwrappedType).Wrap(group, sel.IsList));          
             }
         }
 

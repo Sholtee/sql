@@ -22,8 +22,11 @@ namespace Solti.Utils.SQL.Internals
                         if (FType == null)
                             FType = ViewFactory.CreateView
                             (
-                                $"{$"Unwrapped{typeof(TView).Name}"}_Key",
-                                typeof(TView).GetQueryBase(),
+                                new MemberDefinition
+                                (
+                                    $"{$"Unwrapped{typeof(TView).Name}"}_Key",
+                                    typeof(TView).GetQueryBase()
+                                ),
                                 typeof(TView).ExtractColumnSelections()
                             );
                 return FType;

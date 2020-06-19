@@ -54,7 +54,7 @@ namespace Solti.Utils.SQL.Internals
 
                 select new ColumnSelection
                 (
-                    column: prop,
+                    viewProperty: prop,
                     kind: attr != null ? SelectionKind.Explicit : SelectionKind.Implicit,
                     reason: attr ?? new BelongsToAttribute(@base!)
                 )
@@ -101,7 +101,7 @@ namespace Solti.Utils.SQL.Internals
             string[] collisions =
             (
                 from   sel in result
-                group  sel by sel.Column.Name into grp
+                group  sel by sel.ViewProperty.Name into grp
                 where  grp.Count() > 1
                 select grp.Key
             ).ToArray();

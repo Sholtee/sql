@@ -5,6 +5,7 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 
@@ -14,9 +15,9 @@ namespace Solti.Utils.SQL.Internals
 
     internal static class ViewFactory
     {
-        public static Type CreateView(string name, Type @base, IEnumerable<ColumnSelection> columns)
+        public static Type CreateView(MemberDefinition viewDefinition, IEnumerable<MemberDefinition> columns)
         {
-            TypeBuilder tb = MyTypeBuilder.Create(name);
+            TypeBuilder tb = TypeBuilderExtensions.CreateBuilder(viewDefinition.Name);
 
             //
             // Hogy a GetQueryBase() mukodjon a generalt nezetre is, ezert az uj osztalyt megjeloljuk nezetnek.
@@ -34,23 +35,34 @@ namespace Solti.Utils.SQL.Internals
                     },
                     propertyValues: new object[]
                     {
-                        @base
+                        viewDefinition.Type
                     }
                 )
             );
 
+            foreach (CustomAttributeBuilder cab in viewDefinition.CustomAttributes)
+                tb.SetCustomAttribute(cab);
+
             //
-            // Property-k masolasa.
+            // Uj property-k definialasa.
             //
 
-            foreach (ColumnSelection sel in columns)
+            foreach (var column in columns)
             {
-                tb
-                    .AddProperty(sel.Column)
-                    .SetCustomAttribute(sel.Reason.GetBuilder());
+                PropertyBuilder property = tb.AddProperty(column.Name, column.Type);
+
+                foreach (CustomAttributeBuilder cab in column.CustomAttributes)
+                    property.SetCustomAttribute(cab);
             }
 
             return tb.CreateTypeInfo()!.AsType();
         }
+
+        public static Type CreateView(MemberDefinition viewDefinition, IEnumerable<ColumnSelection> columns) => CreateView(viewDefinition, columns.Select(col => new MemberDefinition
+        (
+            col.ViewProperty.Name,
+            col.ViewProperty.PropertyType,
+            col.Reason.GetBuilder()
+        )));
     }
 }

@@ -15,7 +15,7 @@ namespace Solti.Utils.SQL.Internals
     {
         public ColumnSelection(PropertyInfo viewProperty, SelectionKind kind, ColumnSelectionAttribute reason)
         {
-            if (!viewProperty.PropertyType.IsValueType && viewProperty.PropertyType != typeof(string))
+            if (!viewProperty.PropertyType.IsValueTypeOrString())
                 throw new NotSupportedException(Resources.CANT_SELECT);
 
             ViewProperty = viewProperty;

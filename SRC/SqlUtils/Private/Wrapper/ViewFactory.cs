@@ -12,6 +12,7 @@ using System.Reflection.Emit;
 namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
+    using Primitives;
 
     internal static class ViewFactory
     {
@@ -64,5 +65,62 @@ namespace Solti.Utils.SQL.Internals
             col.ViewProperty.PropertyType,
             col.Reason.GetBuilder()
         )));
+
+        public static Type CreateViewForValueType(PropertyInfo dataTableColumn) => Cache.GetOrAdd(dataTableColumn, () =>
+        {
+            Type dataTable = dataTableColumn.ReflectedType;
+            PropertyInfo pk = dataTable.GetPrimaryKey();
+
+            //
+            // [View(Base = typeof(Table)), MapFrom(nameof(Column))]
+            // class Table_Column_View
+            // {
+            //   [BelongsTo(typeof(Table), column: "Id")]
+            //   public int Table_Id {get; set;}
+            //   [BelongsTo(typeof(Table), column: "Column")]
+            //   public ValueType Column {get; set;}
+            // }
+            //
+
+            return CreateView
+            (
+                new MemberDefinition
+                (
+                    $"{dataTable.Name}_{dataTableColumn.Name}_View",
+                    dataTable,
+                    new CustomAttributeBuilder
+                    (
+                        typeof(MapFromAttribute).GetConstructor(new[] { typeof(string) }) ?? throw new MissingMethodException(typeof(MapFromAttribute).Name, "Ctor(string)"),
+                        constructorArgs: new object[] { dataTableColumn.Name }
+                    )
+                ),
+                new[]
+                {
+                    //
+                    // [BelongsTo(typeof(Table), column: "Id")]
+                    // public int Table_Id {get; set;}
+                    //
+
+                    new MemberDefinition
+                    (
+                        $"{dataTable.Name}_{pk.Name}",
+                        pk.PropertyType,
+                        new BelongsToAttribute(dataTable, required: false, column: pk.Name).GetBuilder()
+                    ),
+
+                    //
+                    // [BelongsTo(typeof(Table), column: "Column")]
+                    // public ValueType Column {get; set;}
+                    //
+
+                    new MemberDefinition
+                    (
+                        dataTableColumn.Name,
+                        dataTableColumn.PropertyType,
+                        new BelongsToAttribute(dataTable, required: false).GetBuilder()
+                    )
+                }
+            );
+        });
     }
 }

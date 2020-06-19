@@ -24,15 +24,17 @@ namespace Solti.Utils.SQL.Internals
         private static Type DefineKey(Type viewType) => Cache.GetOrAdd
         (
             viewType, 
-            () => ViewFactory.CreateView
-            (
-                new MemberDefinition
+            () => viewType.IsWrapped() 
+                ? ViewFactory.CreateView
                 (
-                    $"{viewType.FullName}_Key", 
-                    viewType.GetQueryBase()
-                ),
-                viewType.GetColumnSelections()
-            )
+                    new MemberDefinition
+                    (
+                        $"{viewType.FullName}_Key", 
+                        viewType.GetQueryBase()
+                    ),
+                    viewType.GetColumnSelections()
+                )
+                : viewType
         );
         #endregion
 

@@ -1085,6 +1085,44 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.WrappedAttribute
   fullName: Solti.Utils.SQL.Interfaces.WrappedAttribute
   nameWithType: WrappedAttribute
+- uid: Solti.Utils.SQL.Internals
+  name: Solti.Utils.SQL.Internals
+  href: Solti.Utils.SQL.Internals.html
+  commentId: N:Solti.Utils.SQL.Internals
+  fullName: Solti.Utils.SQL.Internals
+  nameWithType: Solti.Utils.SQL.Internals
+- uid: Solti.Utils.SQL.Internals.MapFromAttribute
+  name: MapFromAttribute
+  href: Solti.Utils.SQL.Internals.MapFromAttribute.html
+  commentId: T:Solti.Utils.SQL.Internals.MapFromAttribute
+  fullName: Solti.Utils.SQL.Internals.MapFromAttribute
+  nameWithType: MapFromAttribute
+- uid: Solti.Utils.SQL.Internals.MapFromAttribute.#ctor(System.String)
+  name: MapFromAttribute(String)
+  href: Solti.Utils.SQL.Internals.MapFromAttribute.html#Solti_Utils_SQL_Internals_MapFromAttribute__ctor_System_String_
+  commentId: M:Solti.Utils.SQL.Internals.MapFromAttribute.#ctor(System.String)
+  fullName: Solti.Utils.SQL.Internals.MapFromAttribute.MapFromAttribute(System.String)
+  nameWithType: MapFromAttribute.MapFromAttribute(String)
+- uid: Solti.Utils.SQL.Internals.MapFromAttribute.#ctor*
+  name: MapFromAttribute
+  href: Solti.Utils.SQL.Internals.MapFromAttribute.html#Solti_Utils_SQL_Internals_MapFromAttribute__ctor_
+  commentId: Overload:Solti.Utils.SQL.Internals.MapFromAttribute.#ctor
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.MapFromAttribute.MapFromAttribute
+  nameWithType: MapFromAttribute.MapFromAttribute
+- uid: Solti.Utils.SQL.Internals.MapFromAttribute.Property
+  name: Property
+  href: Solti.Utils.SQL.Internals.MapFromAttribute.html#Solti_Utils_SQL_Internals_MapFromAttribute_Property
+  commentId: P:Solti.Utils.SQL.Internals.MapFromAttribute.Property
+  fullName: Solti.Utils.SQL.Internals.MapFromAttribute.Property
+  nameWithType: MapFromAttribute.Property
+- uid: Solti.Utils.SQL.Internals.MapFromAttribute.Property*
+  name: Property
+  href: Solti.Utils.SQL.Internals.MapFromAttribute.html#Solti_Utils_SQL_Internals_MapFromAttribute_Property_
+  commentId: Overload:Solti.Utils.SQL.Internals.MapFromAttribute.Property
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.MapFromAttribute.Property
+  nameWithType: MapFromAttribute.Property
 - uid: Solti.Utils.SQL.ISqlQueryExtensions
   name: ISqlQueryExtensions
   href: Solti.Utils.SQL.ISqlQueryExtensions.html

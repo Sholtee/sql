@@ -58,7 +58,7 @@ namespace Solti.Utils.SQL.Internals
                 // mert az a mappolas miatt elterhet).
                 //
 
-                PropertyInfo pk = group.Key.GetType().GetPrimaryKey(); // sose lehetne ures
+                PropertyInfo pk = group.Key.GetType().GetPrimaryKey();
 
                 if (pk.FastGetValue(group.Key) == pk.PropertyType.GetDefaultValue())
                     continue;

@@ -522,10 +522,10 @@ namespace Solti.Utils.SQL.Tests
 
             objs.Add(unwrapped.MakeInstance()
                 .Set("Id", id2)
-                .Set("Reference", 2.ToString()));
+                .Set("Reference", 1.ToString()));
             objs.Add(unwrapped.MakeInstance()
                 .Set("Id", id2)
-                .Set("Reference", 3.ToString()));
+                .Set("Reference", 2.ToString()));
 
             List<Start_Node_View_ValueList> result = Wrapper.Wrap<Start_Node_View_ValueList>(objs);
         }

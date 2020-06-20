@@ -151,6 +151,15 @@ namespace Solti.Utils.SQL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The type should be a view..
+        /// </summary>
+        internal static string NOT_A_VIEW {
+            get {
+                return ResourceManager.GetString("NOT_A_VIEW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot create temporary type from views having same named properties..
         /// </summary>
         internal static string PROPERTY_NAME_COLLISION {

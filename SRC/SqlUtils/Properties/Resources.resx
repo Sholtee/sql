@@ -141,6 +141,9 @@
   <data name="NOT_A_PROPERTY" xml:space="preserve">
     <value>The expression should be a property read operation.</value>
   </data>
+  <data name="NOT_A_VIEW" xml:space="preserve">
+    <value>The type should be a view.</value>
+  </data>
   <data name="NO_PRIMARY_KEY" xml:space="preserve">
     <value>Data types must have, views must select a primary key.</value>
   </data>

@@ -7,6 +7,8 @@ using System;
 
 namespace Solti.Utils.SQL.Internals
 {
+    using Properties;
+
     internal static class Unwrapped<TView>
     {
         private static readonly object FLock = new object();
@@ -18,17 +20,31 @@ namespace Solti.Utils.SQL.Internals
             get 
             {
                 if (FType == null)
+                {
                     lock (FLock)
+                    {
                         if (FType == null)
+                        {
+                            Type type = typeof(TView);
+
+                            if (!type.IsDatabaseEntityOrView())
+                            {
+                                var ex = new InvalidOperationException(Resources.NOT_A_VIEW);
+                                ex.Data[nameof(type)] = type;
+                            }
+
                             FType = ViewFactory.CreateView
                             (
                                 new MemberDefinition
                                 (
-                                    $"{$"Unwrapped{typeof(TView).Name}"}_Key",
-                                    typeof(TView).GetQueryBase()
+                                    $"{$"Unwrapped{type.Name}"}_Key",
+                                    type.GetQueryBase()
                                 ),
-                                typeof(TView).ExtractColumnSelections()
+                                type.ExtractColumnSelections()
                             );
+                        }
+                    }
+                }
                 return FType;
             }
         }

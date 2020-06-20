@@ -54,13 +54,14 @@ namespace Solti.Utils.SQL.Internals
             foreach (IGrouping<object, object> group in unwrappedObjects.Cast<object>().GroupBy(Mappers.MapToKey, ValueComparer.Instance))
             {
                 //
-                // Ha az entitas ures (LEFT JOIN miatt kaptuk vissza) akkor nem vesszuk fel (ne a "view" oljektumon vizsgaljuk 
-                // mert az a mappolas miatt elterhet).
+                // Ha az entitas ures (LEFT JOIN miatt kaptuk vissza) akkor nem vesszuk fel.
+                //   - Ne a "view" oljektumon vizsgaljuk mert az a mappolas miatt elterhet
+                //   - Ne "=="-el vizsgaljunk h mukodjunk ertek tipusokra is
                 //
 
                 PropertyInfo pk = group.Key.GetType().GetPrimaryKey();
 
-                if (pk.FastGetValue(group.Key) == pk.PropertyType.GetDefaultValue())
+                if (ValueComparer.Instance.Equals(pk.FastGetValue(group.Key), pk.PropertyType.GetDefaultValue()))
                     continue;
 
                 //

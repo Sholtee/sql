@@ -52,7 +52,7 @@ namespace Solti.Utils.SQL.Tests
         }
 
         [Test]
-        public void UnwrappedView_ShouldUnwrapSimpleViewsDescendingFromOrmType()
+        public void UnwrappedView_ShouldUnwrapSimpleViewsDescendingFromDataTable()
         {
             Type unwrapped = Unwrapped<Extension1>.Type;
 
@@ -166,7 +166,7 @@ namespace Solti.Utils.SQL.Tests
         }
 
         [Test]
-        public void UnwrappedView_ShouldUnwrapViewsHavingWrappedPropertyWithTypeOfOrmTypeDescendant()
+        public void UnwrappedView_ShouldUnwrapViewsHavingWrappedPropertyWithTypeOfDataTableDescendant()
         {
             Type unwrapped = Unwrapped<WrappedView3_Extesnion>.Type;
 
@@ -311,26 +311,35 @@ namespace Solti.Utils.SQL.Tests
 
             var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
 
+            Guid id = Guid.NewGuid();
+
             objs.Add(unwrapped.MakeInstance()
                 .Set("Azonosito", 1)
+                .Set("Id", id)
                 .Set("IdSelection", 1.ToString())
                 .Set("SimpleColumnSelection", "xyz")
                 .Set("Foo", 10)
                 .Set("Count", 15));
             objs.Add(unwrapped.MakeInstance()
                 .Set("Azonosito", 1)
+                .Set("Id", id)
                 .Set("IdSelection", 2.ToString())
                 .Set("SimpleColumnSelection", "abc")
                 .Set("Foo", 10)
                 .Set("Count", 15));
+
+            id = Guid.NewGuid();
+
             objs.Add(unwrapped.MakeInstance()
                 .Set("Azonosito", 2)
+                .Set("Id", id)
                 .Set("IdSelection", 2.ToString())
                 .Set("SimpleColumnSelection", "zyx")
                 .Set("Foo", 20)
                 .Set("Count", 25));
             objs.Add(unwrapped.MakeInstance()
                 .Set("Azonosito", 2)
+                .Set("Id", id)
                 .Set("IdSelection", 2.ToString())
                 .Set("SimpleColumnSelection", "zyx")
                 .Set("Foo", 30)
@@ -506,7 +515,7 @@ namespace Solti.Utils.SQL.Tests
         }
 
         [Test]
-        public void Wrapper_ShouldAcceptValueLists() 
+        public void Wrapper_ShouldWorkWithValueLists() 
         {
             Type unwrapped = Unwrapped<Start_Node_View_ValueList>.Type;
 
@@ -516,15 +525,18 @@ namespace Solti.Utils.SQL.Tests
 
             objs.Add(unwrapped.MakeInstance()
                 .Set("Id", id1)
+                .Set("Node5_Id", Guid.NewGuid())
                 .Set("Reference", 1.ToString()));
 
             Guid id2 = Guid.NewGuid();
 
             objs.Add(unwrapped.MakeInstance()
                 .Set("Id", id2)
+                .Set("Node5_Id", Guid.NewGuid())
                 .Set("Reference", 1.ToString()));
             objs.Add(unwrapped.MakeInstance()
                 .Set("Id", id2)
+                .Set("Node5_Id", Guid.NewGuid())
                 .Set("Reference", 2.ToString()));
 
             List<Start_Node_View_ValueList> result = Wrapper.Wrap<Start_Node_View_ValueList>(objs);
@@ -532,6 +544,37 @@ namespace Solti.Utils.SQL.Tests
             Assert.That(result.Count, Is.EqualTo(2));
             Assert.That(result[0].References.Count, Is.EqualTo(1));
             Assert.That(result[0].References[0], Is.EqualTo(1.ToString()));
+            Assert.That(result[1].References.Count, Is.EqualTo(2));
+            Assert.That(result[1].References[0], Is.EqualTo(1.ToString()));
+            Assert.That(result[1].References[1], Is.EqualTo(2.ToString()));
+        }
+
+        [Test]
+        public void Wrapper_ShouldHandleEmptyValueLists()
+        {
+            Type unwrapped = Unwrapped<Start_Node_View_ValueList>.Type;
+
+            var objs = (IList)typeof(List<>).MakeInstance(unwrapped);
+
+            Guid id1 = Guid.NewGuid();
+
+            objs.Add(unwrapped.MakeInstance().Set("Id", id1));
+
+            Guid id2 = Guid.NewGuid();
+
+            objs.Add(unwrapped.MakeInstance()
+                .Set("Id", id2)
+                .Set("Node5_Id", Guid.NewGuid())
+                .Set("Reference", 1.ToString()));
+            objs.Add(unwrapped.MakeInstance()
+                .Set("Id", id2)
+                .Set("Node5_Id", Guid.NewGuid())
+                .Set("Reference", 2.ToString()));
+
+            List<Start_Node_View_ValueList> result = Wrapper.Wrap<Start_Node_View_ValueList>(objs);
+
+            Assert.That(result.Count, Is.EqualTo(2));
+            Assert.That(result[0].References, Is.Empty);
             Assert.That(result[1].References.Count, Is.EqualTo(2));
             Assert.That(result[1].References[0], Is.EqualTo(1.ToString()));
             Assert.That(result[1].References[1], Is.EqualTo(2.ToString()));

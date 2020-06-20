@@ -10,6 +10,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
+using static System.Diagnostics.Debug;
+
 namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
@@ -20,25 +22,32 @@ namespace Solti.Utils.SQL.Internals
     {
         private const BindingFlags BINDING_FLAGS = BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
 
-        public static IReadOnlyList<WrappedSelection> GetWrappedSelections(this Type viewOrDatabaseEntity) => Cache.GetOrAdd
-        (
-            viewOrDatabaseEntity, 
-            () => viewOrDatabaseEntity
-                .GetProperties(BINDING_FLAGS)
-                .Where(PropertyInfoExtensions.IsWrapped)
-                .Select(prop => new WrappedSelection(prop))
-                .ToArray()
-        );
-
-        public static bool IsWrapped(this Type src) => src.GetWrappedSelections().Any();
-
-        public static IReadOnlyList<ColumnSelection> GetColumnSelections(this Type viewOrDatabaseEntity) => Cache.GetOrAdd(viewOrDatabaseEntity, () => 
+        public static IReadOnlyList<WrappedSelection> GetWrappedSelections(this Type databaseEntityOrView)
         {
-            Type? @base = viewOrDatabaseEntity.GetBaseDataType();
+            Assert(databaseEntityOrView.IsDatabaseEntityOrView());
+
+            return Cache.GetOrAdd
+            (
+                databaseEntityOrView,
+                () => databaseEntityOrView
+                    .GetProperties(BINDING_FLAGS)
+                    .Where(PropertyInfoExtensions.IsWrapped)
+                    .Select(prop => new WrappedSelection(prop))
+                    .ToArray()
+            );
+        }
+
+        public static bool IsWrapped(this Type view) => view.IsDatabaseEntityOrView() && view.GetWrappedSelections().Any();
+
+        public static IReadOnlyList<ColumnSelection> GetColumnSelections(this Type databaseEntityOrView) => Cache.GetOrAdd(databaseEntityOrView, () => 
+        {
+            Assert(databaseEntityOrView.IsDatabaseEntityOrView());
+
+            Type? @base = databaseEntityOrView.GetBaseDataType();
 
             return 
             (
-                from prop in viewOrDatabaseEntity.GetProperties(BINDING_FLAGS)
+                from prop in databaseEntityOrView.GetProperties(BINDING_FLAGS)
                 where !prop.IsWrapped()
 
                 //
@@ -61,11 +70,13 @@ namespace Solti.Utils.SQL.Internals
             ).ToArray();
         });
 
-        public static IReadOnlyList<ColumnSelection> ExtractColumnSelections(this Type viewOrDatabaseEntity) => Cache.GetOrAdd(viewOrDatabaseEntity, () =>
+        public static IReadOnlyList<ColumnSelection> ExtractColumnSelections(this Type databaseEntityOrView) => Cache.GetOrAdd(databaseEntityOrView, () =>
         {
-            ColumnSelection[] result = viewOrDatabaseEntity
+            Assert(databaseEntityOrView.IsDatabaseEntityOrView());
+
+            ColumnSelection[] result = databaseEntityOrView
                 .GetColumnSelections()
-                .Concat(viewOrDatabaseEntity
+                .Concat(databaseEntityOrView
                     .GetWrappedSelections()
                     .SelectMany(sel =>
                     {
@@ -116,22 +127,24 @@ namespace Solti.Utils.SQL.Internals
             return result;
         });
 
-        public static Type? GetBaseDataType(this Type viewOrDatabaseEntity)
+        public static Type? GetBaseDataType(this Type databaseEntityOrView)
         {
-            while (viewOrDatabaseEntity != null && !Config.Instance.IsDataTable(viewOrDatabaseEntity))
+            while (databaseEntityOrView != null && !Config.Instance.IsDataTable(databaseEntityOrView))
             {
-                viewOrDatabaseEntity = viewOrDatabaseEntity.BaseType;
+                databaseEntityOrView = databaseEntityOrView.BaseType;
             }
-            return viewOrDatabaseEntity;
+            return databaseEntityOrView;
         }
 
-        public static Type GetMapperTarget(this Type view) 
+        public static Type GetEffectiveType(this Type view) 
         {
+            Assert(view.IsDatabaseEntityOrView());
+
             string? mapFromProperty = view.GetCustomAttribute<MapFromAttribute>(inherit: false)?.Property;
 
             if (mapFromProperty != null) return
             (
-                view.GetProperty(mapFromProperty) ?? throw new MissingMemberException(view.Name, mapFromProperty)
+                view.GetProperty(mapFromProperty, BINDING_FLAGS) ?? throw new MissingMemberException(view.Name, mapFromProperty)
             ).PropertyType;
 
             return view;
@@ -141,11 +154,10 @@ namespace Solti.Utils.SQL.Internals
 
         public static bool IsDatabaseEntityOrView(this Type type) => type.IsClass && (type.GetCustomAttribute<ViewAttribute>(inherit: false) ?? (object?) type.GetBaseDataType()) != null;
 
-        public static object GetDefaultValue(this Type src) => Cache
-            .GetOrAdd(src, () => Expression
-                .Lambda<Func<object>>(Expression.Convert(Expression.Default(src), typeof(object)))
-                .Compile())
-            .Invoke();
+        public static object GetDefaultValue(this Type src) => Cache .GetOrAdd(src, () => Expression
+            .Lambda<Func<object>>(Expression.Convert(Expression.Default(src), typeof(object)))
+            .Compile()
+            .Invoke());
 
         public static object MakeInstance(this Type src, params Type[] typeArguments)
         {

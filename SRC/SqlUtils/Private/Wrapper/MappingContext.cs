@@ -61,7 +61,7 @@ namespace Solti.Utils.SQL.Internals
             // keszult (magyaran feltolti az eredeti nezet NEM lista tulajdonsagait).
             //
 
-            mapper.RegisterMapping(keyType, viewType.GetMapperTarget());
+            mapper.RegisterMapping(keyType, viewType.GetEffectiveType());
 
             //
             // .GropBy(nagyAdat => nagyAdat.MapTo<Kulcs>())
@@ -71,7 +71,7 @@ namespace Solti.Utils.SQL.Internals
             return new MappingContext
             (
                 mapToKey:  src => mapper.MapTo(unwrappedType, keyType, src)!,
-                mapToView: src => mapper.MapTo(keyType, viewType.GetMapperTarget(), src)!
+                mapToView: src => mapper.MapTo(keyType, viewType.GetEffectiveType(), src)!
             );
         });
         #endregion

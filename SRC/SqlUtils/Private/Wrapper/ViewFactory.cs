@@ -103,7 +103,7 @@ namespace Solti.Utils.SQL.Internals
 
                     new MemberDefinition
                     (
-                        $"{dataTable.Name}_{pk.Name}",
+                        $"{dataTable.Name}_{pk.Name}", // direkt nem csak pk.Name h kissebb esellyel legyen nev utkozes
                         pk.PropertyType,
                         new BelongsToAttribute(dataTable, required: false, column: pk.Name).GetBuilder()
                     ),

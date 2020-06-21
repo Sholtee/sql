@@ -11,11 +11,11 @@ using System.Reflection;
 
 namespace Solti.Utils.SQL.Internals
 {
-    internal sealed class ValueComparer : IEqualityComparer<object>
+    internal sealed class ValueComparer : IEqualityComparer<object?>
     {
-        public static readonly IEqualityComparer<object> Instance = new ValueComparer();
+        public static readonly IEqualityComparer<object?> Instance = new ValueComparer();
 
-        bool IEqualityComparer<object>.Equals(object x, object y)
+        bool IEqualityComparer<object?>.Equals(object? x, object? y)
         {
             if (ReferenceEquals(x, y)) return true;
 
@@ -33,7 +33,7 @@ namespace Solti.Utils.SQL.Internals
             return GetHashCode(x) == GetHashCode(y);
         }
 
-        public int GetHashCode(object obj)
+        public int GetHashCode(object? obj)
         {
             if (obj == null) return 0;
 

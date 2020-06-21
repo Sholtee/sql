@@ -30,7 +30,7 @@ namespace Solti.Utils.SQL.Internals
 
             ViewType      = viewType;
             UnwrappedType = unwrappedType;
-            Mappers       = MappingContext.Create(unwrappedType, viewType, new Mapper());
+            Mappers       = MappingContext.Create(unwrappedType, viewType);
         }
 
         private void AssignWrappedProperties(object target, IEnumerable group)
@@ -51,7 +51,7 @@ namespace Solti.Utils.SQL.Internals
             // ertekeben ternek el).
             //
 
-            foreach (IGrouping<object, object> group in unwrappedObjects.Cast<object>().GroupBy(Mappers.MapToKey, ValueComparer.Instance))
+            foreach (IGrouping<object?, object> group in unwrappedObjects.Cast<object>().GroupBy(Mappers.MapToKey, ValueComparer.Instance))
             {
                 //
                 // Ha az entitas ures (LEFT JOIN miatt kaptuk vissza) akkor nem vesszuk fel.
@@ -59,7 +59,7 @@ namespace Solti.Utils.SQL.Internals
                 //   - Ne "=="-el vizsgaljunk h mukodjunk ertek tipusokra is
                 //
 
-                PropertyInfo pk = group.Key.GetType().GetPrimaryKey();
+                PropertyInfo pk = group.Key!.GetType().GetPrimaryKey();
 
                 if (ValueComparer.Instance.Equals(pk.FastGetValue(group.Key), pk.PropertyType.GetDefaultValue()))
                     continue;
@@ -68,7 +68,7 @@ namespace Solti.Utils.SQL.Internals
                 // A csoport kulcsa megadja az aktualis nezet peldany nem lista tulajdonsagait -> tolajdonsagok masolasa.
                 //
 
-                object view = Mappers.MapToView(group.Key);
+                object view = Mappers.MapToView(group.Key)!;
 
                 //
                 // Az egyes listatulajdonsagok feltoltesehez rekurzivan hivjuk sajat magunkat a lista

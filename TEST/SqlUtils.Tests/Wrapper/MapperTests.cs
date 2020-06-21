@@ -38,44 +38,33 @@ namespace Solti.Utils.SQL.Tests
             public string Foo { get; set; }
         }
 
-        private IMapper Mapper { get; set; }
-
-        [SetUp]
-        public void Setup()
-        {
-            Mapper = new Mapper();
-            Mapper.RegisterMapping(typeof(A), typeof(B));
-            Mapper.RegisterMapping(typeof(A), typeof(C));
-            Mapper.RegisterMapping(typeof(C), typeof(B));
-            Mapper.RegisterMapping(typeof(string), typeof(string));
-            Mapper.RegisterMapping(typeof(D), typeof(string));
-        }
+        private static object Map(Type srcType, Type dstType, object src) => Mapper.Create(srcType, dstType).Invoke(src);
 
         [Test]
         public void Mapper_ShouldMapNullValues() =>
-            Assert.That(Mapper.MapTo(typeof(A), typeof(B), null), Is.Null);
+            Assert.That(Map(typeof(A), typeof(B), null), Is.Null);
 
         [Test]
         public void Mapper_ShouldMapValueTypes() =>
-            Assert.That(Mapper.MapTo(typeof(string), typeof(string), "cica"), Is.EqualTo("cica"));
+            Assert.That(Map(typeof(string), typeof(string), "cica"), Is.EqualTo("cica"));
 
         [Test]
         public void Mapper_ShouldThrowIfMappingNotSupported() =>
-            Assert.Throws<NotSupportedException>(() => Mapper.RegisterMapping(typeof(int), typeof(long)), Resources.MAPPING_NOT_SUPPORTED);
+            Assert.Throws<NotSupportedException>(() => Map(typeof(int), typeof(long), null), Resources.MAPPING_NOT_SUPPORTED);
 
         [Test]
         public void Mapper_ShouldMapObjects()
         {
             A a = new A { Foo = 1, Bar = "cica" };
-            B b = (B) Mapper.MapTo(typeof(A), typeof(B), a);
+            B b = (B) Map(typeof(A), typeof(B), a);
 
             Assert.That(b.Bar, Is.EqualTo(a.Bar));
             Assert.That(b.Foo, Is.EqualTo(a.Foo));
 
-            C c = (C) Mapper.MapTo(typeof(A), typeof(C), a);
+            C c = (C) Map(typeof(A), typeof(C), a);
             Assert.That(c.Foo, Is.EqualTo(a.Foo));
 
-            b = (B) Mapper.MapTo(typeof(C), typeof(B), c);
+            b = (B) Map(typeof(C), typeof(B), c);
 
             Assert.That(b.Bar, Is.Null);
             Assert.That(b.Foo, Is.EqualTo(a.Foo));
@@ -83,6 +72,6 @@ namespace Solti.Utils.SQL.Tests
 
         [Test]
         public void Mapper_ShouldMapPropertyToValueType() =>
-            Assert.That(Mapper.MapTo(typeof(D), typeof(string), new D { Foo = "cica" }), Is.EqualTo("cica"));
+            Assert.That(Map(typeof(D), typeof(string), new D { Foo = "cica" }), Is.EqualTo("cica"));
     }
 }

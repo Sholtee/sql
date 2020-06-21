@@ -14,9 +14,9 @@ namespace Solti.Utils.SQL.Internals
     using Primitives;
     using Properties;
 
-    internal sealed class Mapper: IMapper
+    internal static class Mapper
     {
-        void IMapper.RegisterMapping(Type srcType, Type dstType) => Cache.GetOrAdd((srcType, dstType), () =>
+        public static Func<object?, object?> Create(Type srcType, Type dstType) => Cache.GetOrAdd((srcType, dstType), () =>
         {
             ParameterExpression p = Expression.Parameter(typeof(object));
 
@@ -28,14 +28,14 @@ namespace Solti.Utils.SQL.Internals
             }
             else
             {
-                string? propertyToMap = srcType.GetCustomAttribute<MapFromAttribute>()?.Property;
+                PropertyInfo? propertyToMap = srcType.MapFrom();
 
                 block = propertyToMap == null 
                     ? MapClass() 
-                    : MapValueType(srcType.GetProperty(propertyToMap) ?? throw new MissingMemberException(srcType.Name, propertyToMap));
+                    : MapValueType(propertyToMap);
             }
 
-            return Expression.Lambda<Func<object, object>>(block, p).Compile();
+            return Expression.Lambda<Func<object?, object?>>(block, p).Compile();
 
             BlockExpression MapValueType(PropertyInfo? property) 
             {
@@ -44,7 +44,7 @@ namespace Solti.Utils.SQL.Internals
                 //
 
                 if (srcType != dstType && property?.PropertyType != dstType)
-                    throw MappingNotSupported(srcType, dstType);
+                    throw MappingNotSupported();
 
                 Expression src = property == null
                     //
@@ -82,11 +82,13 @@ namespace Solti.Utils.SQL.Internals
             BlockExpression MapClass() 
             {
                 if (!srcType.IsClass || !dstType.IsClass)
-                    throw MappingNotSupported(srcType, dstType);
+                    throw MappingNotSupported();
 
                 ParameterExpression
                      src = Expression.Variable(srcType, nameof(src)),
                      dst = Expression.Variable(dstType, nameof(dst));
+
+                LabelTarget label = Expression.Label(typeof(object));
 
                 const BindingFlags bindingFlagsBase = BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
 
@@ -99,6 +101,16 @@ namespace Solti.Utils.SQL.Internals
                     variables: new[] { src, dst },
                     expressions: new Expression[]
                     {
+                        //
+                        // if (p == null) return null
+                        //
+
+                        Expression.IfThen
+                        (
+                            Expression.Equal(p, Expression.Default(typeof(object))),
+                            Expression.Return(label, Expression.Default(typeof(object)))
+                        ),
+
                         //
                         // TSrc src = (TSrc) p;
                         // TDst dst = new TDst();
@@ -120,33 +132,28 @@ namespace Solti.Utils.SQL.Internals
                         where dstProp != null
                         select Expression.Assign(Expression.Property(dst, dstProp), Expression.Property(src, srcProp))
                     )
-                    .Append
+                    .Concat
                     (
                         //
                         // return dst;
                         //
 
-                        dst
+                        new Expression[]
+                        {
+                            Expression.Return(label, dst),
+                            Expression.Label(label, Expression.Default(typeof(object)))
+                        }
                     )
                 )!;
             }
-        }, nameof(Mapper));
 
-        object? IMapper.MapTo(Type srcType, Type dstType, object? source)
-        {
-            if (source == null) return null;
+            NotSupportedException MappingNotSupported()
+            {
+                var ex = new NotSupportedException(Resources.MAPPING_NOT_SUPPORTED);
+                ex.Data["mapping"] = $"{srcType} -> {dstType}";
 
-            Func<object, object> map = Cache.GetOrAdd((srcType, dstType), new Func<Func<object, object>>(() => throw MappingNotSupported(srcType, dstType)), nameof(Mapper));
-
-            return map.Invoke(source);
-        }
-
-        private static NotSupportedException MappingNotSupported(Type srcType, Type dstType) 
-        {
-            var ex = new NotSupportedException(Resources.MAPPING_NOT_SUPPORTED);
-            ex.Data["mapping"] = $"{srcType} -> {dstType}";
-
-            return ex;
-        }
+                return ex!;
+            }
+        });
     }
 }

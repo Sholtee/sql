@@ -11,11 +11,11 @@ namespace Solti.Utils.SQL.Internals
 
     internal sealed class MappingContext
     {
-        public Func<object, object> MapToKey { get; }
-        public Func<object, object> MapToView { get; }
+        public Func<object?, object?> MapToKey { get; }
+        public Func<object?, object?> MapToView { get; }
 
         #region Private stuffs
-        private MappingContext(Func<object, object> mapToKey, Func<object, object> mapToView)
+        private MappingContext(Func<object?, object?> mapToKey, Func<object?, object?> mapToView)
         {
             MapToKey = mapToKey;
             MapToView = mapToView;
@@ -39,7 +39,7 @@ namespace Solti.Utils.SQL.Internals
         #endregion
 
         #region Static stuffs
-        public static MappingContext Create(Type unwrappedType, Type viewType, IMapper mapper) => Cache.GetOrAdd((unwrappedType, viewType, mapper.GetType()), () =>
+        public static MappingContext Create(Type unwrappedType, Type viewType) => Cache.GetOrAdd((unwrappedType, viewType), () =>
         {
             //
             // Az eredeti nezet nem lista property-eibol letrehozunk egy kulcs tipust.
@@ -49,29 +49,26 @@ namespace Solti.Utils.SQL.Internals
             Type keyType = DefineKey(viewType);
 
             //
-            // A mappolas ami kicsomagolt nezet egy peldanyat a konkret kulcsra szukiti:
-            //
-            //    nagyAdat => nagyAdat.MapTo<Kulcs>()
-            //
-
-            mapper.RegisterMapping(unwrappedType, keyType);
-
-            //
-            // A mappolas ami a kulcs egy peldanyat visszamappolja a nezet enitasba ami alapjan a kulcs
-            // keszult (magyaran feltolti az eredeti nezet NEM lista tulajdonsagait).
-            //
-
-            mapper.RegisterMapping(keyType, viewType.GetEffectiveType());
-
-            //
             // .GropBy(nagyAdat => nagyAdat.MapTo<Kulcs>())
             // .Select(x => x.Key.MapTo<View>())
             //
 
             return new MappingContext
             (
-                mapToKey:  src => mapper.MapTo(unwrappedType, keyType, src)!,
-                mapToView: src => mapper.MapTo(keyType, viewType.GetEffectiveType(), src)!
+                //
+                // A mappolas ami kicsomagolt nezet egy peldanyat a konkret kulcsra szukiti:
+                //
+                //    nagyAdat => nagyAdat.MapTo<Kulcs>()
+                //
+
+                mapToKey:  Mapper.Create(unwrappedType, keyType),
+
+                //
+                // A mappolas ami a kulcs egy peldanyat visszamappolja a nezet enitasba ami alapjan a kulcs
+                // keszult (magyaran feltolti az eredeti nezet NEM lista tulajdonsagait).
+                //
+
+                mapToView: Mapper.Create(keyType, viewType.GetEffectiveType())
             );
         });
         #endregion

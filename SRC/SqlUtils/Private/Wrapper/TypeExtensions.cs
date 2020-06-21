@@ -136,19 +136,16 @@ namespace Solti.Utils.SQL.Internals
             return databaseEntityOrView;
         }
 
-        public static Type GetEffectiveType(this Type view) 
+        public static PropertyInfo? MapFrom(this Type view) 
         {
-            Assert(view.IsDatabaseEntityOrView());
-
             string? mapFromProperty = view.GetCustomAttribute<MapFromAttribute>(inherit: false)?.Property;
 
-            if (mapFromProperty != null) return
-            (
-                view.GetProperty(mapFromProperty, BINDING_FLAGS) ?? throw new MissingMemberException(view.Name, mapFromProperty)
-            ).PropertyType;
-
-            return view;
+            return mapFromProperty != null
+                ? view.GetProperty(mapFromProperty, BINDING_FLAGS) ?? throw new MissingMemberException(view.Name, mapFromProperty)
+                : null;
         }
+
+        public static Type GetEffectiveType(this Type view) => view.MapFrom()?.PropertyType ?? view;
 
         public static bool IsValueTypeOrString(this Type src) => src.IsValueType || src == typeof(string);
 

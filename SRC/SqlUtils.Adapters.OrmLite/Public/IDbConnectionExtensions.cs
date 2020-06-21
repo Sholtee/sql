@@ -16,7 +16,7 @@ namespace Solti.Utils.SQL
     /// <summary>
     /// Defines some handy extensions to the <see cref="IDbConnection"/> interface.
     /// </summary>
-    public static class IDbConnectionExtensions
+    public static class IDbConnectionOrmLiteExtensions
     {
         /// <summary>
         /// Queries the given <typeparamref name="TView"/>.

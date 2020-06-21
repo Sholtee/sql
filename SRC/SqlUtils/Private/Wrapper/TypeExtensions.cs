@@ -43,7 +43,7 @@ namespace Solti.Utils.SQL.Internals
         {
             Assert(databaseEntityOrView.IsDatabaseEntityOrView());
 
-            Type? @base = databaseEntityOrView.GetBaseDataType();
+            Type? @base = databaseEntityOrView.GetBaseDataTable();
 
             return 
             (
@@ -127,14 +127,8 @@ namespace Solti.Utils.SQL.Internals
             return result;
         });
 
-        public static Type? GetBaseDataType(this Type databaseEntityOrView)
-        {
-            while (databaseEntityOrView != null && !Config.Instance.IsDataTable(databaseEntityOrView))
-            {
-                databaseEntityOrView = databaseEntityOrView.BaseType;
-            }
-            return databaseEntityOrView;
-        }
+        public static Type? GetBaseDataTable(this Type databaseEntityOrView) => 
+            Config.KnownTables.SingleOrDefault(dataTable => dataTable.IsAssignableFrom(databaseEntityOrView));
 
         public static PropertyInfo? MapFrom(this Type view) 
         {
@@ -149,7 +143,7 @@ namespace Solti.Utils.SQL.Internals
 
         public static bool IsValueTypeOrString(this Type src) => src.IsValueType || src == typeof(string);
 
-        public static bool IsDatabaseEntityOrView(this Type type) => type.IsClass && (type.GetCustomAttribute<ViewAttribute>(inherit: false) ?? (object?) type.GetBaseDataType()) != null;
+        public static bool IsDatabaseEntityOrView(this Type type) => type.IsClass && (type.GetCustomAttribute<ViewAttribute>(inherit: false) ?? (object?) type.GetBaseDataTable()) != null;
 
         public static object GetDefaultValue(this Type src) => Cache .GetOrAdd(src, () => Expression
             .Lambda<Func<object>>(Expression.Convert(Expression.Default(src), typeof(object)))

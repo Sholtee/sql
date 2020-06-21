@@ -13,22 +13,29 @@ using System.Reflection;
 namespace Solti.Utils.SQL
 {
     using Interfaces;
-    using Internals;
 
     /// <summary>
-    /// Enumerates data tables that can be found in assemblies filtered by <see cref="AssemblySearchPattern"/>.
+    /// Enumerates data tables that can be found in assemblies.
     /// </summary>
     public sealed class DisoveredDataTables : IKnownDataTables
     {
-        /// <summary>
-        /// The <see cref="Assembly"/> search pattern.
-        /// </summary>
-        public string AssemblySearchPattern { get; }
+        private readonly IReadOnlyList<Assembly> FAssemblies;
 
         /// <summary>
         /// Creates a new <see cref="DisoveredDataTables"/> instance.
         /// </summary>
-        public DisoveredDataTables(string assemblySearchPattern = "*.ORM.dll") => AssemblySearchPattern = assemblySearchPattern ?? throw new ArgumentNullException(nameof(assemblySearchPattern));
+        public DisoveredDataTables(string assemblySearchPattern = "*.ORM.dll") => FAssemblies = Directory
+            .GetFiles
+            (
+                AppDomain.CurrentDomain.BaseDirectory, assemblySearchPattern ?? throw new ArgumentNullException(nameof(assemblySearchPattern))
+            )
+            .Select(Assembly.LoadFile)
+            .ToArray();
+
+        /// <summary>
+        /// Creates a new <see cref="DisoveredDataTables"/> instance.
+        /// </summary>
+        public DisoveredDataTables(params Assembly[] assemblies) => FAssemblies = assemblies ?? throw new ArgumentNullException(nameof(assemblies));
 
         IEnumerator<Type> IEnumerable<Type>.GetEnumerator() => (IEnumerator<Type>) GetEnumerator();
 
@@ -37,22 +44,17 @@ namespace Solti.Utils.SQL
         /// </summary>
         public IEnumerator GetEnumerator()
         {
-            Type[] wouldbeDataTables = 
+            IEnumerable<Type> wouldbeDataTables = 
             (
-                from asm in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, AssemblySearchPattern).Select(Assembly.LoadFile)
+                from asm in FAssemblies
                 from type in asm.GetTypes()
                 where Config.Instance.IsDataTable(type)
                 select type
-            ).ToArray();
+            );
 
-            foreach (Type dataTable in wouldbeDataTables)
-            {
-                dataTable.GetPrimaryKey(); // validal
-
-                //
-                // TODO: tobb validalas
-                //
-            }
+            //
+            // TODO: validalas
+            //
 
             return wouldbeDataTables.GetEnumerator();
         }

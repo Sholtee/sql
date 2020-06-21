@@ -47,7 +47,7 @@ namespace Solti.Utils.SQL
             Use<DefaultConfig>();
             Use(new SpecifiedDataTables()); // ures
         }
-
+#if DEBUG
         internal static IDisposable UseTemporarily(IConfig instance) 
         {
             Use(instance);
@@ -62,7 +62,7 @@ namespace Solti.Utils.SQL
                 base.Dispose(disposeManaged);
             }
         }
-
+#endif
         /// <summary>
         /// Uses the given ORM types.
         /// </summary>

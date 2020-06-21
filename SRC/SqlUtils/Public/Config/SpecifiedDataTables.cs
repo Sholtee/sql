@@ -10,7 +10,6 @@ using System.Collections.Generic;
 namespace Solti.Utils.SQL
 {
     using Interfaces;
-    using Internals;
     
     /// <summary>
     /// Lets you register data tables manually.
@@ -22,22 +21,12 @@ namespace Solti.Utils.SQL
         /// <summary>
         /// Creates a new <see cref="SpecifiedDataTables"/> instance.
         /// </summary>
-        public SpecifiedDataTables(params Type[] dataTables)
-        {
-            if (dataTables == null)
-                throw new ArgumentNullException(nameof(dataTables));
+        public SpecifiedDataTables(params Type[] dataTables) =>
+            //
+            // TODO: validalas
+            //
 
-            foreach (Type dataTable in dataTables)
-            {
-                dataTable.GetPrimaryKey(); // validal
-
-                //
-                // TODO: tobb validalas
-                //
-            }
-
-            FDataTables = dataTables;
-        }
+            FDataTables = dataTables ?? throw new ArgumentNullException(nameof(dataTables));
 
         /// <summary>
         /// Enumerates the specified data tables.

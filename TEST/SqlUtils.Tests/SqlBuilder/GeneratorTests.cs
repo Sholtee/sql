@@ -101,6 +101,8 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void FragmentActionGenerator_ShouldWorkWithComplexViews()
         {
+            Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node)));
+
             var mockSqlBuilder = new Mock<ISqlQuery>(MockBehavior.Strict);
             mockSqlBuilder
                 .Setup(x => x.Select(
@@ -129,7 +131,7 @@ namespace Solti.Utils.SQL.Tests
                     It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute)))));
             mockSqlBuilder
                 .Setup(x => x.OrderBy(
-                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id)))));
+                    It.Is<PropertyInfo>(y => y == typeof(Goal_Node).GetProperty(nameof(Goal_Node.Id)))));        
 
             CallActions(((IActionGenerator) new FragmentActionGenerator<Extension2>()).Generate, mockSqlBuilder.Object);
 

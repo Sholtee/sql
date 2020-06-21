@@ -24,7 +24,7 @@ namespace Solti.Utils.SQL.Internals
             // egyszeruen vissza tudjuk adni az elsodleges kulcsot.
             //
 
-            Type? databaseEntity = viewOrDatabaseEntity.GetBaseDataType();
+            Type? databaseEntity = viewOrDatabaseEntity.GetBaseDataTable();
 
             if (databaseEntity != null) pk = databaseEntity
                 .GetProperties(BINDING_FLAGS)
@@ -64,7 +64,7 @@ namespace Solti.Utils.SQL.Internals
 
         public static Type GetQueryBase(this Type viewOrDatabaseEntity)
         {
-            Type? result = viewOrDatabaseEntity.GetCustomAttribute<ViewAttribute>(inherit: false)?.Base ?? viewOrDatabaseEntity.GetBaseDataType();
+            Type? result = viewOrDatabaseEntity.GetCustomAttribute<ViewAttribute>(inherit: false)?.Base ?? viewOrDatabaseEntity.GetBaseDataTable();
             if (result == null)
             {
                 var ex = new InvalidOperationException(Resources.BASE_CANNOT_BE_DETERMINED);

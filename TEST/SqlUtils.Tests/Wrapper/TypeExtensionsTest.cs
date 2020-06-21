@@ -111,16 +111,23 @@ namespace Solti.Utils.SQL.Tests
             Assert.AreSame(typeof(WrappedView1).ExtractColumnSelections(), typeof(WrappedView1).ExtractColumnSelections());
 
         [Test]
-        public void GetBaseOrmType_ShouldReturnTheBaseOrmType() =>
-            Assert.That(typeof(Extension1).GetBaseDataType(), Is.EqualTo(typeof(Start_Node)));
+        public void GetBaseOrmType_ShouldReturnTheBaseOrmType()
+        {
+            Config.Use(new SpecifiedDataTables(typeof(Start_Node)));
+
+            Assert.That(typeof(Extension1).GetBaseDataTable(), Is.EqualTo(typeof(Start_Node)));
+        }
 
         [Test]
-        public void GetBaseOrmType_ShouldHandleTheOrmTypes() =>
-            Assert.That(typeof(Start_Node).GetBaseDataType(), Is.EqualTo(typeof(Start_Node)));
+        public void GetBaseOrmType_ShouldHandleTheOrmTypes()
+        {
+            Config.Use(new SpecifiedDataTables(typeof(Start_Node)));
+            Assert.That(typeof(Start_Node).GetBaseDataTable(), Is.EqualTo(typeof(Start_Node)));
+        }
 
         [Test]
         public void GetBaseOrmType_ShouldReturnNullIfNoBase() =>
-            Assert.IsNull(typeof(object).GetBaseDataType());
+            Assert.IsNull(typeof(object).GetBaseDataTable());
 
         [Test]
         public void GetDefaultValue_ShouldHandlePrimitiveTypes() =>

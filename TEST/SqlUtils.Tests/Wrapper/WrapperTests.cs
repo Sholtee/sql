@@ -21,6 +21,9 @@ namespace Solti.Utils.SQL.Tests
     [TestFixture]
     public sealed class WrapperTests
     {
+        [SetUp]
+        public void Setup() => Config.Use(new DisoveredDataTables(typeof(WrapperTests).Assembly));
+
         [Test]
         public void UnwrappedView_ShouldUnwrapSimpleViews()
         {
@@ -75,7 +78,7 @@ namespace Solti.Utils.SQL.Tests
                         if (originalAttr == null)
                         {
                             Assert.That(queriedAttr.GetType(), Is.EqualTo(typeof(BelongsToAttribute)));
-                            Assert.That(queriedAttr.OrmType, Is.EqualTo(typeof(Extension1).GetBaseDataType()));
+                            Assert.That(queriedAttr.OrmType, Is.EqualTo(typeof(Extension1).GetBaseDataTable()));
                         }
                         else
                         {
@@ -190,7 +193,7 @@ namespace Solti.Utils.SQL.Tests
                         if (originalAttr == null)
                         {
                             Assert.That(queriedAttr.GetType(), Is.EqualTo(typeof(BelongsToAttribute)));
-                            Assert.That(queriedAttr.OrmType, Is.EqualTo(typeof(Extension1).GetBaseDataType()));
+                            Assert.That(queriedAttr.OrmType, Is.EqualTo(typeof(Extension1).GetBaseDataTable()));
                         }
                         else
                         {

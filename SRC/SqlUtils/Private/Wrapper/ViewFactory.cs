@@ -14,11 +14,11 @@ namespace Solti.Utils.SQL.Internals
     using Interfaces;
     using Primitives;
 
-    internal static class ViewFactory
+    internal class ViewFactory: ClassFactory
     {
         public static Type CreateView(MemberDefinition viewDefinition, IEnumerable<MemberDefinition> columns)
         {
-            TypeBuilder tb = TypeBuilderExtensions.CreateBuilder(viewDefinition.Name);
+            TypeBuilder tb = CreateBuilder(viewDefinition.Name);
 
             //
             // Hogy a GetQueryBase() mukodjon a generalt nezetre is, ezert az uj osztalyt megjeloljuk nezetnek.
@@ -48,9 +48,9 @@ namespace Solti.Utils.SQL.Internals
             // Uj property-k definialasa.
             //
 
-            foreach (var column in columns)
+            foreach (MemberDefinition column in columns)
             {
-                PropertyBuilder property = tb.AddProperty(column.Name, column.Type);
+                PropertyBuilder property = AddProperty(tb, column.Name, column.Type);
 
                 foreach (CustomAttributeBuilder cab in column.CustomAttributes)
                     property.SetCustomAttribute(cab);

@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*  TypeBuilderExtensions.cs                                                     *
+*  ClassFactory.cs                                                              *
 *                                                                               *
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
@@ -9,9 +9,9 @@ using System.Reflection.Emit;
 
 namespace Solti.Utils.SQL.Internals
 {
-    internal static class TypeBuilderExtensions
+    internal class ClassFactory
     {
-        public static PropertyBuilder AddProperty(this TypeBuilder tb, string name, Type type)
+        protected static PropertyBuilder AddProperty(TypeBuilder tb, string name, Type type)
         {
             //
             // public XXX {}
@@ -68,7 +68,7 @@ namespace Solti.Utils.SQL.Internals
             return property;
         }
 
-        public static TypeBuilder CreateBuilder(string name) => AssemblyBuilder
+        protected static TypeBuilder CreateBuilder(string name) => AssemblyBuilder
             .DefineDynamicAssembly(new AssemblyName(name), AssemblyBuilderAccess.Run)
             .DefineDynamicModule("MainModule")
             .DefineType(name, TypeAttributes.Public | TypeAttributes.Class);

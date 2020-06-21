@@ -9,7 +9,7 @@
   "testresults": "testresults.xml",
   "coveragereport": "coverage.xml",
   "artifacts": "\\Artifacts",
-  "coveragefilter": "+[Solti.Utils.SQL*]* -[Solti.Utils.SQL.Tests]*",
+  "coveragefilter": "+[Solti.Utils.SQL*]* -[Solti.Utils.SQL*Tests]*",
   "perftests": "\\PERF\\SqlUtils.Perf.csproj",
   "perftarget": "netcoreapp3.1",
   "docsbranch": "gh-pages",

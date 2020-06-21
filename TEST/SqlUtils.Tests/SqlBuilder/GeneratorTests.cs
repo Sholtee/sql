@@ -31,7 +31,7 @@ namespace Solti.Utils.SQL.Tests
         {
             Cache.AsDictionary<(Type, Type, int), IReadOnlyList<Edge>>().Clear();
             Cache.AsDictionary<Type, IReadOnlyList<Edge>>().Clear();
-            Config.Use<KnownTables>();
+            Config.Use(new SpecifiedDataTables());
         }
 
         [Test]
@@ -161,7 +161,7 @@ namespace Solti.Utils.SQL.Tests
                     It.Is<PropertyInfo>(y => y == typeof(Node5).GetProperty(nameof(Node5.Reference))),
                     It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
 
-            Config.Use(new FakeTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
+            Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 
             CallActions(((IActionGenerator) new JoinActionGenerator<View1>()).Generate, mockSqlBuilder.Object);
 
@@ -221,7 +221,7 @@ namespace Solti.Utils.SQL.Tests
                     It.Is<PropertyInfo>(y => y == typeof(Node5).GetProperty(nameof(Node5.Reference))),
                     It.Is<PropertyInfo>(y => y == Unwrapped<View1>.Type.GetProperty(nameof(View1.SecondSelectionFromAnotherRoute)))));
 
-            Config.Use(new FakeTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
+            Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 
             SmartSqlBuilder<View1>.Initialize();
             SmartSqlBuilder<View1>.Build(mockSqlBuilder.Object);
@@ -269,7 +269,7 @@ namespace Solti.Utils.SQL.Tests
                     It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute))),
                     It.Is<PropertyInfo>(y => y == Unwrapped<Extension1>.Type.GetProperty(nameof(Extension1.ReferenceWithoutAttribute)))));
 
-            Config.Use(new FakeTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
+            Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 
             SmartSqlBuilder<Extension1>.Initialize();
             SmartSqlBuilder<Extension1>.Build(mockSqlBuilder.Object);
@@ -310,7 +310,7 @@ namespace Solti.Utils.SQL.Tests
                 .Setup(x => x.GroupBy(
                     It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute)))));
 
-            Config.Use(new FakeTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
+            Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 
             SmartSqlBuilder<View2>.Initialize();
             SmartSqlBuilder<View2>.Build(mockSqlBuilder.Object);

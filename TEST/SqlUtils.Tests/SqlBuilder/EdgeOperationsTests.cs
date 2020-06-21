@@ -11,10 +11,10 @@ using NUnit.Framework;
 
 namespace Solti.Utils.SQL.Tests
 {
-    using Interfaces;
     using Internals;
     using Primitives;
     using Properties;
+    using Solti.Utils.SQL.Interfaces;
 
     [TestFixture]
     public sealed class EdgeOperationsTests
@@ -24,7 +24,7 @@ namespace Solti.Utils.SQL.Tests
         {
             Cache.AsDictionary<(Type, Type, int), IReadOnlyList<Edge>>().Clear();
             Cache.AsDictionary<Type, IReadOnlyList<Edge>>().Clear();
-            Config.Use<KnownTables>();
+            Config.Use(new SpecifiedDataTables());
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void GetEdgesFrom_ShouldReturnAnEmptyListIfThereIsNoEdgeFound()
         {
-            Config.Use(new FakeTables(typeof(OrmType), typeof(OrmTypeWithReference)));
+            Config.Use(new SpecifiedDataTables(typeof(OrmType), typeof(OrmTypeWithReference)));
 
             IReadOnlyList<Edge> edges = EdgeOperations.GetEdgesFrom(typeof(OrmType));
             Assert.That(edges, Is.Empty);
@@ -53,7 +53,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void GetEdgesFrom_ShouldReturnTheCorrectEdge()
         {
-            Config.Use(new FakeTables(typeof(OrmType), typeof(OrmTypeWithReference)));
+            Config.Use(new SpecifiedDataTables(typeof(OrmType), typeof(OrmTypeWithReference)));
 
             IReadOnlyList<Edge> edges = EdgeOperations.GetEdgesFrom(typeof(OrmTypeWithReference));
             Assert.That(edges.Count, Is.EqualTo(1));
@@ -67,7 +67,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void GetEdgesTo_ShouldReturnAnEmptyListIfThereIsNoEdgeFound()
         {
-            Config.Use(new FakeTables(typeof(OrmType), typeof(OrmTypeWithReference)));
+            Config.Use(new SpecifiedDataTables(typeof(OrmType), typeof(OrmTypeWithReference)));
 
             IReadOnlyList<Edge> edges = EdgeOperations.GetEdgesTo(typeof(OrmTypeWithReference));
             Assert.That(edges, Is.Empty);
@@ -76,7 +76,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void GetEdgesTo_ShouldReturnTheCorrectEdge()
         {
-            Config.Use(new FakeTables(typeof(OrmType), typeof(OrmTypeWithReference)));
+            Config.Use(new SpecifiedDataTables(typeof(OrmType), typeof(OrmTypeWithReference)));
 
             IReadOnlyList<Edge> edges = EdgeOperations.GetEdgesTo(typeof(OrmType));
             Assert.That(edges.Count, Is.EqualTo(1));
@@ -86,26 +86,26 @@ namespace Solti.Utils.SQL.Tests
             Assert.That(edge.DestinationTable, Is.EqualTo(typeof(OrmType)));
         }
 
-        public static IEnumerable<(FakeTables Tables, (Type Src, Type dst)[] Path)> ShortestPaths 
+        public static IEnumerable<(IKnownDataTables Tables, (Type Src, Type dst)[] Path)> ShortestPaths 
         {
             get 
             {
                 yield return
                 (
-                    new FakeTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)),
+                    new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)),
                     new (Type Src, Type dst)[] { (typeof(Node2), typeof(Start_Node)), (typeof(Node2), typeof(Goal_Node)) }
                 );
 
                 yield return
                 (
-                    new FakeTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)),
+                    new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)),
                     new (Type Src, Type dst)[] { (typeof(Node7), typeof(Start_Node)), (typeof(Node6), typeof(Node7)), (typeof(Node6), typeof(Goal_Node)) }
                 );
             }
         }
 
         [TestCaseSource(nameof(ShortestPaths))]
-        public void ShortestPath_ShouldFindTheShortestPath((FakeTables Tables, (Type Src, Type Dst)[] Path) ctx)
+        public void ShortestPath_ShouldFindTheShortestPath((IKnownDataTables Tables, (Type Src, Type Dst)[] Path) ctx)
         {
             Config.Use(ctx.Tables);
             IReadOnlyList<Edge> path = EdgeOperations.ShortestPath(typeof(Start_Node), typeof(Goal_Node));
@@ -123,7 +123,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void ShortestPath_ShouldThrowIfThePathCanNotBeDetermined()
         {
-            Config.Use(new FakeTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node4), typeof(Node5), typeof(Node7), typeof(Node8)));
+            Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node4), typeof(Node5), typeof(Node7), typeof(Node8)));
 
             Assert.Throws<InvalidOperationException>(() => EdgeOperations.ShortestPath(typeof(Start_Node), typeof(Goal_Node)), Resources.NO_SHORTEST_PATH);
         }
@@ -131,7 +131,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void ShortestPath_ShouldTakeCustomEdgesIntoAccount()
         {
-            Config.Use(new FakeTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
+            Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 
             IReadOnlyList<Edge> path = EdgeOperations.ShortestPath(typeof(Start_Node), typeof(Goal_Node), Edge.Create<Goal_Node, Start_Node>(x => x.Id, x => x.ReferenceWithoutAttribute));
             Assert.That(path, Is.Not.Null);

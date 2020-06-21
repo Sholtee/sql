@@ -42,7 +42,7 @@
   
   <h1 id="Solti_Utils_SQL_DisoveredDataTables" data-uid="Solti.Utils.SQL.DisoveredDataTables" class="text-break">Class DisoveredDataTables
   </h1>
-  <div class="markdown level0 summary"><p>Enumerates data tables that can be found in assemblies filtered by <a class="xref" href="Solti.Utils.SQL.DisoveredDataTables.html#Solti_Utils_SQL_DisoveredDataTables_AssemblySearchPattern">AssemblySearchPattern</a>.</p>
+  <div class="markdown level0 summary"><p>Enumerates data tables that can be found in assemblies.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -89,6 +89,32 @@
   <h3 id="constructors">Constructors
   </h3>
   <a id="Solti_Utils_SQL_DisoveredDataTables__ctor_" data-uid="Solti.Utils.SQL.DisoveredDataTables.#ctor*"></a>
+  <h4 id="Solti_Utils_SQL_DisoveredDataTables__ctor_System_Reflection_Assembly___" data-uid="Solti.Utils.SQL.DisoveredDataTables.#ctor(System.Reflection.Assembly[])">DisoveredDataTables(Assembly[])</h4>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Solti.Utils.SQL.DisoveredDataTables.html">DisoveredDataTables</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DisoveredDataTables(params Assembly[] assemblies)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a>[]</td>
+        <td><span class="parametername">assemblies</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_DisoveredDataTables__ctor_" data-uid="Solti.Utils.SQL.DisoveredDataTables.#ctor*"></a>
   <h4 id="Solti_Utils_SQL_DisoveredDataTables__ctor_System_String_" data-uid="Solti.Utils.SQL.DisoveredDataTables.#ctor(System.String)">DisoveredDataTables(String)</h4>
   <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Solti.Utils.SQL.DisoveredDataTables.html">DisoveredDataTables</a> instance.</p>
 </div>
@@ -110,32 +136,6 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">assemblySearchPattern</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-  </h3>
-  <a id="Solti_Utils_SQL_DisoveredDataTables_AssemblySearchPattern_" data-uid="Solti.Utils.SQL.DisoveredDataTables.AssemblySearchPattern*"></a>
-  <h4 id="Solti_Utils_SQL_DisoveredDataTables_AssemblySearchPattern" data-uid="Solti.Utils.SQL.DisoveredDataTables.AssemblySearchPattern">AssemblySearchPattern</h4>
-  <div class="markdown level1 summary"><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a> search pattern.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string AssemblySearchPattern { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td></td>
       </tr>
     </tbody>

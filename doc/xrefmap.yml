@@ -166,6 +166,15 @@ references:
   commentId: T:Solti.Utils.SQL.DisoveredDataTables
   fullName: Solti.Utils.SQL.DisoveredDataTables
   nameWithType: DisoveredDataTables
+- uid: Solti.Utils.SQL.DisoveredDataTables.#ctor(System.Reflection.Assembly[])
+  name: DisoveredDataTables(Assembly[])
+  href: Solti.Utils.SQL.DisoveredDataTables.html#Solti_Utils_SQL_DisoveredDataTables__ctor_System_Reflection_Assembly___
+  commentId: M:Solti.Utils.SQL.DisoveredDataTables.#ctor(System.Reflection.Assembly[])
+  name.vb: DisoveredDataTables(Assembly())
+  fullName: Solti.Utils.SQL.DisoveredDataTables.DisoveredDataTables(System.Reflection.Assembly[])
+  fullName.vb: Solti.Utils.SQL.DisoveredDataTables.DisoveredDataTables(System.Reflection.Assembly())
+  nameWithType: DisoveredDataTables.DisoveredDataTables(Assembly[])
+  nameWithType.vb: DisoveredDataTables.DisoveredDataTables(Assembly())
 - uid: Solti.Utils.SQL.DisoveredDataTables.#ctor(System.String)
   name: DisoveredDataTables(String)
   href: Solti.Utils.SQL.DisoveredDataTables.html#Solti_Utils_SQL_DisoveredDataTables__ctor_System_String_
@@ -179,19 +188,6 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.DisoveredDataTables.DisoveredDataTables
   nameWithType: DisoveredDataTables.DisoveredDataTables
-- uid: Solti.Utils.SQL.DisoveredDataTables.AssemblySearchPattern
-  name: AssemblySearchPattern
-  href: Solti.Utils.SQL.DisoveredDataTables.html#Solti_Utils_SQL_DisoveredDataTables_AssemblySearchPattern
-  commentId: P:Solti.Utils.SQL.DisoveredDataTables.AssemblySearchPattern
-  fullName: Solti.Utils.SQL.DisoveredDataTables.AssemblySearchPattern
-  nameWithType: DisoveredDataTables.AssemblySearchPattern
-- uid: Solti.Utils.SQL.DisoveredDataTables.AssemblySearchPattern*
-  name: AssemblySearchPattern
-  href: Solti.Utils.SQL.DisoveredDataTables.html#Solti_Utils_SQL_DisoveredDataTables_AssemblySearchPattern_
-  commentId: Overload:Solti.Utils.SQL.DisoveredDataTables.AssemblySearchPattern
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.DisoveredDataTables.AssemblySearchPattern
-  nameWithType: DisoveredDataTables.AssemblySearchPattern
 - uid: Solti.Utils.SQL.DisoveredDataTables.GetEnumerator
   name: GetEnumerator()
   href: Solti.Utils.SQL.DisoveredDataTables.html#Solti_Utils_SQL_DisoveredDataTables_GetEnumerator

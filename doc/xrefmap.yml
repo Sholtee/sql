@@ -382,6 +382,46 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.IDbConnectionExtensions.CreateBulkedDbConnection
   nameWithType: IDbConnectionExtensions.CreateBulkedDbConnection
+- uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions
+  name: IDbConnectionOrmLiteExtensions
+  href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html
+  commentId: T:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions
+  fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions
+  nameWithType: IDbConnectionOrmLiteExtensions
+- uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query*
+  name: Query
+  href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_Query_
+  commentId: Overload:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query
+  nameWithType: IDbConnectionOrmLiteExtensions.Query
+- uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query``1(System.Data.IDbConnection,ServiceStack.OrmLite.IUntypedSqlExpression)
+  name: Query<TView>(IDbConnection, IUntypedSqlExpression)
+  href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_Query__1_System_Data_IDbConnection_ServiceStack_OrmLite_IUntypedSqlExpression_
+  commentId: M:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query``1(System.Data.IDbConnection,ServiceStack.OrmLite.IUntypedSqlExpression)
+  name.vb: Query(Of TView)(IDbConnection, IUntypedSqlExpression)
+  fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query<TView>(System.Data.IDbConnection, ServiceStack.OrmLite.IUntypedSqlExpression)
+  fullName.vb: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query(Of TView)(System.Data.IDbConnection, ServiceStack.OrmLite.IUntypedSqlExpression)
+  nameWithType: IDbConnectionOrmLiteExtensions.Query<TView>(IDbConnection, IUntypedSqlExpression)
+  nameWithType.vb: IDbConnectionOrmLiteExtensions.Query(Of TView)(IDbConnection, IUntypedSqlExpression)
+- uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query``1(System.Data.IDbConnection,System.Action{ServiceStack.OrmLite.IUntypedSqlExpression})
+  name: Query<TView>(IDbConnection, Action<IUntypedSqlExpression>)
+  href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_Query__1_System_Data_IDbConnection_System_Action_ServiceStack_OrmLite_IUntypedSqlExpression__
+  commentId: M:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query``1(System.Data.IDbConnection,System.Action{ServiceStack.OrmLite.IUntypedSqlExpression})
+  name.vb: Query(Of TView)(IDbConnection, Action(Of IUntypedSqlExpression))
+  fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query<TView>(System.Data.IDbConnection, System.Action<ServiceStack.OrmLite.IUntypedSqlExpression>)
+  fullName.vb: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query(Of TView)(System.Data.IDbConnection, System.Action(Of ServiceStack.OrmLite.IUntypedSqlExpression))
+  nameWithType: IDbConnectionOrmLiteExtensions.Query<TView>(IDbConnection, Action<IUntypedSqlExpression>)
+  nameWithType.vb: IDbConnectionOrmLiteExtensions.Query(Of TView)(IDbConnection, Action(Of IUntypedSqlExpression))
+- uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query``1(System.Data.IDbConnection,System.String)
+  name: Query<TView>(IDbConnection, String)
+  href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_Query__1_System_Data_IDbConnection_System_String_
+  commentId: M:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query``1(System.Data.IDbConnection,System.String)
+  name.vb: Query(Of TView)(IDbConnection, String)
+  fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query<TView>(System.Data.IDbConnection, System.String)
+  fullName.vb: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query(Of TView)(System.Data.IDbConnection, System.String)
+  nameWithType: IDbConnectionOrmLiteExtensions.Query<TView>(IDbConnection, String)
+  nameWithType.vb: IDbConnectionOrmLiteExtensions.Query(Of TView)(IDbConnection, String)
 - uid: Solti.Utils.SQL.Interfaces
   name: Solti.Utils.SQL.Interfaces
   href: Solti.Utils.SQL.Interfaces.html

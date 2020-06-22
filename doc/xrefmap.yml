@@ -446,6 +446,19 @@ references:
   commentId: T:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions
   fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions
   nameWithType: IDbConnectionOrmLiteExtensions
+- uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.CreateSchema(System.Data.IDbConnection)
+  name: CreateSchema(IDbConnection)
+  href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_CreateSchema_System_Data_IDbConnection_
+  commentId: M:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.CreateSchema(System.Data.IDbConnection)
+  fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.CreateSchema(System.Data.IDbConnection)
+  nameWithType: IDbConnectionOrmLiteExtensions.CreateSchema(IDbConnection)
+- uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.CreateSchema*
+  name: CreateSchema
+  href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_CreateSchema_
+  commentId: Overload:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.CreateSchema
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.CreateSchema
+  nameWithType: IDbConnectionOrmLiteExtensions.CreateSchema
 - uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query*
   name: Query
   href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_Query_

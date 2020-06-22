@@ -26,23 +26,13 @@ namespace Solti.Utils.SQL.Internals
 
             tb.SetCustomAttribute
             (
-                new CustomAttributeBuilder
-                (
-                    typeof(ViewAttribute).GetConstructor(Type.EmptyTypes) ?? throw new MissingMethodException(typeof(ViewAttribute).Name, "Ctor(EmptyTypes)"),
-                    constructorArgs: Array.Empty<object?>(),
-                    namedProperties: new PropertyInfo[]
-                    {
-                        typeof(ViewAttribute).GetProperty(nameof(ViewAttribute.Base)) ?? throw new MissingMemberException(typeof(ViewAttribute).Name, nameof(ViewAttribute.Base))
-                    },
-                    propertyValues: new object[]
-                    {
-                        viewDefinition.Type
-                    }
-                )
+                CustomAttributeBuilderFactory.CreateFrom<ViewAttribute>(new[] { typeof(Type) }, new object?[] { viewDefinition.Type })
             );
 
             foreach (CustomAttributeBuilder cab in viewDefinition.CustomAttributes)
+            {
                 tb.SetCustomAttribute(cab);
+            }
 
             //
             // Uj property-k definialasa.
@@ -53,7 +43,9 @@ namespace Solti.Utils.SQL.Internals
                 PropertyBuilder property = AddProperty(tb, column.Name, column.Type);
 
                 foreach (CustomAttributeBuilder cab in column.CustomAttributes)
+                {
                     property.SetCustomAttribute(cab);
+                }
             }
 
             return tb.CreateTypeInfo()!.AsType();
@@ -75,9 +67,9 @@ namespace Solti.Utils.SQL.Internals
             // [View(Base = typeof(Table)), MapFrom(nameof(Column))]
             // class Table_Column_View
             // {
-            //   [BelongsTo(typeof(Table), column: "Id")]
-            //   public int Table_Id {get; set;}
-            //   [BelongsTo(typeof(Table), column: "Column")]
+            //   [BelongsTo(typeof(Table))]
+            //   public int Id {get; set;}
+            //   [BelongsTo(typeof(Table))]
             //   public ValueType Column {get; set;}
             // }
             //
@@ -88,24 +80,20 @@ namespace Solti.Utils.SQL.Internals
                 (
                     $"{dataTable.Name}_{dataTableColumn.Name}_View",
                     dataTable,
-                    new CustomAttributeBuilder
-                    (
-                        typeof(MapFromAttribute).GetConstructor(new[] { typeof(string) }) ?? throw new MissingMethodException(typeof(MapFromAttribute).Name, "Ctor(string)"),
-                        constructorArgs: new object[] { dataTableColumn.Name }
-                    )
+                    CustomAttributeBuilderFactory.CreateFrom<MapFromAttribute>(new[] { typeof(string) }, new object[] { dataTableColumn.Name })
                 ),
                 new[]
                 {
                     //
-                    // [BelongsTo(typeof(Table), column: "Id")]
-                    // public int Table_Id {get; set;}
+                    // [BelongsTo(typeof(Table))]
+                    // public int Id {get; set;}
                     //
 
                     new MemberDefinition
                     (
-                        $"{dataTable.Name}_{pk.Name}", // direkt nem csak pk.Name h kissebb esellyel legyen nev utkozes
+                        pk.Name,
                         pk.PropertyType,
-                        new BelongsToAttribute(dataTable, required: false, column: pk.Name).GetBuilder()
+                        CustomAttributeBuilderFactory.CreateFrom(new BelongsToAttribute(dataTable, required: false))
                     ),
 
                     //
@@ -117,7 +105,7 @@ namespace Solti.Utils.SQL.Internals
                     (
                         dataTableColumn.Name,
                         dataTableColumn.PropertyType,
-                        new BelongsToAttribute(dataTable, required: false).GetBuilder()
+                        CustomAttributeBuilderFactory.CreateFrom(new BelongsToAttribute(dataTable, required: false))
                     )
                 }
             );

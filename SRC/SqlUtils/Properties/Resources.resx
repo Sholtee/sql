@@ -150,9 +150,6 @@
   <data name="NO_SHORTEST_PATH" xml:space="preserve">
     <value>Shortest path could not be determined.</value>
   </data>
-  <data name="PROPERTY_NAME_COLLISION" xml:space="preserve">
-    <value>Cannot create temporary type from views having same named properties.</value>
-  </data>
   <data name="UNINITIALIZED_BUILDER" xml:space="preserve">
     <value>The SmartSqlBuilder is uninitialized. You should call the Initialize() method.</value>
   </data>

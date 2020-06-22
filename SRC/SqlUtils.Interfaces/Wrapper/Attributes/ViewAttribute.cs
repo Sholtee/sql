@@ -14,8 +14,13 @@ namespace Solti.Utils.SQL.Interfaces
     public sealed class ViewAttribute : Attribute
     {
         /// <summary>
+        /// Creates a new <see cref="ViewAttribute"/> instance.
+        /// </summary>
+        public ViewAttribute(Type? @base = null) => Base = @base;
+
+        /// <summary>
         /// The base table to appear in the FROM clause. If null the base of the view will be used.
         /// </summary>
-        public Type? Base { get; set; }
+        public Type? Base { get; }
     }
 }

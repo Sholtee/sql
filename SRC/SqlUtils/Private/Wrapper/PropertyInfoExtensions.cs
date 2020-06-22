@@ -25,5 +25,7 @@ namespace Solti.Utils.SQL.Internals
         public static void FastSetValue(this PropertyInfo src, object instance, object? value) => src
             .ToSetter()
             .Invoke(instance, value);
+
+        public static string FullName(this PropertyInfo src) => $"{src.ReflectedType.FullName}.{src.Name}";
     }
 }

@@ -160,15 +160,6 @@ namespace Solti.Utils.SQL.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot create temporary type from views having same named properties..
-        /// </summary>
-        internal static string PROPERTY_NAME_COLLISION {
-            get {
-                return ResourceManager.GetString("PROPERTY_NAME_COLLISION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The SmartSqlBuilder is uninitialized. You should call the Initialize() method..
         /// </summary>
         internal static string UNINITIALIZED_BUILDER {

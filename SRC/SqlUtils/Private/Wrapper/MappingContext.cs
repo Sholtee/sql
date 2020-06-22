@@ -64,7 +64,7 @@ namespace Solti.Utils.SQL.Internals
                 mapToKey:  Mapper.Create(unwrappedType, keyType),
 
                 //
-                // A mappolas ami a kulcs egy peldanyat visszamappolja a nezet enitasba ami alapjan a kulcs
+                // A mappolas ami a kulcs egy peldanyat visszamappolja a nezet entitasba ami alapjan a kulcs
                 // keszult (magyaran feltolti az eredeti nezet NEM lista tulajdonsagait).
                 //
 

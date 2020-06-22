@@ -74,7 +74,7 @@ namespace Solti.Utils.SQL.Interfaces
         /// <summary>
         /// See <see cref="IBuildableAttribute.GetBuilder"/>.
         /// </summary>
-        public abstract CustomAttributeBuilder GetBuilder();
+        public abstract CustomAttributeBuilder GetBuilder(params KeyValuePair<PropertyInfo, object>[] customParameters);
 
         /// <summary>
         /// Creates a new <see cref="ColumnSelectionAttribute"/> instance.

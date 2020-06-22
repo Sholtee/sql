@@ -5,6 +5,7 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -56,7 +57,7 @@ namespace Solti.Utils.SQL.Interfaces
         /// See <see cref="ColumnSelectionAttribute.GetBuilder"/>.
         /// </summary>
         /// <returns></returns>
-        public override CustomAttributeBuilder GetBuilder() => new CustomAttributeBuilder
+        public override CustomAttributeBuilder GetBuilder(params KeyValuePair<PropertyInfo, object>[] customParameters) => new CustomAttributeBuilder
         (
             GetType().GetConstructor(new[] 
             { 
@@ -69,7 +70,7 @@ namespace Solti.Utils.SQL.Interfaces
             {
                 OrmType,
                 Required,
-                Column,
+                customParameters.SingleOrDefault(para => para.Key.Name == nameof(Column)).Value ?? Column,
                 Order
             }
         );

@@ -5,6 +5,7 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -23,9 +24,7 @@ namespace Solti.Utils.SQL.Internals
             BlockExpression block;
 
             if (srcType.IsValueTypeOrString())
-            {
                 block = MapValueType(null);
-            }
             else
             {
                 PropertyInfo? propertyToMap = srcType.MapFrom();
@@ -128,7 +127,7 @@ namespace Solti.Utils.SQL.Internals
                         //
 
                         from srcProp in srcProps
-                        let dstProp = dstProps.SingleOrDefault(dstProp => dstProp.Name == srcProp.Name && dstProp.PropertyType.IsAssignableFrom(srcProp.PropertyType))
+                        let dstProp = TryAcquireDstProp(srcProp)
                         where dstProp != null
                         select Expression.Assign(Expression.Property(dst, dstProp), Expression.Property(src, srcProp))
                     )
@@ -145,6 +144,28 @@ namespace Solti.Utils.SQL.Internals
                         }
                     )
                 )!;
+
+                PropertyInfo? TryAcquireDstProp(PropertyInfo srcProp) 
+                {
+                    //
+                    // Teljes nevre tesztelunk?
+                    //
+
+                    string? mapToProperty = srcProp.GetCustomAttribute<MapToAttribute>()?.Property;
+                    if (mapToProperty != null) return dstProps.SingleOrDefault
+                    (
+                        dstProp => dstProp.FullName() == mapToProperty
+                    )!;
+
+                    //
+                    // Ha nem jott be akkor egyszeru nevre es tipusra.
+                    //
+
+                    return dstProps.SingleOrDefault
+                    (
+                        dstProp => dstProp.Name == srcProp.Name && dstProp.PropertyType == srcProp.PropertyType
+                    )!;
+                }
             }
 
             NotSupportedException MappingNotSupported()

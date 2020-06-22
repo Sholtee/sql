@@ -4,6 +4,8 @@
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 
@@ -17,7 +19,7 @@ namespace Solti.Utils.SQL.Interfaces
         /// <summary>
         /// See <see cref="ColumnSelectionAttribute.GetBuilder"/>.
         /// </summary>
-        public override CustomAttributeBuilder GetBuilder() => new CustomAttributeBuilder
+        public override CustomAttributeBuilder GetBuilder(params KeyValuePair<PropertyInfo, object>[] customParameters) => new CustomAttributeBuilder
         (
             GetType().GetConstructor(new[] 
             { 
@@ -29,7 +31,7 @@ namespace Solti.Utils.SQL.Interfaces
             {
                 OrmType,
                 Required,
-                Column
+                customParameters.SingleOrDefault(para => para.Key.Name == nameof(Column)).Value ?? Column,
             }
         );
 

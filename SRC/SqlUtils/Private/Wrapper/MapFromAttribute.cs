@@ -10,7 +10,7 @@ namespace Solti.Utils.SQL.Internals
     /// <summary>
     /// This is an internal class, don't use it.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class)]
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public sealed class MapFromAttribute: Attribute // publikusnak kell lennie h a GetCustomAttribute() megtalalja dinamikus tipusokon
     {
         /// <summary>

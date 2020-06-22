@@ -95,10 +95,6 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void UnwrappedView_ShouldCache() => Assert.AreSame(Unwrapped<View2>.Type, Unwrapped<View2>.Type);
 
-        [Test]
-        public void UnwrappedView_ShouldThrowOnPropertyNameCollission() =>
-            Assert.Throws<InvalidOperationException>(() => Unwrapped<WrappedView1_Bad>.Type.ToString(), Resources.PROPERTY_NAME_COLLISION);
-
         [TestCase(typeof(WrappedView1), nameof(WrappedView1.ViewList))]
         [TestCase(typeof(WrappedView3), nameof(WrappedView3.View))]
         public void UnwrappedView_ShouldUnwrapComplexViews(Type view, string wrappedProp)
@@ -233,6 +229,19 @@ namespace Solti.Utils.SQL.Tests
                         .GetProperties()
                         .ForEach(p => Assert.That(p.FastGetValue(originalAttr), Is.EqualTo(p.FastGetValue(queriedAttr))));
                 });
+        }
+
+        [Test]
+        public void UnwrappedView_ShouldHandlePropertyNameCollisions()
+        {
+            Type unwrapped = null;
+            Assert.DoesNotThrow(() => unwrapped = Unwrapped<CollidingWrappedView>.Type);
+
+            Assert.That(unwrapped.GetProperty("Id_0"), Is.Not.Null);
+            Assert.That(unwrapped.GetProperty("Id_0").GetCustomAttribute<MapToAttribute>()?.Property, Is.EqualTo("Id"));
+
+            Assert.That(unwrapped.GetProperty("Id_1"), Is.Not.Null);
+            Assert.That(unwrapped.GetProperty("Id_1").GetCustomAttribute<MapToAttribute>()?.Property, Is.EqualTo("Id"));
         }
 
         [Test]
@@ -527,19 +536,19 @@ namespace Solti.Utils.SQL.Tests
             Guid id1 = Guid.NewGuid();
 
             objs.Add(unwrapped.MakeInstance()
-                .Set("Id", id1)
-                .Set("Node5_Id", Guid.NewGuid())
+                .Set("Id_0", id1)
+                .Set("Id_1", Guid.NewGuid())
                 .Set("Reference", 1.ToString()));
 
             Guid id2 = Guid.NewGuid();
 
             objs.Add(unwrapped.MakeInstance()
-                .Set("Id", id2)
-                .Set("Node5_Id", Guid.NewGuid())
+                .Set("Id_0", id2)
+                .Set("Id_1", Guid.NewGuid())
                 .Set("Reference", 1.ToString()));
             objs.Add(unwrapped.MakeInstance()
-                .Set("Id", id2)
-                .Set("Node5_Id", Guid.NewGuid())
+                .Set("Id_0", id2)
+                .Set("Id_1", Guid.NewGuid())
                 .Set("Reference", 2.ToString()));
 
             List<Start_Node_View_ValueList> result = Wrapper.Wrap<Start_Node_View_ValueList>(objs);
@@ -557,21 +566,21 @@ namespace Solti.Utils.SQL.Tests
         {
             Type unwrapped = Unwrapped<Start_Node_View_ValueList>.Type;
 
-            var objs = (IList)typeof(List<>).MakeInstance(unwrapped);
+            var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
 
             Guid id1 = Guid.NewGuid();
 
-            objs.Add(unwrapped.MakeInstance().Set("Id", id1));
+            objs.Add(unwrapped.MakeInstance().Set("Id_0", id1));
 
             Guid id2 = Guid.NewGuid();
 
             objs.Add(unwrapped.MakeInstance()
-                .Set("Id", id2)
-                .Set("Node5_Id", Guid.NewGuid())
+                .Set("Id_0", id2)
+                .Set("Id_1", Guid.NewGuid())
                 .Set("Reference", 1.ToString()));
             objs.Add(unwrapped.MakeInstance()
-                .Set("Id", id2)
-                .Set("Node5_Id", Guid.NewGuid())
+                .Set("Id_0", id2)
+                .Set("Id_1", Guid.NewGuid())
                 .Set("Reference", 2.ToString()));
 
             List<Start_Node_View_ValueList> result = Wrapper.Wrap<Start_Node_View_ValueList>(objs);
@@ -581,6 +590,42 @@ namespace Solti.Utils.SQL.Tests
             Assert.That(result[1].References.Count, Is.EqualTo(2));
             Assert.That(result[1].References[0], Is.EqualTo(1.ToString()));
             Assert.That(result[1].References[1], Is.EqualTo(2.ToString()));
+        }
+
+        [Test]
+        public void Wrapper_ShouldHandlePropertyNameCollision() 
+        {
+            Type unwrapped = Unwrapped<CollidingWrappedView>.Type;
+
+            var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
+
+            objs.Add(unwrapped.MakeInstance()
+                .Set("Id_0", 1)
+                .Set("Id_1", "kutya")
+                .Set("Count", 10));
+
+            objs.Add(unwrapped.MakeInstance()
+                .Set("Id_0", 2)
+                .Set("Id_1", "cica")
+                .Set("Count", 20));
+            objs.Add(unwrapped.MakeInstance()
+                .Set("Id_0", 2)
+                .Set("Id_1", "meresi hiba")
+                .Set("Count", 30));
+
+            List<CollidingWrappedView> result = Wrapper.Wrap<CollidingWrappedView>(objs);
+
+            Assert.That(result.Count, Is.EqualTo(2));
+            Assert.That(result[0].Id, Is.EqualTo(1));
+            Assert.That(result[0].ViewList.Count, Is.EqualTo(1));
+            Assert.That(result[0].ViewList[0].Id, Is.EqualTo("kutya"));
+            Assert.That(result[0].ViewList[0].Count, Is.EqualTo(10));
+            Assert.That(result[1].Id, Is.EqualTo(2));
+            Assert.That(result[1].ViewList.Count, Is.EqualTo(2));
+            Assert.That(result[1].ViewList[0].Id, Is.EqualTo("cica"));
+            Assert.That(result[1].ViewList[0].Count, Is.EqualTo(20));
+            Assert.That(result[1].ViewList[1].Id, Is.EqualTo("meresi hiba"));
+            Assert.That(result[1].ViewList[1].Count, Is.EqualTo(30));
         }
     }
 }

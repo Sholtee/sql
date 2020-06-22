@@ -108,7 +108,7 @@ namespace Solti.Utils.SQL.Tests
         public string Reference { get; set; }
     }
 
-    [View(Base = typeof(Start_Node))]
+    [View(@base: typeof(Start_Node))]
     public class View1
     {
         [BelongsTo(typeof(Goal_Node), column: nameof(Goal_Node.Reference))]
@@ -123,7 +123,7 @@ namespace Solti.Utils.SQL.Tests
         public string SecondSelectionFromAnotherRoute { get; set; }
     }
 
-    [View(Base = typeof(Start_Node))]
+    [View(@base: typeof(Start_Node))]
     public class View2
     {
         [BelongsTo(typeof(Start_Node))]
@@ -135,7 +135,7 @@ namespace Solti.Utils.SQL.Tests
         public int Ignored { get; set; }
     }
 
-    [View(Base = typeof(Goal_Node))]
+    [View(@base: typeof(Goal_Node))]
     public class View3
     {
         [BelongsTo(typeof(Goal_Node), order: Order.Ascending)]
@@ -144,7 +144,7 @@ namespace Solti.Utils.SQL.Tests
         public int Count { get; set; }
     }
 
-    [View(Base = typeof(Goal_Node))]
+    [View(@base: typeof(Goal_Node))]
     public class View4
     {
         [BelongsTo(typeof(Goal_Node), order: Order.Ascending)]
@@ -153,8 +153,8 @@ namespace Solti.Utils.SQL.Tests
         public int ReferenceWithoutAttribute { get; set; }
     }
 
-    [View(Base = typeof(Start_Node))]
-    public class WrappedView1_Bad
+    [View(@base: typeof(Start_Node))]
+    public class CollidingWrappedView
     {
         [BelongsTo(typeof(Start_Node))]
         public int Id { get; set; }
@@ -162,7 +162,7 @@ namespace Solti.Utils.SQL.Tests
         public List<View3> ViewList { get; set; }
     }
 
-    [View(Base = typeof(Start_Node))]
+    [View(@base: typeof(Start_Node))]
     public class WrappedView1
     {
         [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.Id))]
@@ -171,7 +171,7 @@ namespace Solti.Utils.SQL.Tests
         public List<View3> ViewList { get; set; }
     }
 
-    [View(Base = typeof(Start_Node))]
+    [View(@base: typeof(Start_Node))]
     public class WrappedView2
     {
         [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.Id))]
@@ -182,7 +182,7 @@ namespace Solti.Utils.SQL.Tests
         public List<View2> ViewList2 { get; set; }
     }
 
-    [View(Base = typeof(Start_Node))]
+    [View(@base: typeof(Start_Node))]
     public class WrappedView3
     {
         [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.Id))]
@@ -191,7 +191,7 @@ namespace Solti.Utils.SQL.Tests
         public View3 View { get; set; }
     }
 
-    [View(Base = typeof(Start_Node))]
+    [View(@base: typeof(Start_Node))]
     public class WrappedView3_Extesnion
     {
         [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.Id))]
@@ -200,7 +200,7 @@ namespace Solti.Utils.SQL.Tests
         public List<Extension1> ViewList { get; set; }
     }
 
-    [View(Base = typeof(Start_Node))]
+    [View(@base: typeof(Start_Node))]
     public class WrappedView4_Complex
     {
         [BelongsTo(typeof(Start_Node), column: nameof(Start_Node.Id))]
@@ -209,7 +209,7 @@ namespace Solti.Utils.SQL.Tests
         public List<WrappedView1> AnotherViewList { get; set; }
     }
 
-    [View(Base = typeof(Start_Node))]
+    [View(@base: typeof(Start_Node))]
     public class WrappedView5_Bad
     {
         [BelongsTo(typeof(Start_Node))]

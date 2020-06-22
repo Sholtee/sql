@@ -74,7 +74,7 @@ namespace Solti.Utils.SQL.Internals
         {
             Assert(databaseEntityOrView.IsDatabaseEntityOrView());
 
-            ColumnSelection[] result = databaseEntityOrView
+            return databaseEntityOrView
                 .GetColumnSelections()
                 .Concat(databaseEntityOrView
                     .GetWrappedSelections()
@@ -98,33 +98,6 @@ namespace Solti.Utils.SQL.Internals
                         return sel.UnderlyingType.ExtractColumnSelections();
                     }))
                 .ToArray();
-
-            //
-            // class A {int Foo;}
-            // class B {int Foo;}
-            // class C
-            // {
-            //    A A;
-            //    B B;
-            // }
-            //
-
-            string[] collisions =
-            (
-                from   sel in result
-                group  sel by sel.ViewProperty.Name into grp
-                where  grp.Count() > 1
-                select grp.Key
-            ).ToArray();
-                
-            if (collisions.Any())
-            {
-                var ex = new InvalidOperationException(Resources.PROPERTY_NAME_COLLISION);
-                ex.Data[nameof(collisions)] = collisions;
-                throw ex;
-            }
-
-            return result;
         });
 
         public static Type? GetBaseDataTable(this Type databaseEntityOrView) => 

@@ -23,7 +23,7 @@ namespace Solti.Utils.SQL.OrmLite.Tests
     {
         private static readonly IDbConnectionFactory ConnectionFactory = new OrmLiteConnectionFactory(":memory:", SqliteDialect.Provider);
 
-        private IDbConnection mConnection;
+        private IDbConnection FConnection;
 
         [DatabaseEntity]
         private class OrmType
@@ -58,20 +58,20 @@ namespace Solti.Utils.SQL.OrmLite.Tests
         public void OneTimeSetup()
         {
             Config.Use<OrmLiteConfig>();
-            mConnection = ConnectionFactory.OpenDbConnection();
+            FConnection = ConnectionFactory.OpenDbConnection();
         }
 
         [SetUp]
         public void Setup()
         {
-            mConnection.CreateTableIfNotExists<OrmTypeWithReference>();
-            mConnection.CreateTableIfNotExists<OrmType>();
+            FConnection.CreateTableIfNotExists<OrmTypeWithReference>();
+            FConnection.CreateTableIfNotExists<OrmType>();
         }
 
         [TearDown]
         public void TearDown()
         {
-            mConnection.DropTables(typeof(OrmType), typeof(OrmTypeWithReference));
+            FConnection.DropTables(typeof(OrmType), typeof(OrmTypeWithReference));
         }
 
         [Test]
@@ -79,11 +79,11 @@ namespace Solti.Utils.SQL.OrmLite.Tests
         {
             Guid id = Guid.NewGuid();
 
-            mConnection.Insert(new OrmType {Id = id});
+            FConnection.Insert(new OrmType {Id = id});
 
-            SqlExpression<OrmType> expression = mConnection.From<OrmType>();
+            SqlExpression<OrmType> expression = FConnection.From<OrmType>();
 
-            ISqlQuery query = new OrmLiteSqlQuery(mConnection, expression.GetUntyped());
+            ISqlQuery query = new OrmLiteSqlQuery(FConnection, expression.GetUntyped());
             query.Select(typeof(OrmType).GetProperty(nameof(OrmType.Id)), typeof(MyView).GetProperty(nameof(MyView.Azonosito)));
 
             List<MyView> result = query.Run<MyView>();
@@ -96,7 +96,7 @@ namespace Solti.Utils.SQL.OrmLite.Tests
         {
             Guid id = Guid.NewGuid();
 
-            using (IBulkedDbConnection bulk = mConnection.CreateBulkedDbConnection())
+            using (IBulkedDbConnection bulk = FConnection.CreateBulkedDbConnection())
             {
                 bulk.Insert(new OrmType { Id = id });
                 bulk.Insert(new OrmTypeWithReference { Id = Guid.NewGuid(), Reference = id });
@@ -104,9 +104,9 @@ namespace Solti.Utils.SQL.OrmLite.Tests
                 bulk.Flush();
             }
 
-            SqlExpression<OrmType> expression = mConnection.From<OrmType>();
+            SqlExpression<OrmType> expression = FConnection.From<OrmType>();
 
-            ISqlQuery query = new OrmLiteSqlQuery(mConnection, expression.GetUntyped());
+            ISqlQuery query = new OrmLiteSqlQuery(FConnection, expression.GetUntyped());
             query.Select(typeof(OrmType).GetProperty(nameof(OrmType.Id)), typeof(MyView).GetProperty(nameof(MyView.Azonosito)));
             query.InnerJoin(typeof(OrmType).GetProperty(nameof(OrmType.Id)), typeof(OrmTypeWithReference).GetProperty(nameof(OrmTypeWithReference.Reference)));
 
@@ -120,7 +120,7 @@ namespace Solti.Utils.SQL.OrmLite.Tests
         {
             Guid reference = Guid.NewGuid();
 
-            using (IBulkedDbConnection bulk = mConnection.CreateBulkedDbConnection())
+            using (IBulkedDbConnection bulk = FConnection.CreateBulkedDbConnection())
             {
                 bulk.Insert(new OrmType { Id = reference });
 
@@ -133,9 +133,9 @@ namespace Solti.Utils.SQL.OrmLite.Tests
                 bulk.Flush();
             }
 
-            SqlExpression<OrmTypeWithReference> expression = mConnection.From<OrmTypeWithReference>();
+            SqlExpression<OrmTypeWithReference> expression = FConnection.From<OrmTypeWithReference>();
 
-            ISqlQuery query = new OrmLiteSqlQuery(mConnection, expression.GetUntyped());
+            ISqlQuery query = new OrmLiteSqlQuery(FConnection, expression.GetUntyped());
             query.GroupBy(typeof(OrmTypeWithReference).GetProperty(nameof(OrmTypeWithReference.Reference)));
             query.SelectCount(typeof(OrmTypeWithReference).GetProperty(nameof(OrmTypeWithReference.Id)), typeof(CountView).GetProperty(nameof(CountView.Count)));
 
@@ -147,17 +147,17 @@ namespace Solti.Utils.SQL.OrmLite.Tests
         [Test]
         public void OrderByTest()
         {
-            using (IBulkedDbConnection bulk = mConnection.CreateBulkedDbConnection())
+            using (IBulkedDbConnection bulk = FConnection.CreateBulkedDbConnection())
             {
                 bulk.Insert(new OrmType { Id = Guid.NewGuid(), Order = 1 }, new OrmType { Id = Guid.NewGuid(), Order = 2 });
 
                 bulk.Flush();
             }
 
-            SqlExpression<OrmType> expression = mConnection.From<OrmType>();
+            SqlExpression<OrmType> expression = FConnection.From<OrmType>();
             expression.PrefixFieldWithTableName = true;
 
-            ISqlQuery query = new OrmLiteSqlQuery(mConnection, expression.GetUntyped());
+            ISqlQuery query = new OrmLiteSqlQuery(FConnection, expression.GetUntyped());
             query.Select(typeof(OrmType).GetProperty(nameof(OrmType.Order)), typeof(OrmType).GetProperty(nameof(OrmType.Order)));
             query.OrderBy(typeof(OrmType).GetProperty(nameof(OrmType.Order)));
 

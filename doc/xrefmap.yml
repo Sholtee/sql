@@ -518,12 +518,15 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.AggregateSelectionAttribute
   nameWithType: AggregateSelectionAttribute.AggregateSelectionAttribute
-- uid: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.GetBuilder
-  name: GetBuilder()
-  href: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.html#Solti_Utils_SQL_Interfaces_AggregateSelectionAttribute_GetBuilder
-  commentId: M:Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.GetBuilder
-  fullName: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.GetBuilder()
-  nameWithType: AggregateSelectionAttribute.GetBuilder()
+- uid: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.GetBuilder(System.Collections.Generic.KeyValuePair{System.Reflection.PropertyInfo,System.Object}[])
+  name: GetBuilder(KeyValuePair<PropertyInfo, Object>[])
+  href: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.html#Solti_Utils_SQL_Interfaces_AggregateSelectionAttribute_GetBuilder_System_Collections_Generic_KeyValuePair_System_Reflection_PropertyInfo_System_Object____
+  commentId: M:Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.GetBuilder(System.Collections.Generic.KeyValuePair{System.Reflection.PropertyInfo,System.Object}[])
+  name.vb: GetBuilder(KeyValuePair(Of PropertyInfo, Object)())
+  fullName: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.GetBuilder(System.Collections.Generic.KeyValuePair<System.Reflection.PropertyInfo, System.Object>[])
+  fullName.vb: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.GetBuilder(System.Collections.Generic.KeyValuePair(Of System.Reflection.PropertyInfo, System.Object)())
+  nameWithType: AggregateSelectionAttribute.GetBuilder(KeyValuePair<PropertyInfo, Object>[])
+  nameWithType.vb: AggregateSelectionAttribute.GetBuilder(KeyValuePair(Of PropertyInfo, Object)())
 - uid: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.GetBuilder*
   name: GetBuilder
   href: Solti.Utils.SQL.Interfaces.AggregateSelectionAttribute.html#Solti_Utils_SQL_Interfaces_AggregateSelectionAttribute_GetBuilder_
@@ -569,12 +572,15 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.BelongsToAttribute.BelongsToAttribute
   nameWithType: BelongsToAttribute.BelongsToAttribute
-- uid: Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetBuilder
-  name: GetBuilder()
-  href: Solti.Utils.SQL.Interfaces.BelongsToAttribute.html#Solti_Utils_SQL_Interfaces_BelongsToAttribute_GetBuilder
-  commentId: M:Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetBuilder
-  fullName: Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetBuilder()
-  nameWithType: BelongsToAttribute.GetBuilder()
+- uid: Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetBuilder(System.Collections.Generic.KeyValuePair{System.Reflection.PropertyInfo,System.Object}[])
+  name: GetBuilder(KeyValuePair<PropertyInfo, Object>[])
+  href: Solti.Utils.SQL.Interfaces.BelongsToAttribute.html#Solti_Utils_SQL_Interfaces_BelongsToAttribute_GetBuilder_System_Collections_Generic_KeyValuePair_System_Reflection_PropertyInfo_System_Object____
+  commentId: M:Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetBuilder(System.Collections.Generic.KeyValuePair{System.Reflection.PropertyInfo,System.Object}[])
+  name.vb: GetBuilder(KeyValuePair(Of PropertyInfo, Object)())
+  fullName: Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetBuilder(System.Collections.Generic.KeyValuePair<System.Reflection.PropertyInfo, System.Object>[])
+  fullName.vb: Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetBuilder(System.Collections.Generic.KeyValuePair(Of System.Reflection.PropertyInfo, System.Object)())
+  nameWithType: BelongsToAttribute.GetBuilder(KeyValuePair<PropertyInfo, Object>[])
+  nameWithType.vb: BelongsToAttribute.GetBuilder(KeyValuePair(Of PropertyInfo, Object)())
 - uid: Solti.Utils.SQL.Interfaces.BelongsToAttribute.GetBuilder*
   name: GetBuilder
   href: Solti.Utils.SQL.Interfaces.BelongsToAttribute.html#Solti_Utils_SQL_Interfaces_BelongsToAttribute_GetBuilder_
@@ -653,12 +659,15 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Column
   nameWithType: ColumnSelectionAttribute.Column
-- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetBuilder
-  name: GetBuilder()
-  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_GetBuilder
-  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetBuilder
-  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetBuilder()
-  nameWithType: ColumnSelectionAttribute.GetBuilder()
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetBuilder(System.Collections.Generic.KeyValuePair{System.Reflection.PropertyInfo,System.Object}[])
+  name: GetBuilder(KeyValuePair<PropertyInfo, Object>[])
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_GetBuilder_System_Collections_Generic_KeyValuePair_System_Reflection_PropertyInfo_System_Object____
+  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetBuilder(System.Collections.Generic.KeyValuePair{System.Reflection.PropertyInfo,System.Object}[])
+  name.vb: GetBuilder(KeyValuePair(Of PropertyInfo, Object)())
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetBuilder(System.Collections.Generic.KeyValuePair<System.Reflection.PropertyInfo, System.Object>[])
+  fullName.vb: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetBuilder(System.Collections.Generic.KeyValuePair(Of System.Reflection.PropertyInfo, System.Object)())
+  nameWithType: ColumnSelectionAttribute.GetBuilder(KeyValuePair<PropertyInfo, Object>[])
+  nameWithType.vb: ColumnSelectionAttribute.GetBuilder(KeyValuePair(Of PropertyInfo, Object)())
 - uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.GetBuilder*
   name: GetBuilder
   href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_GetBuilder_
@@ -802,12 +811,15 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.IBuildableAttribute
   fullName: Solti.Utils.SQL.Interfaces.IBuildableAttribute
   nameWithType: IBuildableAttribute
-- uid: Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder
-  name: GetBuilder()
-  href: Solti.Utils.SQL.Interfaces.IBuildableAttribute.html#Solti_Utils_SQL_Interfaces_IBuildableAttribute_GetBuilder
-  commentId: M:Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder
-  fullName: Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder()
-  nameWithType: IBuildableAttribute.GetBuilder()
+- uid: Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder(System.Collections.Generic.KeyValuePair{System.Reflection.PropertyInfo,System.Object}[])
+  name: GetBuilder(KeyValuePair<PropertyInfo, Object>[])
+  href: Solti.Utils.SQL.Interfaces.IBuildableAttribute.html#Solti_Utils_SQL_Interfaces_IBuildableAttribute_GetBuilder_System_Collections_Generic_KeyValuePair_System_Reflection_PropertyInfo_System_Object____
+  commentId: M:Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder(System.Collections.Generic.KeyValuePair{System.Reflection.PropertyInfo,System.Object}[])
+  name.vb: GetBuilder(KeyValuePair(Of PropertyInfo, Object)())
+  fullName: Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder(System.Collections.Generic.KeyValuePair<System.Reflection.PropertyInfo, System.Object>[])
+  fullName.vb: Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder(System.Collections.Generic.KeyValuePair(Of System.Reflection.PropertyInfo, System.Object)())
+  nameWithType: IBuildableAttribute.GetBuilder(KeyValuePair<PropertyInfo, Object>[])
+  nameWithType.vb: IBuildableAttribute.GetBuilder(KeyValuePair(Of PropertyInfo, Object)())
 - uid: Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder*
   name: GetBuilder
   href: Solti.Utils.SQL.Interfaces.IBuildableAttribute.html#Solti_Utils_SQL_Interfaces_IBuildableAttribute_GetBuilder_
@@ -1128,6 +1140,19 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.ViewAttribute
   fullName: Solti.Utils.SQL.Interfaces.ViewAttribute
   nameWithType: ViewAttribute
+- uid: Solti.Utils.SQL.Interfaces.ViewAttribute.#ctor(System.Type)
+  name: ViewAttribute(Type)
+  href: Solti.Utils.SQL.Interfaces.ViewAttribute.html#Solti_Utils_SQL_Interfaces_ViewAttribute__ctor_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.ViewAttribute.#ctor(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.ViewAttribute.ViewAttribute(System.Type)
+  nameWithType: ViewAttribute.ViewAttribute(Type)
+- uid: Solti.Utils.SQL.Interfaces.ViewAttribute.#ctor*
+  name: ViewAttribute
+  href: Solti.Utils.SQL.Interfaces.ViewAttribute.html#Solti_Utils_SQL_Interfaces_ViewAttribute__ctor_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ViewAttribute.#ctor
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ViewAttribute.ViewAttribute
+  nameWithType: ViewAttribute.ViewAttribute
 - uid: Solti.Utils.SQL.Interfaces.ViewAttribute.Base
   name: Base
   href: Solti.Utils.SQL.Interfaces.ViewAttribute.html#Solti_Utils_SQL_Interfaces_ViewAttribute_Base
@@ -1185,6 +1210,38 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Internals.MapFromAttribute.Property
   nameWithType: MapFromAttribute.Property
+- uid: Solti.Utils.SQL.Internals.MapToAttribute
+  name: MapToAttribute
+  href: Solti.Utils.SQL.Internals.MapToAttribute.html
+  commentId: T:Solti.Utils.SQL.Internals.MapToAttribute
+  fullName: Solti.Utils.SQL.Internals.MapToAttribute
+  nameWithType: MapToAttribute
+- uid: Solti.Utils.SQL.Internals.MapToAttribute.#ctor(System.String)
+  name: MapToAttribute(String)
+  href: Solti.Utils.SQL.Internals.MapToAttribute.html#Solti_Utils_SQL_Internals_MapToAttribute__ctor_System_String_
+  commentId: M:Solti.Utils.SQL.Internals.MapToAttribute.#ctor(System.String)
+  fullName: Solti.Utils.SQL.Internals.MapToAttribute.MapToAttribute(System.String)
+  nameWithType: MapToAttribute.MapToAttribute(String)
+- uid: Solti.Utils.SQL.Internals.MapToAttribute.#ctor*
+  name: MapToAttribute
+  href: Solti.Utils.SQL.Internals.MapToAttribute.html#Solti_Utils_SQL_Internals_MapToAttribute__ctor_
+  commentId: Overload:Solti.Utils.SQL.Internals.MapToAttribute.#ctor
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.MapToAttribute.MapToAttribute
+  nameWithType: MapToAttribute.MapToAttribute
+- uid: Solti.Utils.SQL.Internals.MapToAttribute.Property
+  name: Property
+  href: Solti.Utils.SQL.Internals.MapToAttribute.html#Solti_Utils_SQL_Internals_MapToAttribute_Property
+  commentId: P:Solti.Utils.SQL.Internals.MapToAttribute.Property
+  fullName: Solti.Utils.SQL.Internals.MapToAttribute.Property
+  nameWithType: MapToAttribute.Property
+- uid: Solti.Utils.SQL.Internals.MapToAttribute.Property*
+  name: Property
+  href: Solti.Utils.SQL.Internals.MapToAttribute.html#Solti_Utils_SQL_Internals_MapToAttribute_Property_
+  commentId: Overload:Solti.Utils.SQL.Internals.MapToAttribute.Property
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.MapToAttribute.Property
+  nameWithType: MapToAttribute.Property
 - uid: Solti.Utils.SQL.ISqlQueryExtensions
   name: ISqlQueryExtensions
   href: Solti.Utils.SQL.ISqlQueryExtensions.html

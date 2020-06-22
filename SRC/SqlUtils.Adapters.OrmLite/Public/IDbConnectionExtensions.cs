@@ -6,12 +6,13 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 using ServiceStack.OrmLite;
 
 namespace Solti.Utils.SQL
 {
-    using Internals;
+    using Internals; 
 
     /// <summary>
     /// Defines some handy extensions to the <see cref="IDbConnection"/> interface.
@@ -46,5 +47,17 @@ namespace Solti.Utils.SQL
             connection ?? throw new ArgumentNullException(nameof(connection)),
             sql ?? throw new ArgumentNullException(nameof(sql))
         ).Run<TView>();
+
+        /// <summary>
+        /// Creates the data tables (if they don't exist).
+        /// </summary>
+        public static void CreateSchema(this IDbConnection connection)
+        {
+            using (IBulkedDbConnection conn = connection.CreateBulkedDbConnection())
+            {
+                connection.CreateTableIfNotExists(Config.KnownTables.ToArray());
+                conn.Flush();
+            }
+        }
     }
 }

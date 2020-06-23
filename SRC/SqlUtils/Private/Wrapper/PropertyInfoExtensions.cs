@@ -27,5 +27,9 @@ namespace Solti.Utils.SQL.Internals
             .Invoke(instance, value);
 
         public static string FullName(this PropertyInfo src) => $"{src.ReflectedType.FullName}.{src.Name}";
+
+        public static bool IsRedirectedTo(this PropertyInfo src, PropertyInfo dst) => src.GetCustomAttribute<MapToAttribute>()?.Property == dst.FullName();
+
+        public static bool CanBeMappedIn(this PropertyInfo src, PropertyInfo dst) => (src.IsRedirectedTo(dst) || src.Name == dst.Name) && dst.PropertyType.IsAssignableFrom(src.PropertyType);
     }
 }

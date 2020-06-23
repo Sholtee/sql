@@ -16,7 +16,7 @@ namespace Solti.Utils.SQL.Internals
 
     internal class ViewFactory: ClassFactory
     {
-        public static Type CreateView(MemberDefinition viewDefinition, IEnumerable<MemberDefinition> columns)
+        public static Type CreateView(MemberDefinition viewDefinition, IEnumerable<MemberDefinition> columns) => Cache.GetOrAdd(viewDefinition.Name, () =>
         {
             TypeBuilder tb = CreateBuilder(viewDefinition.Name);
 
@@ -49,14 +49,7 @@ namespace Solti.Utils.SQL.Internals
             }
 
             return tb.CreateTypeInfo()!.AsType();
-        }
-
-        public static Type CreateView(MemberDefinition viewDefinition, IEnumerable<ColumnSelection> columns) => CreateView(viewDefinition, columns.Select(col => new MemberDefinition
-        (
-            col.ViewProperty.Name,
-            col.ViewProperty.PropertyType,
-            col.Reason.GetBuilder()
-        )));
+        });
 
         public static Type CreateViewForValueType(PropertyInfo dataTableColumn) => Cache.GetOrAdd(dataTableColumn, () =>
         {

@@ -238,10 +238,10 @@ namespace Solti.Utils.SQL.Tests
             Assert.DoesNotThrow(() => unwrapped = Unwrapped<CollidingWrappedView>.Type);
 
             Assert.That(unwrapped.GetProperty("Id_0"), Is.Not.Null);
-            Assert.That(unwrapped.GetProperty("Id_0").GetCustomAttribute<MapToAttribute>()?.Property, Is.EqualTo("Id"));
+            Assert.That(unwrapped.GetProperty("Id_0").GetCustomAttribute<MapToAttribute>()?.Property, Is.EqualTo("Solti.Utils.SQL.Tests.CollidingWrappedView.Id"));
 
             Assert.That(unwrapped.GetProperty("Id_1"), Is.Not.Null);
-            Assert.That(unwrapped.GetProperty("Id_1").GetCustomAttribute<MapToAttribute>()?.Property, Is.EqualTo("Id"));
+            Assert.That(unwrapped.GetProperty("Id_1").GetCustomAttribute<MapToAttribute>()?.Property, Is.EqualTo("Solti.Utils.SQL.Tests.View3.Id"));
         }
 
         [Test]

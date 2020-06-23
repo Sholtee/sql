@@ -4,73 +4,99 @@
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
 
 namespace Solti.Utils.SQL.Internals
 {
+    using Interfaces;
     using Primitives;
+
+    //
+    // .GropBy(nagyAdat => nagyAdat.MapTo<Kulcs>())
+    // .Select(x => x.Key.MapTo<View>())
+    //
 
     internal sealed class MappingContext
     {
         public Func<object?, object?> MapToKey { get; }
         public Func<object?, object?> MapToView { get; }
 
-        #region Private stuffs
-        private MappingContext(Func<object?, object?> mapToKey, Func<object?, object?> mapToView)
-        {
-            MapToKey = mapToKey;
-            MapToView = mapToView;
-        }
+        public static MappingContext Create(Type unwrappedType, Type viewType) => Cache.GetOrAdd((unwrappedType, viewType), () => new MappingContext(unwrappedType, viewType));
 
-        private static Type DefineKey(Type viewType) => Cache.GetOrAdd
-        (
-            viewType, 
-            () => viewType.IsWrapped() 
-                ? ViewFactory.CreateView
-                (
-                    new MemberDefinition
-                    (
-                        $"{viewType.FullName}_Key", 
-                        viewType.GetQueryBase()
-                    ),
-                    viewType.GetColumnSelections()
-                )
-                : viewType
-        );
-        #endregion
-
-        #region Static stuffs
-        public static MappingContext Create(Type unwrappedType, Type viewType) => Cache.GetOrAdd((unwrappedType, viewType), () =>
+        #region Private stuffs  
+        private MappingContext(Type unwrappedType, Type viewType)
         {
             //
             // Az eredeti nezet nem lista property-eibol letrehozunk egy kulcs tipust.
             // Ez lesz a kulcs tipusa a .GroupBy(x => new Kulcs())-ban.
             //
 
-            Type keyType = DefineKey(viewType);
+            Type keyType = DefineKey();
 
             //
-            // .GropBy(nagyAdat => nagyAdat.MapTo<Kulcs>())
-            // .Select(x => x.Key.MapTo<View>())
+            // A mappolas ami kicsomagolt nezet egy peldanyat a konkret kulcsra szukiti:
+            //
+            //    nagyAdat => nagyAdat.MapTo<Kulcs>()
             //
 
-            return new MappingContext
-            (
+            MapToKey = Mapper.Create(unwrappedType, keyType);
+
+            //
+            // A mappolas ami a kulcs egy peldanyat visszamappolja a nezet entitasba ami alapjan a kulcs
+            // keszult (magyaran feltolti az eredeti nezet NEM lista tulajdonsagait).
+            //
+
+            MapToView = Mapper.Create(keyType, viewType.GetEffectiveType());
+
+            Type DefineKey()
+            {
+                return ViewFactory.CreateView
+                (
+                    new MemberDefinition
+                    (
+                        $"{viewType.FullName}_Key",
+                        viewType.GetQueryBase(),
+                        CopyAttributes(viewType)
+                    ),
+                    GetKeyMembers()
+                );
+            }
+
+            IEnumerable<MemberDefinition> GetKeyMembers()
+            {
+                IReadOnlyList<ColumnSelection> effectiveColumns = unwrappedType.GetColumnSelections();
+
                 //
-                // A mappolas ami kicsomagolt nezet egy peldanyat a konkret kulcsra szukiti:
-                //
-                //    nagyAdat => nagyAdat.MapTo<Kulcs>()
+                // Vesszuk az eredeti nezet NEM lista tulajdonsagait
                 //
 
-                mapToKey:  Mapper.Create(unwrappedType, keyType),
+                foreach (ColumnSelection column in viewType.GetColumnSelections())
+                {
+                    //
+                    // Ha kicsomagolas soran a tulajdonsag at lett nevezve, akkor azt hasznaljuk.
+                    //
 
-                //
-                // A mappolas ami a kulcs egy peldanyat visszamappolja a nezet entitasba ami alapjan a kulcs
-                // keszult (magyaran feltolti az eredeti nezet NEM lista tulajdonsagait).
-                //
+                    ColumnSelection effectiveColumn = effectiveColumns.SingleOrDefault(ec => ec.ViewProperty.IsRedirectedTo(column.ViewProperty)) 
+                        ?? effectiveColumns.Single(ec => ec.ViewProperty.CanBeMappedIn(column.ViewProperty));
 
-                mapToView: Mapper.Create(keyType, viewType.GetEffectiveType())
-            );
-        });
-        #endregion
+                    yield return new MemberDefinition
+                    (
+                        effectiveColumn.ViewProperty.Name,
+                        effectiveColumn.ViewProperty.PropertyType,
+                        CopyAttributes(effectiveColumn.ViewProperty)                  
+                    );
+                }
+            }
+
+            CustomAttributeBuilder[] CopyAttributes(MemberInfo member) => member
+                .GetCustomAttributes()
+                .OfType<IBuildableAttribute>()
+                .Select(attr => CustomAttributeBuilderFactory.CreateFrom(attr))
+                .ToArray();
+        }
+        #endregion      
     }
 }

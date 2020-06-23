@@ -5,7 +5,6 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -24,19 +23,19 @@ namespace Solti.Utils.SQL.Internals
             BlockExpression block;
 
             if (srcType.IsValueTypeOrString())
-                block = MapValueType(null);
+                block = CreateForValueType(null);
             else
             {
                 PropertyInfo? propertyToMap = srcType.MapFrom();
 
                 block = propertyToMap == null 
-                    ? MapClass() 
-                    : MapValueType(propertyToMap);
+                    ? CreateForClass() 
+                    : CreateForValueType(propertyToMap);
             }
 
             return Expression.Lambda<Func<object?, object?>>(block, p).Compile();
 
-            BlockExpression MapValueType(PropertyInfo? property) 
+            BlockExpression CreateForValueType(PropertyInfo? property) 
             {
                 //
                 // TODO: int32 -> int64 pl mukodnie kene
@@ -78,7 +77,7 @@ namespace Solti.Utils.SQL.Internals
                 )!;
             }
 
-            BlockExpression MapClass() 
+            BlockExpression CreateForClass() 
             {
                 if (!srcType.IsClass || !dstType.IsClass)
                     throw MappingNotSupported();
@@ -127,7 +126,7 @@ namespace Solti.Utils.SQL.Internals
                         //
 
                         from srcProp in srcProps
-                        let dstProp = TryAcquireDstProp(srcProp)
+                        let dstProp = dstProps.SingleOrDefault(dstProp => srcProp.CanBeMappedIn(dstProp))
                         where dstProp != null
                         select Expression.Assign(Expression.Property(dst, dstProp), Expression.Property(src, srcProp))
                     )
@@ -144,28 +143,6 @@ namespace Solti.Utils.SQL.Internals
                         }
                     )
                 )!;
-
-                PropertyInfo? TryAcquireDstProp(PropertyInfo srcProp) 
-                {
-                    //
-                    // Teljes nevre tesztelunk?
-                    //
-
-                    string? mapToProperty = srcProp.GetCustomAttribute<MapToAttribute>()?.Property;
-                    if (mapToProperty != null) return dstProps.SingleOrDefault
-                    (
-                        dstProp => dstProp.FullName() == mapToProperty
-                    )!;
-
-                    //
-                    // Ha nem jott be akkor egyszeru nevre es tipusra.
-                    //
-
-                    return dstProps.SingleOrDefault
-                    (
-                        dstProp => dstProp.Name == srcProp.Name && dstProp.PropertyType == srcProp.PropertyType
-                    )!;
-                }
             }
 
             NotSupportedException MappingNotSupported()

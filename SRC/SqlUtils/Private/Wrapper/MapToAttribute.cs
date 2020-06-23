@@ -4,16 +4,19 @@
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
 using System;
-using System.Diagnostics.CodeAnalysis;
+using System.Collections.Generic;
 using System.Reflection;
+using System.Reflection.Emit;
 
 namespace Solti.Utils.SQL.Internals
 {
+    using Interfaces;
+
     /// <summary>
     /// This is an internal class, don't use it.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public sealed class MapToAttribute: Attribute // publikusnak kell lennie h a GetCustomAttribute() megtalalja dinamikus tipusokon
+    public sealed class MapToAttribute: Attribute, IBuildableAttribute // publikusnak kell lennie h a GetCustomAttribute() megtalalja dinamikus tipusokon
     {
 #if false
         //
@@ -43,5 +46,6 @@ namespace Solti.Utils.SQL.Internals
         /// </summary>
         public MapToAttribute(string propertyFullName) => Property = propertyFullName;
 #endif
+        CustomAttributeBuilder IBuildableAttribute.GetBuilder(params KeyValuePair<PropertyInfo, object>[] customParameters) => CustomAttributeBuilderFactory.CreateFrom<MapToAttribute>(new[] { typeof(string) }, new object[] { Property });
     }
 }

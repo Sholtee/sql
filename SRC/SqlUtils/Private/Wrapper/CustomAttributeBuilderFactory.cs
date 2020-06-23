@@ -4,6 +4,8 @@
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
 using System;
+using System.Collections.Generic;
+using System.Reflection;
 using System.Reflection.Emit;
 
 namespace Solti.Utils.SQL.Internals
@@ -18,6 +20,6 @@ namespace Solti.Utils.SQL.Internals
             args
         );
 
-        public static CustomAttributeBuilder CreateFrom(IBuildableAttribute attribute) => attribute.GetBuilder();
+        public static CustomAttributeBuilder CreateFrom(IBuildableAttribute attribute, params KeyValuePair<PropertyInfo, object>[] customParameters) => attribute.GetBuilder(customParameters);
     }
 }

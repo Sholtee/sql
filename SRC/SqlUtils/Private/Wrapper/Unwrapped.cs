@@ -65,7 +65,7 @@ namespace Solti.Utils.SQL.Internals
                     (
                         grp.Key,
                         sel.ViewProperty.PropertyType,
-                        sel.Reason.GetBuilder()
+                        CustomAttributeBuilderFactory.CreateFrom(sel.Reason)
                     );
 
                     continue;
@@ -76,7 +76,7 @@ namespace Solti.Utils.SQL.Internals
                 foreach (ColumnSelection sel in grp)
                 {
                     //
-                    // [BelongsTo(typeof(TTable), column: "Column", ...), MapTo(typeof(TView), "Column")]
+                    // [BelongsTo(typeof(TTable), column: "Column", ...), MapTo("TView.Column")]
                     // public TValue Column_i {get; set;}
                     //
 
@@ -84,18 +84,17 @@ namespace Solti.Utils.SQL.Internals
                     (
                         $"{grp.Key}_{i++}",
                         sel.ViewProperty.PropertyType,
-                        sel.Reason.GetBuilder
+                        CustomAttributeBuilderFactory.CreateFrom
                         (
+                            sel.Reason,
+
                             //
                             // A "Column" tulajdonsagot meg ha az eredeti nezet nem is tartalmazta most be kell allitsuk
                             //
 
                             new KeyValuePair<PropertyInfo, object>
                             (
-                                sel
-                                    .Reason
-                                    .GetType()
-                                    .GetProperty(nameof(ColumnSelectionAttribute.Column)) ?? throw new MissingMemberException(sel.Reason.GetType().Name, nameof(ColumnSelectionAttribute.Column)),
+                                typeof(ColumnSelectionAttribute).GetProperty(nameof(ColumnSelectionAttribute.Column)) ?? throw new MissingMemberException(sel.Reason.GetType().Name, nameof(ColumnSelectionAttribute.Column)),
                                 grp.Key
                             )
                         ),

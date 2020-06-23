@@ -5,6 +5,7 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 
@@ -46,6 +47,8 @@ namespace Solti.Utils.SQL.Internals
                                 ),
                                 GetMembers()
                             );
+
+                            Debug.WriteLine($"Unwrapping view: {typeof(TView)}. The result is:{Environment.NewLine}{string.Join<PropertyInfo>(Environment.NewLine, FType.GetProperties())}");
                         }
                     }
                 }
@@ -90,6 +93,7 @@ namespace Solti.Utils.SQL.Internals
 
                             //
                             // A "Column" tulajdonsagot meg ha az eredeti nezet nem is tartalmazta most be kell allitsuk
+                            // (mivel a tulajdonsag uj nevet kapott)
                             //
 
                             new KeyValuePair<PropertyInfo, object>

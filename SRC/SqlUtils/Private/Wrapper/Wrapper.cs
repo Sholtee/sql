@@ -98,7 +98,7 @@ namespace Solti.Utils.SQL.Internals
                 sourceListType = sourceObjects.GetType(),
                 unwrappedType  = Unwrapped<TView>.Type;
 
-            if (!sourceListType.IsGenericType || sourceListType.GetGenericTypeDefinition() != typeof(List<>))
+            if (!sourceListType.IsList())
             {
                 throw new ArgumentException(Resources.NOT_A_LIST, nameof(sourceObjects)); ;
             }

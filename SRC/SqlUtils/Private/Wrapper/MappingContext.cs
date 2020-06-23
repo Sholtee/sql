@@ -5,6 +5,7 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -22,6 +23,7 @@ namespace Solti.Utils.SQL.Internals
     internal sealed class MappingContext
     {
         public Func<object?, object?> MapToKey { get; }
+
         public Func<object?, object?> MapToView { get; }
 
         public static MappingContext Create(Type unwrappedType, Type viewType) => Cache.GetOrAdd((unwrappedType, viewType), () => new MappingContext(unwrappedType, viewType));
@@ -29,6 +31,8 @@ namespace Solti.Utils.SQL.Internals
         #region Private stuffs  
         private MappingContext(Type unwrappedType, Type viewType)
         {
+            Debug.WriteLine($"Creating mapping context for {(unwrappedType, viewType)}");
+
             //
             // Az eredeti nezet nem lista property-eibol letrehozunk egy kulcs tipust.
             // Ez lesz a kulcs tipusa a .GroupBy(x => new Kulcs())-ban.
@@ -51,19 +55,16 @@ namespace Solti.Utils.SQL.Internals
 
             MapToView = Mapper.Create(keyType, viewType.GetEffectiveType());
 
-            Type DefineKey()
-            {
-                return ViewFactory.CreateView
+            Type DefineKey() => ViewFactory.CreateView
+            (
+                new MemberDefinition
                 (
-                    new MemberDefinition
-                    (
-                        $"{viewType.FullName}_Key",
-                        viewType.GetQueryBase(),
-                        CopyAttributes(viewType)
-                    ),
-                    GetKeyMembers()
-                );
-            }
+                    $"{unwrappedType.FullName}_{viewType.FullName}_Key",
+                    viewType.GetQueryBase(),
+                    CopyAttributes(viewType)
+                ),
+                GetKeyMembers()
+            );
 
             IEnumerable<MemberDefinition> GetKeyMembers()
             {

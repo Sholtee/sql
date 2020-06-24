@@ -5,8 +5,10 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace Solti.Utils.SQL.Internals
 {
@@ -35,17 +37,34 @@ namespace Solti.Utils.SQL.Internals
             {
                 //
                 // A legrovidebb ut megkeresese a kiindulo tablabol az adott (property-k feltoltesehez szukseges)
-                // tablaig. Ha az utvonal egy reszet mar korabban bejartuk (JOIN-olva lett) akkor azt
-                // mar kihagyhatjuk.
+                // tablaig.
                 //
 
-                foreach (Edge edge in EdgeOperations
-                    .ShortestPath(@base, table.Type, CustomEdges)
-                    .Where
-                    (
-                        edge => joinedTables.Add(edge.SourceTable) || joinedTables.Add(edge.DestinationTable)
-                    ))
+                foreach (Edge edge in EdgeOperations.ShortestPath(@base, table.Type, CustomEdges))
                 {
+                    PropertyInfo joinTableCol, toTableCol;
+
+                    if (joinedTables.Add(edge.SourceTable))
+                    {
+                        joinTableCol = edge.SourceProperty;          
+                        toTableCol = edge.DestinationProperty;
+
+                        Debug.Assert(!joinedTables.Add(edge.DestinationTable));
+                    }
+                    else if (joinedTables.Add(edge.DestinationTable))
+                    {
+                        joinTableCol = edge.DestinationProperty;
+                        toTableCol = edge.SourceProperty;
+
+                        Debug.Assert(!joinedTables.Add(edge.SourceTable));
+                    }
+
+                    //
+                    // Ha az utvonal minden elemet korabban JOIN-oltuk mar akkor nincs dolgunk.
+                    //
+
+                    else continue;
+
                     //
                     // Akcio letrehozasa ami a letrehozott metodust hivja tetszoleges builder-en
                     //
@@ -53,8 +72,8 @@ namespace Solti.Utils.SQL.Internals
                     yield return Expression.Call(
                         bldr,
                         table.Required ? QueryMethods.InnerJoin : QueryMethods.LeftJoin,
-                        Expression.Constant(edge.SourceProperty),
-                        Expression.Constant(edge.DestinationProperty));
+                        Expression.Constant(toTableCol),
+                        Expression.Constant(joinTableCol));
                 }
             }
         }

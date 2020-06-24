@@ -500,6 +500,24 @@ namespace Solti.Utils.SQL.Tests
         }
 
         [Test]
+        public void Wrapper_ShouldWorkWithViewsHavingNonListWrappedOptionalProperty()
+        {
+            Type unwrapped = Unwrapped<WrappedView3>.Type;
+
+            var objs = (IList)typeof(List<>).MakeInstance(unwrapped);
+            objs.Add(unwrapped.MakeInstance()
+                .Set("Azonosito", 1));
+
+            List<WrappedView3> result = Wrapper.Wrap<WrappedView3>(objs);
+
+            Assert.That(result.Count, Is.EqualTo(1));
+
+            Assert.That(result[0].Azonosito, Is.EqualTo(1));
+            Assert.That(result[0].View, Is.Null);
+        }
+
+
+        [Test]
         public void Wrapper_ShouldValidateTheSourceList() 
         {
             Type unwrapped = Unwrapped<WrappedView1>.Type;

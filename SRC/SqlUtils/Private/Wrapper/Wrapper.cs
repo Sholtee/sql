@@ -41,7 +41,7 @@ namespace Solti.Utils.SQL.Internals
             }
         }
 
-        private object Wrap(IEnumerable unwrappedObjects, bool wrapToList)
+        private object? Wrap(IEnumerable unwrappedObjects, bool wrapToList)
         {
             IList lst = (IList) typeof(List<>).MakeInstance(ViewType.GetEffectiveType());
 
@@ -82,10 +82,14 @@ namespace Solti.Utils.SQL.Internals
 
             if (!wrapToList) 
             {
-                if (lst.Count != 1)
+                if (lst.Count > 1)
                     throw new InvalidOperationException(Resources.AMBIGUOUS_RESULT);
 
-                return lst[0];
+                //
+                // Lehet NULL is egy csomagolt tulajdonsag.
+                //
+
+                return lst.Count == 0 ? null : lst[1];
             }
 
             return lst;
@@ -108,7 +112,7 @@ namespace Solti.Utils.SQL.Internals
                 throw new ArgumentException(Resources.INCOMPATIBLE_LIST, nameof(sourceObjects));
             }
 
-            return (List<TView>) new Wrapper(typeof(TView), unwrappedType).Wrap(sourceObjects, true);
+            return (List<TView>) new Wrapper(typeof(TView), unwrappedType).Wrap(sourceObjects, true)!;
         }
     }
 }

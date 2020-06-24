@@ -89,7 +89,7 @@ namespace Solti.Utils.SQL.Internals
                 // Lehet NULL is egy csomagolt tulajdonsag.
                 //
 
-                return lst.Count == 0 ? null : lst[1];
+                return lst.Count == 0 ? null : lst[0];
             }
 
             return lst;

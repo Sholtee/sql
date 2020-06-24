@@ -149,9 +149,9 @@ namespace Solti.Utils.SQL.Tests
 
             mockSqlBuilder
                 .InSequence(seq)
-                .Setup(x => x.InnerJoin(
-                    It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference))),
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
+                .Setup(x => x.InnerJoin(                  
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id))),
+                    It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference)))));
             mockSqlBuilder
                 .InSequence(seq)
                 .Setup(x => x.InnerJoin(
@@ -160,8 +160,8 @@ namespace Solti.Utils.SQL.Tests
             mockSqlBuilder
                 .InSequence(seq)
                 .Setup(x => x.LeftJoin(
-                    It.Is<PropertyInfo>(y => y == typeof(Node5).GetProperty(nameof(Node5.Reference))),
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id))),
+                    It.Is<PropertyInfo>(y => y == typeof(Node5).GetProperty(nameof(Node5.Reference)))));
 
             Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 
@@ -184,8 +184,8 @@ namespace Solti.Utils.SQL.Tests
             mockSqlBuilder
                 .InSequence(seq)
                 .Setup(x => x.InnerJoin(
-                    It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference))),
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id))),
+                    It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference)))));
             mockSqlBuilder
                 .InSequence(seq)
                 .Setup(x => x.InnerJoin(
@@ -194,8 +194,8 @@ namespace Solti.Utils.SQL.Tests
             mockSqlBuilder
                 .InSequence(seq)
                 .Setup(x => x.LeftJoin(
-                    It.Is<PropertyInfo>(y => y == typeof(Node5).GetProperty(nameof(Node5.Reference))),
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id))),
+                    It.Is<PropertyInfo>(y => y == typeof(Node5).GetProperty(nameof(Node5.Reference)))));
 
             mockSqlBuilder
                 .InSequence(seq)
@@ -247,8 +247,8 @@ namespace Solti.Utils.SQL.Tests
             mockSqlBuilder
                 .InSequence(seq)
                 .Setup(x => x.InnerJoin(
-                    It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference))),
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id))),
+                    It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference)))));
             mockSqlBuilder
                 .InSequence(seq)
                 .Setup(x => x.InnerJoin(
@@ -302,8 +302,8 @@ namespace Solti.Utils.SQL.Tests
 
             mockSqlBuilder
                 .Setup(x => x.InnerJoin(
-                    It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference))),
-                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id)))));
+                    It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id))),
+                    It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference)))));
 
             mockSqlBuilder
                 .Setup(x => x.GroupBy(

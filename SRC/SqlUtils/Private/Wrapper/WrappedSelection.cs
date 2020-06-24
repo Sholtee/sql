@@ -54,7 +54,8 @@ namespace Solti.Utils.SQL.Internals
 
                     type = ViewFactory.CreateViewForValueType
                     (
-                        bta!.OrmType.GetProperty(bta.Column) ?? throw new MissingMemberException(bta.OrmType.Name, bta.Column)
+                        bta!.OrmType.GetProperty(bta.Column) ?? throw new MissingMemberException(bta.OrmType.Name, bta.Column),
+                        bta.Required
                     );
                 }
 

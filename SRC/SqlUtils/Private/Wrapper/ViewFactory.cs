@@ -51,7 +51,7 @@ namespace Solti.Utils.SQL.Internals
             return tb.CreateTypeInfo()!.AsType();
         });
 
-        public static Type CreateViewForValueType(PropertyInfo dataTableColumn) => Cache.GetOrAdd(dataTableColumn, () =>
+        public static Type CreateViewForValueType(PropertyInfo dataTableColumn, bool required) => Cache.GetOrAdd(dataTableColumn, () =>
         {
             Type dataTable = dataTableColumn.ReflectedType;
             PropertyInfo pk = dataTable.GetPrimaryKey();
@@ -86,7 +86,7 @@ namespace Solti.Utils.SQL.Internals
                     (
                         pk.Name,
                         pk.PropertyType,
-                        CustomAttributeBuilderFactory.CreateFrom(new BelongsToAttribute(dataTable, required: false))
+                        CustomAttributeBuilderFactory.CreateFrom(new BelongsToAttribute(dataTable, required))
                     ),
 
                     //
@@ -98,7 +98,7 @@ namespace Solti.Utils.SQL.Internals
                     (
                         dataTableColumn.Name,
                         dataTableColumn.PropertyType,
-                        CustomAttributeBuilderFactory.CreateFrom(new BelongsToAttribute(dataTable, required: false))
+                        CustomAttributeBuilderFactory.CreateFrom(new BelongsToAttribute(dataTable, required))
                     )
                 }
             );

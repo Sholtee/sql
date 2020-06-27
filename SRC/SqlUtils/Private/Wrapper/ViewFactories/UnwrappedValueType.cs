@@ -64,6 +64,6 @@ namespace Solti.Utils.SQL.Internals
                     )
                 }
             );
-        });
+        }, nameof(UnwrappedValueType));
     }
 }

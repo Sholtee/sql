@@ -12,6 +12,7 @@ using System.Reflection.Emit;
 namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
+    using Primitives;
 
     //
     // .GropBy(nagyAdat => nagyAdat.MapTo<Kulcs>())
@@ -20,7 +21,7 @@ namespace Solti.Utils.SQL.Internals
 
     internal sealed class GroupKey: ViewFactoryBase
     {
-        public static Type CreateView(Type unwrappedType, Type viewType)
+        public static Type CreateView(Type unwrappedType, Type viewType) => Cache.GetOrAdd((unwrappedType, viewType), () =>
         {
             return CreateView
             (
@@ -47,14 +48,14 @@ namespace Solti.Utils.SQL.Internals
                     // Ha kicsomagolas soran a tulajdonsag at lett nevezve, akkor azt hasznaljuk.
                     //
 
-                    ColumnSelection effectiveColumn = effectiveColumns.SingleOrDefault(ec => ec.ViewProperty.IsRedirectedTo(column.ViewProperty)) 
+                    ColumnSelection effectiveColumn = effectiveColumns.SingleOrDefault(ec => ec.ViewProperty.IsRedirectedTo(column.ViewProperty))
                         ?? effectiveColumns.Single(ec => ec.ViewProperty.CanBeMappedIn(column.ViewProperty));
 
                     yield return new MemberDefinition
                     (
                         effectiveColumn.ViewProperty.Name,
                         effectiveColumn.ViewProperty.PropertyType,
-                        CopyAttributes(effectiveColumn.ViewProperty)                  
+                        CopyAttributes(effectiveColumn.ViewProperty)
                     );
                 }
             }
@@ -63,7 +64,7 @@ namespace Solti.Utils.SQL.Internals
                 .GetCustomAttributes()
                 .OfType<IBuildableAttribute>()
                 .Select(attr => CustomAttributeBuilderFactory.CreateFrom(attr))
-                .ToArray();
-        }    
+                .ToArray()!;
+        }, nameof(GroupKey));    
     }
 }

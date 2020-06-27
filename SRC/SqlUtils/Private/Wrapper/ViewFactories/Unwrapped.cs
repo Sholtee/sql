@@ -11,10 +11,11 @@ using System.Reflection;
 namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
+    using Primitives;
 
     internal class Unwrapped: ViewFactoryBase
     {
-        public static Type CreateView(Type type)
+        public static Type CreateView(Type type) => Cache.GetOrAdd(type, () =>
         {
             return CreateView
             (
@@ -77,6 +78,6 @@ namespace Solti.Utils.SQL.Internals
                     }
                 }
             }
-        }
+        }, nameof(Unwrapped));
     }
 }

@@ -10,11 +10,10 @@ using System.Reflection.Emit;
 namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
-    using Primitives;
 
     internal class ViewFactoryBase: ClassFactory
     {
-        protected static Type CreateView(MemberDefinition viewDefinition, IEnumerable<MemberDefinition> columns) => Cache.GetOrAdd(viewDefinition.Name, () =>
+        protected static Type CreateView(MemberDefinition viewDefinition, IEnumerable<MemberDefinition> columns)
         {
             TypeBuilder tb = CreateBuilder(viewDefinition.Name);
 
@@ -47,6 +46,6 @@ namespace Solti.Utils.SQL.Internals
             }
 
             return tb.CreateTypeInfo()!.AsType();
-        });
+        }
     }
 }

@@ -1,57 +1,19 @@
 ﻿/********************************************************************************
-*  ViewFactory.cs                                                               *
+*  UnwrappedValueType.cs                                                        *
 *                                                                               *
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Reflection.Emit;
 
 namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
     using Primitives;
 
-    internal class ViewFactory: ClassFactory
+    internal class UnwrappedValueType : ViewFactoryBase
     {
-        public static Type CreateView(MemberDefinition viewDefinition, IEnumerable<MemberDefinition> columns) => Cache.GetOrAdd(viewDefinition.Name, () =>
-        {
-            TypeBuilder tb = CreateBuilder(viewDefinition.Name);
-
-            //
-            // Hogy a GetQueryBase() mukodjon a generalt nezetre is, ezert az uj osztalyt megjeloljuk nezetnek.
-            //
-
-            tb.SetCustomAttribute
-            (
-                CustomAttributeBuilderFactory.CreateFrom<ViewAttribute>(new[] { typeof(Type) }, new object?[] { viewDefinition.Type })
-            );
-
-            foreach (CustomAttributeBuilder cab in viewDefinition.CustomAttributes)
-            {
-                tb.SetCustomAttribute(cab);
-            }
-
-            //
-            // Uj property-k definialasa.
-            //
-
-            foreach (MemberDefinition column in columns)
-            {
-                PropertyBuilder property = AddProperty(tb, column.Name, column.Type);
-
-                foreach (CustomAttributeBuilder cab in column.CustomAttributes)
-                {
-                    property.SetCustomAttribute(cab);
-                }
-            }
-
-            return tb.CreateTypeInfo()!.AsType();
-        });
-
-        public static Type CreateViewForValueType(PropertyInfo dataTableColumn, bool required) => Cache.GetOrAdd(dataTableColumn, () =>
+        public static Type CreateView(PropertyInfo dataTableColumn, bool required) => Cache.GetOrAdd(dataTableColumn, () =>
         {
             Type dataTable = dataTableColumn.ReflectedType;
             PropertyInfo pk = dataTable.GetPrimaryKey();

@@ -21,7 +21,7 @@ namespace Solti.Utils.SQL.Internals
             (
                 new MemberDefinition
                 (
-                    $"{$"Unwrapped{type.Name}"}",
+                    $"Unwrapped{type.Name}",
                     type.GetQueryBase()
                 ),
                 GetMembers()

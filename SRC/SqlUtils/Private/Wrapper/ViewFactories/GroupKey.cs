@@ -24,7 +24,7 @@ namespace Solti.Utils.SQL.Internals
             (
                 new MemberDefinition
                 (
-                    $"{unwrappedType.FullName}_{viewType.FullName}_Key",
+                    $"{unwrappedType}_{viewType}_Key",
                     viewType.GetQueryBase(),
                     CopyAttributes(viewType)
                 ),

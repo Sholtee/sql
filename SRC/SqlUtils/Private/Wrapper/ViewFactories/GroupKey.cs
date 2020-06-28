@@ -6,12 +6,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
 
 namespace Solti.Utils.SQL.Internals
 {
-    using Interfaces;
     using Primitives;
 
     //
@@ -59,12 +56,6 @@ namespace Solti.Utils.SQL.Internals
                     );
                 }
             }
-
-            CustomAttributeBuilder[] CopyAttributes(MemberInfo member) => member
-                .GetCustomAttributes()
-                .OfType<IBuildableAttribute>()
-                .Select(attr => CustomAttributeBuilderFactory.CreateFrom(attr))
-                .ToArray()!;
         }, nameof(GroupKey));    
     }
 }

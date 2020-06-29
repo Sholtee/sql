@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*  UnwrappedValueType.cs                                                        *
+*  UnwrappedValueTypeView.cs                                                    *
 *                                                                               *
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
@@ -11,9 +11,9 @@ namespace Solti.Utils.SQL.Internals
     using Interfaces;
     using Primitives;
 
-    internal class UnwrappedValueType : ViewFactoryBase
+    internal class UnwrappedValueTypeView : ViewFactory
     {
-        public static Type CreateView(PropertyInfo dataTableColumn, bool required) => Cache.GetOrAdd(dataTableColumn, () =>
+        public static Type Create(PropertyInfo dataTableColumn, bool required) => Cache.GetOrAdd(dataTableColumn, () =>
         {
             Type dataTable = dataTableColumn.ReflectedType;
             PropertyInfo pk = dataTable.GetPrimaryKey();
@@ -29,7 +29,7 @@ namespace Solti.Utils.SQL.Internals
             // }
             //
 
-            return CreateView
+            return Create
             (
                 new MemberDefinition
                 (
@@ -64,6 +64,6 @@ namespace Solti.Utils.SQL.Internals
                     )
                 }
             );
-        }, nameof(UnwrappedValueType));
+        }, nameof(UnwrappedValueTypeView));
     }
 }

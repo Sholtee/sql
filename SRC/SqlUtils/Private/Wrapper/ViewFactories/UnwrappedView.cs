@@ -1,5 +1,5 @@
 /********************************************************************************
-*  Unwrapped.cs                                                                 *
+*  UnwrappedView.cs                                                             *
 *                                                                               *
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
@@ -13,11 +13,11 @@ namespace Solti.Utils.SQL.Internals
     using Interfaces;
     using Primitives;
 
-    internal class Unwrapped: ViewFactoryBase
+    internal class UnwrappedView: ViewFactory
     {
-        public static Type CreateView(Type type) => Cache.GetOrAdd(type, () =>
+        public static Type Create(Type type) => Cache.GetOrAdd(type, () =>
         {
-            return CreateView
+            return Create
             (
                 new MemberDefinition
                 (
@@ -78,6 +78,6 @@ namespace Solti.Utils.SQL.Internals
                     }
                 }
             }
-        }, nameof(Unwrapped));
+        }, nameof(UnwrappedView));
     }
 }

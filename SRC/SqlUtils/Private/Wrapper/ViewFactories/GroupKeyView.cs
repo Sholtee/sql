@@ -1,5 +1,5 @@
 /********************************************************************************
-*  GroupKey.cs                                                                  *
+*  GroupKeyView.cs                                                              *
 *                                                                               *
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
@@ -16,11 +16,11 @@ namespace Solti.Utils.SQL.Internals
     // .Select(x => x.Key.MapTo<View>())
     //
 
-    internal sealed class GroupKey: ViewFactoryBase
+    internal sealed class GroupKeyView: ViewFactory
     {
-        public static Type CreateView(Type unwrappedType, Type viewType) => Cache.GetOrAdd((unwrappedType, viewType), () =>
+        public static Type Create(Type unwrappedType, Type viewType) => Cache.GetOrAdd((unwrappedType, viewType), () =>
         {
-            return CreateView
+            return Create
             (
                 new MemberDefinition
                 (
@@ -56,6 +56,6 @@ namespace Solti.Utils.SQL.Internals
                     );
                 }
             }
-        }, nameof(GroupKey));    
+        }, nameof(GroupKeyView));    
     }
 }

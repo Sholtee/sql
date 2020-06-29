@@ -32,7 +32,7 @@ namespace Solti.Utils.SQL.Internals
             // Ez lesz a kulcs tipusa a .GroupBy(x => new Kulcs())-ban.
             //
 
-            Type keyType = GroupKey.CreateView(unwrappedType, viewType);
+            Type keyType = GroupKeyView.Create(unwrappedType, viewType);
 
             //
             // A mappolas ami kicsomagolt nezet egy peldanyat a konkret kulcsra szukiti:

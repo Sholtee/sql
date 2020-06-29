@@ -13,9 +13,9 @@ namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
 
-    internal class ViewFactoryBase: ClassFactory
+    internal class ViewFactory: ClassFactory
     {
-        protected static Type CreateView(MemberDefinition viewDefinition, IEnumerable<MemberDefinition> columns)
+        protected static Type Create(MemberDefinition viewDefinition, IEnumerable<MemberDefinition> columns)
         {
             TypeBuilder tb = CreateBuilder(viewDefinition.Name);
 

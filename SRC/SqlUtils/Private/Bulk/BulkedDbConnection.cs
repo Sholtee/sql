@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-[assembly: InternalsVisibleTo("Solti.Utils.SQL.Internals.BulkedDbConnection.IDbCommandInterceptor_System.Data.IDbCommand_Proxy")]
+[assembly: InternalsVisibleTo("Generated_386AC90D1C6F35911B55F802BC4CEBAD")]
 
 namespace Solti.Utils.SQL.Internals
 {

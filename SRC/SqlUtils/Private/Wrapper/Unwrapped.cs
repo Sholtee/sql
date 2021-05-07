@@ -25,7 +25,9 @@ namespace Solti.Utils.SQL.Internals
                 {
                     lock (FLock)
                     {
+                        #pragma warning disable CA1508 // Avoid dead conditional code
                         if (FType == null)
+                        #pragma warning restore CA1508
                         {
                             Type type = typeof(TView);
 

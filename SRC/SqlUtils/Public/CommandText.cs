@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -18,9 +19,11 @@ namespace Solti.Utils.SQL
     {
         private static readonly Regex FFormatter = new Regex(@"\?|@\w+|{\d+}", RegexOptions.Compiled);
 
+
         /// <summary>
         /// Formats the given SQL template. Templates may contain positional (?), named (@Name), or indexed ({0}) placeholders. 
         /// </summary>
+        [SuppressMessage("Usage", "CA2201:Do not raise reserved exception types", Justification = "<Pending>")]
         public static string Format(string sql, params IDataParameter[] paramz)
         {
             if (sql == null) 

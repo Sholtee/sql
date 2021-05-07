@@ -57,19 +57,19 @@ namespace Solti.Utils.SQL.Internals
                 {
                     hc.Add(prop.Name);
 
-                    object val = prop.FastGetValue(obj);
+                    object? val = prop.FastGetValue(obj);
                     hc.Add(val, GetComparerFor(val));
                 }
 
             return hc.ToHashCode();
 
-            IEqualityComparer<object> GetComparerFor(object val) => ReferenceEquals(val, obj)
+            IEqualityComparer<object?> GetComparerFor(object? val) => ReferenceEquals(val, obj)
                 //
                 // Ha az ertek geci modon az objektum maga lenne (pl.: obj.Self)
                 //
 
-                ? EqualityComparer<object>.Default
-                : (IEqualityComparer<object>) this;
+                ? EqualityComparer<object?>.Default
+                : (IEqualityComparer<object?>) this;
         }
     }
 }

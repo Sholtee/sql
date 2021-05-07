@@ -6,13 +6,12 @@
 using System;
 using System.Data;
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-[assembly: InternalsVisibleToAttribute("Solti.Utils.SQL.Internals.BulkedDbConnection.IDbCommandInterceptor_System.Data.IDbCommand_Proxy")]
+[assembly: InternalsVisibleTo("Solti.Utils.SQL.Internals.BulkedDbConnection.IDbCommandInterceptor_System.Data.IDbCommand_Proxy")]
 
 namespace Solti.Utils.SQL.Internals
 {
@@ -21,14 +20,6 @@ namespace Solti.Utils.SQL.Internals
     
     internal sealed class BulkedDbConnection: IBulkedDbConnection
     {
-        static BulkedDbConnection()
-        {
-            string cacheDir = Path.Combine(Path.GetTempPath(), ".sqlutils", typeof(BulkedDbConnection).Assembly.GetName().Version.ToString());
-            Directory.CreateDirectory(cacheDir);
-
-            ProxyGenerator<IDbCommand, IDbCommandInterceptor>.CacheDirectory = cacheDir;
-        }
-
         internal IDbConnection Connection { get; }
 
         internal StringBuilder Buffer { get; }
@@ -64,7 +55,7 @@ namespace Solti.Utils.SQL.Internals
             public IDbCommandInterceptor(BulkedDbConnection parent) : base(parent.Connection.CreateCommand()) => 
                 Parent = parent;
 
-            public override object Invoke(MethodInfo method, object[] args, MemberInfo extra)
+            public override object? Invoke(MethodInfo method, object?[] args, MemberInfo extra)
             {
                 switch (method.Name)
                 {
@@ -88,7 +79,7 @@ namespace Solti.Utils.SQL.Internals
         }
 
         public IDbCommand CreateCommand() => (IDbCommand) ProxyGenerator<IDbCommand, IDbCommandInterceptor>
-            .GeneratedType
+            .GetGeneratedType()
             .GetConstructor(new[] { typeof(BulkedDbConnection) })
             .ToDelegate()
             .Invoke(new object[] { this });

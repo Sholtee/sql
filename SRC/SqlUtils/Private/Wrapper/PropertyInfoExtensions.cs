@@ -18,7 +18,7 @@ namespace Solti.Utils.SQL.Internals
 
         public static bool IsWrapped(this PropertyInfo prop) => prop.GetCustomAttribute<WrappedAttribute>() != null || (prop.GetCustomAttribute<BelongsToAttribute>() != null && prop.PropertyType.IsList());
 
-        public static object FastGetValue(this PropertyInfo src, object instance) => src
+        public static object? FastGetValue(this PropertyInfo src, object instance) => src
             .ToGetter()
             .Invoke(instance);
 

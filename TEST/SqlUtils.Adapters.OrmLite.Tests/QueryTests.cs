@@ -82,7 +82,7 @@ namespace Solti.Utils.SQL.OrmLite.Tests
         }
         #endregion
 
-        [View(Base = typeof(Login))]
+        [View(@base: typeof(Login))]
         public class LoginView 
         {
             [BelongsTo(typeof(Login))]

@@ -9,7 +9,7 @@
   
   <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.*" />
-    <PackageReference Include="Solti.Utils.Primitives" Version="1.*" />
+    <PackageReference Include="Solti.Utils.Primitives" Version="2.*" />
   </ItemGroup>
   
   <ItemGroup>

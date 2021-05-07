@@ -6,17 +6,20 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 using ServiceStack.OrmLite;
 
 namespace Solti.Utils.SQL
 {
-    using Internals; 
+    using Internals;
 
     /// <summary>
     /// Defines some handy extensions to the <see cref="IDbConnection"/> interface.
     /// </summary>
+
+    [SuppressMessage("Design", "CA1002:Do not expose generic lists")]
     public static class IDbConnectionOrmLiteExtensions
     {
         /// <summary>
@@ -29,6 +32,7 @@ namespace Solti.Utils.SQL
             additions?.Invoke(query.UnderlyingExpression);
             return query.Run<TView>();      
         }
+
 
         /// <summary>
         /// Queries the given <typeparamref name="TView"/>.

@@ -20,7 +20,9 @@ namespace Solti.Utils.SQL
         /// <summary>
         /// Queries the given view.
         /// </summary>
+        #pragma warning disable CA1002 // Do not expose generic lists
         public static List<TView> Run<TView>(this ISqlQuery query)
+        #pragma warning restore CA1002
         {
             if (query == null)
                 throw new ArgumentNullException(nameof(query));

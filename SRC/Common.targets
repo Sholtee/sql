@@ -3,11 +3,12 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <Authors>Denes Solti</Authors>
     <Version>0.1.0</Version>
-    <Configurations>Debug;Release;Perf</Configurations>
-    <LangVersion>8</LangVersion>
+    <Configurations>Debug;Release</Configurations>
+    <LangVersion>9</LangVersion>
     <Nullable>enable</Nullable>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <NoWarn>CA2007</NoWarn>
+    <NoWarn>CA1014;CA1711;CA2007</NoWarn>
     <OutputPath>..\..\BIN\$(Configuration)\</OutputPath>
     <DocumentationFile>$(OutputPath)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <Product>SqlUtils.NET</Product>
@@ -20,8 +21,8 @@
     <RepositoryBranch>$(CurrentBranch)</RepositoryBranch>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(CI)' == ''">
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.*">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.*">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

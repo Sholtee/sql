@@ -1,19 +1,12 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     <Configurations>Debug</Configurations>
-    <ApplicationIcon />
+    <LangVersion>9</LangVersion>
     <OutputType>Library</OutputType>
-    <StartupObject />
     <OutputPath>..\..\BIN\$(Configuration)\</OutputPath>
-  </PropertyGroup>
-
-  <!--OpenCover requires .NET Core 2.2 while Test Explorer needs 3.X-->
-  <PropertyGroup Condition="'$(CI)'==''">
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <DefineConstants>LANG_VERSION_8</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>

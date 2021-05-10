@@ -6,9 +6,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
 
 namespace Solti.Utils.SQL.Internals
 {
+    using Interfaces;
     using Primitives;
 
     //
@@ -16,11 +19,11 @@ namespace Solti.Utils.SQL.Internals
     // .Select(x => x.Key.MapTo<View>())
     //
 
-    internal sealed class GroupKeyView: ViewFactory
+    internal sealed class GroupKeyView
     {
         public static Type Create(Type unwrappedType, Type viewType) => Cache.GetOrAdd((unwrappedType, viewType), () =>
         {
-            return Create
+            return new ViewFactory
             (
                 new MemberDefinition
                 (
@@ -29,7 +32,8 @@ namespace Solti.Utils.SQL.Internals
                     CopyAttributes(viewType)
                 ),
                 GetKeyMembers()
-            );
+            )
+            .CreateType();
 
             IEnumerable<MemberDefinition> GetKeyMembers()
             {
@@ -56,6 +60,12 @@ namespace Solti.Utils.SQL.Internals
                     );
                 }
             }
+
+            CustomAttributeBuilder[] CopyAttributes(MemberInfo member) => member
+                .GetCustomAttributes()
+                .OfType<IBuildableAttribute>()
+                .Select(attr => CustomAttributeBuilderFactory.CreateFrom(attr))
+                .ToArray();
         }, nameof(GroupKeyView));    
     }
 }

@@ -51,7 +51,7 @@ namespace Solti.Utils.SQL.Internals
             // ertekeben ternek el).
             //
 
-            foreach (IGrouping<object?, object> group in unwrappedObjects.Cast<object>().GroupBy(Mappers.MapToKey, ValueComparer.Instance))
+            foreach (IGrouping<object?, object> group in unwrappedObjects.Cast<object>().GroupBy(Mappers.MapToKey))
             {
                 //
                 // Ha az entitas ures (LEFT JOIN miatt kaptuk vissza) akkor nem vesszuk fel.
@@ -61,7 +61,7 @@ namespace Solti.Utils.SQL.Internals
 
                 PropertyInfo pk = group.Key!.GetType().GetPrimaryKey();
 
-                if (ValueComparer.Instance.Equals(pk.FastGetValue(group.Key), pk.PropertyType.GetDefaultValue()))
+                if (Equals(pk.FastGetValue(group.Key), pk.PropertyType.GetDefaultValue()))
                     continue;
 
                 //

@@ -15,13 +15,15 @@ namespace Solti.Utils.SQL.Internals
     internal class ClassFactory
     {
         #region Private
-        private Label ReturnFalse { get; }
+        private readonly Label FReturnFalse;
 
-        private ILGenerator EqualsGenerator { get; }
+        private readonly ILGenerator FEqualsGenerator;
 
-        private LocalBuilder Hk { get; }
+        private readonly LocalBuilder FHk;
 
-        private ILGenerator GetHashCodeGenerator { get; }
+        private readonly ILGenerator  FGetHashCodeGenerator;
+
+        private readonly TypeBuilder FClass; 
 
         private void GenerateEqualityComparison(PropertyInfo prop) 
         {
@@ -30,28 +32,28 @@ namespace Solti.Utils.SQL.Internals
             //   return false;
             //
 
-            EqualsGenerator.Emit(Ldarg_0);
-            EqualsGenerator.Emit(Call, prop.GetMethod);
+            FEqualsGenerator.Emit(Ldarg_0);
+            FEqualsGenerator.Emit(Call, prop.GetMethod);
             if (prop.PropertyType.IsValueType)
-                EqualsGenerator.Emit(Box, prop.PropertyType);
+                FEqualsGenerator.Emit(Box, prop.PropertyType);
 
-            EqualsGenerator.Emit(Ldarg_1);
-            EqualsGenerator.Emit(Castclass, Class);
-            EqualsGenerator.Emit(Call, prop.GetMethod);
+            FEqualsGenerator.Emit(Ldarg_1);
+            FEqualsGenerator.Emit(Castclass, FClass);
+            FEqualsGenerator.Emit(Call, prop.GetMethod);
             if (prop.PropertyType.IsValueType)
-                EqualsGenerator.Emit(Box, prop.PropertyType);
+                FEqualsGenerator.Emit(Box, prop.PropertyType);
 
-            EqualsGenerator.Emit(Call, ((Func<object?, object?, bool>) Object.Equals).Method);
-            EqualsGenerator.Emit(Brfalse, ReturnFalse);
+            FEqualsGenerator.Emit(Call, ((Func<object?, object?, bool>) Object.Equals).Method);
+            FEqualsGenerator.Emit(Brfalse, FReturnFalse);
         }
 
         private void GenerateEqualsEpilogue() 
         {
-            EqualsGenerator.Emit(Ldc_I4, 1);
-            EqualsGenerator.Emit(Ret);
-            EqualsGenerator.MarkLabel(ReturnFalse);
-            EqualsGenerator.Emit(Ldc_I4, 0);
-            EqualsGenerator.Emit(Ret);
+            FEqualsGenerator.Emit(Ldc_I4, 1);
+            FEqualsGenerator.Emit(Ret);
+            FEqualsGenerator.MarkLabel(FReturnFalse);
+            FEqualsGenerator.Emit(Ldc_I4, 0);
+            FEqualsGenerator.Emit(Ret);
         }
 
         private static readonly MethodInfo HkAdd = ((MethodCallExpression) ((Expression<Action<HashCode>>) (hc => hc.Add(0))).Body)
@@ -64,42 +66,42 @@ namespace Solti.Utils.SQL.Internals
             // hc.Add<T>(this.Prop);
             //
 
-            GetHashCodeGenerator.Emit(Ldloca, Hk);
-            GetHashCodeGenerator.Emit(Ldarg_0);
-            GetHashCodeGenerator.Emit(Call, prop.GetMethod);
-            GetHashCodeGenerator.Emit(Call, HkAdd.MakeGenericMethod(prop.PropertyType));
+            FGetHashCodeGenerator.Emit(Ldloca, FHk);
+            FGetHashCodeGenerator.Emit(Ldarg_0);
+            FGetHashCodeGenerator.Emit(Call, prop.GetMethod);
+            FGetHashCodeGenerator.Emit(Call, HkAdd.MakeGenericMethod(prop.PropertyType));
         }
 
         private static readonly MethodInfo HkToHashCode = ((MethodCallExpression) ((Expression<Action<HashCode>>) (hc => hc.ToHashCode())).Body).Method;
 
         private void GenerateGetHashCodeEpilogue() 
         {
-            GetHashCodeGenerator.Emit(Ldloca, Hk);
-            GetHashCodeGenerator.Emit(Call, HkToHashCode);
-            GetHashCodeGenerator.Emit(Ret);
+            FGetHashCodeGenerator.Emit(Ldloca, FHk);
+            FGetHashCodeGenerator.Emit(Call, HkToHashCode);
+            FGetHashCodeGenerator.Emit(Ret);
         }
         #endregion
 
         #region Protected
-        protected PropertyBuilder AddProperty(string name, Type type)
+        protected void AddProperty(string name, Type type, params CustomAttributeBuilder[] customAttributes)
         {
             //
             // public XXX {}
             //
 
-            PropertyBuilder property = Class.DefineProperty(name, PropertyAttributes.None, type, Array.Empty<Type>());
+            PropertyBuilder property = FClass.DefineProperty(name, PropertyAttributes.None, type, Array.Empty<Type>());
 
             //
             // FXxX
             //
 
-            FieldBuilder field = Class.DefineField($"F{name}", type, FieldAttributes.Private);
+            FieldBuilder field = FClass.DefineField($"F{name}", type, FieldAttributes.Private);
 
             //
             // {get => FXxX;}
             //
 
-            MethodBuilder getPropMthdBldr = Class.DefineMethod(
+            MethodBuilder getPropMthdBldr = FClass.DefineMethod(
                 $"Get{name}",
                 MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.HideBySig,
                 type,
@@ -115,7 +117,7 @@ namespace Solti.Utils.SQL.Internals
             // {set => FXxX = value;}
             //
 
-            MethodBuilder setPropMthdBldr = Class.DefineMethod(
+            MethodBuilder setPropMthdBldr = FClass.DefineMethod(
                 $"Set{name}",
                 MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.HideBySig,
                 null,
@@ -138,19 +140,25 @@ namespace Solti.Utils.SQL.Internals
             GenerateEqualityComparison(property);
             GenerateHashCodeAddition(property);
 
-            return property;
+            foreach (CustomAttributeBuilder customAttribute in customAttributes) 
+            {
+                property.SetCustomAttribute(customAttribute);
+            }
         }
-
-        protected TypeBuilder Class { get; }
         #endregion
 
         #region Public
-        public ClassFactory(string name)
+        public ClassFactory(string name, params CustomAttributeBuilder[] customAttributes)
         {
-            Class = AssemblyBuilder
+            FClass = AssemblyBuilder
                 .DefineDynamicAssembly(new AssemblyName(name), AssemblyBuilderAccess.Run)
                 .DefineDynamicModule("MainModule")
                 .DefineType(name, TypeAttributes.Public | TypeAttributes.Class);
+
+            foreach (CustomAttributeBuilder customAttribute in customAttributes)
+            {
+                FClass.SetCustomAttribute(customAttribute);
+            }
 
             const MethodAttributes PUBLIC_OVERRIDE = MethodAttributes.Public | MethodAttributes.ReuseSlot | MethodAttributes.Virtual | MethodAttributes.HideBySig;
 
@@ -158,32 +166,32 @@ namespace Solti.Utils.SQL.Internals
             // public override bool Equals(object val) { ... }
             //
 
-            EqualsGenerator = Class
+            FEqualsGenerator = FClass
                 .DefineMethod(nameof(Equals), PUBLIC_OVERRIDE, typeof(bool), new[] { typeof(object) })
                 .GetILGenerator();
-            ReturnFalse = EqualsGenerator.DefineLabel();
+            FReturnFalse = FEqualsGenerator.DefineLabel();
 
             //
             // public override int GetHashCode() { var hc = new HashCode(); ... }
             //
 
-            GetHashCodeGenerator = Class
+            FGetHashCodeGenerator = FClass
                 .DefineMethod(nameof(GetHashCode), PUBLIC_OVERRIDE, typeof(int), Type.EmptyTypes)
                 .GetILGenerator();
-            Hk = GetHashCodeGenerator.DeclareLocal(typeof(HashCode));
-            GetHashCodeGenerator.Emit(Ldloca, Hk);
-            GetHashCodeGenerator.Emit(Initobj, typeof(HashCode));
+            FHk = FGetHashCodeGenerator.DeclareLocal(typeof(HashCode));
+            FGetHashCodeGenerator.Emit(Ldloca, FHk);
+            FGetHashCodeGenerator.Emit(Initobj, typeof(HashCode));
         }
 
         public Type CreateType()
         {
-            if (Class.IsCreated())
+            if (FClass.IsCreated())
                 throw new InvalidOperationException(); // TODO: message
 
             GenerateEqualsEpilogue();
             GenerateGetHashCodeEpilogue();
 
-            return Class.CreateTypeInfo()!.AsType();
+            return FClass.CreateTypeInfo()!.AsType();
         }
         #endregion
     }

@@ -5,7 +5,7 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
-using System.Reflection.Emit;
+using System.Linq;
 
 namespace Solti.Utils.SQL.Internals
 {
@@ -13,34 +13,25 @@ namespace Solti.Utils.SQL.Internals
 
     internal class ViewFactory: ClassFactory
     {
-        public ViewFactory(MemberDefinition viewDefinition, IEnumerable<MemberDefinition> columns) : base(viewDefinition.Name)
+        public ViewFactory(MemberDefinition viewDefinition, IEnumerable<MemberDefinition> columns) : base(
+            viewDefinition.Name, 
+            viewDefinition
+                .CustomAttributes
+
+                //
+                // Hogy a GetQueryBase() mukodjon a generalt nezetre is, ezert az uj osztalyt megjeloljuk nezetnek.
+                //
+
+                .Append(CustomAttributeBuilderFactory.CreateFrom<ViewAttribute>(new[] { typeof(Type) }, new object?[] { viewDefinition.Type }))
+                .ToArray())
         {
-            //
-            // Hogy a GetQueryBase() mukodjon a generalt nezetre is, ezert az uj osztalyt megjeloljuk nezetnek.
-            //
-
-            Class.SetCustomAttribute
-            (
-                CustomAttributeBuilderFactory.CreateFrom<ViewAttribute>(new[] { typeof(Type) }, new object?[] { viewDefinition.Type })
-            );
-
-            foreach (CustomAttributeBuilder cab in viewDefinition.CustomAttributes)
-            {
-                Class.SetCustomAttribute(cab);
-            }
-
             //
             // Uj property-k definialasa.
             //
 
             foreach (MemberDefinition column in columns)
             {
-                PropertyBuilder property = AddProperty(column.Name, column.Type);
-
-                foreach (CustomAttributeBuilder cab in column.CustomAttributes)
-                {
-                    property.SetCustomAttribute(cab);
-                }
+                AddProperty(column.Name, column.Type, column.CustomAttributes.ToArray());
             }
         }
     }

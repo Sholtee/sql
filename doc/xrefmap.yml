@@ -218,119 +218,6 @@ references:
   fullName: Solti.Utils.SQL.DisoveredDataTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
   nameWithType: DisoveredDataTables.IEnumerable<Type>.GetEnumerator
   nameWithType.vb: DisoveredDataTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
-- uid: Solti.Utils.SQL.Edge
-  name: Edge
-  href: Solti.Utils.SQL.Edge.html
-  commentId: T:Solti.Utils.SQL.Edge
-  fullName: Solti.Utils.SQL.Edge
-  nameWithType: Edge
-- uid: Solti.Utils.SQL.Edge.Create*
-  name: Create
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_Create_
-  commentId: Overload:Solti.Utils.SQL.Edge.Create
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.Edge.Create
-  nameWithType: Edge.Create
-- uid: Solti.Utils.SQL.Edge.Create``2(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Linq.Expressions.Expression{System.Func{``1,System.Object}})
-  name: Create<TSrc, TDst>(Expression<Func<TSrc, Object>>, Expression<Func<TDst, Object>>)
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_Create__2_System_Linq_Expressions_Expression_System_Func___0_System_Object___System_Linq_Expressions_Expression_System_Func___1_System_Object___
-  commentId: M:Solti.Utils.SQL.Edge.Create``2(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Linq.Expressions.Expression{System.Func{``1,System.Object}})
-  name.vb: Create(Of TSrc, TDst)(Expression(Of Func(Of TSrc, Object)), Expression(Of Func(Of TDst, Object)))
-  fullName: Solti.Utils.SQL.Edge.Create<TSrc, TDst>(System.Linq.Expressions.Expression<System.Func<TSrc, System.Object>>, System.Linq.Expressions.Expression<System.Func<TDst, System.Object>>)
-  fullName.vb: Solti.Utils.SQL.Edge.Create(Of TSrc, TDst)(System.Linq.Expressions.Expression(Of System.Func(Of TSrc, System.Object)), System.Linq.Expressions.Expression(Of System.Func(Of TDst, System.Object)))
-  nameWithType: Edge.Create<TSrc, TDst>(Expression<Func<TSrc, Object>>, Expression<Func<TDst, Object>>)
-  nameWithType.vb: Edge.Create(Of TSrc, TDst)(Expression(Of Func(Of TSrc, Object)), Expression(Of Func(Of TDst, Object)))
-- uid: Solti.Utils.SQL.Edge.DestinationProperty
-  name: DestinationProperty
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_DestinationProperty
-  commentId: P:Solti.Utils.SQL.Edge.DestinationProperty
-  fullName: Solti.Utils.SQL.Edge.DestinationProperty
-  nameWithType: Edge.DestinationProperty
-- uid: Solti.Utils.SQL.Edge.DestinationProperty*
-  name: DestinationProperty
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_DestinationProperty_
-  commentId: Overload:Solti.Utils.SQL.Edge.DestinationProperty
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.Edge.DestinationProperty
-  nameWithType: Edge.DestinationProperty
-- uid: Solti.Utils.SQL.Edge.DestinationTable
-  name: DestinationTable
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_DestinationTable
-  commentId: P:Solti.Utils.SQL.Edge.DestinationTable
-  fullName: Solti.Utils.SQL.Edge.DestinationTable
-  nameWithType: Edge.DestinationTable
-- uid: Solti.Utils.SQL.Edge.DestinationTable*
-  name: DestinationTable
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_DestinationTable_
-  commentId: Overload:Solti.Utils.SQL.Edge.DestinationTable
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.Edge.DestinationTable
-  nameWithType: Edge.DestinationTable
-- uid: Solti.Utils.SQL.Edge.Equals(System.Object)
-  name: Equals(Object)
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_Equals_System_Object_
-  commentId: M:Solti.Utils.SQL.Edge.Equals(System.Object)
-  fullName: Solti.Utils.SQL.Edge.Equals(System.Object)
-  nameWithType: Edge.Equals(Object)
-- uid: Solti.Utils.SQL.Edge.Equals*
-  name: Equals
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_Equals_
-  commentId: Overload:Solti.Utils.SQL.Edge.Equals
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.Edge.Equals
-  nameWithType: Edge.Equals
-- uid: Solti.Utils.SQL.Edge.GetHashCode
-  name: GetHashCode()
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_GetHashCode
-  commentId: M:Solti.Utils.SQL.Edge.GetHashCode
-  fullName: Solti.Utils.SQL.Edge.GetHashCode()
-  nameWithType: Edge.GetHashCode()
-- uid: Solti.Utils.SQL.Edge.GetHashCode*
-  name: GetHashCode
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_GetHashCode_
-  commentId: Overload:Solti.Utils.SQL.Edge.GetHashCode
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.Edge.GetHashCode
-  nameWithType: Edge.GetHashCode
-- uid: Solti.Utils.SQL.Edge.SourceProperty
-  name: SourceProperty
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_SourceProperty
-  commentId: P:Solti.Utils.SQL.Edge.SourceProperty
-  fullName: Solti.Utils.SQL.Edge.SourceProperty
-  nameWithType: Edge.SourceProperty
-- uid: Solti.Utils.SQL.Edge.SourceProperty*
-  name: SourceProperty
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_SourceProperty_
-  commentId: Overload:Solti.Utils.SQL.Edge.SourceProperty
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.Edge.SourceProperty
-  nameWithType: Edge.SourceProperty
-- uid: Solti.Utils.SQL.Edge.SourceTable
-  name: SourceTable
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_SourceTable
-  commentId: P:Solti.Utils.SQL.Edge.SourceTable
-  fullName: Solti.Utils.SQL.Edge.SourceTable
-  nameWithType: Edge.SourceTable
-- uid: Solti.Utils.SQL.Edge.SourceTable*
-  name: SourceTable
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_SourceTable_
-  commentId: Overload:Solti.Utils.SQL.Edge.SourceTable
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.Edge.SourceTable
-  nameWithType: Edge.SourceTable
-- uid: Solti.Utils.SQL.Edge.ToString
-  name: ToString()
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_ToString
-  commentId: M:Solti.Utils.SQL.Edge.ToString
-  fullName: Solti.Utils.SQL.Edge.ToString()
-  nameWithType: Edge.ToString()
-- uid: Solti.Utils.SQL.Edge.ToString*
-  name: ToString
-  href: Solti.Utils.SQL.Edge.html#Solti_Utils_SQL_Edge_ToString_
-  commentId: Overload:Solti.Utils.SQL.Edge.ToString
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.Edge.ToString
-  nameWithType: Edge.ToString
 - uid: Solti.Utils.SQL.IBulkedDbConnection
   name: IBulkedDbConnection
   href: Solti.Utils.SQL.IBulkedDbConnection.html
@@ -1326,13 +1213,13 @@ references:
   fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView).Build
   nameWithType: SmartSqlBuilder<TView>.Build
   nameWithType.vb: SmartSqlBuilder(Of TView).Build
-- uid: Solti.Utils.SQL.SmartSqlBuilder`1.Initialize(Solti.Utils.SQL.Edge[])
+- uid: Solti.Utils.SQL.SmartSqlBuilder`1.Initialize(Edge[])
   name: Initialize(Edge[])
-  href: Solti.Utils.SQL.SmartSqlBuilder-1.html#Solti_Utils_SQL_SmartSqlBuilder_1_Initialize_Solti_Utils_SQL_Edge___
-  commentId: M:Solti.Utils.SQL.SmartSqlBuilder`1.Initialize(Solti.Utils.SQL.Edge[])
+  href: Solti.Utils.SQL.SmartSqlBuilder-1.html#Solti_Utils_SQL_SmartSqlBuilder_1_Initialize_Edge___
+  commentId: M:Solti.Utils.SQL.SmartSqlBuilder`1.Initialize(Edge[])
   name.vb: Initialize(Edge())
-  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView>.Initialize(Solti.Utils.SQL.Edge[])
-  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView).Initialize(Solti.Utils.SQL.Edge())
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView>.Initialize(Edge[])
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView).Initialize(Edge())
   nameWithType: SmartSqlBuilder<TView>.Initialize(Edge[])
   nameWithType.vb: SmartSqlBuilder(Of TView).Initialize(Edge())
 - uid: Solti.Utils.SQL.SmartSqlBuilder`1.Initialize*

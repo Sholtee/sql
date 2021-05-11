@@ -15,7 +15,7 @@ namespace Solti.Utils.SQL.Tests
     [TestFixture]
     public class ViewFactoryTests
     {
-        private static readonly Type ViewType = new ViewFactory
+        private static readonly Type ViewType = ViewFactory.CreateView
         (
             new MemberDefinition
             (
@@ -36,8 +36,7 @@ namespace Solti.Utils.SQL.Tests
                     typeof(string)
                 )
             }
-        )
-        .CreateType();
+        );
 
         private static object CreateObjWithValues(long id, string column)
         {

@@ -94,9 +94,11 @@ namespace Solti.Utils.SQL.Internals
 
         public static IReadOnlyList<Edge> ShortestPath(Type src, Type dst, params Edge[] customEdges)
         {
-            IReadOnlyList<Edge>? result = Cache.GetOrAdd(
-                (src, dst, ValueComparer.Instance.GetHashCode(customEdges)), 
-                () => ShortestPath(src, dst, customEdges, Array.Empty<Edge>()));
+            IReadOnlyList<Edge>? result = Cache.GetOrAdd
+            (
+                GenerateKey(), 
+                () => ShortestPath(src, dst, customEdges, Array.Empty<Edge>())
+            );
 
             if (result == null)
             {
@@ -108,6 +110,15 @@ namespace Solti.Utils.SQL.Internals
             }
 
             return result;
+
+            int GenerateKey() 
+            {
+                HashCode hc = new();
+                hc.Add(src);
+                hc.Add(dst);
+                Array.ForEach(customEdges, hc.Add<Edge>);
+                return hc.ToHashCode();
+            }
         }
     }
 }

@@ -11,28 +11,34 @@ namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
 
-    internal class ViewFactory: ClassFactory
+    internal class ViewFactory
     {
-        public ViewFactory(MemberDefinition viewDefinition, IEnumerable<MemberDefinition> columns) : base(
-            viewDefinition.Name, 
-            viewDefinition
-                .CustomAttributes
-
-                //
-                // Hogy a GetQueryBase() mukodjon a generalt nezetre is, ezert az uj osztalyt megjeloljuk nezetnek.
-                //
-
-                .Append(CustomAttributeBuilderFactory.CreateFrom<ViewAttribute>(new[] { typeof(Type) }, new object?[] { viewDefinition.Type }))
-                .ToArray())
+        internal protected static Type CreateView(MemberDefinition viewDefinition, IEnumerable<MemberDefinition> columns)
         {
+            ClassFactory core = new
+            (
+                viewDefinition.Name,
+                viewDefinition
+                    .CustomAttributes
+
+                    //
+                    // Hogy a GetQueryBase() mukodjon a generalt nezetre is, ezert az uj osztalyt megjeloljuk nezetnek.
+                    //
+
+                    .Append(CustomAttributeBuilderFactory.CreateFrom<ViewAttribute>(new[] { typeof(Type) }, new object?[] { viewDefinition.Type }))
+                    .ToArray()
+            );
+
             //
             // Uj property-k definialasa.
             //
 
             foreach (MemberDefinition column in columns)
             {
-                AddProperty(column.Name, column.Type, column.CustomAttributes.ToArray());
+                core.AddProperty(column.Name, column.Type, column.CustomAttributes.ToArray());
             }
+
+            return core.CreateType();
         }
     }
 }

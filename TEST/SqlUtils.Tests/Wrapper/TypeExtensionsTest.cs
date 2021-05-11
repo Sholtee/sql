@@ -15,7 +15,6 @@ namespace Solti.Utils.SQL.Tests
     using Internals;
     using Interfaces;
     using Interfaces.DataAnnotations;
-    using Properties;
 
     [TestFixture]
     public sealed class TypeExtensionsTest
@@ -97,6 +96,8 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void ExtractColumnSelections_ShouldSkipIgnoredProperties()
         {
+            Config.Use(new SpecifiedDataTables(typeof(Start_Node)));
+
             // Start_Node.Ignored
             Assert.That(typeof(Extension1).GetProperties().Count(prop => prop.GetCustomAttribute<IgnoreAttribute>() != null), Is.EqualTo(1));
             Assert.That(typeof(Extension1).ExtractColumnSelections().Where(sel => sel.ViewProperty.GetCustomAttribute<IgnoreAttribute>() != null), Is.Empty);

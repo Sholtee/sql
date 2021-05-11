@@ -19,11 +19,11 @@ namespace Solti.Utils.SQL.Internals
     // .Select(x => x.Key.MapTo<View>())
     //
 
-    internal sealed class GroupKeyView
+    internal sealed class GroupKeyView: ViewFactory
     {
-        public static Type Create(Type unwrappedType, Type viewType) => Cache.GetOrAdd((unwrappedType, viewType), () =>
+        public static Type CreateView(Type unwrappedType, Type viewType) => Cache.GetOrAdd((unwrappedType, viewType), () =>
         {
-            return new ViewFactory
+            return CreateView
             (
                 new MemberDefinition
                 (
@@ -32,8 +32,7 @@ namespace Solti.Utils.SQL.Internals
                     CopyAttributes(viewType)
                 ),
                 GetKeyMembers()
-            )
-            .CreateType();
+            );
 
             IEnumerable<MemberDefinition> GetKeyMembers()
             {

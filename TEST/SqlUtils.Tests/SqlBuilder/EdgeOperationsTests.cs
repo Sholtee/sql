@@ -11,10 +11,10 @@ using NUnit.Framework;
 
 namespace Solti.Utils.SQL.Tests
 {
+    using Interfaces;
     using Internals;
     using Primitives;
     using Properties;
-    using Solti.Utils.SQL.Interfaces;
 
     [TestFixture]
     public sealed class EdgeOperationsTests
@@ -22,8 +22,8 @@ namespace Solti.Utils.SQL.Tests
         [TearDown]
         public void Teardown()
         {
-            Cache.AsDictionary<(Type, Type, int), IReadOnlyList<Edge>>().Clear();
-            Cache.AsDictionary<Type, IReadOnlyList<Edge>>().Clear();
+            Cache.Clear<int, IReadOnlyList<Edge>>();
+            Cache.Clear<Type, IReadOnlyList<Edge>>();
             Config.Use(new SpecifiedDataTables());
         }
 

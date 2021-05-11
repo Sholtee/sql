@@ -4,19 +4,17 @@
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
 using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Reflection;
 
 namespace Solti.Utils.SQL
 {
-    using Primitives;
     using Properties;
 
     /// <summary>
     /// Defines an edge between two data tables.
     /// </summary>
-    public sealed class Edge
+    public record Edge
     {
         /// <summary>
         /// Represents the source data table.
@@ -81,23 +79,5 @@ namespace Solti.Utils.SQL
         /// Stringigies this edge.
         /// </summary>
         public override string ToString() => $"Edge({SourceTable.FullName} -> {DestinationTable.FullName})";
-
-        /// <summary>
-        /// Gets the hash code of this instance.
-        /// </summary>
-        public override int GetHashCode() => new 
-        {
-            SourceProperty,
-            DestinationProperty
-        }.GetHashCode();
-
-        /// <summary>
-        /// See <see cref="object.Equals(object)"/>.
-        /// </summary>
-        public override bool Equals(object obj)
-        {
-            if (!(obj is Edge that)) return false;
-            return GetHashCode() == that.GetHashCode();
-        }
     }
 }

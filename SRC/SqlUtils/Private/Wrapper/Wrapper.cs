@@ -33,14 +33,6 @@ namespace Solti.Utils.SQL.Internals
             Mappers       = MappingContext.Create(unwrappedType, viewType);
         }
 
-        private void AssignWrappedProperties(object target, IEnumerable group)
-        {
-            foreach (WrappedSelection sel in ViewType.GetWrappedSelections())
-            {
-                sel.ViewProperty.FastSetValue(target, new Wrapper(sel.UnderlyingType, UnwrappedType).Wrap(group, sel.IsList));          
-            }
-        }
-
         private object? Wrap(IEnumerable unwrappedObjects, bool wrapToList)
         {
             IList lst = (IList) typeof(List<>).MakeInstance(ViewType.GetEffectiveType());
@@ -75,7 +67,14 @@ namespace Solti.Utils.SQL.Internals
                 // tipusa szerint.
                 //
 
-                AssignWrappedProperties(view, group);
+                foreach (WrappedSelection sel in ViewType.GetWrappedSelections())
+                {
+                    sel.ViewProperty.FastSetValue
+                    (
+                        view,
+                        new Wrapper(sel.UnderlyingType, UnwrappedType).Wrap(group, sel.IsList)
+                    );
+                }
 
                 lst.Add(view);
             }

@@ -13,11 +13,11 @@ namespace Solti.Utils.SQL.Internals
     using Interfaces;
     using Primitives;
 
-    internal static class UnwrappedView
+    internal class UnwrappedView: ViewFactory
     {
-        public static Type Create(Type type) => Cache.GetOrAdd(type, () =>
+        public static Type CreateView(Type type) => Cache.GetOrAdd(type, () =>
         {
-            return new ViewFactory
+            return CreateView
             (
                 new MemberDefinition
                 (
@@ -25,7 +25,7 @@ namespace Solti.Utils.SQL.Internals
                     type.GetQueryBase()
                 ),
                 GetMembers()
-            ).CreateType();
+            );
 
             IEnumerable<MemberDefinition> GetMembers() 
             {

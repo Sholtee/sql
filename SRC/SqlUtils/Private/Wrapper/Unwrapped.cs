@@ -37,7 +37,7 @@ namespace Solti.Utils.SQL.Internals
                                 ex.Data[nameof(type)] = type;
                             }
 
-                            FType = UnwrappedView.Create(type);
+                            FType = UnwrappedView.CreateView(type);
 
                             Debug.WriteLine($"Unwrapping view: {typeof(TView)}. The result is:{Environment.NewLine}{string.Join<PropertyInfo>(Environment.NewLine, FType.GetProperties())}");
                         }

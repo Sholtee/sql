@@ -29,8 +29,8 @@ namespace Solti.Utils.SQL.Tests
         [TearDown]
         public void Teardown()
         {
-            Cache.AsDictionary<(Type, Type, int), IReadOnlyList<Edge>>().Clear();
-            Cache.AsDictionary<Type, IReadOnlyList<Edge>>().Clear();
+            Cache.Clear<(Type, Type, int), IReadOnlyList<Edge>>();
+            Cache.Clear<Type, IReadOnlyList<Edge>>();
             Config.Use(new SpecifiedDataTables());
         }
 
@@ -237,6 +237,8 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void SmartSqlBuilder_ShouldWorkWithComplexViews()
         {
+            Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
+
             var mockSqlBuilder = new Mock<ISqlQuery>(MockBehavior.Strict);
             var seq = new MockSequence();
 
@@ -270,8 +272,6 @@ namespace Solti.Utils.SQL.Tests
                 .Setup(x => x.Select(
                     It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute))),
                     It.Is<PropertyInfo>(y => y == Unwrapped<Extension1>.Type.GetProperty(nameof(Extension1.ReferenceWithoutAttribute)))));
-
-            Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 
             SmartSqlBuilder<Extension1>.Initialize();
             SmartSqlBuilder<Extension1>.Build(mockSqlBuilder.Object);

@@ -82,8 +82,8 @@ namespace Solti.Utils.SQL.Internals
         }
         #endregion
 
-        #region Protected
-        protected void AddProperty(string name, Type type, params CustomAttributeBuilder[] customAttributes)
+        #region Public
+        public void AddProperty(string name, Type type, params CustomAttributeBuilder[] customAttributes)
         {
             //
             // public XXX {}
@@ -145,9 +145,7 @@ namespace Solti.Utils.SQL.Internals
                 property.SetCustomAttribute(customAttribute);
             }
         }
-        #endregion
 
-        #region Public
         public ClassFactory(string name, params CustomAttributeBuilder[] customAttributes)
         {
             FClass = AssemblyBuilder

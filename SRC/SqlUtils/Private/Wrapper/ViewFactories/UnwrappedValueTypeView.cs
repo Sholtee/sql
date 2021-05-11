@@ -11,9 +11,9 @@ namespace Solti.Utils.SQL.Internals
     using Interfaces;
     using Primitives;
 
-    internal static class UnwrappedValueTypeView
+    internal class UnwrappedValueTypeView: ViewFactory
     {
-        public static Type Create(PropertyInfo dataTableColumn, bool required) => Cache.GetOrAdd(dataTableColumn, () =>
+        public static Type CreateView(PropertyInfo dataTableColumn, bool required) => Cache.GetOrAdd(dataTableColumn, () =>
         {
             Type dataTable = dataTableColumn.ReflectedType;
             PropertyInfo pk = dataTable.GetPrimaryKey();
@@ -29,7 +29,7 @@ namespace Solti.Utils.SQL.Internals
             // }
             //
 
-            return new ViewFactory
+            return CreateView
             (
                 new MemberDefinition
                 (
@@ -63,8 +63,7 @@ namespace Solti.Utils.SQL.Internals
                         CustomAttributeBuilderFactory.CreateFrom(new BelongsToAttribute(dataTable, required))
                     )
                 }
-            )
-            .CreateType();
+            );
         }, nameof(UnwrappedValueTypeView));
     }
 }

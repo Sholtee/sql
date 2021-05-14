@@ -254,7 +254,7 @@ namespace Solti.Utils.SQL.Tests
                 .Set("Id", 1.ToString())
                 .Set("Count", 10));
 
-            List<View3> result = Wrapper.Wrap<View3>(objs);
+            List<View3> result = Wrapper<View3>.Wrap(objs);
 
             Assert.That(result.Count, Is.EqualTo(objs.Count));
             Assert.That(result[0].Id, Is.EqualTo("1"));
@@ -280,7 +280,7 @@ namespace Solti.Utils.SQL.Tests
                 .Set("Id", 2.ToString()) // DIREKT 2 megint
                 .Set("Count", 20));
 
-            List<WrappedView1> result = Wrapper.Wrap<WrappedView1>(objs);
+            List<WrappedView1> result = Wrapper<WrappedView1>.Wrap(objs);
 
             Assert.That(result.Count, Is.EqualTo(2));
 
@@ -308,7 +308,7 @@ namespace Solti.Utils.SQL.Tests
             objs.Add(unwrapped.MakeInstance()
                 .Set("Azonosito", 1));
 
-            List<WrappedView1> result = Wrapper.Wrap<WrappedView1>(objs);
+            List<WrappedView1> result = Wrapper<WrappedView1>.Wrap(objs);
 
             Assert.That(result.Count, Is.EqualTo(1));
             Assert.That(result[0].Azonosito, Is.EqualTo(1));
@@ -357,7 +357,7 @@ namespace Solti.Utils.SQL.Tests
                 .Set("Foo", 30)
                 .Set("Count", 35));
 
-            List<WrappedView2> result = Wrapper.Wrap<WrappedView2>(objs);
+            List<WrappedView2> result = Wrapper<WrappedView2>.Wrap(objs);
 
             Assert.That(result.Count, Is.EqualTo(2));
 
@@ -401,7 +401,7 @@ namespace Solti.Utils.SQL.Tests
                 .Set("Id", id2)
                 .Set("IdSelection", "kutya"));
 
-            List<WrappedView3_Extesnion> result = Wrapper.Wrap<WrappedView3_Extesnion>(objs);
+            List<WrappedView3_Extesnion> result = Wrapper<WrappedView3_Extesnion>.Wrap(objs);
 
             Assert.That(result.Count, Is.EqualTo(1));
 
@@ -446,7 +446,7 @@ namespace Solti.Utils.SQL.Tests
                 .Set("Id", 5.ToString())
                 .Set("Count", 200));
 
-            List<WrappedView4_Complex> result = Wrapper.Wrap<WrappedView4_Complex>(objs);
+            List<WrappedView4_Complex> result = Wrapper<WrappedView4_Complex>.Wrap(objs);
 
             Assert.That(result.Count, Is.EqualTo(2));
 
@@ -487,7 +487,7 @@ namespace Solti.Utils.SQL.Tests
                 .Set("Id", 2.ToString())
                 .Set("Count", 0));
 
-            List<WrappedView3> result = Wrapper.Wrap<WrappedView3>(objs);
+            List<WrappedView3> result = Wrapper<WrappedView3>.Wrap(objs);
 
             Assert.That(result.Count, Is.EqualTo(2));
 
@@ -508,7 +508,7 @@ namespace Solti.Utils.SQL.Tests
             objs.Add(unwrapped.MakeInstance()
                 .Set("Azonosito", 1));
 
-            List<WrappedView3> result = Wrapper.Wrap<WrappedView3>(objs);
+            List<WrappedView3> result = Wrapper<WrappedView3>.Wrap(objs);
 
             Assert.That(result.Count, Is.EqualTo(1));
 
@@ -522,8 +522,8 @@ namespace Solti.Utils.SQL.Tests
         {
             Type unwrapped = Unwrapped<WrappedView1>.Type;
 
-            Assert.Throws<ArgumentException>(() => Wrapper.Wrap<WrappedView1>(Array.CreateInstance(unwrapped, 0)), Resources.NOT_A_LIST);
-            Assert.Throws<ArgumentException>(() => Wrapper.Wrap<WrappedView1>(new List<object>()), Resources.INCOMPATIBLE_LIST);
+            Assert.Throws<ArgumentException>(() => Wrapper<WrappedView1>.Wrap(Array.CreateInstance(unwrapped, 0)), Resources.NOT_A_LIST);
+            Assert.Throws<ArgumentException>(() => Wrapper<WrappedView1>.Wrap(new List<object>()), Resources.INCOMPATIBLE_LIST);
         }
 
         [Test]
@@ -541,7 +541,7 @@ namespace Solti.Utils.SQL.Tests
                 .Set("Id", 1.ToString())
                 .Set("Count", 0));
 
-            Assert.Throws<InvalidOperationException>(() => Wrapper.Wrap<WrappedView3>(objs), Resources.AMBIGUOUS_RESULT);
+            Assert.Throws<InvalidOperationException>(() => Wrapper<WrappedView3>.Wrap(objs), Resources.AMBIGUOUS_RESULT);
         }
 
         [Test]
@@ -569,7 +569,7 @@ namespace Solti.Utils.SQL.Tests
                 .Set("Id_1", Guid.NewGuid())
                 .Set("Reference", 2.ToString()));
 
-            List<Start_Node_View_ValueList> result = Wrapper.Wrap<Start_Node_View_ValueList>(objs);
+            List<Start_Node_View_ValueList> result = Wrapper<Start_Node_View_ValueList>.Wrap(objs);
 
             Assert.That(result.Count, Is.EqualTo(2));
             Assert.That(result[0].References.Count, Is.EqualTo(1));
@@ -601,7 +601,7 @@ namespace Solti.Utils.SQL.Tests
                 .Set("Id_1", Guid.NewGuid())
                 .Set("Reference", 2.ToString()));
 
-            List<Start_Node_View_ValueList> result = Wrapper.Wrap<Start_Node_View_ValueList>(objs);
+            List<Start_Node_View_ValueList> result = Wrapper<Start_Node_View_ValueList>.Wrap(objs);
 
             Assert.That(result.Count, Is.EqualTo(2));
             Assert.That(result[0].References, Is.Empty);
@@ -631,7 +631,7 @@ namespace Solti.Utils.SQL.Tests
                 .Set("Id_1", "meresi hiba")
                 .Set("Count", 30));
 
-            List<CollidingWrappedView> result = Wrapper.Wrap<CollidingWrappedView>(objs);
+            List<CollidingWrappedView> result = Wrapper<CollidingWrappedView>.Wrap(objs);
 
             Assert.That(result.Count, Is.EqualTo(2));
             Assert.That(result[0].Id, Is.EqualTo(1));

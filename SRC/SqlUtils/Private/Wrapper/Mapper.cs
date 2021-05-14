@@ -11,147 +11,130 @@ using System.Reflection;
 
 namespace Solti.Utils.SQL.Internals
 {
-    using Primitives;
     using Properties;
+    using Primitives.Patterns;
 
-    internal static class Mapper
+    internal sealed class Mapper<TSrc, TDst>: Singleton<Mapper<TSrc, TDst>>
     {
-        public static Func<object?, object?> Create(Type srcType, Type dstType) => Cache.GetOrAdd((srcType, dstType), () =>
+        private Func<TSrc?, TDst?> Core { get; } = CreateDelegate();
+
+        //
+        // Magat a delegate-et kozvetlen ne tegyuk elerhetove mert annak Method tulajdonsagat
+        // nem lehet dinamikus kifejezesekben hasznalni mivel o maga is dinamikus.
+        //
+
+        public static TDst? Map(TSrc? src) => Instance.Core.Invoke(src);
+
+        private static Func<TSrc?, TDst?> CreateDelegate()
         {
-            ParameterExpression p = Expression.Parameter(typeof(object));
+            ParameterExpression p = Expression.Parameter(typeof(TSrc));
 
-            BlockExpression block;
+            PropertyInfo? propertyToMap = typeof(TSrc).MapFrom();
 
-            if (srcType.IsValueTypeOrString())
-                block = CreateForValueType(null);
-            else
-            {
-                PropertyInfo? propertyToMap = srcType.MapFrom();
+            return Expression
+                .Lambda<Func<TSrc?, TDst?>>
+                (
+                    propertyToMap is null 
+                        ? CreateForClass(p) 
+                        : CreateForValueType(p, propertyToMap), 
+                    p
+                )
+                .Compile();
+        }
 
-                block = propertyToMap == null 
-                    ? CreateForClass() 
-                    : CreateForValueType(propertyToMap);
-            }
+        private static BlockExpression CreateForValueType(ParameterExpression p, PropertyInfo property) 
+        {
+            Type dstType = typeof(TDst);
 
-            return Expression.Lambda<Func<object?, object?>>(block, p).Compile();
+            if (property?.PropertyType != dstType)
+                throw MappingNotSupported();
 
-            BlockExpression CreateForValueType(PropertyInfo? property) 
+            return Expression.Block
+            (
+                //
+                // return (TDst) p.Prop;
+                //
+
+                Expression.Convert
+                (
+                    Expression.Property(p, property), 
+                    dstType
+                )
+            );
+        }
+
+        private static BlockExpression CreateForClass(ParameterExpression p) 
+        {
+            Type
+                srcType = typeof(TSrc),
+                dstType = typeof(TDst);
+
+            if (!srcType.IsClass || !dstType.IsClass)
+                throw MappingNotSupported();
+
+            ParameterExpression dst = Expression.Variable(dstType, nameof(dst));
+
+            LabelTarget label = Expression.Label(dstType);
+
+            const BindingFlags bindingFlagsBase = BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
+
+            IReadOnlyList<PropertyInfo>
+                srcProps = srcType.GetProperties(bindingFlagsBase | BindingFlags.GetProperty),
+                dstProps = dstType.GetProperties(bindingFlagsBase | BindingFlags.SetProperty);
+
+            return Expression.Block
+            (
+                variables: new[] { dst },
+                expressions: GetBlockExpressions()
+            )!;
+
+            IEnumerable<Expression> GetBlockExpressions() 
             {
                 //
-                // TODO: int32 -> int64 pl mukodnie kene
+                // if (p == null) return null
                 //
 
-                if (srcType != dstType && property?.PropertyType != dstType)
-                    throw MappingNotSupported();
-
-                Expression src = property == null
-                    //
-                    // (TDst) p
-                    //
-
-                    ? (Expression) Expression.Convert(p, dstType)
-
-                    //
-                    // (TType p).Prop
-                    //
-
-                    : Expression.Property
-                    (
-                        Expression.Convert(p, property.DeclaringType),
-                        property
-                    );
-
-                ParameterExpression dst = Expression.Variable(dstType, nameof(dst));
-
-                return Expression.Block
+                yield return Expression.IfThen
                 (
-                    variables: new[] { dst },
+                    Expression.Equal(p, Expression.Default(srcType)),
+                    Expression.Return(label, Expression.Default(dstType))
+                );
 
-                    //
-                    // TDst dst = ...
-                    // return (object) dst; // cast-olas a boxing-hoz kell
-                    //
+                //
+                // TDst dst = new TDst();
+                //
 
-                    Expression.Assign(dst, src),
-                    Expression.Convert(dst, typeof(object))
-                )!;
+                yield return Expression.Assign(dst, Expression.New(dstType));
+
+                //
+                // dst.Prop_1 = p.Prop_1;
+                // ...
+                // dst.Prop_N = p.Prop_N;
+                //
+
+                foreach (PropertyInfo srcProp in srcProps) 
+                {
+                    PropertyInfo dstProp = dstProps.SingleOrDefault(dstProp => srcProp.CanBeMappedIn(dstProp));
+                    if (dstProp is null) continue;
+
+                    yield return Expression.Assign(Expression.Property(dst, dstProp), Expression.Property(p, srcProp));
+                }
+
+                //
+                // return dst;
+                //
+
+                yield return Expression.Return(label, dst);
+                yield return Expression.Label(label, Expression.Default(dstType));
             }
+        }
 
-            BlockExpression CreateForClass() 
-            {
-                if (!srcType.IsClass || !dstType.IsClass)
-                    throw MappingNotSupported();
+        private static NotSupportedException MappingNotSupported()
+        {
+            var ex = new NotSupportedException(Resources.MAPPING_NOT_SUPPORTED);
+            ex.Data["mapping"] = $"{typeof(TSrc)} -> {typeof(TDst)}";
 
-                ParameterExpression
-                     src = Expression.Variable(srcType, nameof(src)),
-                     dst = Expression.Variable(dstType, nameof(dst));
-
-                LabelTarget label = Expression.Label(typeof(object));
-
-                const BindingFlags bindingFlagsBase = BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
-
-                IReadOnlyList<PropertyInfo>
-                    srcProps = srcType.GetProperties(bindingFlagsBase | BindingFlags.GetProperty),
-                    dstProps = dstType.GetProperties(bindingFlagsBase | BindingFlags.SetProperty);
-
-                return Expression.Block
-                (
-                    variables: new[] { src, dst },
-                    expressions: new Expression[]
-                    {
-                        //
-                        // if (p == null) return null
-                        //
-
-                        Expression.IfThen
-                        (
-                            Expression.Equal(p, Expression.Default(typeof(object))),
-                            Expression.Return(label, Expression.Default(typeof(object)))
-                        ),
-
-                        //
-                        // TSrc src = (TSrc) p;
-                        // TDst dst = new TDst();
-                        //
-
-                        Expression.Assign(src, Expression.Convert(p, srcType)),
-                        Expression.Assign(dst, Expression.New(dstType))
-                    }
-                    .Concat
-                    (
-                        //
-                        // dst.Prop_1 = src.Prop_1;
-                        // ...
-                        // dst.Prop_N = src.Prop_N;
-                        //
-
-                        from srcProp in srcProps
-                        let dstProp = dstProps.SingleOrDefault(dstProp => srcProp.CanBeMappedIn(dstProp))
-                        where dstProp != null
-                        select Expression.Assign(Expression.Property(dst, dstProp), Expression.Property(src, srcProp))
-                    )
-                    .Concat
-                    (
-                        //
-                        // return dst;
-                        //
-
-                        new Expression[]
-                        {
-                            Expression.Return(label, dst),
-                            Expression.Label(label, Expression.Default(typeof(object)))
-                        }
-                    )
-                )!;
-            }
-
-            NotSupportedException MappingNotSupported()
-            {
-                var ex = new NotSupportedException(Resources.MAPPING_NOT_SUPPORTED);
-                ex.Data["mapping"] = $"{srcType} -> {dstType}";
-
-                return ex!;
-            }
-        });
+            return ex!;
+        }
     }
 }

@@ -35,7 +35,7 @@ namespace Solti.Utils.SQL
                 // Ha az eredmeny NULL akkor nincs dolgunk (+ a Wrap() is elhasalna tole)
                 //
 
-                return result == null ? new List<TView>(0) : Wrapper.Wrap<TView>(result);
+                return result == null ? new List<TView>(0) : Wrapper<TView>.Wrap(result);
             }
 
             return (List<TView>) query.Run(typeof(TView));

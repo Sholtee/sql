@@ -15,9 +15,50 @@ namespace Solti.Utils.SQL.Internals
     using Primitives.Patterns;
     using Properties;
 
+    /****************************************************************************************************************************
+     * List<TView | TPropertyValue> lst = new List<TView | TPropertyValue>();
+     * 
+     * //
+     * // A kicsomagolt entitasokat csoportositjuk az eredeti nezet NEM listatulajdosagai szerint. Az igy
+     * // kapott egyes csoportok mar egy-egy nezet peldanyhoz tartoznak (csak a csomagolt tulajdonsagaik
+     * // ertekeben ternek el).
+     * //
+     * 
+     * foreach (IGrouping<TGroupKey, TUnwrappedView> group in unwrappedObjects.GroupBy(Mapper<TUnwrappedView, TGroupKey>.Map))
+     * {
+     *     //
+     *     // Ha az entitas ures (LEFT JOIN miatt kaptuk vissza) akkor nem vesszuk fel.
+     *     //
+     *     
+     *     if (group.Key.PrimaryKey == default)
+     *         continue;
+     *         
+     *     //
+     *     // A csoport kulcsa megadja az aktualis nezet peldany nem lista tulajdonsagait -> tolajdonsagok masolasa.
+     *     //
+     *     
+     *     TView | TPropertyValue view = Mapper<TGroupKey, TView | TPropertyValue>.Map(group.Key);
+     *     
+     *     //
+     *     // Az egyes listatulajdonsagok feltoltesehez rekurzivan hivjuk sajat magunkat a lista
+     *     // tipusa szerint.
+     *     //
+     *     
+     *     view.ViewList  = (List<TViewA>)      Wrapper<TViewA, TUnwrappedView>.WrapToList(group);
+     *     view.ValueList = (List<TValueType>)  Wrapper<TViewB, TUnwrappedView>.WrapToList(group);  // lasd UnwrappedValueTypeView
+     *     view.View      =                     Wrapper<TViewC, TUnwrappedView>.WrapToView(group);
+     *     
+     *     ...
+     *     
+     *     lst.Add(view);
+     * }
+     * 
+     * return lst;
+     ****************************************************************************************************************************/
+
     internal class Wrapper<TView, TUnwrappedView>: Singleton<Wrapper<TView, TUnwrappedView>>
     {
-        private Func<IEnumerable<TUnwrappedView>, List<TView>> Core { get; }
+        private Func<IEnumerable<TUnwrappedView>, IList> Core { get; }
 
         public Wrapper()
         {
@@ -29,15 +70,17 @@ namespace Solti.Utils.SQL.Internals
 
             ParameterExpression unwrappedObjects = Expression.Parameter(typeof(IEnumerable<>).MakeGenericType(typeof(TUnwrappedView)), nameof(unwrappedObjects));
 
-            Expression<Func<IEnumerable<TUnwrappedView>, List<TView>>> coreExpr = Expression.Lambda<Func<IEnumerable<TUnwrappedView>, List<TView>>>(GenerateBody(unwrappedObjects), unwrappedObjects);
+            Expression<Func<IEnumerable<TUnwrappedView>, IList>> coreExpr = Expression.Lambda<Func<IEnumerable<TUnwrappedView>, IList>>(GenerateBody(unwrappedObjects), unwrappedObjects);
             Core = coreExpr.Compile();
         }
 
-        public static List<TView> WrapToList(IEnumerable<TUnwrappedView> unwrappedViews) => Instance.Core.Invoke(unwrappedViews);
+        public static List<TView> WrapToTypedList(IEnumerable<TUnwrappedView> unwrappedViews) => (List<TView>) WrapToList(unwrappedViews);
+
+        public static IList WrapToList(IEnumerable<TUnwrappedView> unwrappedViews) => Instance.Core.Invoke(unwrappedViews);
 
         public static TView? WrapToView(IEnumerable<TUnwrappedView> unwrappedViews) 
         {
-            IReadOnlyList<TView> lst = Instance.Core.Invoke(unwrappedViews);
+            IReadOnlyList<TView> lst = WrapToTypedList(unwrappedViews);
 
             if (lst.Count > 1)
                 throw new InvalidOperationException(Resources.AMBIGUOUS_RESULT);
@@ -74,13 +117,13 @@ namespace Solti.Utils.SQL.Internals
                 variables: new[] { lst },
 
                 //
-                // var lst = new List<View>()
+                // var lst = new List<TView>()
                 //
 
                 Expression.Assign(lst, Expression.New(lst.Type)),
 
                 //
-                // foreach (IGrouping<GropKey, UnwrappedView> group in unwrappedObjects.GroupBy(Mapper<UnwrappedView, GroupKey>.Map))
+                // foreach (IGrouping<TGropKey, TUnwrappedView> group in unwrappedObjects.GroupBy(Mapper<TUnwrappedView, TGroupKey>.Map))
                 // {
                 //   ...
                 // }
@@ -136,34 +179,54 @@ namespace Solti.Utils.SQL.Internals
                     );
 
                     //
-                    // View view = Mapper<GroupKey, View>.Map(group.Key);
+                    // TView view = Mapper<TGroupKey, TView>.Map(group.Key);
                     //
 
-                    MethodInfo mapToView = typeof(Mapper<,>).MakeGenericType(groupKey, view.GetEffectiveType()).GetMethod(nameof(Mapper<object, object>.Map));
                     yield return Expression.Assign
                     (
                         viewVar, 
-                        Expression.Call(null, mapToView, key)
+                        Expression.Call
+                        (
+                            null, 
+                            typeof(Mapper<,>)
+                                .MakeGenericType(groupKey, view.GetEffectiveType())
+                                .GetMethod(nameof(Mapper<object, object>.Map)),
+                            key
+                        )
                     );
 
                     //
-                    // view.ViewListA = Wrapper<ViewListAType, UnwrappedView>.WrapToList(group);
-                    // view.ViewListB = Wrapper<ViewListBType, UnwrappedView>.WrapToList(group);
-                    // view.View = Wrapper<View, UnwrappedView>.WrapToView(group);
+                    // view.ViewList  = (List<TViewA>)     Wrapper<TViewA, TUnwrappedView>.WrapToList(group);
+                    // view.ValueList = (List<TValueType>) Wrapper<TViewB, TUnwrappedView>.WrapToList(group);
+                    // view.View      =                    Wrapper<TViewC, TUnwrappedView>.WrapToView(group);
                     //
 
                     foreach (WrappedSelection sel in view.GetWrappedSelections())
                     {
                         Type internalWrapper = typeof(Wrapper<,>).MakeGenericType(sel.UnderlyingType, unwrappedView);
 
-                        MethodInfo wrap = sel.IsList
-                            ? internalWrapper.GetMethod(nameof(WrapToList), BindingFlags.Public | BindingFlags.Static)
-                            : internalWrapper.GetMethod(nameof(WrapToView), BindingFlags.Public | BindingFlags.Static);
+                        Expression wrap = sel.IsList
+                            ? Expression.Convert
+                            (
+                                Expression.Call
+                                (
+                                    null, 
+                                    internalWrapper.GetMethod(nameof(WrapToList), BindingFlags.Public | BindingFlags.Static), 
+                                    group
+                                ),
+                                sel.ViewProperty.PropertyType
+                            )
+                            : Expression.Call
+                            (
+                                null, 
+                                internalWrapper.GetMethod(nameof(WrapToView), BindingFlags.Public | BindingFlags.Static), 
+                                group
+                            );
 
                         yield return Expression.Assign
                         (
                             Expression.Property(viewVar, sel.ViewProperty),
-                            Expression.Call(null, wrap, group)
+                            wrap
                         );
                     }
 
@@ -171,8 +234,14 @@ namespace Solti.Utils.SQL.Internals
                     // lst.Add(view);
                     //
 
-                    MethodInfo lstAdd = lst.Type.GetMethod(nameof(List<object>.Add));
-                    yield return Expression.Call(lst, lstAdd, viewVar);
+                    yield return Expression.Call
+                    (
+                        lst, 
+                        lst
+                            .Type
+                            .GetMethod(nameof(List<object>.Add)),
+                        viewVar
+                    );
                 }
             }
         }
@@ -188,7 +257,6 @@ namespace Solti.Utils.SQL.Internals
 
             Expression
                 getEnumeratorCall = Expression.Call(collection, enumerableType.GetMethod(nameof(IEnumerable.GetEnumerator))),
-                enumeratorAssign  = Expression.Assign(enumerator, getEnumeratorCall),
                 moveNextCall      = Expression.Call(enumerator,  typeof(IEnumerator).GetMethod(nameof(IEnumerator.MoveNext)));
 
             LabelTarget
@@ -198,7 +266,7 @@ namespace Solti.Utils.SQL.Internals
             return Expression.Block
             (
                 variables: new[] { enumerator },
-                enumeratorAssign,
+                Expression.Assign(enumerator, getEnumeratorCall),
                 Expression.Loop
                 (
                     Expression.IfThenElse

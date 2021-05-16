@@ -24,7 +24,7 @@ namespace Solti.Utils.SQL.Internals
         {
             MethodInfo concreteWrapper = typeof(Wrapper<,>)
                 .MakeGenericType(typeof(TView), Unwrapped<TView>.Type)
-                .GetMethod(nameof(Wrapper<object, object>.WrapToList), BindingFlags.Public | BindingFlags.Static);
+                .GetMethod(nameof(Wrapper<object, object>.WrapToTypedList), BindingFlags.Public | BindingFlags.Static);
 
             ParameterExpression sourceObjects = Expression.Parameter(typeof(IList), nameof(sourceObjects));
 

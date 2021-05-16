@@ -48,72 +48,132 @@ namespace Solti.Utils.SQL.Internals
     internal class ClassFactory
     {
         #region Private
-        private readonly Label FReturnFalse;
+        private const MethodAttributes PUBLIC_OVERRIDE = MethodAttributes.Public | MethodAttributes.ReuseSlot | MethodAttributes.Virtual | MethodAttributes.HideBySig;
 
-        private readonly LocalBuilder FThat;
-
-        private readonly ILGenerator FEqualsGenerator;
-
-        private readonly LocalBuilder FHk;
-
-        private readonly ILGenerator  FGetHashCodeGenerator;
-
-        private readonly TypeBuilder FClass; 
-
-        private void GenerateEqualityComparison(PropertyInfo prop) 
+        private interface IMethodGenerator
         {
+            void ProcessProperty(PropertyBuilder prop);
+            void GenerateEpilogue();
+        }
+
+        private sealed class EqualsGenerator : IMethodGenerator 
+        {
+            private readonly Label FReturnFalse;
+
+            private readonly LocalBuilder FThat;
+
+            private readonly ILGenerator FGenerator;
+
+            //
+            // public override bool Equals(object val)
+            // {
+            //     MyClass that = val as MyClass;
+            //     if (that == null)
+            //        return false;
+            //     
+            //     ...
+            // }
+            //
+
+            public EqualsGenerator(TypeBuilder cls)
+            {
+                FGenerator = cls
+                    .DefineMethod(nameof(Equals), PUBLIC_OVERRIDE, typeof(bool), new[] { typeof(object) })
+                    .GetILGenerator();
+                FReturnFalse = FGenerator.DefineLabel();
+                FThat = FGenerator.DeclareLocal(cls);
+
+                FGenerator.Emit(Ldarg_1);
+                FGenerator.Emit(Isinst, cls);
+                FGenerator.Emit(Stloc, FThat);
+                FGenerator.Emit(Ldloc, FThat);
+                FGenerator.Emit(Brfalse, FReturnFalse);
+            }
+
             //
             // if (!Object.Equals(this.Prop, that.Prop))
             //   return false;
             //
 
-            FEqualsGenerator.Emit(Ldarg_0);
-            FEqualsGenerator.Emit(Call, prop.GetMethod);
-            if (prop.PropertyType.IsValueType)
-                FEqualsGenerator.Emit(Box, prop.PropertyType);
+            public void ProcessProperty(PropertyBuilder prop)
+            {
 
-            FEqualsGenerator.Emit(Ldloc, FThat);
-            FEqualsGenerator.Emit(Call, prop.GetMethod);
-            if (prop.PropertyType.IsValueType)
-                FEqualsGenerator.Emit(Box, prop.PropertyType);
+                FGenerator.Emit(Ldarg_0);
+                FGenerator.Emit(Call, prop.GetMethod);
+                if (prop.PropertyType.IsValueType)
+                    FGenerator.Emit(Box, prop.PropertyType);
 
-            FEqualsGenerator.Emit(Call, ((Func<object?, object?, bool>) Object.Equals).Method);
-            FEqualsGenerator.Emit(Brfalse, FReturnFalse);
+                FGenerator.Emit(Ldloc, FThat);
+                FGenerator.Emit(Call, prop.GetMethod);
+                if (prop.PropertyType.IsValueType)
+                    FGenerator.Emit(Box, prop.PropertyType);
+
+                FGenerator.Emit(Call, ((Func<object?, object?, bool>) Object.Equals).Method);
+                FGenerator.Emit(Brfalse, FReturnFalse);
+            }
+
+            public void GenerateEpilogue()
+            {
+                FGenerator.Emit(Ldc_I4, 1);
+                FGenerator.Emit(Ret);
+                FGenerator.MarkLabel(FReturnFalse);
+                FGenerator.Emit(Ldc_I4, 0);
+                FGenerator.Emit(Ret);
+            }
         }
 
-        private void GenerateEqualsEpilogue() 
+        private sealed class GetHashCodeGenerator : IMethodGenerator
         {
-            FEqualsGenerator.Emit(Ldc_I4, 1);
-            FEqualsGenerator.Emit(Ret);
-            FEqualsGenerator.MarkLabel(FReturnFalse);
-            FEqualsGenerator.Emit(Ldc_I4, 0);
-            FEqualsGenerator.Emit(Ret);
-        }
+            private readonly LocalBuilder FHk;
 
-        private static readonly MethodInfo HkAdd = ((MethodCallExpression) ((Expression<Action<HashCode>>) (hc => hc.Add(0))).Body)
-            .Method
-            .GetGenericMethodDefinition();
+            private readonly ILGenerator FGenerator;
 
-        private void GenerateHashCodeAddition(PropertyInfo prop) 
-        {
+            //
+            // public override int GetHashCode() { var hc = new HashCode(); ... }
+            //
+
+            public GetHashCodeGenerator(TypeBuilder cls)
+            {
+                FGenerator = cls
+                    .DefineMethod(nameof(GetHashCode), PUBLIC_OVERRIDE, typeof(int), Type.EmptyTypes)
+                    .GetILGenerator();
+                FHk = FGenerator.DeclareLocal(typeof(HashCode));
+
+                FGenerator.Emit(Ldloca, FHk);
+                FGenerator.Emit(Initobj, typeof(HashCode));
+            }
+
             //
             // hc.Add<T>(this.Prop);
             //
 
-            FGetHashCodeGenerator.Emit(Ldloca, FHk);
-            FGetHashCodeGenerator.Emit(Ldarg_0);
-            FGetHashCodeGenerator.Emit(Call, prop.GetMethod);
-            FGetHashCodeGenerator.Emit(Call, HkAdd.MakeGenericMethod(prop.PropertyType));
+            private static readonly MethodInfo HkAdd = ((MethodCallExpression) ((Expression<Action<HashCode>>) (hc => hc.Add(0))).Body)
+                .Method
+                .GetGenericMethodDefinition();
+
+            public void ProcessProperty(PropertyBuilder prop)
+            {
+                FGenerator.Emit(Ldloca, FHk);
+                FGenerator.Emit(Ldarg_0);
+                FGenerator.Emit(Call, prop.GetMethod);
+                FGenerator.Emit(Call, HkAdd.MakeGenericMethod(prop.PropertyType));
+            }
+
+            private static readonly MethodInfo HkToHashCode = ((MethodCallExpression) ((Expression<Action<HashCode>>) (hc => hc.ToHashCode())).Body).Method;
+
+            public void GenerateEpilogue()
+            {
+                FGenerator.Emit(Ldloca, FHk);
+                FGenerator.Emit(Call, HkToHashCode);
+                FGenerator.Emit(Ret);
+            }
         }
 
-        private static readonly MethodInfo HkToHashCode = ((MethodCallExpression) ((Expression<Action<HashCode>>) (hc => hc.ToHashCode())).Body).Method;
+        private readonly TypeBuilder FClass;
 
-        private void GenerateGetHashCodeEpilogue() 
-        {
-            FGetHashCodeGenerator.Emit(Ldloca, FHk);
-            FGetHashCodeGenerator.Emit(Call, HkToHashCode);
-            FGetHashCodeGenerator.Emit(Ret);
-        }
+        private readonly IMethodGenerator
+            FEqualsGenerator,
+            FGetHashCodeGenerator;
         #endregion
 
         #region Public
@@ -171,8 +231,8 @@ namespace Solti.Utils.SQL.Internals
             property.SetGetMethod(getPropMthdBldr);
             property.SetSetMethod(setPropMthdBldr);
 
-            GenerateEqualityComparison(property);
-            GenerateHashCodeAddition(property);
+            FGetHashCodeGenerator.ProcessProperty(property);
+            FEqualsGenerator.ProcessProperty(property);
 
             foreach (CustomAttributeBuilder customAttribute in customAttributes) 
             {
@@ -194,40 +254,8 @@ namespace Solti.Utils.SQL.Internals
                 FClass.SetCustomAttribute(customAttribute);
             }
 
-            const MethodAttributes PUBLIC_OVERRIDE = MethodAttributes.Public | MethodAttributes.ReuseSlot | MethodAttributes.Virtual | MethodAttributes.HideBySig;
-
-            //
-            // public override bool Equals(object val)
-            // {
-            //     MyClass that = val as MyClass;
-            //     if (that == null)
-            //        return false;
-            //     
-            //     ...
-            // }
-            //
-
-            FEqualsGenerator = FClass
-                .DefineMethod(nameof(Equals), PUBLIC_OVERRIDE, typeof(bool), new[] { typeof(object) })
-                .GetILGenerator();
-            FReturnFalse = FEqualsGenerator.DefineLabel();
-            FThat = FEqualsGenerator.DeclareLocal(FClass);
-            FEqualsGenerator.Emit(Ldarg_1);
-            FEqualsGenerator.Emit(Isinst, FClass);
-            FEqualsGenerator.Emit(Stloc, FThat);
-            FEqualsGenerator.Emit(Ldloc, FThat);
-            FEqualsGenerator.Emit(Brfalse, FReturnFalse);
-
-            //
-            // public override int GetHashCode() { var hc = new HashCode(); ... }
-            //
-
-            FGetHashCodeGenerator = FClass
-                .DefineMethod(nameof(GetHashCode), PUBLIC_OVERRIDE, typeof(int), Type.EmptyTypes)
-                .GetILGenerator();
-            FHk = FGetHashCodeGenerator.DeclareLocal(typeof(HashCode));
-            FGetHashCodeGenerator.Emit(Ldloca, FHk);
-            FGetHashCodeGenerator.Emit(Initobj, typeof(HashCode));
+            FEqualsGenerator = new EqualsGenerator(FClass);
+            FGetHashCodeGenerator = new GetHashCodeGenerator(FClass);
         }
 
         public Type CreateType()
@@ -235,8 +263,8 @@ namespace Solti.Utils.SQL.Internals
             if (FClass.IsCreated())
                 throw new InvalidOperationException(); // TODO: message
 
-            GenerateEqualsEpilogue();
-            GenerateGetHashCodeEpilogue();
+            FEqualsGenerator.GenerateEpilogue();
+            FGetHashCodeGenerator.GenerateEpilogue();
 
             return FClass.CreateTypeInfo()!.AsType();
         }

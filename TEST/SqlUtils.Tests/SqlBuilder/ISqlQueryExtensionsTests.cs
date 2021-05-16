@@ -22,7 +22,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void RunTest()
         {
-            Type unwrapped = Unwrapped<WrappedView1>.Type;
+            Type unwrapped = UnwrappedView<WrappedView1>.Type;
 
             MethodInfo run = typeof(ISqlQuery).GetMethod(nameof(ISqlQuery.Run));
 

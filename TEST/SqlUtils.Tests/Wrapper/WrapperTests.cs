@@ -27,7 +27,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void UnwrappedView_ShouldUnwrapSimpleViews()
         {
-            Type unwrapped = Unwrapped<View2>.Type;
+            Type unwrapped = UnwrappedView<View2>.Type;
 
             typeof(View2)
                 .GetProperties()
@@ -57,7 +57,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void UnwrappedView_ShouldUnwrapSimpleViewsDescendingFromDataTable()
         {
-            Type unwrapped = Unwrapped<Extension1>.Type;
+            Type unwrapped = UnwrappedView<Extension1>.Type;
 
             typeof(Extension1)
                 .GetProperties()
@@ -93,15 +93,15 @@ namespace Solti.Utils.SQL.Tests
         }
 
         [Test]
-        public void UnwrappedView_ShouldCache() => Assert.AreSame(Unwrapped<View2>.Type, Unwrapped<View2>.Type);
+        public void UnwrappedView_ShouldCache() => Assert.AreSame(UnwrappedView<View2>.Type, UnwrappedView<View2>.Type);
 
         [TestCase(typeof(WrappedView1), nameof(WrappedView1.ViewList))]
         [TestCase(typeof(WrappedView3), nameof(WrappedView3.View))]
         public void UnwrappedView_ShouldUnwrapComplexViews(Type view, string wrappedProp)
         {
-            Type unwrapped = (Type) typeof(Unwrapped<>)
+            Type unwrapped = (Type) typeof(UnwrappedView<>)
                 .MakeGenericType(view)
-                .GetProperty(nameof(Type))
+                .GetProperty(nameof(UnwrappedView<object>.Type), BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
                 .GetValue(null);
 
             view
@@ -134,7 +134,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void UnwrappedView_ShouldUnwrapMoreComplexViewHavingMultipleWrappedProperties()
         {
-            Type unwrapped = Unwrapped<WrappedView2>.Type;
+            Type unwrapped = UnwrappedView<WrappedView2>.Type;
 
             typeof(WrappedView2)
                 .GetProperties()
@@ -167,7 +167,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void UnwrappedView_ShouldUnwrapViewsHavingWrappedPropertyWithTypeOfDataTableDescendant()
         {
-            Type unwrapped = Unwrapped<WrappedView3_Extesnion>.Type;
+            Type unwrapped = UnwrappedView<WrappedView3_Extesnion>.Type;
 
             typeof(Extension1)
                 .GetProperties()
@@ -206,7 +206,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void UnwrappedView_ShouldBeRecursive()
         {
-            Type unwrapped = Unwrapped<WrappedView4_Complex>.Type;
+            Type unwrapped = UnwrappedView<WrappedView4_Complex>.Type;
 
             typeof(WrappedView4_Complex)
                 .GetProperties()
@@ -235,7 +235,7 @@ namespace Solti.Utils.SQL.Tests
         public void UnwrappedView_ShouldHandlePropertyNameCollisions()
         {
             Type unwrapped = null;
-            Assert.DoesNotThrow(() => unwrapped = Unwrapped<CollidingWrappedView>.Type);
+            Assert.DoesNotThrow(() => unwrapped = UnwrappedView<CollidingWrappedView>.Type);
 
             Assert.That(unwrapped.GetProperty("Id_0"), Is.Not.Null);
             Assert.That(unwrapped.GetProperty("Id_0").GetCustomAttribute<MapToAttribute>()?.Property, Is.EqualTo("Solti.Utils.SQL.Tests.CollidingWrappedView.Id"));
@@ -247,7 +247,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void Wrapper_ShouldWorkWithViewsWithoutListProperty()
         {
-            Type unwrapped = Unwrapped<View3 /*Nincs benn lista tulajdonsag*/>.Type;
+            Type unwrapped = UnwrappedView<View3 /*Nincs benn lista tulajdonsag*/>.Type;
 
             var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
             objs.Add(unwrapped.MakeInstance()
@@ -264,7 +264,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void Wrapper_ShouldWorkWithComplexViews()
         {
-            Type unwrapped = Unwrapped<WrappedView1>.Type;
+            Type unwrapped = UnwrappedView<WrappedView1>.Type;
 
             var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
             objs.Add(unwrapped.MakeInstance()
@@ -302,7 +302,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void Wrapper_ShouldTakeEmptyListMarkerAttributeIntoAccount()
         {
-            Type unwrapped = Unwrapped<WrappedView1>.Type;
+            Type unwrapped = UnwrappedView<WrappedView1>.Type;
 
             var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
             objs.Add(unwrapped.MakeInstance()
@@ -319,7 +319,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void Wrapper_ShouldWorkWithMoreComplexViews()
         {
-            Type unwrapped = Unwrapped<WrappedView2>.Type;
+            Type unwrapped = UnwrappedView<WrappedView2>.Type;
 
             var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
 
@@ -385,7 +385,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void Wrapper_ShouldWorkWithViewsDescendingFromOrmType()
         {
-            Type unwrapped = Unwrapped<WrappedView3_Extesnion>.Type;
+            Type unwrapped = UnwrappedView<WrappedView3_Extesnion>.Type;
 
             Guid
                 id1 = Guid.NewGuid(),
@@ -417,7 +417,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void Wrapper_ShouldBeRecursive()
         {
-            Type unwrapped = Unwrapped<WrappedView4_Complex>.Type;
+            Type unwrapped = UnwrappedView<WrappedView4_Complex>.Type;
 
             var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
             objs.Add(unwrapped.MakeInstance()
@@ -475,7 +475,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void Wrapper_ShouldWorkWithViewsHavingNonListWrappedProperty() 
         {
-            Type unwrapped = Unwrapped<WrappedView3>.Type;
+            Type unwrapped = UnwrappedView<WrappedView3>.Type;
 
             var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
             objs.Add(unwrapped.MakeInstance()
@@ -502,7 +502,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void Wrapper_ShouldWorkWithViewsHavingNonListWrappedOptionalProperty()
         {
-            Type unwrapped = Unwrapped<WrappedView3>.Type;
+            Type unwrapped = UnwrappedView<WrappedView3>.Type;
 
             var objs = (IList)typeof(List<>).MakeInstance(unwrapped);
             objs.Add(unwrapped.MakeInstance()
@@ -520,7 +520,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void Wrapper_ShouldValidateTheSourceList() 
         {
-            Type unwrapped = Unwrapped<WrappedView1>.Type;
+            Type unwrapped = UnwrappedView<WrappedView1>.Type;
 
             Assert.Throws<ArgumentException>(() => Wrapper<WrappedView1>.Wrap(Array.CreateInstance(unwrapped, 0)), Resources.NOT_A_LIST);
             Assert.Throws<ArgumentException>(() => Wrapper<WrappedView1>.Wrap(new List<object>()), Resources.INCOMPATIBLE_LIST);
@@ -529,7 +529,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void Wrapper_ShouldThrowIfTheViewIsAmbiguous() 
         {
-            Type unwrapped = Unwrapped<WrappedView3>.Type;
+            Type unwrapped = UnwrappedView<WrappedView3>.Type;
 
             var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
             objs.Add(unwrapped.MakeInstance()
@@ -547,7 +547,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void Wrapper_ShouldWorkWithValueLists() 
         {
-            Type unwrapped = Unwrapped<Start_Node_View_ValueList>.Type;
+            Type unwrapped = UnwrappedView<Start_Node_View_ValueList>.Type;
 
             var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
 
@@ -582,7 +582,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void Wrapper_ShouldHandleEmptyValueLists()
         {
-            Type unwrapped = Unwrapped<Start_Node_View_ValueList>.Type;
+            Type unwrapped = UnwrappedView<Start_Node_View_ValueList>.Type;
 
             var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
 
@@ -613,7 +613,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void Wrapper_ShouldHandlePropertyNameCollision() 
         {
-            Type unwrapped = Unwrapped<CollidingWrappedView>.Type;
+            Type unwrapped = UnwrappedView<CollidingWrappedView>.Type;
 
             var objs = (IList) typeof(List<>).MakeInstance(unwrapped);
 

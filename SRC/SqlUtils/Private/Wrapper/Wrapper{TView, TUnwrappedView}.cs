@@ -97,7 +97,7 @@ namespace Solti.Utils.SQL.Internals
             Type
                 view = typeof(TView), 
                 unwrappedView = typeof(TUnwrappedView), 
-                groupKey = GroupKeyView.CreateView(unwrappedView, view);
+                groupKey = GroupKeyView<TView, TUnwrappedView>.Type;
 
             ParameterExpression lst = Expression.Variable(typeof(List<>).MakeGenericType(view.GetEffectiveType()), nameof(lst));
 

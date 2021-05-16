@@ -29,7 +29,7 @@ namespace Solti.Utils.SQL
 
             if (typeof(TView).IsWrapped())
             {
-                IList result = query.Run(Unwrapped<TView>.Type);
+                IList result = query.Run(UnwrappedView<TView>.Type);
 
                 //
                 // Ha az eredmeny NULL akkor nincs dolgunk (+ a Wrap() is elhasalna tole)

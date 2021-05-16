@@ -19,7 +19,7 @@ namespace Solti.Utils.SQL.Internals
 
         protected static IReadOnlyList<ColumnSelection> Selections
         {
-            get => Unwrapped<TView>
+            get => UnwrappedView<TView>
                 .Type
                 .GetColumnSelections();
         }

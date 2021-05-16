@@ -17,13 +17,12 @@ namespace Solti.Utils.SQL.Internals
 
     internal class Wrapper<TView>: Singleton<Wrapper<TView>>
     {
-
         private Func<IList, List<TView>> Core { get; }
 
         public Wrapper()
         {
             MethodInfo concreteWrapper = typeof(Wrapper<,>)
-                .MakeGenericType(typeof(TView), Unwrapped<TView>.Type)
+                .MakeGenericType(typeof(TView), UnwrappedView<TView>.Type)
                 .GetMethod(nameof(Wrapper<object, object>.WrapToTypedList), BindingFlags.Public | BindingFlags.Static);
 
             ParameterExpression sourceObjects = Expression.Parameter(typeof(IList), nameof(sourceObjects));
@@ -34,7 +33,7 @@ namespace Solti.Utils.SQL.Internals
                 (
                     null,
                     concreteWrapper,
-                    Expression.Convert(sourceObjects, typeof(IEnumerable<>).MakeGenericType(Unwrapped<TView>.Type))
+                    Expression.Convert(sourceObjects, typeof(IEnumerable<>).MakeGenericType(UnwrappedView<TView>.Type))
                 ),
                 sourceObjects
             ).Compile();
@@ -44,7 +43,7 @@ namespace Solti.Utils.SQL.Internals
         {
             Type
                 sourceListType = sourceObjects.GetType(),
-                unwrappedType  = Unwrapped<TView>.Type;
+                unwrappedType  = UnwrappedView<TView>.Type;
 
             if (!sourceListType.IsList())
             {

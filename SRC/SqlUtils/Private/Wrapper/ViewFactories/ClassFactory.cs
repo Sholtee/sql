@@ -12,10 +12,45 @@ using static System.Reflection.Emit.OpCodes;
 
 namespace Solti.Utils.SQL.Internals
 {
+    /****************************************************************
+     * public sealed class MyClass
+     * {
+     *     public TType_1 Property_1 {get; set;}
+     *     
+     *     public TType_2 Property_2 {get; set;}
+     *     
+     *     public override int GetHashCode()
+     *     {
+     *         HashCode hc = new HashCode();
+     *         
+     *         hc.Add<TType_1>(this.Property_1);
+     *         hc.Add<TType_2>(this.Property_2);
+     *         
+     *         return hc.ToHashCode();
+     *     }
+     *     
+     *     public override bool Equals(object obj)
+     *     {
+     *         MyClass that = obj as MyClass;
+     *         if (that == null)
+     *             return false;
+     *             
+     *         if (!Object.Equals(this.Property_1, that.Property_1))
+     *             return false;
+     *         if (!Object.Equals(this.Property_2, that.Property_2))
+     *             return false;
+     *             
+     *         return true; 
+     *     }
+     * } 
+     *****************************************************************/
+
     internal class ClassFactory
     {
         #region Private
         private readonly Label FReturnFalse;
+
+        private readonly LocalBuilder FThat;
 
         private readonly ILGenerator FEqualsGenerator;
 
@@ -28,7 +63,7 @@ namespace Solti.Utils.SQL.Internals
         private void GenerateEqualityComparison(PropertyInfo prop) 
         {
             //
-            // if (!Object.Equals(this.Prop, ((MyClass) b).Prop))
+            // if (!Object.Equals(this.Prop, that.Prop))
             //   return false;
             //
 
@@ -37,8 +72,7 @@ namespace Solti.Utils.SQL.Internals
             if (prop.PropertyType.IsValueType)
                 FEqualsGenerator.Emit(Box, prop.PropertyType);
 
-            FEqualsGenerator.Emit(Ldarg_1);
-            FEqualsGenerator.Emit(Castclass, FClass);
+            FEqualsGenerator.Emit(Ldloc, FThat);
             FEqualsGenerator.Emit(Call, prop.GetMethod);
             if (prop.PropertyType.IsValueType)
                 FEqualsGenerator.Emit(Box, prop.PropertyType);
@@ -148,10 +182,12 @@ namespace Solti.Utils.SQL.Internals
 
         public ClassFactory(string name, params CustomAttributeBuilder[] customAttributes)
         {
+            string module = $"{name}_Module";
+
             FClass = AssemblyBuilder
-                .DefineDynamicAssembly(new AssemblyName(name), AssemblyBuilderAccess.Run)
-                .DefineDynamicModule("MainModule")
-                .DefineType(name, TypeAttributes.Public | TypeAttributes.Class);
+                .DefineDynamicAssembly(new AssemblyName($"{module}_ASM"), AssemblyBuilderAccess.Run)
+                .DefineDynamicModule(module)
+                .DefineType(name, TypeAttributes.Public | TypeAttributes.Sealed | TypeAttributes.Class);
 
             foreach (CustomAttributeBuilder customAttribute in customAttributes)
             {
@@ -161,13 +197,26 @@ namespace Solti.Utils.SQL.Internals
             const MethodAttributes PUBLIC_OVERRIDE = MethodAttributes.Public | MethodAttributes.ReuseSlot | MethodAttributes.Virtual | MethodAttributes.HideBySig;
 
             //
-            // public override bool Equals(object val) { ... }
+            // public override bool Equals(object val)
+            // {
+            //     MyClass that = val as MyClass;
+            //     if (that == null)
+            //        return false;
+            //     
+            //     ...
+            // }
             //
 
             FEqualsGenerator = FClass
                 .DefineMethod(nameof(Equals), PUBLIC_OVERRIDE, typeof(bool), new[] { typeof(object) })
                 .GetILGenerator();
             FReturnFalse = FEqualsGenerator.DefineLabel();
+            FThat = FEqualsGenerator.DeclareLocal(FClass);
+            FEqualsGenerator.Emit(Ldarg_1);
+            FEqualsGenerator.Emit(Isinst, FClass);
+            FEqualsGenerator.Emit(Stloc, FThat);
+            FEqualsGenerator.Emit(Ldloc, FThat);
+            FEqualsGenerator.Emit(Brfalse, FReturnFalse);
 
             //
             // public override int GetHashCode() { var hc = new HashCode(); ... }

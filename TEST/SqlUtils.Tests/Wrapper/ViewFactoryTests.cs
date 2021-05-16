@@ -57,6 +57,8 @@ namespace Solti.Utils.SQL.Tests
                 yield return (CreateObjWithValues(10, "cica"), CreateObjWithValues(10, "cica"), true);
                 yield return (CreateObjWithValues(20, "cica"), CreateObjWithValues(10, "cica"), false);
                 yield return (CreateObjWithValues(10, "cica"), CreateObjWithValues(10, "kutya"), false);
+                yield return (CreateObjWithValues(10, "cica"), null, false);
+                yield return (CreateObjWithValues(10, "cica"), new { Id = 10, Column = "cica" }, false);
             }
         }
 

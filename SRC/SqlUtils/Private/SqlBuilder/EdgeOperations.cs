@@ -1,106 +1,83 @@
 ﻿/********************************************************************************
-*  EdgeOperations.cs                                                            *
+* EdgeOperations.cs                                                             *
 *                                                                               *
-*  Author: Denes Solti                                                          *
+* Author: Denes Solti                                                           *
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 
 namespace Solti.Utils.SQL.Internals
 {
-    using Primitives;
     using Properties;
 
     internal static class EdgeOperations
     {
-        #region Private stuffs
-        private const BindingFlags BINDING_FLAGS = BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
-
-        internal static IReadOnlyList<Edge> GetEdgesFrom(Type type) => 
-        //
-        // Nem kell gyorsitotarazni magaban ugy sincs hasznalva
-        //
-
-        (
-            from   prop in type.GetProperties(BINDING_FLAGS)
-            let    referenced = Config.Instance.GetReferencedType(prop)
-            where  referenced != null
-            select new Edge(prop, referenced.GetPrimaryKey())
-        ).ToArray();
-
-        internal static IReadOnlyList<Edge> GetEdgesTo(Type type) =>
-        //
-        // Nem kell gyorsitotarazni magaban ugy sincs hasznalva
-        //
-
-        (
-            from   table in Config.KnownTables
-            let    edge = GetEdgesFrom(table).SingleOrDefault(e => e.DestinationTable == type)
-            where  edge != null
-            select edge
-        ).ToArray();
-
-        internal static IReadOnlyList<Edge> GetEdges(Type type) => Cache.GetOrAdd(type, () => (IReadOnlyList<Edge>) GetEdgesFrom(type).Concat(GetEdgesTo(type)).ToArray());
-
-        private static IReadOnlyList<Edge>? ShortestPath(Type src, Type dst, IReadOnlyList<Edge> customEdges, IReadOnlyList<Edge> currentPath)
+        private static IReadOnlyDictionary<Type, IReadOnlyList<Edge>> GetAllEdges() 
         {
-            //
-            // Ha az utolso el "dst"-bol vagy "dst"-be mutat, akkor jok vagyunk.
-            //
+            Dictionary<Type, IReadOnlyList<Edge>> result = new();
 
-            if (src == dst) return currentPath;
-
-            //
-            // Kulonben vesszuk az osszes elet ami az utolso csomopontbol indul ki vagy
-            // abba erkezik (kiveve a mar bejart utakhoz tartozoakat).
-            //
-
-            IReadOnlyList<Edge>? shortestPath = null;
-
-            foreach (Edge edge in GetEdges(src)
-                .Concat
-                (
-                    //
-                    // Az egyedi elek kozul amik a csomoponthoz tartoznak
-                    //
-
-                    customEdges.Where(edge => edge.SourceTable == src || edge.DestinationTable == src)
-                )
-                .Where(edge => !currentPath.Contains(edge)))
+            foreach (Type table in Config.KnownTables)
             {
                 //
-                // Ha az adott elen keresztul elerjuk "dst"-t es ez az el meg rovidebb is
-                // mint az eddig nyilvantartott, akkor uj utvonalunk van.
+                // Kivalasztjuk a tablabol kiindulo eleket
                 //
 
-                IReadOnlyList<Edge>? newPath = currentPath.Append(edge).ToArray();
-                Type newSrc = (edge.SourceTable == src) ? edge.DestinationTable : edge.SourceTable;
+                IEnumerable<Edge> edgesFrom =
+                (
+                    from   prop in table.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy)
+                    let    referenced = Config.Instance.GetReferencedType(prop)
+                    where  referenced is not null && referenced != table
+                    select new Edge(prop, referenced.GetPrimaryKey())
+                );
 
-                if ((newPath = ShortestPath(newSrc, dst, customEdges, newPath)) != null && (shortestPath == null || newPath.Count < shortestPath.Count))
+                //
+                // Mentjuk oket
+                //
+
+                GetRelatedList(table).AddRange(edgesFrom);
+
+                //
+                // Majd ezen elek cel-tablaihoz is regisztraljuk az eleket.
+                //
+
+                foreach (Edge edge in edgesFrom)
                 {
-                    shortestPath = newPath;
+                    Debug.Assert(edge.SourceTable == table);
+                    GetRelatedList(edge.DestinationTable).Add(edge);
                 }
             }
 
-            //
-            // Itt mar -elmeletileg- a legrovidebb utnak kell lennie (ha van).
-            //
+            return result;
 
-            return shortestPath;
+            List<Edge> GetRelatedList(Type table)
+            {
+                if (!result.TryGetValue(table, out IReadOnlyList<Edge> edgesFrom))
+                    result.Add(table, edgesFrom = new List<Edge>());
+
+                return (List<Edge>) edgesFrom;
+            }
         }
-        #endregion
+
+
+        private static IReadOnlyDictionary<Type, IReadOnlyList<Edge>>? FAllEdges;
+
+#if DEBUG
+        public static void Reset() => FAllEdges = null;
+#endif
+
+        public static IReadOnlyDictionary<Type, IReadOnlyList<Edge>> AllEdges => FAllEdges ??= GetAllEdges();
 
         public static IReadOnlyList<Edge> ShortestPath(Type src, Type dst, params Edge[] customEdges)
         {
-            IReadOnlyList<Edge>? result = Cache.GetOrAdd
-            (
-                GenerateKey(), 
-                () => ShortestPath(src, dst, customEdges, Array.Empty<Edge>())
-            );
+            IReadOnlyList<Edge>? shortestPath = null;
 
-            if (result == null)
+            Walk(src, dst, ImmutableList<Edge>.Empty);
+
+            if (shortestPath is null)
             {
                 var ex = new InvalidOperationException(Resources.NO_SHORTEST_PATH);
                 ex.Data[nameof(src)] = src;
@@ -109,15 +86,72 @@ namespace Solti.Utils.SQL.Internals
                 throw ex;
             }
 
-            return result;
+            //
+            // Itt mar -elmeletileg- a legrovidebb utnak kell lennie (ha van).
+            //
 
-            int GenerateKey() 
+            return shortestPath;
+
+            void Walk(Type from, Type to, ImmutableList<Edge> currentPath)
             {
-                HashCode hc = new();
-                hc.Add(src);
-                hc.Add(dst);
-                Array.ForEach(customEdges, hc.Add<Edge>);
-                return hc.ToHashCode();
+                Debug.WriteLine(string.Join(" ", currentPath));
+
+                //
+                // Ha az utolso el "dst"-bol vagy "dst"-be mutat, akkor jok vagyunk.
+                //
+
+                if (from == to)
+                {
+                    //
+                    // Meg ellenorizzuk h az uj utvonal rovidebb e az eddig nyilvantartottnal
+                    //
+
+                    if (shortestPath is null || currentPath.Count < shortestPath.Count)
+                        shortestPath = currentPath;
+
+                    return;
+                }
+
+                //
+                // Ha van mar lehetseges legrovidebb ut akkor eleg a tobbi utat csak addig bejarni
+                // amig azok rovidebbek a lehetseges legrovidebb utnal.
+                //
+
+                if (customEdges.Length == shortestPath?.Count)
+                    return;
+
+                //
+                // Kulonben vesszuk az osszes elet ami az utolso csomopontbol indul ki vagy
+                // abba erkezik (kiveve a mar bejart utakhoz tartozoakat).
+                //
+
+                if (!AllEdges.TryGetValue(from, out IReadOnlyList<Edge> relatedEdges))
+                    relatedEdges = Array.Empty<Edge>();
+
+                foreach (Edge edge in relatedEdges
+                    .Concat
+                    (
+                        //
+                        // Az egyedi elek kozul amik a csomoponthoz tartoznak
+                        //
+
+                        customEdges.Where(edge => edge.SourceTable == from || edge.DestinationTable == from)
+                    )
+                    .Where(edge => !currentPath.Contains(edge)))
+                {
+                    //
+                    // Az uj elnel folytatjuk a bejarast
+                    //
+
+                    Walk
+                    (
+                        edge.SourceTable == from
+                            ? edge.DestinationTable
+                            : edge.SourceTable,
+                        to,
+                        currentPath.Add(edge)
+                    );
+                }
             }
         }
     }

@@ -13,18 +13,21 @@ namespace Solti.Utils.SQL.Tests
 {
     using Interfaces;
     using Internals;
-    using Primitives;
     using Properties;
 
     [TestFixture]
     public sealed class EdgeOperationsTests
     {
-        [TearDown]
-        public void Teardown()
+        [SetUp]
+        public void Setup() 
         {
-            Cache.Clear<int, IReadOnlyList<Edge>>();
-            Cache.Clear<Type, IReadOnlyList<Edge>>();
-            Config.Use(new SpecifiedDataTables());
+            EdgeOperations.Reset();
+        }
+
+        [OneTimeTearDown]
+        public void TeardownFixture()
+        {
+            EdgeOperations.Reset();
         }
 
         [Test]
@@ -42,20 +45,11 @@ namespace Solti.Utils.SQL.Tests
         }
 
         [Test]
-        public void GetEdgesFrom_ShouldReturnAnEmptyListIfThereIsNoEdgeFound()
+        public void AllEdges_ShouldReturnAllEdgesFromTheTable()
         {
             Config.Use(new SpecifiedDataTables(typeof(OrmType), typeof(OrmTypeWithReference)));
 
-            IReadOnlyList<Edge> edges = EdgeOperations.GetEdgesFrom(typeof(OrmType));
-            Assert.That(edges, Is.Empty);
-        }
-
-        [Test]
-        public void GetEdgesFrom_ShouldReturnTheCorrectEdge()
-        {
-            Config.Use(new SpecifiedDataTables(typeof(OrmType), typeof(OrmTypeWithReference)));
-
-            IReadOnlyList<Edge> edges = EdgeOperations.GetEdgesFrom(typeof(OrmTypeWithReference));
+            IReadOnlyList<Edge> edges = EdgeOperations.AllEdges[typeof(OrmTypeWithReference)];
             Assert.That(edges.Count, Is.EqualTo(1));
 
             Edge edge = edges.Single();
@@ -63,25 +57,15 @@ namespace Solti.Utils.SQL.Tests
             Assert.That(edge.DestinationTable, Is.EqualTo(typeof(OrmType)));
         }
 
-
         [Test]
-        public void GetEdgesTo_ShouldReturnAnEmptyListIfThereIsNoEdgeFound()
+        public void AllEdges_ShouldReturnAllEdgesToTheTable()
         {
             Config.Use(new SpecifiedDataTables(typeof(OrmType), typeof(OrmTypeWithReference)));
 
-            IReadOnlyList<Edge> edges = EdgeOperations.GetEdgesTo(typeof(OrmTypeWithReference));
-            Assert.That(edges, Is.Empty);
-        }
-
-        [Test]
-        public void GetEdgesTo_ShouldReturnTheCorrectEdge()
-        {
-            Config.Use(new SpecifiedDataTables(typeof(OrmType), typeof(OrmTypeWithReference)));
-
-            IReadOnlyList<Edge> edges = EdgeOperations.GetEdgesTo(typeof(OrmType));
+            IReadOnlyList<Edge> edges = EdgeOperations.AllEdges[typeof(OrmType)];
             Assert.That(edges.Count, Is.EqualTo(1));
 
-            Edge edge = edges.First();
+            Edge edge = edges.Single();
             Assert.That(edge.SourceTable, Is.EqualTo(typeof(OrmTypeWithReference)));
             Assert.That(edge.DestinationTable, Is.EqualTo(typeof(OrmType)));
         }
@@ -108,6 +92,7 @@ namespace Solti.Utils.SQL.Tests
         public void ShortestPath_ShouldFindTheShortestPath((IKnownDataTables Tables, (Type Src, Type Dst)[] Path) ctx)
         {
             Config.Use(ctx.Tables);
+
             IReadOnlyList<Edge> path = EdgeOperations.ShortestPath(typeof(Start_Node), typeof(Goal_Node));
 
             Assert.That(path, Is.Not.Null);
@@ -138,6 +123,14 @@ namespace Solti.Utils.SQL.Tests
             Assert.That(path.Count, Is.EqualTo(1));
             Assert.That(path[0].SourceTable, Is.EqualTo(typeof(Goal_Node)));
             Assert.That(path[0].DestinationTable, Is.EqualTo(typeof(Start_Node)));
+        }
+
+        [Test]
+        public void ShortestPath_ShouldHandleCircularReference() 
+        {
+            Config.Use(new SpecifiedDataTables());
+
+            Assert.Throws<InvalidOperationException>(() => EdgeOperations.ShortestPath(typeof(Start_Node), typeof(Goal_Node), Edge.Create<Start_Node, Node7>(sn => sn.Id, n7 => n7.Reference), Edge.Create<Node7, Node6>(n7 => n7.Id, n6 => n6.Reference), Edge.Create<Node6, Start_Node>(n6 => n6.Reference2, sn => sn.Id)), Resources.NO_SHORTEST_PATH);
         }
     }
 }

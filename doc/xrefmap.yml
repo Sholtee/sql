@@ -160,64 +160,64 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.DefaultConfig.Stringify
   nameWithType: DefaultConfig.Stringify
-- uid: Solti.Utils.SQL.DisoveredDataTables
-  name: DisoveredDataTables
-  href: Solti.Utils.SQL.DisoveredDataTables.html
-  commentId: T:Solti.Utils.SQL.DisoveredDataTables
-  fullName: Solti.Utils.SQL.DisoveredDataTables
-  nameWithType: DisoveredDataTables
-- uid: Solti.Utils.SQL.DisoveredDataTables.#ctor(System.Reflection.Assembly[])
-  name: DisoveredDataTables(Assembly[])
-  href: Solti.Utils.SQL.DisoveredDataTables.html#Solti_Utils_SQL_DisoveredDataTables__ctor_System_Reflection_Assembly___
-  commentId: M:Solti.Utils.SQL.DisoveredDataTables.#ctor(System.Reflection.Assembly[])
-  name.vb: DisoveredDataTables(Assembly())
-  fullName: Solti.Utils.SQL.DisoveredDataTables.DisoveredDataTables(System.Reflection.Assembly[])
-  fullName.vb: Solti.Utils.SQL.DisoveredDataTables.DisoveredDataTables(System.Reflection.Assembly())
-  nameWithType: DisoveredDataTables.DisoveredDataTables(Assembly[])
-  nameWithType.vb: DisoveredDataTables.DisoveredDataTables(Assembly())
-- uid: Solti.Utils.SQL.DisoveredDataTables.#ctor(System.String)
-  name: DisoveredDataTables(String)
-  href: Solti.Utils.SQL.DisoveredDataTables.html#Solti_Utils_SQL_DisoveredDataTables__ctor_System_String_
-  commentId: M:Solti.Utils.SQL.DisoveredDataTables.#ctor(System.String)
-  fullName: Solti.Utils.SQL.DisoveredDataTables.DisoveredDataTables(System.String)
-  nameWithType: DisoveredDataTables.DisoveredDataTables(String)
-- uid: Solti.Utils.SQL.DisoveredDataTables.#ctor*
-  name: DisoveredDataTables
-  href: Solti.Utils.SQL.DisoveredDataTables.html#Solti_Utils_SQL_DisoveredDataTables__ctor_
-  commentId: Overload:Solti.Utils.SQL.DisoveredDataTables.#ctor
+- uid: Solti.Utils.SQL.DiscoveredDataTables
+  name: DiscoveredDataTables
+  href: Solti.Utils.SQL.DiscoveredDataTables.html
+  commentId: T:Solti.Utils.SQL.DiscoveredDataTables
+  fullName: Solti.Utils.SQL.DiscoveredDataTables
+  nameWithType: DiscoveredDataTables
+- uid: Solti.Utils.SQL.DiscoveredDataTables.#ctor(System.Reflection.Assembly[])
+  name: DiscoveredDataTables(Assembly[])
+  href: Solti.Utils.SQL.DiscoveredDataTables.html#Solti_Utils_SQL_DiscoveredDataTables__ctor_System_Reflection_Assembly___
+  commentId: M:Solti.Utils.SQL.DiscoveredDataTables.#ctor(System.Reflection.Assembly[])
+  name.vb: DiscoveredDataTables(Assembly())
+  fullName: Solti.Utils.SQL.DiscoveredDataTables.DiscoveredDataTables(System.Reflection.Assembly[])
+  fullName.vb: Solti.Utils.SQL.DiscoveredDataTables.DiscoveredDataTables(System.Reflection.Assembly())
+  nameWithType: DiscoveredDataTables.DiscoveredDataTables(Assembly[])
+  nameWithType.vb: DiscoveredDataTables.DiscoveredDataTables(Assembly())
+- uid: Solti.Utils.SQL.DiscoveredDataTables.#ctor(System.String)
+  name: DiscoveredDataTables(String)
+  href: Solti.Utils.SQL.DiscoveredDataTables.html#Solti_Utils_SQL_DiscoveredDataTables__ctor_System_String_
+  commentId: M:Solti.Utils.SQL.DiscoveredDataTables.#ctor(System.String)
+  fullName: Solti.Utils.SQL.DiscoveredDataTables.DiscoveredDataTables(System.String)
+  nameWithType: DiscoveredDataTables.DiscoveredDataTables(String)
+- uid: Solti.Utils.SQL.DiscoveredDataTables.#ctor*
+  name: DiscoveredDataTables
+  href: Solti.Utils.SQL.DiscoveredDataTables.html#Solti_Utils_SQL_DiscoveredDataTables__ctor_
+  commentId: Overload:Solti.Utils.SQL.DiscoveredDataTables.#ctor
   isSpec: "True"
-  fullName: Solti.Utils.SQL.DisoveredDataTables.DisoveredDataTables
-  nameWithType: DisoveredDataTables.DisoveredDataTables
-- uid: Solti.Utils.SQL.DisoveredDataTables.GetEnumerator
+  fullName: Solti.Utils.SQL.DiscoveredDataTables.DiscoveredDataTables
+  nameWithType: DiscoveredDataTables.DiscoveredDataTables
+- uid: Solti.Utils.SQL.DiscoveredDataTables.GetEnumerator
   name: GetEnumerator()
-  href: Solti.Utils.SQL.DisoveredDataTables.html#Solti_Utils_SQL_DisoveredDataTables_GetEnumerator
-  commentId: M:Solti.Utils.SQL.DisoveredDataTables.GetEnumerator
-  fullName: Solti.Utils.SQL.DisoveredDataTables.GetEnumerator()
-  nameWithType: DisoveredDataTables.GetEnumerator()
-- uid: Solti.Utils.SQL.DisoveredDataTables.GetEnumerator*
+  href: Solti.Utils.SQL.DiscoveredDataTables.html#Solti_Utils_SQL_DiscoveredDataTables_GetEnumerator
+  commentId: M:Solti.Utils.SQL.DiscoveredDataTables.GetEnumerator
+  fullName: Solti.Utils.SQL.DiscoveredDataTables.GetEnumerator()
+  nameWithType: DiscoveredDataTables.GetEnumerator()
+- uid: Solti.Utils.SQL.DiscoveredDataTables.GetEnumerator*
   name: GetEnumerator
-  href: Solti.Utils.SQL.DisoveredDataTables.html#Solti_Utils_SQL_DisoveredDataTables_GetEnumerator_
-  commentId: Overload:Solti.Utils.SQL.DisoveredDataTables.GetEnumerator
+  href: Solti.Utils.SQL.DiscoveredDataTables.html#Solti_Utils_SQL_DiscoveredDataTables_GetEnumerator_
+  commentId: Overload:Solti.Utils.SQL.DiscoveredDataTables.GetEnumerator
   isSpec: "True"
-  fullName: Solti.Utils.SQL.DisoveredDataTables.GetEnumerator
-  nameWithType: DisoveredDataTables.GetEnumerator
-- uid: Solti.Utils.SQL.DisoveredDataTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
+  fullName: Solti.Utils.SQL.DiscoveredDataTables.GetEnumerator
+  nameWithType: DiscoveredDataTables.GetEnumerator
+- uid: Solti.Utils.SQL.DiscoveredDataTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
   name: IEnumerable<Type>.GetEnumerator()
-  href: Solti.Utils.SQL.DisoveredDataTables.html#Solti_Utils_SQL_DisoveredDataTables_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator
-  commentId: M:Solti.Utils.SQL.DisoveredDataTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
+  href: Solti.Utils.SQL.DiscoveredDataTables.html#Solti_Utils_SQL_DiscoveredDataTables_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator
+  commentId: M:Solti.Utils.SQL.DiscoveredDataTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
   name.vb: System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator()
-  fullName: Solti.Utils.SQL.DisoveredDataTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator()
-  nameWithType: DisoveredDataTables.IEnumerable<Type>.GetEnumerator()
-  nameWithType.vb: DisoveredDataTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator()
-- uid: Solti.Utils.SQL.DisoveredDataTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator*
+  fullName: Solti.Utils.SQL.DiscoveredDataTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator()
+  nameWithType: DiscoveredDataTables.IEnumerable<Type>.GetEnumerator()
+  nameWithType.vb: DiscoveredDataTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator()
+- uid: Solti.Utils.SQL.DiscoveredDataTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator*
   name: IEnumerable<Type>.GetEnumerator
-  href: Solti.Utils.SQL.DisoveredDataTables.html#Solti_Utils_SQL_DisoveredDataTables_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator_
-  commentId: Overload:Solti.Utils.SQL.DisoveredDataTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
+  href: Solti.Utils.SQL.DiscoveredDataTables.html#Solti_Utils_SQL_DiscoveredDataTables_System_Collections_Generic_IEnumerable_System_Type__GetEnumerator_
+  commentId: Overload:Solti.Utils.SQL.DiscoveredDataTables.System#Collections#Generic#IEnumerable{System#Type}#GetEnumerator
   isSpec: "True"
   name.vb: System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
-  fullName: Solti.Utils.SQL.DisoveredDataTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
-  nameWithType: DisoveredDataTables.IEnumerable<Type>.GetEnumerator
-  nameWithType.vb: DisoveredDataTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
+  fullName: Solti.Utils.SQL.DiscoveredDataTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
+  nameWithType: DiscoveredDataTables.IEnumerable<Type>.GetEnumerator
+  nameWithType.vb: DiscoveredDataTables.System.Collections.Generic.IEnumerable<System.Type>.GetEnumerator
 - uid: Solti.Utils.SQL.IBulkedDbConnection
   name: IBulkedDbConnection
   href: Solti.Utils.SQL.IBulkedDbConnection.html

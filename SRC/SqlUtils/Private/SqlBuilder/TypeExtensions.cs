@@ -31,7 +31,7 @@ namespace Solti.Utils.SQL.Internals
                 .SingleOrDefault(Config.Instance.IsPrimaryKey);
 
             //
-            // Kulomben megkeressuk azt a nezet tulajdonsagot ami az elsodleges kulcsra hivatkozik
+            // Kulonben megkeressuk azt a nezet tulajdonsagot ami az elsodleges kulcsra hivatkozik
             //
 
             else

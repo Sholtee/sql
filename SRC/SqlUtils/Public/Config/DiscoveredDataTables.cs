@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-*  DisoveredDataTables.cs                                                       *
+*  DiscoveredDataTables.cs                                                      *
 *                                                                               *
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
@@ -17,14 +17,14 @@ namespace Solti.Utils.SQL
     /// <summary>
     /// Enumerates data tables that can be found in assemblies.
     /// </summary>
-    public sealed class DisoveredDataTables : IKnownDataTables
+    public sealed class DiscoveredDataTables : IKnownDataTables
     {
         private readonly IReadOnlyList<Assembly> FAssemblies;
 
         /// <summary>
-        /// Creates a new <see cref="DisoveredDataTables"/> instance.
+        /// Creates a new <see cref="DiscoveredDataTables"/> instance.
         /// </summary>
-        public DisoveredDataTables(string assemblySearchPattern = "*.ORM.dll") => FAssemblies = Directory
+        public DiscoveredDataTables(string assemblySearchPattern = "*.ORM.dll") => FAssemblies = Directory
             .GetFiles
             (
                 AppDomain.CurrentDomain.BaseDirectory, assemblySearchPattern ?? throw new ArgumentNullException(nameof(assemblySearchPattern))
@@ -33,9 +33,9 @@ namespace Solti.Utils.SQL
             .ToArray();
 
         /// <summary>
-        /// Creates a new <see cref="DisoveredDataTables"/> instance.
+        /// Creates a new <see cref="DiscoveredDataTables"/> instance.
         /// </summary>
-        public DisoveredDataTables(params Assembly[] assemblies) => FAssemblies = assemblies ?? throw new ArgumentNullException(nameof(assemblies));
+        public DiscoveredDataTables(params Assembly[] assemblies) => FAssemblies = assemblies ?? throw new ArgumentNullException(nameof(assemblies));
 
         IEnumerator<Type> IEnumerable<Type>.GetEnumerator() => (IEnumerator<Type>) GetEnumerator();
 

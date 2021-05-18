@@ -22,7 +22,7 @@ namespace Solti.Utils.SQL.Tests
     public sealed class WrapperTests
     {
         [SetUp]
-        public void Setup() => Config.Use(new DisoveredDataTables(typeof(WrapperTests).Assembly));
+        public void Setup() => Config.Use(new DiscoveredDataTables(typeof(WrapperTests).Assembly));
 
         [Test]
         public void UnwrappedView_ShouldUnwrapSimpleViews()

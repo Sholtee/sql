@@ -1,5 +1,5 @@
 /********************************************************************************
-*  QueryMethods.cs                                                              *
+*  Join.cs                                                                      *
 *                                                                               *
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
@@ -11,13 +11,11 @@ namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
 
-    internal static class QueryMethods
+    internal static class Join
     {
         private static MethodInfo GetQueryMethod(Expression<Action<ISqlQuery>> expr) => ((MethodCallExpression) expr.Body).Method;
 
-        public static readonly MethodInfo
-            InnerJoin = GetQueryMethod(bldr => bldr.InnerJoin(null!, null!)),
-            LeftJoin  = GetQueryMethod(bldr => bldr.LeftJoin(null!, null!)),
-            SetBase   = GetQueryMethod(bldr => bldr.SetBase(null!));
+        public static MethodInfo Inner { get; } = GetQueryMethod(bldr => bldr.InnerJoin(null!, null!));
+        public static MethodInfo Left  { get; } = GetQueryMethod(bldr => bldr.LeftJoin(null!, null!));
     }
 }

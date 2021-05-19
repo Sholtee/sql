@@ -179,10 +179,6 @@ namespace Solti.Utils.SQL.Tests
 
             mockSqlBuilder
                 .InSequence(seq)
-                .Setup(x => x.SetBase(It.Is<Type>(y => y == typeof(Start_Node))));
-
-            mockSqlBuilder
-                .InSequence(seq)
                 .Setup(x => x.InnerJoin(
                     It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id))),
                     It.Is<PropertyInfo>(y => y == typeof(Node2).GetProperty(nameof(Node2.Reference)))));
@@ -226,12 +222,11 @@ namespace Solti.Utils.SQL.Tests
             Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 
             SmartSqlBuilder<View1>.Initialize();
-            SmartSqlBuilder<View1>.Build(mockSqlBuilder.Object);
+            SmartSqlBuilder<View1>.Build(_ => mockSqlBuilder.Object);
 
             mockSqlBuilder.Verify(x => x.InnerJoin(It.IsAny<PropertyInfo>(), It.IsAny<PropertyInfo>()), Times.Exactly(2));
             mockSqlBuilder.Verify(x => x.LeftJoin(It.IsAny<PropertyInfo>(), It.IsAny<PropertyInfo>()), Times.Once);
             mockSqlBuilder.Verify(x => x.Select(It.IsAny<PropertyInfo>(), It.IsAny<PropertyInfo>()), Times.Exactly(5));
-            mockSqlBuilder.Verify(x => x.SetBase(It.IsAny<Type>()), Times.Once);
         }
 
         [Test]
@@ -241,10 +236,6 @@ namespace Solti.Utils.SQL.Tests
 
             var mockSqlBuilder = new Mock<ISqlQuery>(MockBehavior.Strict);
             var seq = new MockSequence();
-
-            mockSqlBuilder
-                .InSequence(seq)
-                .Setup(x => x.SetBase(It.Is<Type>(y => y == typeof(Start_Node))));
 
             mockSqlBuilder
                 .InSequence(seq)
@@ -274,19 +265,16 @@ namespace Solti.Utils.SQL.Tests
                     It.Is<PropertyInfo>(y => y == UnwrappedView<Extension1>.Type.GetProperty(nameof(Extension1.ReferenceWithoutAttribute)))));
 
             SmartSqlBuilder<Extension1>.Initialize();
-            SmartSqlBuilder<Extension1>.Build(mockSqlBuilder.Object);
+            SmartSqlBuilder<Extension1>.Build(_ => mockSqlBuilder.Object);
 
             mockSqlBuilder.Verify(x => x.InnerJoin(It.IsAny<PropertyInfo>(), It.IsAny<PropertyInfo>()), Times.Exactly(2));
             mockSqlBuilder.Verify(x => x.Select(It.IsAny<PropertyInfo>(), It.IsAny<PropertyInfo>()), Times.Exactly(3));
-            mockSqlBuilder.Verify(x => x.SetBase(It.IsAny<Type>()), Times.Once);
         }
 
         [Test]
         public void SmartSqlBuilder_GenerateBuildAction_GroupBy_Test()
         {
             var mockSqlBuilder = new Mock<ISqlQuery>(MockBehavior.Strict);
-            mockSqlBuilder
-                .Setup(x => x.SetBase(It.Is<Type>(y => y == typeof(Start_Node))));
             mockSqlBuilder
                 .Setup(x => x.Select(
                     It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.Id))),
@@ -315,7 +303,7 @@ namespace Solti.Utils.SQL.Tests
             Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 
             SmartSqlBuilder<View2>.Initialize();
-            SmartSqlBuilder<View2>.Build(mockSqlBuilder.Object);
+            SmartSqlBuilder<View2>.Build(_ => mockSqlBuilder.Object);
 
             mockSqlBuilder.Verify(x => x.InnerJoin(It.IsAny<PropertyInfo>(), It.IsAny<PropertyInfo>()), Times.Once);
             mockSqlBuilder.Verify(

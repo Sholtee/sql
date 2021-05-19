@@ -71,7 +71,7 @@ namespace Solti.Utils.SQL.Internals
 
                     yield return Expression.Call(
                         bldr,
-                        table.Required ? QueryMethods.InnerJoin : QueryMethods.LeftJoin,
+                        table.Required ? Join.Inner : Join.Left,
                         Expression.Constant(toTableCol),
                         Expression.Constant(joinTableCol));
                 }

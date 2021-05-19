@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 
 namespace Solti.Utils.SQL
 {
+    using Interfaces;
     using Interfaces.DataAnnotations;
 
     /// <summary>
@@ -87,5 +88,10 @@ namespace Solti.Utils.SQL
 
             return type.GetCustomAttribute<DatabaseEntityAttribute>(inherit: false) != null;
         }
+
+        /// <summary>
+        /// See <see cref="IConfig.CreateQuery(Type)"/>.
+        /// </summary>
+        public virtual ISqlQuery CreateQuery(Type from) => throw new NotImplementedException();
     }
 }

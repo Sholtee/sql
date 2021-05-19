@@ -3,40 +3,8 @@
 *                                                                               *
 * Author: Denes Solti                                                           *
 ********************************************************************************/
-using System;
-using System.Data;
-using System.Reflection;
+using System.Runtime.CompilerServices;
 
-namespace Solti.Utils.SQL
-{
-    /// <summary>
-    /// Defines the abstract configuration related to this library.
-    /// </summary>
-    public interface IConfig
-    {
-        /// <summary>
-        /// Stringifies the given parameter.
-        /// </summary>
-        string Stringify(IDataParameter parameter);
+using Solti.Utils.SQL.Interfaces;
 
-        /// <summary>
-        /// Returns true if the property should be ignored.
-        /// </summary>
-        bool IsIgnored(PropertyInfo prop);
-
-        /// <summary>
-        /// Returns true if the property represents a PK column.
-        /// </summary>
-        bool IsPrimaryKey(PropertyInfo prop);
-
-        /// <summary>
-        /// Returns true if the type represents a database entity.
-        /// </summary>
-        bool IsDataTable(Type type);
-
-        /// <summary>
-        /// Gets the data table referred by the foreign key.
-        /// </summary>
-        Type? GetReferencedType(PropertyInfo prop);
-    }
-}
+[assembly: TypeForwardedTo(typeof(IConfig))]

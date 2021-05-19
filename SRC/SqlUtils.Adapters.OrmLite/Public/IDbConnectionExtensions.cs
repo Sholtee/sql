@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 
 using ServiceStack.OrmLite;
 
@@ -27,41 +26,17 @@ namespace Solti.Utils.SQL
         /// </summary>
         public static List<TView> Query<TView>(this IDbConnection connection, Action<IUntypedSqlExpression>? additions = null)
         {
-            var query = new OrmLiteSqlQuery(connection ?? throw new ArgumentNullException(nameof(connection)));
-            SmartSqlBuilder<TView>.Build(query);
+            OrmLiteSqlQuery query = SmartSqlBuilder<TView>.Build(from => new OrmLiteSqlQuery(from));
             additions?.Invoke(query.UnderlyingExpression);
-            return query.Run<TView>();      
+            return query.Run<TView>(connection);      
         }
-
 
         /// <summary>
         /// Queries the given <typeparamref name="TView"/>.
         /// </summary>
-        public static List<TView> Query<TView>(this IDbConnection connection, IUntypedSqlExpression expr) => new OrmLiteSqlQuery
+        public static List<TView> Query<TView>(this IDbConnection connection, ISqlExpression expr) => new OrmLiteSqlQuery
         (
-            connection ?? throw new ArgumentNullException(nameof(connection)), 
             expr ?? throw new ArgumentNullException(nameof(expr))
-        ).Run<TView>();
-
-        /// <summary>
-        /// Queries the given <typeparamref name="TView"/>.
-        /// </summary>
-        public static List<TView> Query<TView>(this IDbConnection connection, string sql) => new StringBasedOrmLiteSqlQuery
-        (
-            connection ?? throw new ArgumentNullException(nameof(connection)),
-            sql ?? throw new ArgumentNullException(nameof(sql))
-        ).Run<TView>();
-
-        /// <summary>
-        /// Creates the data tables (if they don't exist).
-        /// </summary>
-        public static void CreateSchema(this IDbConnection connection)
-        {
-            using (IBulkedDbConnection conn = connection.CreateBulkedDbConnection())
-            {
-                connection.CreateTableIfNotExists(Config.KnownTables.ToArray());
-                conn.Flush();
-            }
-        }
+        ).Run<TView>(connection);
     }
 }

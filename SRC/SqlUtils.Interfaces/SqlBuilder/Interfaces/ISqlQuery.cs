@@ -5,6 +5,7 @@
 ********************************************************************************/
 using System;
 using System.Collections;
+using System.Data;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
@@ -15,11 +16,6 @@ namespace Solti.Utils.SQL.Interfaces
     /// </summary>
     public interface ISqlQuery
     {
-        /// <summary>
-        /// Sets the base data table that should appear in the FROM clause.
-        /// </summary>
-        void SetBase(Type table);
-
         /// <summary>
         /// Extends/creates the select clause with a simple selection.
         /// </summary>
@@ -74,6 +70,6 @@ namespace Solti.Utils.SQL.Interfaces
         /// <summary>
         /// Runs a select query to get a list from the given <paramref name="view"/>.
         /// </summary>
-        IList Run(Type view);
+        IList Run(IDbConnection conn, Type view);
     }
 }

@@ -17,11 +17,17 @@ namespace Solti.Utils.SQL.Interfaces
     public sealed class OrmLiteConfig: DefaultConfig
     {
         /// <summary>
+        /// See <see cref="IConfig.CreateQuery(Type)"/>.
+        /// </summary>
+        public override ISqlQuery CreateQuery(Type from) => new OrmLiteSqlQuery(from);
+
+        /// <summary>
         /// See <see cref="IConfig.GetReferencedType(PropertyInfo)"/>.
         /// </summary>
         public override Type? GetReferencedType(PropertyInfo prop)
         {
-            if (prop == null) throw new ArgumentNullException(nameof(prop));
+            if (prop is null)
+                throw new ArgumentNullException(nameof(prop));
 
             return prop.GetFieldDefinition()?.ForeignKey?.ReferenceType;
         }
@@ -31,7 +37,8 @@ namespace Solti.Utils.SQL.Interfaces
         /// </summary>
         public override bool IsPrimaryKey(PropertyInfo prop)
         {
-            if (prop == null) throw new ArgumentNullException(nameof(prop));
+            if (prop is null) 
+                throw new ArgumentNullException(nameof(prop));
 
             return !IsIgnored(prop) && prop.GetFieldDefinition().IsPrimaryKey;
         }
@@ -41,9 +48,10 @@ namespace Solti.Utils.SQL.Interfaces
         /// </summary>
         public override bool IsIgnored(PropertyInfo prop)
         {
-            if (prop == null) throw new ArgumentNullException(nameof(prop));
+            if (prop is null) 
+                throw new ArgumentNullException(nameof(prop));
 
-            return prop.GetFieldDefinition() == null;
+            return prop.GetFieldDefinition() is null;
         }
 
         /// <summary>
@@ -51,11 +59,12 @@ namespace Solti.Utils.SQL.Interfaces
         /// </summary>
         public override string Stringify(IDataParameter parameter)
         {
-            if (parameter == null) throw new ArgumentNullException(nameof(parameter));
+            if (parameter is null) 
+                throw new ArgumentNullException(nameof(parameter));
 
-            object value = parameter.Value;
+            object? value = parameter.Value;
 
-            return value != null
+            return value is not null
                 ? ServiceStack.OrmLite.OrmLiteConfig.DialectProvider.GetQuotedValue(value, value.GetType())
                 : "NULL";
         }

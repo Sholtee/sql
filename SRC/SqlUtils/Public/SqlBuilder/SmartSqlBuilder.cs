@@ -1,7 +1,7 @@
 ﻿/********************************************************************************
-*  SmartSqlBuilder.cs                                                           *
+* SmartSqlBuilder.cs                                                            *
 *                                                                               *
-*  Author: Denes Solti                                                          *
+* Author: Denes Solti                                                           *
 ********************************************************************************/
 using System;
 using System.Diagnostics.CodeAnalysis;
@@ -23,10 +23,15 @@ namespace Solti.Utils.SQL
         /// Represents the build action related to the given <typeparamref name="TView"/>.
         /// </summary>
         [SuppressMessage("Design", "CA1000:Do not declare static members on generic types", Justification = "It's intended because all the specialized builders must have their own build method.")]
-        public static ISqlQuery Build(ISqlQuery query)
+        public static TQuery Build<TQuery>(Func<Type, TQuery> factory) where TQuery: ISqlQuery
         {
-            if (FBuild == null)
+            if (factory is null)
+                throw new ArgumentNullException(nameof(factory));
+
+            if (FBuild is null)
                 throw new InvalidOperationException(Resources.UNINITIALIZED_BUILDER);
+
+            TQuery query = factory(typeof(TView).GetQueryBase());
 
             FBuild.Invoke(query);
             return query;
@@ -43,7 +48,6 @@ namespace Solti.Utils.SQL
 
             FBuild = Compiler.Compile
             (
-                new InitActionGenerator<TView>(),
                 new JoinActionGenerator<TView>(customEdges),
                 new FragmentActionGenerator<TView>()
             );

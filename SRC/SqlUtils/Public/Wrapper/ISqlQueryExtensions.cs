@@ -6,6 +6,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Solti.Utils.SQL
 {
@@ -21,7 +22,7 @@ namespace Solti.Utils.SQL
         /// Queries the given view.
         /// </summary>
         #pragma warning disable CA1002 // Do not expose generic lists
-        public static List<TView> Run<TView>(this ISqlQuery query)
+        public static List<TView> Run<TView>(this ISqlQuery query, IDbConnection conn)
         #pragma warning restore CA1002
         {
             if (query == null)
@@ -29,7 +30,7 @@ namespace Solti.Utils.SQL
 
             if (typeof(TView).IsWrapped())
             {
-                IList result = query.Run(UnwrappedView<TView>.Type);
+                IList result = query.Run(conn, UnwrappedView<TView>.Type);
 
                 //
                 // Ha az eredmeny NULL akkor nincs dolgunk (+ a Wrap() is elhasalna tole)
@@ -38,7 +39,7 @@ namespace Solti.Utils.SQL
                 return result == null ? new List<TView>(0) : Wrapper<TView>.Wrap(result);
             }
 
-            return (List<TView>) query.Run(typeof(TView));
+            return (List<TView>) query.Run(conn, typeof(TView));
         }
     }
 }

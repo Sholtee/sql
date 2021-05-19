@@ -83,10 +83,10 @@ namespace Solti.Utils.SQL.OrmLite.Tests
 
             SqlExpression<OrmType> expression = FConnection.From<OrmType>();
 
-            ISqlQuery query = new OrmLiteSqlQuery(FConnection, expression.GetUntyped());
+            ISqlQuery query = new OrmLiteSqlQuery(expression);
             query.Select(typeof(OrmType).GetProperty(nameof(OrmType.Id)), typeof(MyView).GetProperty(nameof(MyView.Azonosito)));
 
-            List<MyView> result = query.Run<MyView>();
+            List<MyView> result = query.Run<MyView>(FConnection);
             Assert.That(result.Count, Is.EqualTo(1));
             Assert.That(result.Single().Azonosito, Is.EqualTo(id));
         }
@@ -106,11 +106,11 @@ namespace Solti.Utils.SQL.OrmLite.Tests
 
             SqlExpression<OrmType> expression = FConnection.From<OrmType>();
 
-            ISqlQuery query = new OrmLiteSqlQuery(FConnection, expression.GetUntyped());
+            ISqlQuery query = new OrmLiteSqlQuery(expression);
             query.Select(typeof(OrmType).GetProperty(nameof(OrmType.Id)), typeof(MyView).GetProperty(nameof(MyView.Azonosito)));
             query.InnerJoin(typeof(OrmType).GetProperty(nameof(OrmType.Id)), typeof(OrmTypeWithReference).GetProperty(nameof(OrmTypeWithReference.Reference)));
 
-            List<MyView> result = query.Run<MyView>();
+            List<MyView> result = query.Run<MyView>(FConnection);
             Assert.That(result.Count, Is.EqualTo(1));
             Assert.That(result.Single().Azonosito, Is.EqualTo(id));
         }
@@ -135,11 +135,11 @@ namespace Solti.Utils.SQL.OrmLite.Tests
 
             SqlExpression<OrmTypeWithReference> expression = FConnection.From<OrmTypeWithReference>();
 
-            ISqlQuery query = new OrmLiteSqlQuery(FConnection, expression.GetUntyped());
+            ISqlQuery query = new OrmLiteSqlQuery(expression);
             query.GroupBy(typeof(OrmTypeWithReference).GetProperty(nameof(OrmTypeWithReference.Reference)));
             query.SelectCount(typeof(OrmTypeWithReference).GetProperty(nameof(OrmTypeWithReference.Id)), typeof(CountView).GetProperty(nameof(CountView.Count)));
 
-            List<CountView> result = query.Run<CountView>();
+            List<CountView> result = query.Run<CountView>(FConnection);
             Assert.That(result.Count, Is.EqualTo(1));
             Assert.That(result.Single().Count, Is.EqualTo(2));
         }
@@ -157,11 +157,12 @@ namespace Solti.Utils.SQL.OrmLite.Tests
             SqlExpression<OrmType> expression = FConnection.From<OrmType>();
             expression.PrefixFieldWithTableName = true;
 
-            ISqlQuery query = new OrmLiteSqlQuery(FConnection, expression.GetUntyped());
+            ISqlQuery query = new OrmLiteSqlQuery(expression);
             query.Select(typeof(OrmType).GetProperty(nameof(OrmType.Order)), typeof(OrmType).GetProperty(nameof(OrmType.Order)));
             query.OrderBy(typeof(OrmType).GetProperty(nameof(OrmType.Order)));
+            query.OrderByDescending(typeof(OrmType).GetProperty(nameof(OrmType.Id)));
 
-            List<OrmType> result = query.Run<OrmType>();
+            List<OrmType> result = query.Run<OrmType>(FConnection);
             Assert.That(result.Count, Is.EqualTo(2));
             Assert.That(result[0].Order, Is.EqualTo(1));
             Assert.That(result[1].Order, Is.EqualTo(2));

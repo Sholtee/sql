@@ -37,24 +37,65 @@
       <div role="main" class="container body-content hide-when-search">
         <div class="article row grid">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Solti.Utils.SQL.IConfig">
+            <article class="content wrap" id="_content" data-uid="Solti.Utils.SQL.Interfaces.IConfig">
   
   
-  <h1 id="Solti_Utils_SQL_IConfig" data-uid="Solti.Utils.SQL.IConfig" class="text-break">Interface IConfig
+  <h1 id="Solti_Utils_SQL_Interfaces_IConfig" data-uid="Solti.Utils.SQL.Interfaces.IConfig" class="text-break">Interface IConfig
   </h1>
   <div class="markdown level0 summary"><p>Defines the abstract configuration related to this library.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Solti.Utils.SQL.html">Solti.Utils.SQL</a></h6>
-  <h6><strong>Assembly</strong>: Solti.Utils.SQL.dll</h6>
-  <h5 id="Solti_Utils_SQL_IConfig_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Solti.Utils.SQL.Interfaces.html">Solti.Utils.SQL.Interfaces</a></h6>
+  <h6><strong>Assembly</strong>: Solti.Utils.SQL.Interfaces.dll</h6>
+  <h5 id="Solti_Utils_SQL_Interfaces_IConfig_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public interface IConfig</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
-  <a id="Solti_Utils_SQL_IConfig_GetReferencedType_" data-uid="Solti.Utils.SQL.IConfig.GetReferencedType*"></a>
-  <h4 id="Solti_Utils_SQL_IConfig_GetReferencedType_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.IConfig.GetReferencedType(System.Reflection.PropertyInfo)">GetReferencedType(PropertyInfo)</h4>
+  <a id="Solti_Utils_SQL_Interfaces_IConfig_CreateQuery_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.CreateQuery*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_IConfig_CreateQuery_System_Type_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.CreateQuery(System.Type)">CreateQuery(Type)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISqlQuery CreateQuery(Type from)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">from</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_Interfaces_IConfig_GetReferencedType_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.GetReferencedType*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_IConfig_GetReferencedType_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.GetReferencedType(System.Reflection.PropertyInfo)">GetReferencedType(PropertyInfo)</h4>
   <div class="markdown level1 summary"><p>Gets the data table referred by the foreign key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -94,8 +135,8 @@
       </tr>
     </tbody>
   </table>
-  <a id="Solti_Utils_SQL_IConfig_IsDataTable_" data-uid="Solti.Utils.SQL.IConfig.IsDataTable*"></a>
-  <h4 id="Solti_Utils_SQL_IConfig_IsDataTable_System_Type_" data-uid="Solti.Utils.SQL.IConfig.IsDataTable(System.Type)">IsDataTable(Type)</h4>
+  <a id="Solti_Utils_SQL_Interfaces_IConfig_IsDataTable_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.IsDataTable*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_IConfig_IsDataTable_System_Type_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.IsDataTable(System.Type)">IsDataTable(Type)</h4>
   <div class="markdown level1 summary"><p>Returns true if the type represents a database entity.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -135,8 +176,8 @@
       </tr>
     </tbody>
   </table>
-  <a id="Solti_Utils_SQL_IConfig_IsIgnored_" data-uid="Solti.Utils.SQL.IConfig.IsIgnored*"></a>
-  <h4 id="Solti_Utils_SQL_IConfig_IsIgnored_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.IConfig.IsIgnored(System.Reflection.PropertyInfo)">IsIgnored(PropertyInfo)</h4>
+  <a id="Solti_Utils_SQL_Interfaces_IConfig_IsIgnored_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.IsIgnored*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_IConfig_IsIgnored_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.IsIgnored(System.Reflection.PropertyInfo)">IsIgnored(PropertyInfo)</h4>
   <div class="markdown level1 summary"><p>Returns true if the property should be ignored.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -176,8 +217,8 @@
       </tr>
     </tbody>
   </table>
-  <a id="Solti_Utils_SQL_IConfig_IsPrimaryKey_" data-uid="Solti.Utils.SQL.IConfig.IsPrimaryKey*"></a>
-  <h4 id="Solti_Utils_SQL_IConfig_IsPrimaryKey_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.IConfig.IsPrimaryKey(System.Reflection.PropertyInfo)">IsPrimaryKey(PropertyInfo)</h4>
+  <a id="Solti_Utils_SQL_Interfaces_IConfig_IsPrimaryKey_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.IsPrimaryKey*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_IConfig_IsPrimaryKey_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.IsPrimaryKey(System.Reflection.PropertyInfo)">IsPrimaryKey(PropertyInfo)</h4>
   <div class="markdown level1 summary"><p>Returns true if the property represents a PK column.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -217,8 +258,8 @@
       </tr>
     </tbody>
   </table>
-  <a id="Solti_Utils_SQL_IConfig_Stringify_" data-uid="Solti.Utils.SQL.IConfig.Stringify*"></a>
-  <h4 id="Solti_Utils_SQL_IConfig_Stringify_System_Data_IDataParameter_" data-uid="Solti.Utils.SQL.IConfig.Stringify(System.Data.IDataParameter)">Stringify(IDataParameter)</h4>
+  <a id="Solti_Utils_SQL_Interfaces_IConfig_Stringify_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.Stringify*"></a>
+  <h4 id="Solti_Utils_SQL_Interfaces_IConfig_Stringify_System_Data_IDataParameter_" data-uid="Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDataParameter)">Stringify(IDataParameter)</h4>
   <div class="markdown level1 summary"><p>Stringifies the given parameter.</p>
 </div>
   <div class="markdown level1 conceptual"></div>

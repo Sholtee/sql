@@ -61,11 +61,11 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Config.KnownTables
   nameWithType: Config.KnownTables
-- uid: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.IConfig)
+- uid: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IConfig)
   name: Use(IConfig)
-  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use_Solti_Utils_SQL_IConfig_
-  commentId: M:Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.IConfig)
-  fullName: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.IConfig)
+  href: Solti.Utils.SQL.Config.html#Solti_Utils_SQL_Config_Use_Solti_Utils_SQL_Interfaces_IConfig_
+  commentId: M:Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IConfig)
+  fullName: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IConfig)
   nameWithType: Config.Use(IConfig)
 - uid: Solti.Utils.SQL.Config.Use(Solti.Utils.SQL.Interfaces.IKnownDataTables)
   name: Use(IKnownDataTables)
@@ -95,6 +95,19 @@ references:
   commentId: T:Solti.Utils.SQL.DefaultConfig
   fullName: Solti.Utils.SQL.DefaultConfig
   nameWithType: DefaultConfig
+- uid: Solti.Utils.SQL.DefaultConfig.CreateQuery(System.Type)
+  name: CreateQuery(Type)
+  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_CreateQuery_System_Type_
+  commentId: M:Solti.Utils.SQL.DefaultConfig.CreateQuery(System.Type)
+  fullName: Solti.Utils.SQL.DefaultConfig.CreateQuery(System.Type)
+  nameWithType: DefaultConfig.CreateQuery(Type)
+- uid: Solti.Utils.SQL.DefaultConfig.CreateQuery*
+  name: CreateQuery
+  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_CreateQuery_
+  commentId: Overload:Solti.Utils.SQL.DefaultConfig.CreateQuery
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.DefaultConfig.CreateQuery
+  nameWithType: DefaultConfig.CreateQuery
 - uid: Solti.Utils.SQL.DefaultConfig.GetReferencedType(System.Reflection.PropertyInfo)
   name: GetReferencedType(PropertyInfo)
   href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_GetReferencedType_System_Reflection_PropertyInfo_
@@ -237,77 +250,6 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.IBulkedDbConnection.Flush
   nameWithType: IBulkedDbConnection.Flush
-- uid: Solti.Utils.SQL.IConfig
-  name: IConfig
-  href: Solti.Utils.SQL.IConfig.html
-  commentId: T:Solti.Utils.SQL.IConfig
-  fullName: Solti.Utils.SQL.IConfig
-  nameWithType: IConfig
-- uid: Solti.Utils.SQL.IConfig.GetReferencedType(System.Reflection.PropertyInfo)
-  name: GetReferencedType(PropertyInfo)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_GetReferencedType_System_Reflection_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.IConfig.GetReferencedType(System.Reflection.PropertyInfo)
-  fullName: Solti.Utils.SQL.IConfig.GetReferencedType(System.Reflection.PropertyInfo)
-  nameWithType: IConfig.GetReferencedType(PropertyInfo)
-- uid: Solti.Utils.SQL.IConfig.GetReferencedType*
-  name: GetReferencedType
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_GetReferencedType_
-  commentId: Overload:Solti.Utils.SQL.IConfig.GetReferencedType
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.IConfig.GetReferencedType
-  nameWithType: IConfig.GetReferencedType
-- uid: Solti.Utils.SQL.IConfig.IsDataTable(System.Type)
-  name: IsDataTable(Type)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsDataTable_System_Type_
-  commentId: M:Solti.Utils.SQL.IConfig.IsDataTable(System.Type)
-  fullName: Solti.Utils.SQL.IConfig.IsDataTable(System.Type)
-  nameWithType: IConfig.IsDataTable(Type)
-- uid: Solti.Utils.SQL.IConfig.IsDataTable*
-  name: IsDataTable
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsDataTable_
-  commentId: Overload:Solti.Utils.SQL.IConfig.IsDataTable
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.IConfig.IsDataTable
-  nameWithType: IConfig.IsDataTable
-- uid: Solti.Utils.SQL.IConfig.IsIgnored(System.Reflection.PropertyInfo)
-  name: IsIgnored(PropertyInfo)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsIgnored_System_Reflection_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.IConfig.IsIgnored(System.Reflection.PropertyInfo)
-  fullName: Solti.Utils.SQL.IConfig.IsIgnored(System.Reflection.PropertyInfo)
-  nameWithType: IConfig.IsIgnored(PropertyInfo)
-- uid: Solti.Utils.SQL.IConfig.IsIgnored*
-  name: IsIgnored
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsIgnored_
-  commentId: Overload:Solti.Utils.SQL.IConfig.IsIgnored
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.IConfig.IsIgnored
-  nameWithType: IConfig.IsIgnored
-- uid: Solti.Utils.SQL.IConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
-  name: IsPrimaryKey(PropertyInfo)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsPrimaryKey_System_Reflection_PropertyInfo_
-  commentId: M:Solti.Utils.SQL.IConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
-  fullName: Solti.Utils.SQL.IConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
-  nameWithType: IConfig.IsPrimaryKey(PropertyInfo)
-- uid: Solti.Utils.SQL.IConfig.IsPrimaryKey*
-  name: IsPrimaryKey
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_IsPrimaryKey_
-  commentId: Overload:Solti.Utils.SQL.IConfig.IsPrimaryKey
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.IConfig.IsPrimaryKey
-  nameWithType: IConfig.IsPrimaryKey
-- uid: Solti.Utils.SQL.IConfig.Stringify(System.Data.IDataParameter)
-  name: Stringify(IDataParameter)
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_Stringify_System_Data_IDataParameter_
-  commentId: M:Solti.Utils.SQL.IConfig.Stringify(System.Data.IDataParameter)
-  fullName: Solti.Utils.SQL.IConfig.Stringify(System.Data.IDataParameter)
-  nameWithType: IConfig.Stringify(IDataParameter)
-- uid: Solti.Utils.SQL.IConfig.Stringify*
-  name: Stringify
-  href: Solti.Utils.SQL.IConfig.html#Solti_Utils_SQL_IConfig_Stringify_
-  commentId: Overload:Solti.Utils.SQL.IConfig.Stringify
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.IConfig.Stringify
-  nameWithType: IConfig.Stringify
 - uid: Solti.Utils.SQL.IDbConnectionExtensions
   name: IDbConnectionExtensions
   href: Solti.Utils.SQL.IDbConnectionExtensions.html
@@ -333,19 +275,6 @@ references:
   commentId: T:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions
   fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions
   nameWithType: IDbConnectionOrmLiteExtensions
-- uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.CreateSchema(System.Data.IDbConnection)
-  name: CreateSchema(IDbConnection)
-  href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_CreateSchema_System_Data_IDbConnection_
-  commentId: M:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.CreateSchema(System.Data.IDbConnection)
-  fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.CreateSchema(System.Data.IDbConnection)
-  nameWithType: IDbConnectionOrmLiteExtensions.CreateSchema(IDbConnection)
-- uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.CreateSchema*
-  name: CreateSchema
-  href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_CreateSchema_
-  commentId: Overload:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.CreateSchema
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.CreateSchema
-  nameWithType: IDbConnectionOrmLiteExtensions.CreateSchema
 - uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query*
   name: Query
   href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_Query_
@@ -353,15 +282,15 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query
   nameWithType: IDbConnectionOrmLiteExtensions.Query
-- uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query``1(System.Data.IDbConnection,ServiceStack.OrmLite.IUntypedSqlExpression)
-  name: Query<TView>(IDbConnection, IUntypedSqlExpression)
-  href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_Query__1_System_Data_IDbConnection_ServiceStack_OrmLite_IUntypedSqlExpression_
-  commentId: M:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query``1(System.Data.IDbConnection,ServiceStack.OrmLite.IUntypedSqlExpression)
-  name.vb: Query(Of TView)(IDbConnection, IUntypedSqlExpression)
-  fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query<TView>(System.Data.IDbConnection, ServiceStack.OrmLite.IUntypedSqlExpression)
-  fullName.vb: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query(Of TView)(System.Data.IDbConnection, ServiceStack.OrmLite.IUntypedSqlExpression)
-  nameWithType: IDbConnectionOrmLiteExtensions.Query<TView>(IDbConnection, IUntypedSqlExpression)
-  nameWithType.vb: IDbConnectionOrmLiteExtensions.Query(Of TView)(IDbConnection, IUntypedSqlExpression)
+- uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query``1(System.Data.IDbConnection,ServiceStack.OrmLite.ISqlExpression)
+  name: Query<TView>(IDbConnection, ISqlExpression)
+  href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_Query__1_System_Data_IDbConnection_ServiceStack_OrmLite_ISqlExpression_
+  commentId: M:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query``1(System.Data.IDbConnection,ServiceStack.OrmLite.ISqlExpression)
+  name.vb: Query(Of TView)(IDbConnection, ISqlExpression)
+  fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query<TView>(System.Data.IDbConnection, ServiceStack.OrmLite.ISqlExpression)
+  fullName.vb: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query(Of TView)(System.Data.IDbConnection, ServiceStack.OrmLite.ISqlExpression)
+  nameWithType: IDbConnectionOrmLiteExtensions.Query<TView>(IDbConnection, ISqlExpression)
+  nameWithType.vb: IDbConnectionOrmLiteExtensions.Query(Of TView)(IDbConnection, ISqlExpression)
 - uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query``1(System.Data.IDbConnection,System.Action{ServiceStack.OrmLite.IUntypedSqlExpression})
   name: Query<TView>(IDbConnection, Action<IUntypedSqlExpression>)
   href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_Query__1_System_Data_IDbConnection_System_Action_ServiceStack_OrmLite_IUntypedSqlExpression__
@@ -371,15 +300,6 @@ references:
   fullName.vb: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query(Of TView)(System.Data.IDbConnection, System.Action(Of ServiceStack.OrmLite.IUntypedSqlExpression))
   nameWithType: IDbConnectionOrmLiteExtensions.Query<TView>(IDbConnection, Action<IUntypedSqlExpression>)
   nameWithType.vb: IDbConnectionOrmLiteExtensions.Query(Of TView)(IDbConnection, Action(Of IUntypedSqlExpression))
-- uid: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query``1(System.Data.IDbConnection,System.String)
-  name: Query<TView>(IDbConnection, String)
-  href: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.html#Solti_Utils_SQL_IDbConnectionOrmLiteExtensions_Query__1_System_Data_IDbConnection_System_String_
-  commentId: M:Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query``1(System.Data.IDbConnection,System.String)
-  name.vb: Query(Of TView)(IDbConnection, String)
-  fullName: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query<TView>(System.Data.IDbConnection, System.String)
-  fullName.vb: Solti.Utils.SQL.IDbConnectionOrmLiteExtensions.Query(Of TView)(System.Data.IDbConnection, System.String)
-  nameWithType: IDbConnectionOrmLiteExtensions.Query<TView>(IDbConnection, String)
-  nameWithType.vb: IDbConnectionOrmLiteExtensions.Query(Of TView)(IDbConnection, String)
 - uid: Solti.Utils.SQL.Interfaces
   name: Solti.Utils.SQL.Interfaces
   href: Solti.Utils.SQL.Interfaces.html
@@ -714,6 +634,90 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder
   nameWithType: IBuildableAttribute.GetBuilder
+- uid: Solti.Utils.SQL.Interfaces.IConfig
+  name: IConfig
+  href: Solti.Utils.SQL.Interfaces.IConfig.html
+  commentId: T:Solti.Utils.SQL.Interfaces.IConfig
+  fullName: Solti.Utils.SQL.Interfaces.IConfig
+  nameWithType: IConfig
+- uid: Solti.Utils.SQL.Interfaces.IConfig.CreateQuery(System.Type)
+  name: CreateQuery(Type)
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_CreateQuery_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.CreateQuery(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.CreateQuery(System.Type)
+  nameWithType: IConfig.CreateQuery(Type)
+- uid: Solti.Utils.SQL.Interfaces.IConfig.CreateQuery*
+  name: CreateQuery
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_CreateQuery_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IConfig.CreateQuery
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.CreateQuery
+  nameWithType: IConfig.CreateQuery
+- uid: Solti.Utils.SQL.Interfaces.IConfig.GetReferencedType(System.Reflection.PropertyInfo)
+  name: GetReferencedType(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_GetReferencedType_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.GetReferencedType(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.GetReferencedType(System.Reflection.PropertyInfo)
+  nameWithType: IConfig.GetReferencedType(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.IConfig.GetReferencedType*
+  name: GetReferencedType
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_GetReferencedType_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IConfig.GetReferencedType
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.GetReferencedType
+  nameWithType: IConfig.GetReferencedType
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsDataTable(System.Type)
+  name: IsDataTable(Type)
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsDataTable_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.IsDataTable(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsDataTable(System.Type)
+  nameWithType: IConfig.IsDataTable(Type)
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsDataTable*
+  name: IsDataTable
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsDataTable_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IConfig.IsDataTable
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsDataTable
+  nameWithType: IConfig.IsDataTable
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsIgnored(System.Reflection.PropertyInfo)
+  name: IsIgnored(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsIgnored_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.IsIgnored(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsIgnored(System.Reflection.PropertyInfo)
+  nameWithType: IConfig.IsIgnored(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsIgnored*
+  name: IsIgnored
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsIgnored_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IConfig.IsIgnored
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsIgnored
+  nameWithType: IConfig.IsIgnored
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
+  name: IsPrimaryKey(PropertyInfo)
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsPrimaryKey_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsPrimaryKey(System.Reflection.PropertyInfo)
+  nameWithType: IConfig.IsPrimaryKey(PropertyInfo)
+- uid: Solti.Utils.SQL.Interfaces.IConfig.IsPrimaryKey*
+  name: IsPrimaryKey
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_IsPrimaryKey_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IConfig.IsPrimaryKey
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.IsPrimaryKey
+  nameWithType: IConfig.IsPrimaryKey
+- uid: Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDataParameter)
+  name: Stringify(IDataParameter)
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_Stringify_System_Data_IDataParameter_
+  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDataParameter)
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDataParameter)
+  nameWithType: IConfig.Stringify(IDataParameter)
+- uid: Solti.Utils.SQL.Interfaces.IConfig.Stringify*
+  name: Stringify
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_Stringify_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IConfig.Stringify
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.Stringify
+  nameWithType: IConfig.Stringify
 - uid: Solti.Utils.SQL.Interfaces.IFragment
   name: IFragment
   href: Solti.Utils.SQL.Interfaces.IFragment.html
@@ -810,12 +814,12 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.OrderByDescending
   nameWithType: ISqlQuery.OrderByDescending
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Type)
-  name: Run(Type)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Run_System_Type_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Type)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Type)
-  nameWithType: ISqlQuery.Run(Type)
+- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Data.IDbConnection,System.Type)
+  name: Run(IDbConnection, Type)
+  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Run_System_Data_IDbConnection_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Data.IDbConnection,System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Data.IDbConnection, System.Type)
+  nameWithType: ISqlQuery.Run(IDbConnection, Type)
 - uid: Solti.Utils.SQL.Interfaces.ISqlQuery.Run*
   name: Run
   href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_Run_
@@ -888,19 +892,6 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SelectMin
   nameWithType: ISqlQuery.SelectMin
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(System.Type)
-  name: SetBase(Type)
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SetBase_System_Type_
-  commentId: M:Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(System.Type)
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(System.Type)
-  nameWithType: ISqlQuery.SetBase(Type)
-- uid: Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase*
-  name: SetBase
-  href: Solti.Utils.SQL.Interfaces.ISqlQuery.html#Solti_Utils_SQL_Interfaces_ISqlQuery_SetBase_
-  commentId: Overload:Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase
-  nameWithType: ISqlQuery.SetBase
 - uid: Solti.Utils.SQL.Interfaces.MaxOfAttribute
   name: MaxOfAttribute
   href: Solti.Utils.SQL.Interfaces.MaxOfAttribute.html
@@ -969,6 +960,19 @@ references:
   commentId: T:Solti.Utils.SQL.Interfaces.OrmLiteConfig
   fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig
   nameWithType: OrmLiteConfig
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.CreateQuery(System.Type)
+  name: CreateQuery(Type)
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_CreateQuery_System_Type_
+  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.CreateQuery(System.Type)
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.CreateQuery(System.Type)
+  nameWithType: OrmLiteConfig.CreateQuery(Type)
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.CreateQuery*
+  name: CreateQuery
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_CreateQuery_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.OrmLiteConfig.CreateQuery
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.CreateQuery
+  nameWithType: OrmLiteConfig.CreateQuery
 - uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.GetReferencedType(System.Reflection.PropertyInfo)
   name: GetReferencedType(PropertyInfo)
   href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_GetReferencedType_System_Reflection_PropertyInfo_
@@ -1178,15 +1182,15 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.ISqlQueryExtensions.Run
   nameWithType: ISqlQueryExtensions.Run
-- uid: Solti.Utils.SQL.ISqlQueryExtensions.Run``1(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  name: Run<TView>(ISqlQuery)
-  href: Solti.Utils.SQL.ISqlQueryExtensions.html#Solti_Utils_SQL_ISqlQueryExtensions_Run__1_Solti_Utils_SQL_Interfaces_ISqlQuery_
-  commentId: M:Solti.Utils.SQL.ISqlQueryExtensions.Run``1(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  name.vb: Run(Of TView)(ISqlQuery)
-  fullName: Solti.Utils.SQL.ISqlQueryExtensions.Run<TView>(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  fullName.vb: Solti.Utils.SQL.ISqlQueryExtensions.Run(Of TView)(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  nameWithType: ISqlQueryExtensions.Run<TView>(ISqlQuery)
-  nameWithType.vb: ISqlQueryExtensions.Run(Of TView)(ISqlQuery)
+- uid: Solti.Utils.SQL.ISqlQueryExtensions.Run``1(Solti.Utils.SQL.Interfaces.ISqlQuery,System.Data.IDbConnection)
+  name: Run<TView>(ISqlQuery, IDbConnection)
+  href: Solti.Utils.SQL.ISqlQueryExtensions.html#Solti_Utils_SQL_ISqlQueryExtensions_Run__1_Solti_Utils_SQL_Interfaces_ISqlQuery_System_Data_IDbConnection_
+  commentId: M:Solti.Utils.SQL.ISqlQueryExtensions.Run``1(Solti.Utils.SQL.Interfaces.ISqlQuery,System.Data.IDbConnection)
+  name.vb: Run(Of TView)(ISqlQuery, IDbConnection)
+  fullName: Solti.Utils.SQL.ISqlQueryExtensions.Run<TView>(Solti.Utils.SQL.Interfaces.ISqlQuery, System.Data.IDbConnection)
+  fullName.vb: Solti.Utils.SQL.ISqlQueryExtensions.Run(Of TView)(Solti.Utils.SQL.Interfaces.ISqlQuery, System.Data.IDbConnection)
+  nameWithType: ISqlQueryExtensions.Run<TView>(ISqlQuery, IDbConnection)
+  nameWithType.vb: ISqlQueryExtensions.Run(Of TView)(ISqlQuery, IDbConnection)
 - uid: Solti.Utils.SQL.SmartSqlBuilder`1
   name: SmartSqlBuilder<TView>
   href: Solti.Utils.SQL.SmartSqlBuilder-1.html
@@ -1196,14 +1200,6 @@ references:
   fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView)
   nameWithType: SmartSqlBuilder<TView>
   nameWithType.vb: SmartSqlBuilder(Of TView)
-- uid: Solti.Utils.SQL.SmartSqlBuilder`1.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  name: Build(ISqlQuery)
-  href: Solti.Utils.SQL.SmartSqlBuilder-1.html#Solti_Utils_SQL_SmartSqlBuilder_1_Build_Solti_Utils_SQL_Interfaces_ISqlQuery_
-  commentId: M:Solti.Utils.SQL.SmartSqlBuilder`1.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView>.Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView).Build(Solti.Utils.SQL.Interfaces.ISqlQuery)
-  nameWithType: SmartSqlBuilder<TView>.Build(ISqlQuery)
-  nameWithType.vb: SmartSqlBuilder(Of TView).Build(ISqlQuery)
 - uid: Solti.Utils.SQL.SmartSqlBuilder`1.Build*
   name: Build
   href: Solti.Utils.SQL.SmartSqlBuilder-1.html#Solti_Utils_SQL_SmartSqlBuilder_1_Build_
@@ -1213,6 +1209,15 @@ references:
   fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView).Build
   nameWithType: SmartSqlBuilder<TView>.Build
   nameWithType.vb: SmartSqlBuilder(Of TView).Build
+- uid: Solti.Utils.SQL.SmartSqlBuilder`1.Build``1(System.Func{System.Type,``0})
+  name: Build<TQuery>(Func<Type, TQuery>)
+  href: Solti.Utils.SQL.SmartSqlBuilder-1.html#Solti_Utils_SQL_SmartSqlBuilder_1_Build__1_System_Func_System_Type___0__
+  commentId: M:Solti.Utils.SQL.SmartSqlBuilder`1.Build``1(System.Func{System.Type,``0})
+  name.vb: Build(Of TQuery)(Func(Of Type, TQuery))
+  fullName: Solti.Utils.SQL.SmartSqlBuilder<TView>.Build<TQuery>(System.Func<System.Type, TQuery>)
+  fullName.vb: Solti.Utils.SQL.SmartSqlBuilder(Of TView).Build(Of TQuery)(System.Func(Of System.Type, TQuery))
+  nameWithType: SmartSqlBuilder<TView>.Build<TQuery>(Func<Type, TQuery>)
+  nameWithType.vb: SmartSqlBuilder(Of TView).Build(Of TQuery)(Func(Of Type, TQuery))
 - uid: Solti.Utils.SQL.SmartSqlBuilder`1.Initialize(Edge[])
   name: Initialize(Edge[])
   href: Solti.Utils.SQL.SmartSqlBuilder-1.html#Solti_Utils_SQL_SmartSqlBuilder_1_Initialize_Edge___

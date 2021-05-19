@@ -194,13 +194,13 @@
     </tbody>
   </table>
   <a id="Solti_Utils_SQL_Interfaces_ISqlQuery_Run_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.Run*"></a>
-  <h4 id="Solti_Utils_SQL_Interfaces_ISqlQuery_Run_System_Type_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Type)">Run(Type)</h4>
+  <h4 id="Solti_Utils_SQL_Interfaces_ISqlQuery_Run_System_Data_IDbConnection_System_Type_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.Run(System.Data.IDbConnection,System.Type)">Run(IDbConnection, Type)</h4>
   <div class="markdown level1 summary"><p>Runs a select query to get a list from the given <code data-dev-comment-type="paramref" class="paramref">view</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IList Run(Type view)</code></pre>
+    <pre><code class="lang-csharp hljs">IList Run(IDbConnection conn, Type view)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -212,6 +212,11 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.data.idbconnection">IDbConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td></td>
+      </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a></td>
         <td><span class="parametername">view</span></td>
@@ -389,35 +394,9 @@
       </tr>
     </tbody>
   </table>
-  <a id="Solti_Utils_SQL_Interfaces_ISqlQuery_SetBase_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase*"></a>
-  <h4 id="Solti_Utils_SQL_Interfaces_ISqlQuery_SetBase_System_Type_" data-uid="Solti.Utils.SQL.Interfaces.ISqlQuery.SetBase(System.Type)">SetBase(Type)</h4>
-  <div class="markdown level1 summary"><p>Sets the base data table that should appear in the FROM clause.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void SetBase(Type table)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a></td>
-        <td><span class="parametername">table</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="Solti.Utils.SQL.ISqlQueryExtensions.html#Solti_Utils_SQL_ISqlQueryExtensions_Run__1_Solti_Utils_SQL_Interfaces_ISqlQuery_">ISqlQueryExtensions.Run&lt;TView&gt;(ISqlQuery)</a>
+      <a class="xref" href="Solti.Utils.SQL.ISqlQueryExtensions.html#Solti_Utils_SQL_ISqlQueryExtensions_Run__1_Solti_Utils_SQL_Interfaces_ISqlQuery_System_Data_IDbConnection_">ISqlQueryExtensions.Run&lt;TView&gt;(ISqlQuery, IDbConnection)</a>
   </div>
 </article>
           </div>

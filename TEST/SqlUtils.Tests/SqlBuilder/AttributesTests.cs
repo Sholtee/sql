@@ -30,7 +30,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void BelongsTo_ShouldSelect() 
         {
-            IFragment attr = new BelongsToAttribute(typeof(Goal_Node));
+            IFragmentFactory attr = new BelongsToAttribute(typeof(Goal_Node));
 
             Action<ISqlQuery> action = ConvertToDelegate(bldr => attr.GetFragments(bldr, typeof(View3).GetProperty(nameof(View3.Id)), false));
 
@@ -45,7 +45,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void BelongsTo_ShouldGroup() 
         {
-            IFragment attr = new BelongsToAttribute(typeof(Goal_Node));
+            IFragmentFactory attr = new BelongsToAttribute(typeof(Goal_Node));
 
             Action<ISqlQuery> action = ConvertToDelegate(bldr => attr.GetFragments(bldr, typeof(View3).GetProperty(nameof(View3.Id)), true));
 
@@ -62,7 +62,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void BelongsTo_ShouldOrder() 
         {
-            IFragment attr = new BelongsToAttribute(typeof(Goal_Node), order: Order.Descending);
+            IFragmentFactory attr = new BelongsToAttribute(typeof(Goal_Node), order: Order.Descending);
 
             Action<ISqlQuery> action = ConvertToDelegate(bldr => attr.GetFragments(bldr, typeof(View3).GetProperty(nameof(View3.Id)), false));
 
@@ -79,7 +79,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void AverageOf_ShouldSelect()
         {
-            IFragment attr = new AverageOfAttribute(typeof(Node2), column: nameof(Node2.Id));
+            IFragmentFactory attr = new AverageOfAttribute(typeof(Node2), column: nameof(Node2.Id));
 
             Action<ISqlQuery> action = ConvertToDelegate(bldr => attr.GetFragments(bldr, typeof(View3).GetProperty(nameof(View3.Count)), false));
 
@@ -94,7 +94,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void CountOf_ShouldSelect()
         {
-            IFragment attr = new CountOfAttribute(typeof(Node2), column: nameof(Node2.Id));
+            IFragmentFactory attr = new CountOfAttribute(typeof(Node2), column: nameof(Node2.Id));
 
             Action<ISqlQuery> action = ConvertToDelegate(bldr => attr.GetFragments(bldr, typeof(View3).GetProperty(nameof(View3.Count)), false));
 
@@ -109,7 +109,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void MinOf_ShouldSelect()
         {
-            IFragment attr = new MinOfAttribute(typeof(Node2), column: nameof(Node2.Id));
+            IFragmentFactory attr = new MinOfAttribute(typeof(Node2), column: nameof(Node2.Id));
 
             Action<ISqlQuery> action = ConvertToDelegate(bldr => attr.GetFragments(bldr, typeof(View3).GetProperty(nameof(View3.Count)), false));
 
@@ -124,7 +124,7 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void MaxOf_ShouldSelect()
         {
-            IFragment attr = new MaxOfAttribute(typeof(Node2), column: nameof(Node2.Id));
+            IFragmentFactory attr = new MaxOfAttribute(typeof(Node2), column: nameof(Node2.Id));
 
             Action<ISqlQuery> action = ConvertToDelegate(bldr => attr.GetFragments(bldr, typeof(View3).GetProperty(nameof(View3.Count)), false));
 

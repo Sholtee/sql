@@ -1,5 +1,5 @@
 ﻿/********************************************************************************
-* IFragment.cs                                                                  *
+* IFragmentFactory.cs                                                           *
 *                                                                               *
 * Author: Denes Solti                                                           *
 ********************************************************************************/
@@ -10,9 +10,9 @@ using System.Reflection;
 namespace Solti.Utils.SQL.Interfaces
 {
     /// <summary>
-    /// Represents one or more query fragments.
+    /// Creates <see cref="MethodCallExpression"/>s to represent <see cref="ISqlQuery"/> invocations.
     /// </summary>
-    public interface IFragment
+    public interface IFragmentFactory
     {
         /// <summary>
         /// Gets the query fragments.

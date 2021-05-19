@@ -16,7 +16,7 @@ namespace Solti.Utils.SQL.Interfaces
     /// <summary>
     /// Represents an abstract database column selection.
     /// </summary>
-    public abstract class ColumnSelectionAttribute : Attribute, IFragment, IBuildableAttribute
+    public abstract class ColumnSelectionAttribute : Attribute, IFragmentFactory, IBuildableAttribute
     {
         /// <summary>
         /// The <see cref="Type"/> that represents the data table.
@@ -49,7 +49,7 @@ namespace Solti.Utils.SQL.Interfaces
         }
 
         /// <summary>
-        /// See <see cref="IFragment.GetFragments(ParameterExpression, PropertyInfo, bool)"/>.
+        /// See <see cref="IFragmentFactory.GetFragments(ParameterExpression, PropertyInfo, bool)"/>.
         /// </summary>
         public virtual IEnumerable<MethodCallExpression> GetFragments(ParameterExpression bldr, PropertyInfo viewProperty, bool isGroupBy)
         {

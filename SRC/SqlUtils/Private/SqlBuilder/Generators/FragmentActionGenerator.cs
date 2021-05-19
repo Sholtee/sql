@@ -20,7 +20,7 @@ namespace Solti.Utils.SQL.Internals
         {
             foreach(ColumnSelection sel in Selections)
             {
-                IFragment fragment = sel.Reason;
+                IFragmentFactory fragment = sel.Reason;
 
                 foreach (MethodCallExpression action in fragment.GetFragments(bldr, sel.ViewProperty, IsAggregate))
                 {

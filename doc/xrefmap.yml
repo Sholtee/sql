@@ -718,25 +718,25 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.IConfig.Stringify
   nameWithType: IConfig.Stringify
-- uid: Solti.Utils.SQL.Interfaces.IFragment
-  name: IFragment
-  href: Solti.Utils.SQL.Interfaces.IFragment.html
-  commentId: T:Solti.Utils.SQL.Interfaces.IFragment
-  fullName: Solti.Utils.SQL.Interfaces.IFragment
-  nameWithType: IFragment
-- uid: Solti.Utils.SQL.Interfaces.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
+- uid: Solti.Utils.SQL.Interfaces.IFragmentFactory
+  name: IFragmentFactory
+  href: Solti.Utils.SQL.Interfaces.IFragmentFactory.html
+  commentId: T:Solti.Utils.SQL.Interfaces.IFragmentFactory
+  fullName: Solti.Utils.SQL.Interfaces.IFragmentFactory
+  nameWithType: IFragmentFactory
+- uid: Solti.Utils.SQL.Interfaces.IFragmentFactory.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
   name: GetFragments(ParameterExpression, PropertyInfo, Boolean)
-  href: Solti.Utils.SQL.Interfaces.IFragment.html#Solti_Utils_SQL_Interfaces_IFragment_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_
-  commentId: M:Solti.Utils.SQL.Interfaces.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
-  fullName: Solti.Utils.SQL.Interfaces.IFragment.GetFragments(System.Linq.Expressions.ParameterExpression, System.Reflection.PropertyInfo, System.Boolean)
-  nameWithType: IFragment.GetFragments(ParameterExpression, PropertyInfo, Boolean)
-- uid: Solti.Utils.SQL.Interfaces.IFragment.GetFragments*
+  href: Solti.Utils.SQL.Interfaces.IFragmentFactory.html#Solti_Utils_SQL_Interfaces_IFragmentFactory_GetFragments_System_Linq_Expressions_ParameterExpression_System_Reflection_PropertyInfo_System_Boolean_
+  commentId: M:Solti.Utils.SQL.Interfaces.IFragmentFactory.GetFragments(System.Linq.Expressions.ParameterExpression,System.Reflection.PropertyInfo,System.Boolean)
+  fullName: Solti.Utils.SQL.Interfaces.IFragmentFactory.GetFragments(System.Linq.Expressions.ParameterExpression, System.Reflection.PropertyInfo, System.Boolean)
+  nameWithType: IFragmentFactory.GetFragments(ParameterExpression, PropertyInfo, Boolean)
+- uid: Solti.Utils.SQL.Interfaces.IFragmentFactory.GetFragments*
   name: GetFragments
-  href: Solti.Utils.SQL.Interfaces.IFragment.html#Solti_Utils_SQL_Interfaces_IFragment_GetFragments_
-  commentId: Overload:Solti.Utils.SQL.Interfaces.IFragment.GetFragments
+  href: Solti.Utils.SQL.Interfaces.IFragmentFactory.html#Solti_Utils_SQL_Interfaces_IFragmentFactory_GetFragments_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IFragmentFactory.GetFragments
   isSpec: "True"
-  fullName: Solti.Utils.SQL.Interfaces.IFragment.GetFragments
-  nameWithType: IFragment.GetFragments
+  fullName: Solti.Utils.SQL.Interfaces.IFragmentFactory.GetFragments
+  nameWithType: IFragmentFactory.GetFragments
 - uid: Solti.Utils.SQL.Interfaces.IKnownDataTables
   name: IKnownDataTables
   href: Solti.Utils.SQL.Interfaces.IKnownDataTables.html

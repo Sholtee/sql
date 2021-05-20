@@ -42,7 +42,7 @@
   
   <h1 id="Solti_Utils_SQL_Internals_MapFromAttribute" data-uid="Solti.Utils.SQL.Internals.MapFromAttribute" class="text-break">Class MapFromAttribute
   </h1>
-  <div class="markdown level0 summary"><p>This is an internal class, don&apos;t use it.</p>
+  <div class="markdown level0 summary"><p>When a view is being mapped to a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype">ValueType</a> this attribute denotes the source property. </p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -189,13 +189,17 @@
   <h5 id="Solti_Utils_SQL_Internals_MapFromAttribute_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-public sealed class MapFromAttribute : Attribute, IBuildableAttribute</code></pre>
+public sealed class MapFromAttribute : Attribute, IBuildableAttribute, IPropertySelector</code></pre>
   </div>
+  <h5 id="Solti_Utils_SQL_Internals_MapFromAttribute_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This is an internal class, you should not use it.</p>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   <a id="Solti_Utils_SQL_Internals_MapFromAttribute__ctor_" data-uid="Solti.Utils.SQL.Internals.MapFromAttribute.#ctor*"></a>
   <h4 id="Solti_Utils_SQL_Internals_MapFromAttribute__ctor_System_String_" data-uid="Solti.Utils.SQL.Internals.MapFromAttribute.#ctor(System.String)">MapFromAttribute(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Solti.Utils.SQL.Internals.MapFromAttribute.html">MapFromAttribute</a> instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -222,7 +226,8 @@ public sealed class MapFromAttribute : Attribute, IBuildableAttribute</code></pr
   </h3>
   <a id="Solti_Utils_SQL_Internals_MapFromAttribute_Property_" data-uid="Solti.Utils.SQL.Internals.MapFromAttribute.Property*"></a>
   <h4 id="Solti_Utils_SQL_Internals_MapFromAttribute_Property" data-uid="Solti.Utils.SQL.Internals.MapFromAttribute.Property">Property</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The name of the source property that will provide the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype">ValueType</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">

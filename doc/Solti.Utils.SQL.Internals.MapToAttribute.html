@@ -42,7 +42,7 @@
   
   <h1 id="Solti_Utils_SQL_Internals_MapToAttribute" data-uid="Solti.Utils.SQL.Internals.MapToAttribute" class="text-break">Class MapToAttribute
   </h1>
-  <div class="markdown level0 summary"><p>This is an internal class, don&apos;t use it.</p>
+  <div class="markdown level0 summary"><p>Marks a property as a mapping source.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -189,13 +189,17 @@
   <h5 id="Solti_Utils_SQL_Internals_MapToAttribute_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-public sealed class MapToAttribute : Attribute, IBuildableAttribute</code></pre>
+public sealed class MapToAttribute : Attribute, IBuildableAttribute, IPropertySelector</code></pre>
   </div>
+  <h5 id="Solti_Utils_SQL_Internals_MapToAttribute_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This is an internal class, you should not use it.</p>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   <a id="Solti_Utils_SQL_Internals_MapToAttribute__ctor_" data-uid="Solti.Utils.SQL.Internals.MapToAttribute.#ctor*"></a>
   <h4 id="Solti_Utils_SQL_Internals_MapToAttribute__ctor_System_String_" data-uid="Solti.Utils.SQL.Internals.MapToAttribute.#ctor(System.String)">MapToAttribute(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Solti.Utils.SQL.Internals.MapToAttribute.html">MapToAttribute</a> instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -222,7 +226,8 @@ public sealed class MapToAttribute : Attribute, IBuildableAttribute</code></pre>
   </h3>
   <a id="Solti_Utils_SQL_Internals_MapToAttribute_Property_" data-uid="Solti.Utils.SQL.Internals.MapToAttribute.Property*"></a>
   <h4 id="Solti_Utils_SQL_Internals_MapToAttribute_Property" data-uid="Solti.Utils.SQL.Internals.MapToAttribute.Property">Property</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The name of the destination property.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">

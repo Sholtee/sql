@@ -1,0 +1,548 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class OrmLiteSqlQuery
+   | SqlUtils.NET </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class OrmLiteSqlQuery
+   | SqlUtils.NET ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="icon.png">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery">
+  
+  
+  <h1 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery" class="text-break">Class OrmLiteSqlQuery
+  </h1>
+  <div class="markdown level0 summary"><p>Implements the <a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a> interface.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">OrmLiteSqlQuery</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Solti.Utils.SQL.Internals.html">Solti.Utils.SQL.Internals</a></h6>
+  <h6><strong>Assembly</strong>: Solti.Utils.SQL.OrmLite.dll</h6>
+  <h5 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class OrmLiteSqlQuery : ISqlQuery</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery__ctor_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.#ctor*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery__ctor_ServiceStack_OrmLite_ISqlExpression_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.#ctor(ServiceStack.OrmLite.ISqlExpression)">OrmLiteSqlQuery(ISqlExpression)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html">OrmLiteSqlQuery</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrmLiteSqlQuery(ISqlExpression sql)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ServiceStack.OrmLite.ISqlExpression</span></td>
+        <td><span class="parametername">sql</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery__ctor_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.#ctor*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery__ctor_System_Type_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.#ctor(System.Type)">OrmLiteSqlQuery(Type)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html">OrmLiteSqlQuery</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrmLiteSqlQuery(Type from)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">from</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_UnderlyingExpression_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.UnderlyingExpression*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_UnderlyingExpression" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.UnderlyingExpression">UnderlyingExpression</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IUntypedSqlExpression UnderlyingExpression { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ServiceStack.OrmLite.IUntypedSqlExpression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_GroupBy_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.GroupBy*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_GroupBy_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.GroupBy(System.Reflection.PropertyInfo)">GroupBy(PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>Extends/creates the &quot;group by&quot; clause of this query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GroupBy(PropertyInfo tableColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_InnerJoin_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.InnerJoin*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_InnerJoin_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.InnerJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)">InnerJoin(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>Creates an &quot;inner join&quot; clause for this query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InnerJoin(PropertyInfo left, PropertyInfo right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">left</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_LeftJoin_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.LeftJoin*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_LeftJoin_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.LeftJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)">LeftJoin(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>Creates a &quot;left join&quot; clause for this query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LeftJoin(PropertyInfo left, PropertyInfo right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">left</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_OrderBy_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderBy*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_OrderBy_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderBy(System.Reflection.PropertyInfo)">OrderBy(PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>Extends/creates the &quot;order by&quot; clause of this query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OrderBy(PropertyInfo tableColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_OrderByDescending_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderByDescending*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_OrderByDescending_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderByDescending(System.Reflection.PropertyInfo)">OrderByDescending(PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>Extends/creates the &quot;order by&quot; clause of this query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OrderByDescending(PropertyInfo tableColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_Run_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Run*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_Run_System_Data_IDbConnection_System_Type_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Run(System.Data.IDbConnection,System.Type)">Run(IDbConnection, Type)</h4>
+  <div class="markdown level1 summary"><p>Runs a select query to get a list from the given <code data-dev-comment-type="paramref" class="paramref">view</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IList Run(IDbConnection conn, Type view)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.data.idbconnection">IDbConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">view</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ilist">IList</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_Select_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Select*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_Select_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Select(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)">Select(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>Extends/creates the select clause with a simple selection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Select(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectAvg_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectAvg*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectAvg_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectAvg(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)">SelectAvg(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>Extends/creates the select clause with an &quot;AVG()&quot; selection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SelectAvg(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectCount_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectCount*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectCount_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectCount(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)">SelectCount(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>Extends/creates the select clause with a &quot;COUNT()&quot; selection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SelectCount(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectMax_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMax*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectMax_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMax(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)">SelectMax(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>Extends/creates the select clause with a &quot;MAX()&quot; selection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SelectMax(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectMin_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMin*"></a>
+  <h4 id="Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectMin_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_" data-uid="Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)">SelectMin(PropertyInfo, PropertyInfo)</h4>
+  <div class="markdown level1 summary"><p>Extends/creates the select clause with a &quot;MIN()&quot; selection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SelectMin(PropertyInfo tableColumn, PropertyInfo viewColumn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">tableColumn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">viewColumn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Solti.Utils.SQL.Interfaces.ISqlQuery.html">ISqlQuery</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Solti.Utils.SQL.ISqlQueryExtensions.html#Solti_Utils_SQL_ISqlQueryExtensions_Run__1_Solti_Utils_SQL_Interfaces_ISqlQuery_System_Data_IDbConnection_">ISqlQueryExtensions.Run&lt;TView&gt;(ISqlQuery, IDbConnection)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

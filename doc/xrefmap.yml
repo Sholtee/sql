@@ -1169,6 +1169,187 @@ references:
   fullName: Solti.Utils.SQL.Internals.MapToAttribute.Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder
   nameWithType: MapToAttribute.IBuildableAttribute.GetBuilder
   nameWithType.vb: MapToAttribute.Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery
+  name: OrmLiteSqlQuery
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html
+  commentId: T:Solti.Utils.SQL.Internals.OrmLiteSqlQuery
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery
+  nameWithType: OrmLiteSqlQuery
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.#ctor(ServiceStack.OrmLite.ISqlExpression)
+  name: OrmLiteSqlQuery(ISqlExpression)
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery__ctor_ServiceStack_OrmLite_ISqlExpression_
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.#ctor(ServiceStack.OrmLite.ISqlExpression)
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrmLiteSqlQuery(ServiceStack.OrmLite.ISqlExpression)
+  nameWithType: OrmLiteSqlQuery.OrmLiteSqlQuery(ISqlExpression)
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.#ctor(System.Type)
+  name: OrmLiteSqlQuery(Type)
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery__ctor_System_Type_
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.#ctor(System.Type)
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrmLiteSqlQuery(System.Type)
+  nameWithType: OrmLiteSqlQuery.OrmLiteSqlQuery(Type)
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.#ctor*
+  name: OrmLiteSqlQuery
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery__ctor_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.#ctor
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrmLiteSqlQuery
+  nameWithType: OrmLiteSqlQuery.OrmLiteSqlQuery
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.GroupBy(System.Reflection.PropertyInfo)
+  name: GroupBy(PropertyInfo)
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_GroupBy_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.GroupBy(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.GroupBy(System.Reflection.PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.GroupBy(PropertyInfo)
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.GroupBy*
+  name: GroupBy
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_GroupBy_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.GroupBy
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.GroupBy
+  nameWithType: OrmLiteSqlQuery.GroupBy
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.InnerJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  name: InnerJoin(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_InnerJoin_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.InnerJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.InnerJoin(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.InnerJoin(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.InnerJoin*
+  name: InnerJoin
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_InnerJoin_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.InnerJoin
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.InnerJoin
+  nameWithType: OrmLiteSqlQuery.InnerJoin
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.LeftJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  name: LeftJoin(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_LeftJoin_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.LeftJoin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.LeftJoin(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.LeftJoin(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.LeftJoin*
+  name: LeftJoin
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_LeftJoin_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.LeftJoin
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.LeftJoin
+  nameWithType: OrmLiteSqlQuery.LeftJoin
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderBy(System.Reflection.PropertyInfo)
+  name: OrderBy(PropertyInfo)
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_OrderBy_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderBy(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderBy(System.Reflection.PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.OrderBy(PropertyInfo)
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderBy*
+  name: OrderBy
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_OrderBy_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderBy
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderBy
+  nameWithType: OrmLiteSqlQuery.OrderBy
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderByDescending(System.Reflection.PropertyInfo)
+  name: OrderByDescending(PropertyInfo)
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_OrderByDescending_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderByDescending(System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderByDescending(System.Reflection.PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.OrderByDescending(PropertyInfo)
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderByDescending*
+  name: OrderByDescending
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_OrderByDescending_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderByDescending
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.OrderByDescending
+  nameWithType: OrmLiteSqlQuery.OrderByDescending
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Run(System.Data.IDbConnection,System.Type)
+  name: Run(IDbConnection, Type)
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_Run_System_Data_IDbConnection_System_Type_
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Run(System.Data.IDbConnection,System.Type)
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Run(System.Data.IDbConnection, System.Type)
+  nameWithType: OrmLiteSqlQuery.Run(IDbConnection, Type)
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Run*
+  name: Run
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_Run_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Run
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Run
+  nameWithType: OrmLiteSqlQuery.Run
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Select(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  name: Select(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_Select_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Select(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Select(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.Select(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Select*
+  name: Select
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_Select_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Select
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.Select
+  nameWithType: OrmLiteSqlQuery.Select
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectAvg(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  name: SelectAvg(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectAvg_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectAvg(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectAvg(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.SelectAvg(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectAvg*
+  name: SelectAvg
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectAvg_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectAvg
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectAvg
+  nameWithType: OrmLiteSqlQuery.SelectAvg
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectCount(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  name: SelectCount(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectCount_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectCount(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectCount(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.SelectCount(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectCount*
+  name: SelectCount
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectCount_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectCount
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectCount
+  nameWithType: OrmLiteSqlQuery.SelectCount
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMax(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  name: SelectMax(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectMax_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMax(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMax(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.SelectMax(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMax*
+  name: SelectMax
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectMax_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMax
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMax
+  nameWithType: OrmLiteSqlQuery.SelectMax
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  name: SelectMin(PropertyInfo, PropertyInfo)
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectMin_System_Reflection_PropertyInfo_System_Reflection_PropertyInfo_
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMin(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMin(System.Reflection.PropertyInfo, System.Reflection.PropertyInfo)
+  nameWithType: OrmLiteSqlQuery.SelectMin(PropertyInfo, PropertyInfo)
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMin*
+  name: SelectMin
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_SelectMin_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMin
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMin
+  nameWithType: OrmLiteSqlQuery.SelectMin
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.UnderlyingExpression
+  name: UnderlyingExpression
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_UnderlyingExpression
+  commentId: P:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.UnderlyingExpression
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.UnderlyingExpression
+  nameWithType: OrmLiteSqlQuery.UnderlyingExpression
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.UnderlyingExpression*
+  name: UnderlyingExpression
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_UnderlyingExpression_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.UnderlyingExpression
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.UnderlyingExpression
+  nameWithType: OrmLiteSqlQuery.UnderlyingExpression
 - uid: Solti.Utils.SQL.ISqlQueryExtensions
   name: ISqlQueryExtensions
   href: Solti.Utils.SQL.ISqlQueryExtensions.html

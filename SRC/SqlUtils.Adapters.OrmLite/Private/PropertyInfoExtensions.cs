@@ -25,7 +25,7 @@ namespace Solti.Utils.SQL.Internals
         {
             IOrmLiteDialectProvider dialectProvider = OrmLiteConfig.DialectProvider;
 
-            return $"{dialectProvider.GetQuotedTableName(prop.GetModelDefinition())}.{dialectProvider.GetQuotedColumnName(prop.GetFieldDefinition().FieldName)}";
+            return $"{dialectProvider.GetQuotedTableName(prop.GetModelDefinition())}.{prop.GetFieldDefinition().GetQuotedName(dialectProvider)}";
         }
 
         public static LambdaExpression ToEqualsExpression(this PropertyInfo @this, PropertyInfo that)

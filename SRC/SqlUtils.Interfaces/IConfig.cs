@@ -17,7 +17,13 @@ namespace Solti.Utils.SQL.Interfaces
         /// <summary>
         /// Stringifies the given parameter.
         /// </summary>
-        string Stringify(IDataParameter parameter);
+        string Stringify(IDbDataParameter parameter);
+
+        /// <summary>
+        /// Merges the given parameters into the query string.
+        /// </summary>
+        /// <returns></returns>
+        string SqlFormat(string sql, params IDbDataParameter[] paramz);
 
         /// <summary>
         /// Returns true if the property should be ignored.

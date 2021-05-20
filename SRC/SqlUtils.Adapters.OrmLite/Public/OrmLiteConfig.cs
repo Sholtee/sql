@@ -5,6 +5,7 @@
 ********************************************************************************/
 using System;
 using System.Data;
+using System.Linq;
 using System.Reflection;
 
 namespace Solti.Utils.SQL.Interfaces
@@ -12,18 +13,14 @@ namespace Solti.Utils.SQL.Interfaces
     using Internals;
 
     /// <summary>
-    /// Library specific configuration.
+    /// OrmLite specific configuration.
     /// </summary>
     public sealed class OrmLiteConfig: DefaultConfig
     {
-        /// <summary>
-        /// See <see cref="IConfig.CreateQuery(Type)"/>.
-        /// </summary>
+        /// <inheritdoc/>
         public override ISqlQuery CreateQuery(Type from) => new OrmLiteSqlQuery(from);
 
-        /// <summary>
-        /// See <see cref="IConfig.GetReferencedType(PropertyInfo)"/>.
-        /// </summary>
+        /// <inheritdoc/>
         public override Type? GetReferencedType(PropertyInfo prop)
         {
             if (prop is null)
@@ -32,9 +29,7 @@ namespace Solti.Utils.SQL.Interfaces
             return prop.GetFieldDefinition()?.ForeignKey?.ReferenceType;
         }
 
-        /// <summary>
-        /// See <see cref="IConfig.IsPrimaryKey(PropertyInfo)"/>.
-        /// </summary>
+        /// <inheritdoc/>
         public override bool IsPrimaryKey(PropertyInfo prop)
         {
             if (prop is null) 
@@ -43,9 +38,7 @@ namespace Solti.Utils.SQL.Interfaces
             return !IsIgnored(prop) && prop.GetFieldDefinition().IsPrimaryKey;
         }
 
-        /// <summary>
-        /// See <see cref="IConfig.IsIgnored(PropertyInfo)"/>.
-        /// </summary>
+        /// <inheritdoc/>
         public override bool IsIgnored(PropertyInfo prop)
         {
             if (prop is null) 
@@ -54,10 +47,8 @@ namespace Solti.Utils.SQL.Interfaces
             return prop.GetFieldDefinition() is null;
         }
 
-        /// <summary>
-        /// See <see cref="IConfig.Stringify(IDataParameter)"/>.
-        /// </summary>
-        public override string Stringify(IDataParameter parameter)
+        /// <inheritdoc/>
+        public override string Stringify(IDbDataParameter parameter)
         {
             if (parameter is null) 
                 throw new ArgumentNullException(nameof(parameter));
@@ -67,6 +58,28 @@ namespace Solti.Utils.SQL.Interfaces
             return value is not null
                 ? ServiceStack.OrmLite.OrmLiteConfig.DialectProvider.GetQuotedValue(value, value.GetType())
                 : "NULL";
+        }
+
+        /// <inheritdoc/>
+        public override string SqlFormat(string sql, params IDbDataParameter[] paramz)
+        {
+            if (sql is null)
+                throw new ArgumentNullException(nameof(sql));
+
+            if (paramz is null)
+                throw new ArgumentNullException(nameof(paramz));
+
+            return ServiceStack.OrmLite.OrmLiteConfig.DialectProvider.MergeParamsIntoSql(sql, paramz.Select(para =>
+            {
+                //
+                // MergeParamsIntoSql() baszik rendesen lekezeni a DBNull-t
+                //
+
+                if (para.Value == DBNull.Value)
+                    para.Value = null;
+
+                return para;
+            }));
         }
     }
 }

@@ -8,16 +8,19 @@ using System.Data;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 
-[assembly: InternalsVisibleTo("Generated_386AC90D1C6F35911B55F802BC4CEBAD")]
+using Solti.Utils.Proxy;
+using Solti.Utils.Proxy.Attributes;
+using Solti.Utils.Proxy.Generators;
+
+[assembly: EmbedGeneratedType(typeof(ProxyGenerator<IDbCommand, Solti.Utils.SQL.Internals.BulkedDbConnection.IDbCommandInterceptor>))]
 
 namespace Solti.Utils.SQL.Internals
 {
-    using Proxy;
-    using Proxy.Generators;
-    
+    using Primitives;
+
     internal sealed class BulkedDbConnection: IBulkedDbConnection
     {
         internal IDbConnection Connection { get; }
@@ -55,17 +58,19 @@ namespace Solti.Utils.SQL.Internals
             public IDbCommandInterceptor(BulkedDbConnection parent) : base(parent.Connection.CreateCommand()) => 
                 Parent = parent;
 
+            private static readonly Regex FCommandTerminated = new(";\\s*$", RegexOptions.Compiled);
+
             public override object? Invoke(MethodInfo method, object?[] args, MemberInfo extra)
             {
                 switch (method.Name)
                 {
                     case nameof(Target.ExecuteNonQuery):
-                        string command = CommandText.Format(Target!.CommandText, Target
+                        string command = Config.Instance.SqlFormat(Target!.CommandText, Target
                             .Parameters
-                            .Cast<IDataParameter>()
+                            .Cast<IDbDataParameter>()
                             .ToArray());
 
-                        if (!command.EndsWith(";", StringComparison.Ordinal)) command += ";";
+                        if (!FCommandTerminated.IsMatch(command)) command += ";";
                         Parent.Buffer.AppendLine(command);
 
                         return 0;
@@ -81,7 +86,7 @@ namespace Solti.Utils.SQL.Internals
         public IDbCommand CreateCommand() => (IDbCommand) ProxyGenerator<IDbCommand, IDbCommandInterceptor>
             .GetGeneratedType()
             .GetConstructor(new[] { typeof(BulkedDbConnection) })
-            .ToDelegate()
+            .ToStaticDelegate()
             .Invoke(new object[] { this });
 
         public void Open() => throw new NotSupportedException();
@@ -102,12 +107,16 @@ namespace Solti.Utils.SQL.Internals
         {
             if (Buffer.Length == 0) return 0;
 
-            using (IDbCommand cmd = Connection.CreateCommand())
-            {
-                cmd.CommandText = Buffer.ToString();
-                Buffer.Clear();
+            using IDbCommand cmd = Connection.CreateCommand();
+            cmd.CommandText = Buffer.ToString();
 
+            try
+            {
                 return cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Buffer.Clear();
             }
         }
 

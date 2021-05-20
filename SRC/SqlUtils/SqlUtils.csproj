@@ -25,7 +25,13 @@
   <ItemGroup>
     <ProjectReference Include="..\SqlUtils.Interfaces\SqlUtils.Interfaces.csproj" />
   </ItemGroup>
-
+  
+  <ItemGroup>
+    <Compile Remove="Solti.Utils.Proxy\**" />
+    <EmbeddedResource Remove="Solti.Utils.Proxy\**" />
+    <None Remove="Solti.Utils.Proxy\**" />
+  </ItemGroup>
+  
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>

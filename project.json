@@ -7,7 +7,7 @@
   "tests": "\\Test\\*\\*.Tests.csproj",
   "testtarget": "netcoreapp2.2",
   "artifacts": "\\Artifacts",
-  "coveragefilter": "+[Solti.Utils.SQL*]* -[Solti.Utils.SQL*Tests]*",
+  "coveragefilter": "+[Solti.Utils.SQL*]* -[Solti.Utils.SQL*Tests]* -[*]*GeneratedClass_*",
   "perftests": "\\PERF\\SqlUtils.Perf.csproj",
   "perftarget": "netcoreapp3.1",
   "docsbranch": "gh-pages",

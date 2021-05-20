@@ -10,6 +10,6 @@ namespace Solti.Utils.SQL.Internals
 {
     internal interface ISelection
     {
-        public PropertyInfo ViewProperty { get; }
+        PropertyInfo ViewProperty { get; }
     }
 }

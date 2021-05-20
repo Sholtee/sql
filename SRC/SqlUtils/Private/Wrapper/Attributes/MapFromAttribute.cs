@@ -13,18 +13,19 @@ namespace Solti.Utils.SQL.Internals
     using Interfaces;
 
     /// <summary>
-    /// This is an internal class, don't use it.
+    /// When a view is being mapped to a <see cref="ValueType"/> this attribute denotes the source property. 
     /// </summary>
+    /// <remarks>This is an internal class, you should not use it.</remarks>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-    public sealed class MapFromAttribute: Attribute, IBuildableAttribute // publikusnak kell lennie h a GetCustomAttribute() megtalalja dinamikus tipusokon
+    public sealed class MapFromAttribute: Attribute, IBuildableAttribute, IPropertySelector // publikusnak kell lennie h a GetCustomAttribute() megtalalja dinamikus tipusokon
     {
         /// <summary>
-        /// 
+        /// The name of the source property that will provide the <see cref="ValueType"/>.
         /// </summary>
         public string Property { get; }
 
         /// <summary>
-        /// 
+        /// Creates a new <see cref="MapFromAttribute"/> instance.
         /// </summary>
         public MapFromAttribute(string property) => Property = property;
 

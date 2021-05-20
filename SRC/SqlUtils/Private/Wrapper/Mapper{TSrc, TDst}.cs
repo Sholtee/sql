@@ -29,14 +29,14 @@ namespace Solti.Utils.SQL.Internals
         {
             ParameterExpression p = Expression.Parameter(typeof(TSrc));
 
-            PropertyInfo? propertyToMap = typeof(TSrc).MapFrom();
+            PropertyInfo? mapFrom = typeof(TSrc).MapFrom();
 
             return Expression
                 .Lambda<Func<TSrc?, TDst?>>
                 (
-                    propertyToMap is null 
+                    mapFrom is null 
                         ? CreateForClass(p) 
-                        : CreateForValueType(p, propertyToMap), 
+                        : CreateForValueType(p, mapFrom), 
                     p
                 )
                 .Compile();

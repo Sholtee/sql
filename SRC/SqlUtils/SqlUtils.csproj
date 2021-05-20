@@ -47,10 +47,6 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Private\Wrapper\Generators\" />
-  </ItemGroup>
-
   <PropertyGroup>
     <Description>TODO</Description>
     <PackageId>SqlUtils.NET</PackageId>

@@ -42,6 +42,10 @@ namespace Solti.Utils.SQL.Internals
             {
                 if (grp.Count() == 1)
                 {
+                    //
+                    // Ha a property csak egyszer szerepel a kicsomagolt nezetben akkor nem kell modositani a nevet
+                    //
+
                     ColumnSelection sel = grp.Single();
 
                     yield return new MemberDefinition
@@ -50,40 +54,50 @@ namespace Solti.Utils.SQL.Internals
                         sel.ViewProperty.PropertyType,
                         CustomAttributeBuilderFactory.CreateFrom(sel.Reason)
                     );
-
-                    continue;
                 }
 
-                int i = 0;
-
-                foreach (ColumnSelection sel in grp)
+                else
                 {
                     //
-                    // [BelongsTo(typeof(TTable), column: "Column", ...), MapTo("TView.Column")]
-                    // public TValue Column_i {get; set;}
+                    // Kulonben egyedive kell tenni a tulajdonsag nevet, valamint jelezni kell (MapToAttribute) h mely nezet-tulajdonsaghoz tartozik
                     //
 
-                    yield return new MemberDefinition
-                    (
-                        $"{grp.Key}_{i++}",
-                        sel.ViewProperty.PropertyType,
-                        CustomAttributeBuilderFactory.CreateFrom
+                    int i = 0;
+
+                    foreach (ColumnSelection sel in grp)
+                    {
+                        //
+                        // [BelongsTo(typeof(TTable), column: "Column", ...), MapTo("TView.Column")]
+                        // public TValue Column_i {get; set;}
+                        //
+
+                        yield return new MemberDefinition
                         (
-                            sel.Reason,
-
-                            //
-                            // A "Column" tulajdonsagot meg ha az eredeti nezet nem is tartalmazta most be kell allitsuk
-                            // (mivel a tulajdonsag uj nevet kapott)
-                            //
-
-                            new KeyValuePair<PropertyInfo, object>
+                            $"{grp.Key}_{i++}",
+                            sel.ViewProperty.PropertyType,
+                            CustomAttributeBuilderFactory.CreateFrom
                             (
-                                typeof(ColumnSelectionAttribute).GetProperty(nameof(ColumnSelectionAttribute.Column)) ?? throw new MissingMemberException(sel.Reason.GetType().Name, nameof(ColumnSelectionAttribute.Column)),
-                                grp.Key
-                            )
-                        ),
-                        CustomAttributeBuilderFactory.CreateFrom<MapToAttribute>(new[] { typeof(string) }, new object[] { sel.ViewProperty.FullName() })
-                    );
+                                sel.Reason,
+
+                                //
+                                // A "Column" tulajdonsagot meg ha az eredeti nezet nem is tartalmazta most be kell allitsuk
+                                // (mivel a tulajdonsag uj nevet kapott)
+                                //
+
+                                new KeyValuePair<PropertyInfo, object>
+                                (
+                                    typeof(ColumnSelectionAttribute).GetProperty(nameof(ColumnSelectionAttribute.Column)) ?? throw new MissingMemberException(sel.Reason.GetType().Name, nameof(ColumnSelectionAttribute.Column)),
+                                    grp.Key
+                                )
+                            ),
+
+                            //
+                            // Mappolaskor az eredeti tulajdonsagba kerul vissza a tartalom
+                            //
+
+                            CustomAttributeBuilderFactory.CreateFrom<MapToAttribute>(new[] { typeof(string) }, new object[] { sel.ViewProperty.FullName() })
+                        );
+                    }
                 }
             }
         }

@@ -28,22 +28,6 @@ namespace Solti.Utils.SQL.Internals
             return $"{dialectProvider.GetQuotedTableName(prop.GetModelDefinition())}.{dialectProvider.GetQuotedColumnName(prop.GetFieldDefinition().FieldName)}";
         }
 
-        public static LambdaExpression ToSelectExpression(this PropertyInfo prop)
-        {
-            ParameterExpression para = Expression.Parameter(prop.ReflectedType);
-
-            return Expression.Lambda
-            (
-                typeof(Func<,>).MakeGenericType(prop.ReflectedType, typeof(object)),
-                Expression.Convert
-                (
-                    Expression.Property(para, prop),
-                    typeof(object)
-                ),
-                para
-            );
-        }
-
         public static LambdaExpression ToEqualsExpression(this PropertyInfo @this, PropertyInfo that)
         {
             ParameterExpression 

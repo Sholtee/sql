@@ -5,7 +5,6 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -16,7 +15,6 @@ namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
     using Primitives;
-    using Properties;
 
     internal static partial class TypeExtensions
     {
@@ -80,7 +78,7 @@ namespace Solti.Utils.SQL.Internals
                     .GetWrappedSelections()
                     .SelectMany(sel =>
                     {
-                        Debug.Assert(sel.UnderlyingType.IsDatabaseEntityOrView());
+                        Assert(sel.UnderlyingType.IsDatabaseEntityOrView());
 
                         //
                         // [Wrapped]

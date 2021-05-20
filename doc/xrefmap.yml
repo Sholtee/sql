@@ -7,28 +7,6 @@ references:
   commentId: N:Solti.Utils.SQL
   fullName: Solti.Utils.SQL
   nameWithType: Solti.Utils.SQL
-- uid: Solti.Utils.SQL.CommandText
-  name: CommandText
-  href: Solti.Utils.SQL.CommandText.html
-  commentId: T:Solti.Utils.SQL.CommandText
-  fullName: Solti.Utils.SQL.CommandText
-  nameWithType: CommandText
-- uid: Solti.Utils.SQL.CommandText.Format(System.String,System.Data.IDataParameter[])
-  name: Format(String, IDataParameter[])
-  href: Solti.Utils.SQL.CommandText.html#Solti_Utils_SQL_CommandText_Format_System_String_System_Data_IDataParameter___
-  commentId: M:Solti.Utils.SQL.CommandText.Format(System.String,System.Data.IDataParameter[])
-  name.vb: Format(String, IDataParameter())
-  fullName: Solti.Utils.SQL.CommandText.Format(System.String, System.Data.IDataParameter[])
-  fullName.vb: Solti.Utils.SQL.CommandText.Format(System.String, System.Data.IDataParameter())
-  nameWithType: CommandText.Format(String, IDataParameter[])
-  nameWithType.vb: CommandText.Format(String, IDataParameter())
-- uid: Solti.Utils.SQL.CommandText.Format*
-  name: Format
-  href: Solti.Utils.SQL.CommandText.html#Solti_Utils_SQL_CommandText_Format_
-  commentId: Overload:Solti.Utils.SQL.CommandText.Format
-  isSpec: "True"
-  fullName: Solti.Utils.SQL.CommandText.Format
-  nameWithType: CommandText.Format
 - uid: Solti.Utils.SQL.Config
   name: Config
   href: Solti.Utils.SQL.Config.html
@@ -160,12 +138,28 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.DefaultConfig.IsPrimaryKey
   nameWithType: DefaultConfig.IsPrimaryKey
-- uid: Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDataParameter)
-  name: Stringify(IDataParameter)
-  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_Stringify_System_Data_IDataParameter_
-  commentId: M:Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDataParameter)
-  fullName: Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDataParameter)
-  nameWithType: DefaultConfig.Stringify(IDataParameter)
+- uid: Solti.Utils.SQL.DefaultConfig.SqlFormat(System.String,System.Data.IDbDataParameter[])
+  name: SqlFormat(String, IDbDataParameter[])
+  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_SqlFormat_System_String_System_Data_IDbDataParameter___
+  commentId: M:Solti.Utils.SQL.DefaultConfig.SqlFormat(System.String,System.Data.IDbDataParameter[])
+  name.vb: SqlFormat(String, IDbDataParameter())
+  fullName: Solti.Utils.SQL.DefaultConfig.SqlFormat(System.String, System.Data.IDbDataParameter[])
+  fullName.vb: Solti.Utils.SQL.DefaultConfig.SqlFormat(System.String, System.Data.IDbDataParameter())
+  nameWithType: DefaultConfig.SqlFormat(String, IDbDataParameter[])
+  nameWithType.vb: DefaultConfig.SqlFormat(String, IDbDataParameter())
+- uid: Solti.Utils.SQL.DefaultConfig.SqlFormat*
+  name: SqlFormat
+  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_SqlFormat_
+  commentId: Overload:Solti.Utils.SQL.DefaultConfig.SqlFormat
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.DefaultConfig.SqlFormat
+  nameWithType: DefaultConfig.SqlFormat
+- uid: Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDbDataParameter)
+  name: Stringify(IDbDataParameter)
+  href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_Stringify_System_Data_IDbDataParameter_
+  commentId: M:Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDbDataParameter)
+  fullName: Solti.Utils.SQL.DefaultConfig.Stringify(System.Data.IDbDataParameter)
+  nameWithType: DefaultConfig.Stringify(IDbDataParameter)
 - uid: Solti.Utils.SQL.DefaultConfig.Stringify*
   name: Stringify
   href: Solti.Utils.SQL.DefaultConfig.html#Solti_Utils_SQL_DefaultConfig_Stringify_
@@ -705,12 +699,28 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.IConfig.IsPrimaryKey
   nameWithType: IConfig.IsPrimaryKey
-- uid: Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDataParameter)
-  name: Stringify(IDataParameter)
-  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_Stringify_System_Data_IDataParameter_
-  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDataParameter)
-  fullName: Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDataParameter)
-  nameWithType: IConfig.Stringify(IDataParameter)
+- uid: Solti.Utils.SQL.Interfaces.IConfig.SqlFormat(System.String,System.Data.IDbDataParameter[])
+  name: SqlFormat(String, IDbDataParameter[])
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_SqlFormat_System_String_System_Data_IDbDataParameter___
+  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.SqlFormat(System.String,System.Data.IDbDataParameter[])
+  name.vb: SqlFormat(String, IDbDataParameter())
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.SqlFormat(System.String, System.Data.IDbDataParameter[])
+  fullName.vb: Solti.Utils.SQL.Interfaces.IConfig.SqlFormat(System.String, System.Data.IDbDataParameter())
+  nameWithType: IConfig.SqlFormat(String, IDbDataParameter[])
+  nameWithType.vb: IConfig.SqlFormat(String, IDbDataParameter())
+- uid: Solti.Utils.SQL.Interfaces.IConfig.SqlFormat*
+  name: SqlFormat
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_SqlFormat_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.IConfig.SqlFormat
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.SqlFormat
+  nameWithType: IConfig.SqlFormat
+- uid: Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDbDataParameter)
+  name: Stringify(IDbDataParameter)
+  href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_Stringify_System_Data_IDbDataParameter_
+  commentId: M:Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDbDataParameter)
+  fullName: Solti.Utils.SQL.Interfaces.IConfig.Stringify(System.Data.IDbDataParameter)
+  nameWithType: IConfig.Stringify(IDbDataParameter)
 - uid: Solti.Utils.SQL.Interfaces.IConfig.Stringify*
   name: Stringify
   href: Solti.Utils.SQL.Interfaces.IConfig.html#Solti_Utils_SQL_Interfaces_IConfig_Stringify_
@@ -1012,12 +1022,28 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.IsPrimaryKey
   nameWithType: OrmLiteConfig.IsPrimaryKey
-- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(System.Data.IDataParameter)
-  name: Stringify(IDataParameter)
-  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_Stringify_System_Data_IDataParameter_
-  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(System.Data.IDataParameter)
-  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(System.Data.IDataParameter)
-  nameWithType: OrmLiteConfig.Stringify(IDataParameter)
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.SqlFormat(System.String,System.Data.IDbDataParameter[])
+  name: SqlFormat(String, IDbDataParameter[])
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_SqlFormat_System_String_System_Data_IDbDataParameter___
+  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.SqlFormat(System.String,System.Data.IDbDataParameter[])
+  name.vb: SqlFormat(String, IDbDataParameter())
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.SqlFormat(System.String, System.Data.IDbDataParameter[])
+  fullName.vb: Solti.Utils.SQL.Interfaces.OrmLiteConfig.SqlFormat(System.String, System.Data.IDbDataParameter())
+  nameWithType: OrmLiteConfig.SqlFormat(String, IDbDataParameter[])
+  nameWithType.vb: OrmLiteConfig.SqlFormat(String, IDbDataParameter())
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.SqlFormat*
+  name: SqlFormat
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_SqlFormat_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.OrmLiteConfig.SqlFormat
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.SqlFormat
+  nameWithType: OrmLiteConfig.SqlFormat
+- uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(System.Data.IDbDataParameter)
+  name: Stringify(IDbDataParameter)
+  href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_Stringify_System_Data_IDbDataParameter_
+  commentId: M:Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(System.Data.IDbDataParameter)
+  fullName: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify(System.Data.IDbDataParameter)
+  nameWithType: OrmLiteConfig.Stringify(IDbDataParameter)
 - uid: Solti.Utils.SQL.Interfaces.OrmLiteConfig.Stringify*
   name: Stringify
   href: Solti.Utils.SQL.Interfaces.OrmLiteConfig.html#Solti_Utils_SQL_Interfaces_OrmLiteConfig_Stringify_

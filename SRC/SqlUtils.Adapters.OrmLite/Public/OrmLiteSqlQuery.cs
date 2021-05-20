@@ -18,7 +18,10 @@ namespace Solti.Utils.SQL.Internals
     using Interfaces;
     using Primitives;
 
-    internal sealed class OrmLiteSqlQuery : ISqlQuery
+    /// <summary>
+    /// Implements the <see cref="ISqlQuery"/> interface.
+    /// </summary>
+    public sealed class OrmLiteSqlQuery : ISqlQuery
     {
         private readonly IOrmLiteDialectProvider FDialectProvider = ServiceStack.OrmLite.OrmLiteConfig.DialectProvider;
 
@@ -31,13 +34,47 @@ namespace Solti.Utils.SQL.Internals
             FGroupByCols = new(),
             FOrderByCols = new();
 
-        public void InnerJoin(PropertyInfo left, PropertyInfo right) => UnderlyingExpression.Join(left.ReflectedType, right.ReflectedType, left.ToEqualsExpression(right));
+        /// <inheritdoc/>
+        public void InnerJoin(PropertyInfo left, PropertyInfo right)
+        {
+            if (left is null)
+                throw new ArgumentNullException(nameof(left));
 
-        public void LeftJoin(PropertyInfo left, PropertyInfo right) => UnderlyingExpression.LeftJoin(left.ReflectedType, right.ReflectedType, left.ToEqualsExpression(right));
+            if (right is null)
+                throw new ArgumentNullException(nameof(right));
 
-        public void OrderBy(PropertyInfo column) => FOrderByCols.Add(column.ToSelectString());
+            UnderlyingExpression.Join(left.ReflectedType, right.ReflectedType, left.ToEqualsExpression(right));
+        }
 
-        public void OrderByDescending(PropertyInfo column) => FOrderByCols.Add($"{column.ToSelectString()} DESC");
+        /// <inheritdoc/>
+        public void LeftJoin(PropertyInfo left, PropertyInfo right)
+        {
+            if (left is null)
+                throw new ArgumentNullException(nameof(left));
+
+            if (right is null)
+                throw new ArgumentNullException(nameof(right));
+
+            UnderlyingExpression.LeftJoin(left.ReflectedType, right.ReflectedType, left.ToEqualsExpression(right));
+        }
+
+        /// <inheritdoc/>
+        public void OrderBy(PropertyInfo tableColumn)
+        {
+            if (tableColumn is null)
+                throw new ArgumentNullException(nameof(tableColumn));
+
+            FOrderByCols.Add(tableColumn.ToSelectString());
+        }
+
+        /// <inheritdoc/>
+        public void OrderByDescending(PropertyInfo tableColumn)
+        {
+            if (tableColumn is null)
+                throw new ArgumentNullException(nameof(tableColumn));
+
+            FOrderByCols.Add($"{tableColumn.ToSelectString()} DESC");
+        }
 
         //
         // Select()-bol nincs nem generikus
@@ -47,18 +84,26 @@ namespace Solti.Utils.SQL.Internals
             .Method
             .GetGenericMethodDefinition();
 
+        /// <inheritdoc/>
         public IList Run(IDbConnection conn, Type view)
         {
+            if (conn is null)
+                throw new ArgumentNullException(nameof(conn));
+
+            if (view is null)
+                throw new ArgumentNullException(nameof(view));
+
             const string sep = ", ";
 
             if (FGroupByCols.Any()) UnderlyingExpression.GroupBy(string.Join(sep, FGroupByCols));
             if (FOrderByCols.Any()) UnderlyingExpression.OrderBy(string.Join(sep, FOrderByCols));
-            UnderlyingExpression.UnsafeSelect(string.Join(sep, FSelectCols));
+            if (FSelectCols.Any()) UnderlyingExpression.UnsafeSelect(string.Join(sep, FSelectCols));
 
             Func<object?[], object> selectCore = Cache.GetOrAdd(view, () => FSelect.MakeGenericMethod(view).ToStaticDelegate());
             return (IList) selectCore(new object?[] { conn, UnderlyingExpression, null });
         }
-     
+
+        /// <inheritdoc/>
         public IUntypedSqlExpression UnderlyingExpression { get; }
 
         //
@@ -69,24 +114,41 @@ namespace Solti.Utils.SQL.Internals
             .Method
             .GetGenericMethodDefinition();
 
+        /// <summary>
+        /// Creates a new <see cref="OrmLiteSqlQuery"/> instance.
+        /// </summary>
         public OrmLiteSqlQuery(Type from)
         {
+            if (from is null)
+                throw new ArgumentNullException(nameof(from));
+
             IHasUntypedSqlExpression hasUntypedSqlExpression = (IHasUntypedSqlExpression) Cache
                 .GetOrAdd(from, () => FSqlExpressionFactory.MakeGenericMethod(from).ToInstanceDelegate(), nameof(OrmLiteSqlQuery))
                 .Invoke(FDialectProvider, Array.Empty<object?>());
             UnderlyingExpression = hasUntypedSqlExpression.GetUntyped();
         }
 
-        public OrmLiteSqlQuery(ISqlExpression sql) => UnderlyingExpression = sql.GetUntypedSqlExpression();
-
-        public void GroupBy(PropertyInfo column)
+        /// <summary>
+        /// Creates a new <see cref="OrmLiteSqlQuery"/> instance.
+        /// </summary>
+        public OrmLiteSqlQuery(ISqlExpression sql)
         {
-            if (column is null)
-                throw new ArgumentNullException(nameof(column));
+            if (sql is null)
+                throw new ArgumentNullException(nameof(sql));
 
-            FGroupByCols.Add(column.ToSelectString());
+            UnderlyingExpression = sql.GetUntypedSqlExpression();
         }
 
+        /// <inheritdoc/>
+        public void GroupBy(PropertyInfo tableColumn)
+        {
+            if (tableColumn is null)
+                throw new ArgumentNullException(nameof(tableColumn));
+
+            FGroupByCols.Add(tableColumn.ToSelectString());
+        }
+
+        /// <inheritdoc/>
         public void Select(PropertyInfo tableColumn, PropertyInfo viewColumn)
         {
             if (tableColumn is null)
@@ -109,12 +171,16 @@ namespace Solti.Utils.SQL.Internals
             FSelectCols.Add(Sql.As(aggregateFn(tableColumn.ToSelectString()), FDialectProvider.GetQuotedColumnName(viewColumn.Name)));
         }
 
+        /// <inheritdoc/>
         public void SelectAvg(PropertyInfo tableColumn, PropertyInfo viewColumn) => SelectAggregate(tableColumn, viewColumn, Sql.Avg);
 
+        /// <inheritdoc/>
         public void SelectCount(PropertyInfo tableColumn, PropertyInfo viewColumn) => SelectAggregate(tableColumn, viewColumn, Sql.Count);
 
+        /// <inheritdoc/>
         public void SelectMax(PropertyInfo tableColumn, PropertyInfo viewColumn) => SelectAggregate(tableColumn, viewColumn, Sql.Max);
 
+        /// <inheritdoc/>
         public void SelectMin(PropertyInfo tableColumn, PropertyInfo viewColumn) => SelectAggregate(tableColumn, viewColumn, Sql.Min);
     }
 }

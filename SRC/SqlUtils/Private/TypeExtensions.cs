@@ -15,8 +15,9 @@ namespace Solti.Utils.SQL.Internals
 {
     using Interfaces;
     using Primitives;
+    using Properties;
 
-    internal static partial class TypeExtensions
+    internal static class TypeExtensions
     {
         private const BindingFlags BINDING_FLAGS = BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
 
@@ -116,11 +117,6 @@ namespace Solti.Utils.SQL.Internals
 
         public static bool IsDatabaseEntityOrView(this Type type) => type.IsClass && (type.GetCustomAttribute<ViewAttribute>(inherit: false) ?? (object?) type.GetBaseDataTable()) != null;
 
-        public static object GetDefaultValue(this Type src) => Cache .GetOrAdd(src, () => Expression
-            .Lambda<Func<object>>(Expression.Convert(Expression.Default(src), typeof(object)))
-            .Compile()
-            .Invoke());
-
         public static object MakeInstance(this Type src, params Type[] typeArguments)
         {
             if (typeArguments.Any())
@@ -133,8 +129,65 @@ namespace Solti.Utils.SQL.Internals
                 .Invoke();
         }
 
-        public static bool HasOwnMethod(this Type src, string name, params Type[] args) => src.GetMethod(name, args)?.DeclaringType == src;
-
         public static bool IsList(this Type src) => src.IsGenericType && src.GetGenericTypeDefinition() == typeof(List<>);
+
+        public static PropertyInfo GetPrimaryKey(this Type viewOrDatabaseEntity) => Cache.GetOrAdd(viewOrDatabaseEntity, () =>
+        {
+            PropertyInfo? pk;
+
+            //
+            // Ha a parameter adattabla v olyan nezet ami adattablabol szarmazik akkor 
+            // egyszeruen vissza tudjuk adni az elsodleges kulcsot.
+            //
+
+            Type? databaseEntity = viewOrDatabaseEntity.GetBaseDataTable();
+
+            if (databaseEntity != null) pk = databaseEntity
+                .GetProperties(BINDING_FLAGS)
+                .SingleOrDefault(Config.Instance.IsPrimaryKey);
+
+            //
+            // Kulonben megkeressuk azt a nezet tulajdonsagot ami az elsodleges kulcsra hivatkozik
+            //
+
+            else
+            {
+                pk = viewOrDatabaseEntity
+                    .GetQueryBase()
+                    .GetPrimaryKey();
+
+                pk = viewOrDatabaseEntity
+                    .GetColumnSelections()
+                    .Where(sel =>
+                        //
+                        // Aggregatum kivalasztasok nem jatszanak
+                        // 
+
+                        sel.Reason is BelongsToAttribute bta && bta.OrmType == pk.DeclaringType && (bta.Column ?? sel.ViewProperty.Name) == pk.Name)
+                    .Select(sel => sel.ViewProperty)
+                    .SingleOrDefault();
+            }
+
+            if (pk == null)
+            {
+                var ex = new MissingMemberException(Resources.NO_PRIMARY_KEY);
+                ex.Data[nameof(viewOrDatabaseEntity)] = viewOrDatabaseEntity;
+                throw ex;
+            }
+
+            return pk;
+        });
+
+        public static Type GetQueryBase(this Type viewOrDatabaseEntity)
+        {
+            Type? result = viewOrDatabaseEntity.GetCustomAttribute<ViewAttribute>(inherit: false)?.Base ?? viewOrDatabaseEntity.GetBaseDataTable();
+            if (result == null)
+            {
+                var ex = new InvalidOperationException(Resources.BASE_CANNOT_BE_DETERMINED);
+                ex.Data[nameof(viewOrDatabaseEntity)] = viewOrDatabaseEntity;
+                throw ex;
+            }
+            return result;
+        }
     }
 }

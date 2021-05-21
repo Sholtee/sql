@@ -127,14 +127,6 @@ namespace Solti.Utils.SQL.Tests
             Assert.IsNull(typeof(object).GetBaseDataTable());
 
         [Test]
-        public void GetDefaultValue_ShouldHandlePrimitiveTypes() =>
-            Assert.That(typeof(int).GetDefaultValue(), Is.EqualTo(0));
-
-        [Test]
-        public void GetDefaultValue_ShouldHandleClassTypes() =>
-            Assert.IsNull(typeof(List<int>).GetDefaultValue());
-
-        [Test]
         public void MakeInstance_ShouldCreateANewInstance()
         {
             object lst_1 = typeof(List<>).MakeInstance(typeof(string));
@@ -152,21 +144,5 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void MakeInstance_ShouldNotHandlePrimitiveTypes() =>
             Assert.Throws<MissingMethodException>(() => typeof(int).MakeInstance());
-
-        [Test]
-        public void HasOwnMethod_ShouldReturnTrueIfTheMethodIsDeclaredOnTheSource()
-        {
-            Type type = new { }.GetType();
-
-            Assert.True(type.HasOwnMethod("GetHashCode"));
-            Assert.True(type.HasOwnMethod("Equals", typeof(object)));
-        }
-
-        [Test]
-        public void HasOwnMethod_ShouldReturnFalseIfTheMethodIsNoDeclaredOnTheSource()
-        {
-            Assert.False(typeof(object).HasOwnMethod("NonExisting"));
-            Assert.False(typeof(int[]).HasOwnMethod("Equals"));
-        }
     }
 }

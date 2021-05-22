@@ -69,7 +69,7 @@ namespace Solti.Utils.SQL.Internals
             ).ToArray();
         });
 
-        public static IReadOnlyList<ColumnSelection> ExtractColumnSelections(this Type databaseEntityOrView) => Cache.GetOrAdd(databaseEntityOrView, () =>
+        public static IReadOnlyList<ColumnSelection> GetColumnSelectionsDeep(this Type databaseEntityOrView) => Cache.GetOrAdd(databaseEntityOrView, () =>
         {
             Assert(databaseEntityOrView.IsDatabaseEntityOrView());
 
@@ -94,7 +94,7 @@ namespace Solti.Utils.SQL.Internals
                         // public xXx OtherPropr {get; set;}
                         //
 
-                        return sel.UnderlyingType.ExtractColumnSelections();
+                        return sel.UnderlyingType.GetColumnSelectionsDeep();
                     }))
                 .ToArray();
         });

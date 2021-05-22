@@ -38,7 +38,7 @@ namespace Solti.Utils.SQL.Internals
 
         private static IEnumerable<MemberDefinition> GetMembers() 
         {
-            foreach (IGrouping<string, ColumnSelection> grp in typeof(TView).ExtractColumnSelections().GroupBy(sel => sel.ViewProperty.Name))
+            foreach (IGrouping<string, ColumnSelection> grp in typeof(TView).GetColumnSelectionsDeep().GroupBy(sel => sel.ViewProperty.Name))
             {
                 if (grp.Count() == 1)
                 {

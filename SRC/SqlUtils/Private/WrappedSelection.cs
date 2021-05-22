@@ -79,6 +79,6 @@ namespace Solti.Utils.SQL.Internals
             ViewProperty = viewProperty;
         }
 
-        public override string ToString() => string.Join(Environment.NewLine, UnderlyingType.ExtractColumnSelections());
+        public override string ToString() => string.Join(Environment.NewLine, UnderlyingType.GetColumnSelectionsDeep());
     }
 }

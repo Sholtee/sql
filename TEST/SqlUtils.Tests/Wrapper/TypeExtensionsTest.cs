@@ -82,9 +82,9 @@ namespace Solti.Utils.SQL.Tests
             Assert.AreSame(typeof(Extension1).GetColumnSelections(), typeof(Extension1).GetColumnSelections());
 
         [Test]
-        public void ExtractColumnSelections_ShouldExtractColumnsFromNestedTypes()
+        public void GetColumnSelectionsDeep_ShouldExtractColumnsFromNestedTypes()
         {
-            IReadOnlyList<ColumnSelection> sel = typeof(WrappedView2).ExtractColumnSelections();
+            IReadOnlyList<ColumnSelection> sel = typeof(WrappedView2).GetColumnSelectionsDeep();
 
             Assert.That(sel.Select(s => s.ViewProperty).SequenceEqual(typeof(WrappedView2)
                 .GetColumnSelections()
@@ -94,18 +94,18 @@ namespace Solti.Utils.SQL.Tests
         }
 
         [Test]
-        public void ExtractColumnSelections_ShouldSkipIgnoredProperties()
+        public void GetColumnSelectionsDeep_ShouldSkipIgnoredProperties()
         {
             Config.Use(new SpecifiedDataTables(typeof(Start_Node)));
 
             // Start_Node.Ignored
             Assert.That(typeof(Extension1).GetProperties().Count(prop => prop.GetCustomAttribute<IgnoreAttribute>() != null), Is.EqualTo(1));
-            Assert.That(typeof(Extension1).ExtractColumnSelections().Where(sel => sel.ViewProperty.GetCustomAttribute<IgnoreAttribute>() != null), Is.Empty);
+            Assert.That(typeof(Extension1).GetColumnSelectionsDeep().Where(sel => sel.ViewProperty.GetCustomAttribute<IgnoreAttribute>() != null), Is.Empty);
         }
 
         [Test]
-        public void ExtractColumnSelections_ShouldCache() =>
-            Assert.AreSame(typeof(WrappedView1).ExtractColumnSelections(), typeof(WrappedView1).ExtractColumnSelections());
+        public void GetColumnSelectionsDeep_ShouldCache() =>
+            Assert.AreSame(typeof(WrappedView1).GetColumnSelectionsDeep(), typeof(WrappedView1).GetColumnSelectionsDeep());
 
         [Test]
         public void GetBaseOrmType_ShouldReturnTheBaseOrmType()

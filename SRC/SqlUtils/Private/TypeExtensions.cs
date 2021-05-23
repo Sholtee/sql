@@ -4,7 +4,6 @@
 * Author: Denes Solti                                                           *
 ********************************************************************************/
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -43,32 +42,13 @@ namespace Solti.Utils.SQL.Internals
         {
             Assert(databaseEntityOrView.IsDatabaseEntityOrView());
 
-            Type? @base = databaseEntityOrView.GetBaseDataTable();
-
             return 
             (
                 from prop in databaseEntityOrView.GetProperties(BINDING_FLAGS)
                 where !prop.IsWrapped()
-
-                //
-                // - Ha a nezet egy mar meglevo adattabla leszarmazottja akkor azon property-ket
-                //   is kivalasztjuk melyek az os entitashoz tartoznak.
-                //
-                // - Az h ignoralva van e a property csak adatbazis entitasnal kell vizsgaljuk (nezetnel
-                //   ha nincs ColumnSelectionAttribute rajt akkor automatikusan ignoralt).
-                // 
-
-                let attr = prop.GetCustomAttribute<ColumnSelectionAttribute>()
-                where attr is not null || (@base is not null && !Config.Instance.IsIgnored(prop) && prop.DeclaringType.IsAssignableFrom(@base))
-
-                select new ColumnSelection
-                (
-                    viewProperty: prop,
-                    kind: attr is not null
-                        ? SelectionKind.Explicit
-                        : SelectionKind.Implicit,
-                    reason: attr ?? new BelongsToAttribute(@base!)
-                )
+                let sel = prop.AsColumnSelection(true)
+                where sel is not null
+                select sel
             ).ToArray();
         });
 
@@ -101,9 +81,8 @@ namespace Solti.Utils.SQL.Internals
                             if (underlyingView.IsValueTypeOrString())
                             {
                                 BelongsToAttribute bta = prop.GetCustomAttribute<BelongsToAttribute>();
-                                Assert(bta is not null, "[List<ValueType> Prop] must have BelongsToAttribute");
 
-                                underlyingView = UnwrappedValueTypeView.CreateView(bta!);
+                                underlyingView = UnwrappedValueTypeView.CreateView(bta);
                             }
                         }
 
@@ -114,31 +93,50 @@ namespace Solti.Utils.SQL.Internals
                     }
                     else
                     {
-                        Type? @base = view.GetBaseDataTable();     
-
-                        //
-                        // - Ha a nezet egy mar meglevo adattabla leszarmazottja akkor azon property-ket
-                        //   is kivalasztjuk melyek az os entitashoz tartoznak.
-                        //
-                        // - Az h ignoralva van e a property csak adatbazis entitasnal kell vizsgaljuk (nezetnel
-                        //   ha nincs ColumnSelectionAttribute rajt akkor automatikusan ignoralt).
-                        // 
-
-                        ColumnSelectionAttribute csa = prop.GetCustomAttribute<ColumnSelectionAttribute>();
-                        if (csa is not null || (@base is not null && !Config.Instance.IsIgnored(prop) && prop.DeclaringType.IsAssignableFrom(@base)))
-                            yield return new ColumnSelection
-                            (
-                                viewProperty: prop,
-                                kind: csa is not null
-                                    ? SelectionKind.Explicit
-                                    : SelectionKind.Implicit,
-                                reason: csa ?? new BelongsToAttribute(@base!, required: baseRequired)
-                            );
+                        ColumnSelection? sel = prop.AsColumnSelection(baseRequired);
+                        if (sel is not null)
+                            yield return sel;
                     }
                 }
-
             }
         });
+
+        private static ColumnSelection? AsColumnSelection(this PropertyInfo prop, bool baseRequired)
+        {
+            Assert(!prop.IsWrapped());
+
+            ColumnSelectionAttribute csa = prop.GetCustomAttribute<ColumnSelectionAttribute>();
+            if (csa is not null)
+                return new ColumnSelection
+                (
+                    viewProperty: prop,
+                    kind: SelectionKind.Explicit,
+                    reason: csa
+                );
+
+            //
+            // - Ha a nezet egy mar meglevo adattabla leszarmazottja akkor azon property-ket
+            //   is kivalasztjuk melyek az os entitashoz tartoznak.
+            //
+            // - Az h ignoralva van e a property csak adatbazis entitasnal kell vizsgaljuk (nezetnel
+            //   ha nincs ColumnSelectionAttribute rajt akkor automatikusan ignoralt).
+            // 
+
+            Type? databaseEntity = prop.ReflectedType.GetBaseDataTable();
+            if (databaseEntity is not null && !Config.Instance.IsIgnored(prop) && prop.DeclaringType.IsAssignableFrom(databaseEntity))
+                return new ColumnSelection
+                (
+                    viewProperty: prop,
+                    kind: SelectionKind.Implicit,
+                    reason: new BelongsToAttribute(databaseEntity, baseRequired)
+                );
+
+            //
+            // Hat ez nem sikerult...
+            //
+
+            return null;
+        }
 
         public static Type? GetBaseDataTable(this Type databaseEntityOrView) => 
             Config.KnownTables.SingleOrDefault(dataTable => dataTable.IsAssignableFrom(databaseEntityOrView));

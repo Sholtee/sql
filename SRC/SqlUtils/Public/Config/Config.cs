@@ -15,6 +15,21 @@ namespace Solti.Utils.SQL
     /// </summary>
     public static class Config
     {
+#if !DEBUG
+        private static readonly WriteOnce
+            FInstance = new(),
+            FKnownTables = new();
+
+        /// <summary>
+        /// The config instance.
+        /// </summary>
+        public static IConfig Instance { get => (IConfig) FInstance.Value!; private set => FInstance.Value = value; }
+
+        /// <summary>
+        /// See <see cref="IKnownDataTables"/>.
+        /// </summary>
+        public static IKnownDataTables KnownTables { get => (IKnownDataTables) FKnownTables.Value!; private set => FKnownTables.Value = value; }
+#else
         /// <summary>
         /// The config instance.
         /// </summary>
@@ -25,29 +40,12 @@ namespace Solti.Utils.SQL
         /// </summary>
         public static IKnownDataTables KnownTables { get; private set; }
 
-        /// <summary>
-        /// Uses the given config.
-        /// </summary>
-        public static void Use<T>() where T : new() 
-        {
-            if (typeof(IConfig).IsAssignableFrom(typeof(T))) Use((IConfig) new T());
-            if (typeof(IKnownDataTables).IsAssignableFrom(typeof(T))) Use((IKnownDataTables) new T());
-        }
-
-        /// <summary>
-        /// Uses the given config.
-        /// </summary>
-        public static void Use(IConfig instance) => Instance = instance ?? throw new ArgumentNullException(nameof(instance));
-
-        //[SuppressMessage("", "CS8618:Non-nullable property is uninitialized.", Justification = "Instance is never null")]
-#pragma warning disable CS8618 // Non-nullable field is uninitialized. Consider declaring as nullable.
         static Config()
-#pragma warning restore CS8618 // Non-nullable field is uninitialized. Consider declaring as nullable.
         {
-            Use<DefaultConfig>();
-            Use(new SpecifiedDataTables()); // ures
+            Instance = new DefaultConfig();
+            KnownTables = new SpecifiedDataTables();
         }
-#if DEBUG
+
         internal static IDisposable UseTemporarily(IConfig instance) 
         {
             Use(instance);
@@ -63,6 +61,20 @@ namespace Solti.Utils.SQL
             }
         }
 #endif
+        /// <summary>
+        /// Uses the given config.
+        /// </summary>
+        public static void Use<T>() where T : new() 
+        {
+            if (typeof(IConfig).IsAssignableFrom(typeof(T))) Use((IConfig) new T());
+            if (typeof(IKnownDataTables).IsAssignableFrom(typeof(T))) Use((IKnownDataTables) new T());
+        }
+
+        /// <summary>
+        /// Uses the given config.
+        /// </summary>
+        public static void Use(IConfig instance) => Instance = instance ?? throw new ArgumentNullException(nameof(instance));
+
         /// <summary>
         /// Uses the given ORM types.
         /// </summary>

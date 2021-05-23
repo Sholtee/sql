@@ -23,19 +23,43 @@ namespace Solti.Utils.SQL.Internals
         protected override Type CreateView()
         {
             Type
-                viewType = typeof(TView),
-                unwrappedType = typeof(TUnwrappedView);
+                view = typeof(TView),
+                unwrapped = typeof(TUnwrappedView);
 
             return CreateView
             (
                 new MemberDefinition
                 (
-                    $"{unwrappedType}_{viewType}_Key",
-                    viewType.GetQueryBase(),
-                    CopyAttributes(viewType)
+                    $"{unwrapped}_{view}_Key",
+                    view.GetQueryBase(),
+                    GetClassAttributes().ToArray()
                 ),
-                GetKeyMembers()
+                GetKeyMembers().ToArray()
             );
+        }
+
+        private static IEnumerable<CustomAttributeBuilder> GetClassAttributes() 
+        {
+            Type
+                view = typeof(TView),
+                unwrapped = typeof(TUnwrappedView);
+
+            //
+            // Ha az eredeti nezet rendelkezik MapFrom attributummal akkor azt masolni kell, viszont elofordulhat h
+            // az oszlop a kicsomagolas soran at lett nevezve ezert kicsit trukkos
+            //
+
+            MapFromAttribute? mapFrom = view.GetCustomAttribute<MapFromAttribute>();
+
+            if (mapFrom is not null)
+            {
+                PropertyInfo mapFromProp = view.GetProperty(mapFrom.Property) ?? throw new MissingMemberException(view.Name, mapFrom.Property);
+                mapFromProp = unwrapped
+                    .GetProperties()
+                    .Single(prop => prop.CanBeMappedIn(mapFromProp));
+
+                yield return CustomAttributeBuilderFactory.CreateFrom<MapFromAttribute>(new[] { typeof(string) }, new object?[] { mapFromProp.Name });
+            }
         }
 
         private static IEnumerable<MemberDefinition> GetKeyMembers()
@@ -59,15 +83,13 @@ namespace Solti.Utils.SQL.Internals
                 (
                     effectiveColumn.ViewProperty.Name,
                     effectiveColumn.ViewProperty.PropertyType,
-                    CopyAttributes(effectiveColumn.ViewProperty)
+                    effectiveColumn.ViewProperty
+                        .GetCustomAttributes()
+                        .OfType<IBuildableAttribute>()
+                        .Select(attr => CustomAttributeBuilderFactory.CreateFrom(attr))
+                        .ToArray()
                 );
             }
         }
-
-       private static CustomAttributeBuilder[] CopyAttributes(MemberInfo member) => member
-            .GetCustomAttributes()
-            .OfType<IBuildableAttribute>()
-            .Select(attr => CustomAttributeBuilderFactory.CreateFrom(attr))
-            .ToArray();
     }
 }

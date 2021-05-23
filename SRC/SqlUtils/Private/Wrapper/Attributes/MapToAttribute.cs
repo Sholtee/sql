@@ -30,5 +30,8 @@ namespace Solti.Utils.SQL.Internals
         public MapToAttribute(string property) => Property = property;
 
         CustomAttributeBuilder IBuildableAttribute.GetBuilder(params KeyValuePair<PropertyInfo, object>[] customParameters) => CustomAttributeBuilderFactory.CreateFrom<MapToAttribute>(new[] { typeof(string) }, new object[] { Property });
+
+        /// <inheritdoc/>
+        public override string ToString() => $"{nameof(MapToAttribute)}(\"{Property}\")";
     }
 }

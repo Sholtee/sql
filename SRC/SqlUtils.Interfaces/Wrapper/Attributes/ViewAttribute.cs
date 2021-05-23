@@ -22,5 +22,8 @@ namespace Solti.Utils.SQL.Interfaces
         /// The base table to appear in the FROM clause. If null the base of the view will be used.
         /// </summary>
         public Type? Base { get; }
+
+        /// <inheritdoc/>
+        public override string ToString() => $"{nameof(ViewAttribute)}({Base?.FullName ?? "NULL"})";
     }
 }

@@ -4,6 +4,7 @@
 * Author: Denes Solti                                                           *
 ********************************************************************************/
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -58,12 +59,14 @@ namespace Solti.Utils.SQL.Internals
                 // 
 
                 let attr = prop.GetCustomAttribute<ColumnSelectionAttribute>()
-                where attr != null || (@base != null && !Config.Instance.IsIgnored(prop) && prop.DeclaringType.IsAssignableFrom(@base))
+                where attr is not null || (@base is not null && !Config.Instance.IsIgnored(prop) && prop.DeclaringType.IsAssignableFrom(@base))
 
                 select new ColumnSelection
                 (
                     viewProperty: prop,
-                    kind: attr != null ? SelectionKind.Explicit : SelectionKind.Implicit,
+                    kind: attr is not null
+                        ? SelectionKind.Explicit
+                        : SelectionKind.Implicit,
                     reason: attr ?? new BelongsToAttribute(@base!)
                 )
             ).ToArray();
@@ -73,30 +76,68 @@ namespace Solti.Utils.SQL.Internals
         {
             Assert(databaseEntityOrView.IsDatabaseEntityOrView());
 
-            return databaseEntityOrView
-                .GetColumnSelections()
-                .Concat(databaseEntityOrView
-                    .GetWrappedSelections()
-                    .SelectMany(sel =>
+            return GetColumnSelectionsDeep(databaseEntityOrView, true).ToArray();
+
+            static IEnumerable<ColumnSelection> GetColumnSelectionsDeep(Type view, bool baseRequired)
+            {
+                foreach (PropertyInfo prop in view.GetProperties(BINDING_FLAGS))
+                {
+                    if (prop.IsWrapped())
                     {
-                        Assert(sel.UnderlyingType.IsDatabaseEntityOrView());
+                        Type underlyingView = prop.PropertyType;
+
+                        if (underlyingView.IsList())
+                        {
+                            underlyingView = underlyingView.GetGenericArguments().Single();
+
+                            //
+                            // [BelongsTo(typeof(Message), column: "Text")]
+                            // public List<string> Messages {get; set;}
+                            //
+                            // List<ValueType> eseten letrehozunk egy belso nezetet amiben szerepel a join-olt tabla
+                            // elsodleges kulcsa is.
+                            //
+
+                            if (underlyingView.IsValueTypeOrString())
+                            {
+                                BelongsToAttribute bta = prop.GetCustomAttribute<BelongsToAttribute>();
+                                Assert(bta is not null, "[List<ValueType> Prop] must have BelongsToAttribute");
+
+                                underlyingView = UnwrappedValueTypeView.CreateView(bta!);
+                            }
+                        }
+
+                        foreach (ColumnSelection sel in GetColumnSelectionsDeep(underlyingView, prop.GetCustomAttribute<WrappedAttribute>()?.Required is not false))
+                        {
+                            yield return sel;
+                        }
+                    }
+                    else
+                    {
+                        Type? @base = view.GetBaseDataTable();     
 
                         //
-                        // [Wrapped]
-                        // public List<Message> Messages {get; set;}
+                        // - Ha a nezet egy mar meglevo adattabla leszarmazottja akkor azon property-ket
+                        //   is kivalasztjuk melyek az os entitashoz tartoznak.
                         //
-                        // ->
-                        //
-                        // [BelongsTo(typeof(Message))]
-                        // public string Text {get; set;}
-                        //
-                        // [BelongsTo(typeof(Message))]
-                        // public xXx OtherPropr {get; set;}
-                        //
+                        // - Az h ignoralva van e a property csak adatbazis entitasnal kell vizsgaljuk (nezetnel
+                        //   ha nincs ColumnSelectionAttribute rajt akkor automatikusan ignoralt).
+                        // 
 
-                        return sel.UnderlyingType.GetColumnSelectionsDeep();
-                    }))
-                .ToArray();
+                        ColumnSelectionAttribute csa = prop.GetCustomAttribute<ColumnSelectionAttribute>();
+                        if (csa is not null || (@base is not null && !Config.Instance.IsIgnored(prop) && prop.DeclaringType.IsAssignableFrom(@base)))
+                            yield return new ColumnSelection
+                            (
+                                viewProperty: prop,
+                                kind: csa is not null
+                                    ? SelectionKind.Explicit
+                                    : SelectionKind.Implicit,
+                                reason: csa ?? new BelongsToAttribute(@base!, required: baseRequired)
+                            );
+                    }
+                }
+
+            }
         });
 
         public static Type? GetBaseDataTable(this Type databaseEntityOrView) => 

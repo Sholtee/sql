@@ -13,10 +13,13 @@ namespace Solti.Utils.SQL.Internals
 
     internal class UnwrappedValueTypeView: ViewFactory
     {
-        public static Type CreateView(PropertyInfo dataTableColumn, bool required) => Cache.GetOrAdd(dataTableColumn, () =>
+        public static Type CreateView(BelongsToAttribute bta) => Cache.GetOrAdd(bta /*jo kulcsnak*/, () =>
         {
-            Type dataTable = dataTableColumn.ReflectedType;
-            PropertyInfo pk = dataTable.GetPrimaryKey();
+            Type dataTable = bta.OrmType;
+
+            PropertyInfo 
+                pk = dataTable.GetPrimaryKey(),
+                column = bta.OrmType.GetProperty(bta.Column) ?? throw new MissingMemberException(bta.OrmType.Name, bta.Column);
 
             //
             // [View(Base = typeof(Table)), MapFrom(nameof(Column))]
@@ -33,9 +36,14 @@ namespace Solti.Utils.SQL.Internals
             (
                 new MemberDefinition
                 (
-                    $"{dataTable.Name}_{dataTableColumn.Name}_View",
+                    //
+                    // A hash kod kell a tipus nevebe mivel ugyanazon oszlophoz tartozo erteklista szerepelhet tobb nezetben is
+                    // kulonbozo "required" ertekkel.
+                    //
+
+                    $"{dataTable.Name}_{column.Name}_View_{bta.GetHashCode()}", // TODO: FIXME: bta.GetHashCode() gyanusan sokszor ad vissza 0-t
                     dataTable,
-                    CustomAttributeBuilderFactory.CreateFrom<MapFromAttribute>(new[] { typeof(string) }, new object[] { dataTableColumn.Name })
+                    CustomAttributeBuilderFactory.CreateFrom<MapFromAttribute>(new[] { typeof(string) }, new object[] { column.Name })
                 ),
                 new[]
                 {
@@ -48,7 +56,7 @@ namespace Solti.Utils.SQL.Internals
                     (
                         pk.Name,
                         pk.PropertyType,
-                        CustomAttributeBuilderFactory.CreateFrom(new BelongsToAttribute(dataTable, required))
+                        CustomAttributeBuilderFactory.CreateFrom(new BelongsToAttribute(dataTable, bta.Required))
                     ),
 
                     //
@@ -58,9 +66,9 @@ namespace Solti.Utils.SQL.Internals
 
                     new MemberDefinition
                     (
-                        dataTableColumn.Name,
-                        dataTableColumn.PropertyType,
-                        CustomAttributeBuilderFactory.CreateFrom(new BelongsToAttribute(dataTable, required))
+                        column.Name,
+                        column.PropertyType,
+                        CustomAttributeBuilderFactory.CreateFrom(new BelongsToAttribute(dataTable, bta.Required))
                     )
                 }
             );

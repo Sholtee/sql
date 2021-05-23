@@ -41,7 +41,7 @@ namespace Solti.Utils.SQL
         /// Initializes this builder.
         /// </summary>
         [SuppressMessage("Design", "CA1000:Do not declare static members on generic types", Justification = "It's intended because all the specialized builders must have their own setup method.")]
-        public static void Initialize(params Edge[] customEdges)
+        public static void Initialize(params Edge[] customEdges) // TODO: Ne kelljen feltetlen hivni
         {
             if (customEdges == null)
                 throw new ArgumentNullException(nameof(customEdges));

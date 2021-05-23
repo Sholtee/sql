@@ -14,7 +14,7 @@ namespace Solti.Utils.SQL.Internals
 
     internal static class CustomAttributeBuilderFactory
     {
-        public static CustomAttributeBuilder CreateFrom<TAttribute>(Type[] argTypes, object?[] args) where TAttribute : Attribute => new CustomAttributeBuilder
+        public static CustomAttributeBuilder CreateFrom<TAttribute>(Type[] argTypes, object?[] args) where TAttribute : Attribute => new
         (
             typeof(TAttribute).GetConstructor(argTypes) ?? throw new MissingMethodException(typeof(TAttribute).Name, "Ctor"),
             args

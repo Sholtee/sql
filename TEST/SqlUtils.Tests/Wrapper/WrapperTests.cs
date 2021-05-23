@@ -554,19 +554,19 @@ namespace Solti.Utils.SQL.Tests
             Guid id1 = Guid.NewGuid();
 
             objs.Add(unwrapped.MakeInstance()
-                .Set("Id_0", id1)
-                .Set("Id_1", Guid.NewGuid())
+                .Set("Id_1", id1)
+                .Set("Id_0", Guid.NewGuid())
                 .Set("Reference", 1.ToString()));
 
             Guid id2 = Guid.NewGuid();
 
             objs.Add(unwrapped.MakeInstance()
-                .Set("Id_0", id2)
-                .Set("Id_1", Guid.NewGuid())
+                .Set("Id_1", id2)
+                .Set("Id_0", Guid.NewGuid())
                 .Set("Reference", 1.ToString()));
             objs.Add(unwrapped.MakeInstance()
-                .Set("Id_0", id2)
-                .Set("Id_1", Guid.NewGuid())
+                .Set("Id_1", id2)
+                .Set("Id_0", Guid.NewGuid())
                 .Set("Reference", 2.ToString()));
 
             List<Start_Node_View_ValueList> result = Wrapper<Start_Node_View_ValueList>.Wrap(objs);
@@ -588,17 +588,17 @@ namespace Solti.Utils.SQL.Tests
 
             Guid id1 = Guid.NewGuid();
 
-            objs.Add(unwrapped.MakeInstance().Set("Id_0", id1));
+            objs.Add(unwrapped.MakeInstance().Set("Id_1", id1));
 
             Guid id2 = Guid.NewGuid();
 
             objs.Add(unwrapped.MakeInstance()
-                .Set("Id_0", id2)
-                .Set("Id_1", Guid.NewGuid())
+                .Set("Id_1", id2)
+                .Set("Id_0", Guid.NewGuid())
                 .Set("Reference", 1.ToString()));
             objs.Add(unwrapped.MakeInstance()
-                .Set("Id_0", id2)
-                .Set("Id_1", Guid.NewGuid())
+                .Set("Id_1", id2)
+                .Set("Id_0", Guid.NewGuid())
                 .Set("Reference", 2.ToString()));
 
             List<Start_Node_View_ValueList> result = Wrapper<Start_Node_View_ValueList>.Wrap(objs);

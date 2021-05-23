@@ -52,11 +52,7 @@ namespace Solti.Utils.SQL.Internals
                     BelongsToAttribute bta = viewProperty.GetCustomAttribute<BelongsToAttribute>();
                     Debug.Assert(bta != null, "[List<ValueType> Prop] must have BelongsToAttribute");
 
-                    type = UnwrappedValueTypeView.CreateView
-                    (
-                        bta!.OrmType.GetProperty(bta.Column) ?? throw new MissingMemberException(bta.OrmType.Name, bta.Column),
-                        bta.Required
-                    );
+                    type = UnwrappedValueTypeView.CreateView(bta!);
                 }
 
                 IsList = true;

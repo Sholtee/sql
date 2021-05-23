@@ -86,7 +86,7 @@ namespace Solti.Utils.SQL.Internals
 
                                 new KeyValuePair<PropertyInfo, object>
                                 (
-                                    typeof(ColumnSelectionAttribute).GetProperty(nameof(ColumnSelectionAttribute.Column)) ?? throw new MissingMemberException(sel.Reason.GetType().Name, nameof(ColumnSelectionAttribute.Column)),
+                                    typeof(ColumnSelectionAttribute).GetProperty(nameof(ColumnSelectionAttribute.Column)),
                                     grp.Key
                                 )
                             ),

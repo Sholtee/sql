@@ -5,7 +5,10 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 
 namespace Solti.Utils.SQL.Internals
 {
@@ -38,7 +41,30 @@ namespace Solti.Utils.SQL.Internals
                 core.AddProperty(column.Name, column.Type, column.CustomAttributes.ToArray());
             }
 
-            return core.CreateType();
+            Type result = core.CreateType();
+#if DEBUG
+            StringBuilder sb = new();
+            sb.AppendLine("View created:");
+            foreach (Attribute attr in result.GetCustomAttributes())
+            {
+                sb.AppendLine($"[{attr}]");
+            }
+            sb
+                .AppendLine(result.Name)
+                .AppendLine("{");
+
+            foreach (PropertyInfo prop in result.GetProperties())
+            {
+                foreach (Attribute attr in prop.GetCustomAttributes())
+                {
+                    sb.AppendLine($"  [{attr}]");
+                }
+                sb.AppendLine($"  {prop}");
+            }
+            sb.AppendLine("}");
+            Debug.WriteLine(sb);
+#endif
+            return result;
         }
     }
 }

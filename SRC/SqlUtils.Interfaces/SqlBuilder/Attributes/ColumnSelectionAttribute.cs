@@ -86,5 +86,8 @@ namespace Solti.Utils.SQL.Interfaces
             Required = required;
             Column   = column;         
         }
+
+        /// <inheritdoc/>
+        public override string ToString() => $"{GetType().Name}({nameof(OrmType)}={OrmType.FullName}, {nameof(Column)}={(Column is not null ? $"\"{Column}\"" : "NULL")}, {nameof(Required)}={Required})";
     }
 }

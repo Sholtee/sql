@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -80,7 +81,7 @@ namespace Solti.Utils.SQL.Internals
         // Select()-bol nincs nem generikus
         //
 
-        private static readonly MethodInfo FSelect = ((MethodCallExpression) ((Expression<Action<IDbConnection, IUntypedSqlExpression>>) ((conn, expr) => conn.Select<object>(expr, null))).Body)
+        private static readonly MethodInfo FSelect = ((MethodCallExpression) ((Expression<Action<IDbConnection, IUntypedSqlExpression>>) ((conn, expr) => conn.Select<object>(string.Empty))).Body)
             .Method
             .GetGenericMethodDefinition();
 
@@ -100,7 +101,11 @@ namespace Solti.Utils.SQL.Internals
             if (FSelectCols.Any()) UnderlyingExpression.UnsafeSelect(string.Join(sep, FSelectCols));
 
             Func<object?[], object> selectCore = Cache.GetOrAdd(view, () => FSelect.MakeGenericMethod(view).ToStaticDelegate());
-            return (IList) selectCore(new object?[] { conn, UnderlyingExpression, null });
+
+            string sql = ToString();
+            Debug.WriteLine(sql);
+
+            return (IList) selectCore(new object?[] { conn, sql });
         }
 
         /// <inheritdoc/>
@@ -182,5 +187,8 @@ namespace Solti.Utils.SQL.Internals
 
         /// <inheritdoc/>
         public void SelectMin(PropertyInfo tableColumn, PropertyInfo viewColumn) => SelectAggregate(tableColumn, viewColumn, Sql.Min);
+
+        /// <inheritdoc/>
+        public override string ToString() => FDialectProvider.MergeParamsIntoSql(UnderlyingExpression.ToSelectStatement(), UnderlyingExpression.Params);
     }
 }

@@ -6,12 +6,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
 namespace Solti.Utils.SQL.Internals
 {
+    using Primitives;
     using Primitives.Patterns;
     using Properties;
 
@@ -60,6 +62,12 @@ namespace Solti.Utils.SQL.Internals
     {
         private Func<IEnumerable<TUnwrappedView>, IList> Core { get; }
 
+#if DEBUG
+        private static readonly Func<object, object?> GetDebugView = typeof(Expression)
+            .GetProperty("DebugView", BindingFlags.Instance | BindingFlags.NonPublic) // DebugView property internal, tudja fasz miert
+            .ToGetter();
+#endif
+
         public Wrapper()
         {
             //
@@ -71,6 +79,9 @@ namespace Solti.Utils.SQL.Internals
             ParameterExpression unwrappedObjects = Expression.Parameter(typeof(IEnumerable<>).MakeGenericType(typeof(TUnwrappedView)), nameof(unwrappedObjects));
 
             Expression<Func<IEnumerable<TUnwrappedView>, IList>> coreExpr = Expression.Lambda<Func<IEnumerable<TUnwrappedView>, IList>>(GenerateBody(unwrappedObjects), unwrappedObjects);
+#if DEBUG
+            Debug.WriteLine($"Wrapper created:{Environment.NewLine}{GetDebugView(coreExpr)}");
+#endif
             Core = coreExpr.Compile();
         }
 

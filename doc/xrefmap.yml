@@ -531,6 +531,19 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.Required
   nameWithType: ColumnSelectionAttribute.Required
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.ToString
+  name: ToString()
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_ToString
+  commentId: M:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.ToString
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.ToString()
+  nameWithType: ColumnSelectionAttribute.ToString()
+- uid: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.ToString*
+  name: ToString
+  href: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.html#Solti_Utils_SQL_Interfaces_ColumnSelectionAttribute_ToString_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.ToString
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ColumnSelectionAttribute.ToString
+  nameWithType: ColumnSelectionAttribute.ToString
 - uid: Solti.Utils.SQL.Interfaces.CountOfAttribute
   name: CountOfAttribute
   href: Solti.Utils.SQL.Interfaces.CountOfAttribute.html
@@ -1083,12 +1096,51 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Interfaces.ViewAttribute.Base
   nameWithType: ViewAttribute.Base
+- uid: Solti.Utils.SQL.Interfaces.ViewAttribute.ToString
+  name: ToString()
+  href: Solti.Utils.SQL.Interfaces.ViewAttribute.html#Solti_Utils_SQL_Interfaces_ViewAttribute_ToString
+  commentId: M:Solti.Utils.SQL.Interfaces.ViewAttribute.ToString
+  fullName: Solti.Utils.SQL.Interfaces.ViewAttribute.ToString()
+  nameWithType: ViewAttribute.ToString()
+- uid: Solti.Utils.SQL.Interfaces.ViewAttribute.ToString*
+  name: ToString
+  href: Solti.Utils.SQL.Interfaces.ViewAttribute.html#Solti_Utils_SQL_Interfaces_ViewAttribute_ToString_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.ViewAttribute.ToString
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.ViewAttribute.ToString
+  nameWithType: ViewAttribute.ToString
 - uid: Solti.Utils.SQL.Interfaces.WrappedAttribute
   name: WrappedAttribute
   href: Solti.Utils.SQL.Interfaces.WrappedAttribute.html
   commentId: T:Solti.Utils.SQL.Interfaces.WrappedAttribute
   fullName: Solti.Utils.SQL.Interfaces.WrappedAttribute
   nameWithType: WrappedAttribute
+- uid: Solti.Utils.SQL.Interfaces.WrappedAttribute.#ctor(System.Boolean)
+  name: WrappedAttribute(Boolean)
+  href: Solti.Utils.SQL.Interfaces.WrappedAttribute.html#Solti_Utils_SQL_Interfaces_WrappedAttribute__ctor_System_Boolean_
+  commentId: M:Solti.Utils.SQL.Interfaces.WrappedAttribute.#ctor(System.Boolean)
+  fullName: Solti.Utils.SQL.Interfaces.WrappedAttribute.WrappedAttribute(System.Boolean)
+  nameWithType: WrappedAttribute.WrappedAttribute(Boolean)
+- uid: Solti.Utils.SQL.Interfaces.WrappedAttribute.#ctor*
+  name: WrappedAttribute
+  href: Solti.Utils.SQL.Interfaces.WrappedAttribute.html#Solti_Utils_SQL_Interfaces_WrappedAttribute__ctor_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.WrappedAttribute.#ctor
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.WrappedAttribute.WrappedAttribute
+  nameWithType: WrappedAttribute.WrappedAttribute
+- uid: Solti.Utils.SQL.Interfaces.WrappedAttribute.Required
+  name: Required
+  href: Solti.Utils.SQL.Interfaces.WrappedAttribute.html#Solti_Utils_SQL_Interfaces_WrappedAttribute_Required
+  commentId: P:Solti.Utils.SQL.Interfaces.WrappedAttribute.Required
+  fullName: Solti.Utils.SQL.Interfaces.WrappedAttribute.Required
+  nameWithType: WrappedAttribute.Required
+- uid: Solti.Utils.SQL.Interfaces.WrappedAttribute.Required*
+  name: Required
+  href: Solti.Utils.SQL.Interfaces.WrappedAttribute.html#Solti_Utils_SQL_Interfaces_WrappedAttribute_Required_
+  commentId: Overload:Solti.Utils.SQL.Interfaces.WrappedAttribute.Required
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Interfaces.WrappedAttribute.Required
+  nameWithType: WrappedAttribute.Required
 - uid: Solti.Utils.SQL.Internals
   name: Solti.Utils.SQL.Internals
   href: Solti.Utils.SQL.Internals.html
@@ -1145,6 +1197,19 @@ references:
   fullName: Solti.Utils.SQL.Internals.MapFromAttribute.Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder
   nameWithType: MapFromAttribute.IBuildableAttribute.GetBuilder
   nameWithType.vb: MapFromAttribute.Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder
+- uid: Solti.Utils.SQL.Internals.MapFromAttribute.ToString
+  name: ToString()
+  href: Solti.Utils.SQL.Internals.MapFromAttribute.html#Solti_Utils_SQL_Internals_MapFromAttribute_ToString
+  commentId: M:Solti.Utils.SQL.Internals.MapFromAttribute.ToString
+  fullName: Solti.Utils.SQL.Internals.MapFromAttribute.ToString()
+  nameWithType: MapFromAttribute.ToString()
+- uid: Solti.Utils.SQL.Internals.MapFromAttribute.ToString*
+  name: ToString
+  href: Solti.Utils.SQL.Internals.MapFromAttribute.html#Solti_Utils_SQL_Internals_MapFromAttribute_ToString_
+  commentId: Overload:Solti.Utils.SQL.Internals.MapFromAttribute.ToString
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.MapFromAttribute.ToString
+  nameWithType: MapFromAttribute.ToString
 - uid: Solti.Utils.SQL.Internals.MapToAttribute
   name: MapToAttribute
   href: Solti.Utils.SQL.Internals.MapToAttribute.html
@@ -1195,6 +1260,19 @@ references:
   fullName: Solti.Utils.SQL.Internals.MapToAttribute.Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder
   nameWithType: MapToAttribute.IBuildableAttribute.GetBuilder
   nameWithType.vb: MapToAttribute.Solti.Utils.SQL.Interfaces.IBuildableAttribute.GetBuilder
+- uid: Solti.Utils.SQL.Internals.MapToAttribute.ToString
+  name: ToString()
+  href: Solti.Utils.SQL.Internals.MapToAttribute.html#Solti_Utils_SQL_Internals_MapToAttribute_ToString
+  commentId: M:Solti.Utils.SQL.Internals.MapToAttribute.ToString
+  fullName: Solti.Utils.SQL.Internals.MapToAttribute.ToString()
+  nameWithType: MapToAttribute.ToString()
+- uid: Solti.Utils.SQL.Internals.MapToAttribute.ToString*
+  name: ToString
+  href: Solti.Utils.SQL.Internals.MapToAttribute.html#Solti_Utils_SQL_Internals_MapToAttribute_ToString_
+  commentId: Overload:Solti.Utils.SQL.Internals.MapToAttribute.ToString
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.MapToAttribute.ToString
+  nameWithType: MapToAttribute.ToString
 - uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery
   name: OrmLiteSqlQuery
   href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html
@@ -1363,6 +1441,19 @@ references:
   isSpec: "True"
   fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.SelectMin
   nameWithType: OrmLiteSqlQuery.SelectMin
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.ToString
+  name: ToString()
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_ToString
+  commentId: M:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.ToString
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.ToString()
+  nameWithType: OrmLiteSqlQuery.ToString()
+- uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.ToString*
+  name: ToString
+  href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_ToString_
+  commentId: Overload:Solti.Utils.SQL.Internals.OrmLiteSqlQuery.ToString
+  isSpec: "True"
+  fullName: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.ToString
+  nameWithType: OrmLiteSqlQuery.ToString
 - uid: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.UnderlyingExpression
   name: UnderlyingExpression
   href: Solti.Utils.SQL.Internals.OrmLiteSqlQuery.html#Solti_Utils_SQL_Internals_OrmLiteSqlQuery_UnderlyingExpression

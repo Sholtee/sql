@@ -19,6 +19,9 @@ namespace Solti.Utils.SQL.Tests
     [TestFixture]
     public sealed class TypeExtensionsTest
     {
+        [OneTimeSetUp]
+        public void SetupFixture() => Config.Use(new DiscoveredDataTables(typeof(WrapperTests).Assembly));
+
         [Test]
         public void MakeInstanceTest()
         {
@@ -38,14 +41,16 @@ namespace Solti.Utils.SQL.Tests
         }
 
         [Test]
-        public void GetWrappedSelections_ShouldReturnTheDesiredWSObject()
+        public void GetWrappedSelections_ShouldReturnTheWrappedProperties()
         {
-            IReadOnlyList<WrappedSelection> ws = typeof(WrappedView1).GetWrappedSelections();
+            IReadOnlyList<PropertyInfo> ws = typeof(WrappedView1).GetWrappedSelections();
 
-            Assert.That(ws, Is.Not.Null);
             Assert.That(ws.Count, Is.EqualTo(1));
-            Assert.That(ws[0].UnderlyingType, Is.EqualTo(typeof(View3)));
-            Assert.That(ws[0].ViewProperty.GetCustomAttribute<WrappedAttribute>(), Is.Not.Null);         
+            Assert.That(ws[0], Is.EqualTo(typeof(WrappedView1).GetProperty(nameof(WrappedView1.ViewList))));
+
+            ws = typeof(Start_Node_View_ValueList).GetWrappedSelections();
+            Assert.That(ws.Count, Is.EqualTo(1));
+            Assert.That(ws[0], Is.EqualTo(typeof(Start_Node_View_ValueList).GetProperty(nameof(Start_Node_View_ValueList.References))));
         }
 
         [Test]
@@ -54,7 +59,7 @@ namespace Solti.Utils.SQL.Tests
 
         [Test]
         public void GetWrappedSelection_ShouldValidateTheList() => 
-            Assert.Throws<ArgumentException>(() => typeof(WrappedView5_Bad).GetWrappedSelections());
+            Assert.Throws<InvalidOperationException>(() => typeof(WrappedView5_Bad).GetWrappedSelections());
 
         [Test]
         public void GetColumnSelections_ShouldHandleViewsBasedOnORMTypes()
@@ -96,8 +101,6 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void GetColumnSelectionsDeep_ShouldSkipIgnoredProperties()
         {
-            Config.Use(new SpecifiedDataTables(typeof(Start_Node)));
-
             // Start_Node.Ignored
             Assert.That(typeof(Extension1).GetProperties().Count(prop => prop.GetCustomAttribute<IgnoreAttribute>() != null), Is.EqualTo(1));
             Assert.That(typeof(Extension1).GetColumnSelectionsDeep().Where(sel => sel.ViewProperty.GetCustomAttribute<IgnoreAttribute>() != null), Is.Empty);
@@ -110,15 +113,12 @@ namespace Solti.Utils.SQL.Tests
         [Test]
         public void GetBaseOrmType_ShouldReturnTheBaseOrmType()
         {
-            Config.Use(new SpecifiedDataTables(typeof(Start_Node)));
-
             Assert.That(typeof(Extension1).GetBaseDataTable(), Is.EqualTo(typeof(Start_Node)));
         }
 
         [Test]
         public void GetBaseOrmType_ShouldHandleTheOrmTypes()
         {
-            Config.Use(new SpecifiedDataTables(typeof(Start_Node)));
             Assert.That(typeof(Start_Node).GetBaseDataTable(), Is.EqualTo(typeof(Start_Node)));
         }
 

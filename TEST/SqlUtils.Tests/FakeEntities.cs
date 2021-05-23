@@ -218,6 +218,7 @@ namespace Solti.Utils.SQL.Tests
         public View1[] AnotherViewList { get; set; }
     }
 
+    [View]
     public class Node7_View : Node7 // Ez kell h a kicsomagolo megtalalja
     {
         [Ignore]  // Ne legyen property nev utkozes
@@ -230,24 +231,28 @@ namespace Solti.Utils.SQL.Tests
         }
     }
 
+    [View]
     public class Start_Node_View : Start_Node
     {
         [Wrapped]
         public List<Node7_View> Children { get; set; }
     }
 
+    [View]
     public class Start_Node_View_ValueList : Start_Node
     {
         [BelongsTo(typeof(Node5), column: nameof(Node5.Reference))]
         public List<string> References { get; set; }
     }
 
+    [View]
     public class Extension1 : Start_Node
     {
         [BelongsTo(typeof(Goal_Node), column: nameof(Goal_Node.Id))]
         public string IdSelection { get; set; }
     }
 
+    [View]
     public class Extension2 : Start_Node
     {
         [BelongsTo(typeof(Goal_Node), column: nameof(Goal_Node.Id), order: Order.Ascending)]

@@ -11,7 +11,7 @@ namespace Solti.Utils.SQL.Internals
     using Interfaces;
     using Properties;
 
-    internal sealed class ColumnSelection: ISelection
+    internal sealed class ColumnSelection
     {
         public ColumnSelection(PropertyInfo viewProperty, SelectionKind kind, ColumnSelectionAttribute reason)
         {

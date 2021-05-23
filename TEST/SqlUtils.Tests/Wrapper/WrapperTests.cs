@@ -21,8 +21,8 @@ namespace Solti.Utils.SQL.Tests
     [TestFixture]
     public sealed class WrapperTests
     {
-        [SetUp]
-        public void Setup() => Config.Use(new DiscoveredDataTables(typeof(WrapperTests).Assembly));
+        [OneTimeSetUp]
+        public void SetupFixture() => Config.Use(new DiscoveredDataTables(typeof(WrapperTests).Assembly));
 
         [Test]
         public void UnwrappedView_ShouldUnwrapSimpleViews()
@@ -105,20 +105,18 @@ namespace Solti.Utils.SQL.Tests
                 .GetValue(null);
 
             view
-                .GetProperties()
-                .Where(prop => prop.GetCustomAttribute<WrappedAttribute>() == null)
-                .Concat(new WrappedSelection(view.GetProperty(wrappedProp)).UnderlyingType.GetProperties())
-                .ForEach(prop =>
+                .GetColumnSelectionsDeep()
+                .ForEach(sel =>
                 {
-                    ColumnSelectionAttribute originalAttr = prop.GetCustomAttribute<ColumnSelectionAttribute>();
-                    PropertyInfo queried = unwrapped.GetProperty(prop.Name);
+                    ColumnSelectionAttribute originalAttr = sel.Reason;
+                    PropertyInfo queried = unwrapped.GetProperty(sel.ViewProperty.Name);
 
                     if (originalAttr == null)
                         Assert.That(queried, Is.Null);
                     else
                     {
                         Assert.That(queried, Is.Not.Null);
-                        Assert.That(queried.PropertyType, Is.EqualTo(prop.PropertyType));
+                        Assert.That(queried.PropertyType, Is.EqualTo(sel.ViewProperty.PropertyType));
 
                         ColumnSelectionAttribute queriedAttr = queried.GetCustomAttribute<ColumnSelectionAttribute>();
 

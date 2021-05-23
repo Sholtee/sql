@@ -21,20 +21,29 @@ namespace Solti.Utils.SQL.Internals
     {
         private const BindingFlags BINDING_FLAGS = BindingFlags.Public | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
 
-        public static IReadOnlyList<WrappedSelection> GetWrappedSelections(this Type databaseEntityOrView)
+        public static IReadOnlyList<PropertyInfo> GetWrappedSelections(this Type databaseEntityOrView) => Cache.GetOrAdd(databaseEntityOrView, () =>
         {
             Assert(databaseEntityOrView.IsDatabaseEntityOrView());
+            return GetWrappedSelections().ToArray();
 
-            return Cache.GetOrAdd
-            (
-                databaseEntityOrView,
-                () => databaseEntityOrView
-                    .GetProperties(BINDING_FLAGS)
-                    .Where(PropertyInfoExtensions.IsWrapped)
-                    .Select(prop => new WrappedSelection(prop))
-                    .ToArray()
-            );
-        }
+            IEnumerable<PropertyInfo> GetWrappedSelections()
+            {
+                foreach (PropertyInfo prop in databaseEntityOrView.GetProperties(BINDING_FLAGS))
+                {
+                    if (!prop.IsWrapped())
+                        continue;
+
+                    if (!prop.GetEffectiveType().IsDatabaseEntityOrView())
+                    {
+                        var ex = new InvalidOperationException(Resources.CANT_WRAP);
+                        ex.Data[nameof(prop)] = prop;
+                        throw ex;
+                    }
+
+                    yield return prop;
+                }
+            }
+        });
 
         public static bool IsWrapped(this Type view) => view.IsDatabaseEntityOrView() && view.GetWrappedSelections().Any();
 
@@ -64,26 +73,13 @@ namespace Solti.Utils.SQL.Internals
                 {
                     if (prop.IsWrapped())
                     {
-                        Type underlyingView = prop.PropertyType;
+                        Type underlyingView = prop.GetEffectiveType();
 
-                        if (underlyingView.IsList())
+                        if (!underlyingView.IsDatabaseEntityOrView())
                         {
-                            underlyingView = underlyingView.GetGenericArguments().Single();
-
-                            //
-                            // [BelongsTo(typeof(Message), column: "Text")]
-                            // public List<string> Messages {get; set;}
-                            //
-                            // List<ValueType> eseten letrehozunk egy belso nezetet amiben szerepel a join-olt tabla
-                            // elsodleges kulcsa is.
-                            //
-
-                            if (underlyingView.IsValueTypeOrString())
-                            {
-                                BelongsToAttribute bta = prop.GetCustomAttribute<BelongsToAttribute>();
-
-                                underlyingView = UnwrappedValueTypeView.CreateView(bta);
-                            }
+                            var ex = new InvalidOperationException(Resources.CANT_WRAP);
+                            ex.Data[nameof(prop)] = prop;
+                            throw ex;
                         }
 
                         foreach (ColumnSelection sel in GetColumnSelectionsDeep(underlyingView, prop.GetCustomAttribute<WrappedAttribute>()?.Required is not false))
@@ -100,43 +96,6 @@ namespace Solti.Utils.SQL.Internals
                 }
             }
         });
-
-        private static ColumnSelection? AsColumnSelection(this PropertyInfo prop, bool baseRequired)
-        {
-            Assert(!prop.IsWrapped());
-
-            ColumnSelectionAttribute csa = prop.GetCustomAttribute<ColumnSelectionAttribute>();
-            if (csa is not null)
-                return new ColumnSelection
-                (
-                    viewProperty: prop,
-                    kind: SelectionKind.Explicit,
-                    reason: csa
-                );
-
-            //
-            // - Ha a nezet egy mar meglevo adattabla leszarmazottja akkor azon property-ket
-            //   is kivalasztjuk melyek az os entitashoz tartoznak.
-            //
-            // - Az h ignoralva van e a property csak adatbazis entitasnal kell vizsgaljuk (nezetnel
-            //   ha nincs ColumnSelectionAttribute rajt akkor automatikusan ignoralt).
-            // 
-
-            Type? databaseEntity = prop.ReflectedType.GetBaseDataTable();
-            if (databaseEntity is not null && !Config.Instance.IsIgnored(prop) && prop.DeclaringType.IsAssignableFrom(databaseEntity))
-                return new ColumnSelection
-                (
-                    viewProperty: prop,
-                    kind: SelectionKind.Implicit,
-                    reason: new BelongsToAttribute(databaseEntity, baseRequired)
-                );
-
-            //
-            // Hat ez nem sikerult...
-            //
-
-            return null;
-        }
 
         public static Type? GetBaseDataTable(this Type databaseEntityOrView) => 
             Config.KnownTables.SingleOrDefault(dataTable => dataTable.IsAssignableFrom(databaseEntityOrView));
@@ -220,7 +179,7 @@ namespace Solti.Utils.SQL.Internals
         public static Type GetQueryBase(this Type viewOrDatabaseEntity)
         {
             Type? result = viewOrDatabaseEntity.GetCustomAttribute<ViewAttribute>(inherit: false)?.Base ?? viewOrDatabaseEntity.GetBaseDataTable();
-            if (result == null)
+            if (result is null)
             {
                 var ex = new InvalidOperationException(Resources.BASE_CANNOT_BE_DETERMINED);
                 ex.Data[nameof(viewOrDatabaseEntity)] = viewOrDatabaseEntity;

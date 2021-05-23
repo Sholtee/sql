@@ -212,11 +212,11 @@ namespace Solti.Utils.SQL.Internals
                     // view.View      =                    Wrapper<TViewC, TUnwrappedView>.WrapToView(group);
                     //
 
-                    foreach (WrappedSelection sel in view.GetWrappedSelections())
+                    foreach (PropertyInfo sel in view.GetWrappedSelections())
                     {
-                        Type internalWrapper = typeof(Wrapper<,>).MakeGenericType(sel.UnderlyingType, unwrappedView);
+                        Type internalWrapper = typeof(Wrapper<,>).MakeGenericType(sel.GetEffectiveType(), unwrappedView);
 
-                        Expression wrap = sel.IsList
+                        Expression wrap = sel.PropertyType.IsList()
                             ? Expression.Convert
                             (
                                 Expression.Call
@@ -225,7 +225,7 @@ namespace Solti.Utils.SQL.Internals
                                     internalWrapper.GetMethod(nameof(WrapToList), BindingFlags.Public | BindingFlags.Static), 
                                     group
                                 ),
-                                sel.ViewProperty.PropertyType
+                                sel.PropertyType
                             )
                             : Expression.Call
                             (
@@ -236,7 +236,7 @@ namespace Solti.Utils.SQL.Internals
 
                         yield return Expression.Assign
                         (
-                            Expression.Property(viewVar, sel.ViewProperty),
+                            Expression.Property(viewVar, sel),
                             wrap
                         );
                     }

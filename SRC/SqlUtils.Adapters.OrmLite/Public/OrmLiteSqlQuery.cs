@@ -94,16 +94,10 @@ namespace Solti.Utils.SQL.Internals
             if (view is null)
                 throw new ArgumentNullException(nameof(view));
 
-            const string sep = ", ";
-
-            if (FGroupByCols.Any()) UnderlyingExpression.GroupBy(string.Join(sep, FGroupByCols));
-            if (FOrderByCols.Any()) UnderlyingExpression.OrderBy(string.Join(sep, FOrderByCols));
-            if (FSelectCols.Any()) UnderlyingExpression.UnsafeSelect(string.Join(sep, FSelectCols));
-
-            Func<object?[], object> selectCore = Cache.GetOrAdd(view, () => FSelect.MakeGenericMethod(view).ToStaticDelegate());
-
             string sql = ToString();
             Debug.WriteLine(sql);
+
+            Func<object?[], object> selectCore = Cache.GetOrAdd(view, () => FSelect.MakeGenericMethod(view).ToStaticDelegate());
 
             return (IList) selectCore(new object?[] { conn, sql });
         }
@@ -189,6 +183,20 @@ namespace Solti.Utils.SQL.Internals
         public void SelectMin(PropertyInfo tableColumn, PropertyInfo viewColumn) => SelectAggregate(tableColumn, viewColumn, Sql.Min);
 
         /// <inheritdoc/>
-        public override string ToString() => FDialectProvider.MergeParamsIntoSql(UnderlyingExpression.ToSelectStatement(), UnderlyingExpression.Params);
+        public override string ToString()
+        {
+            const string sep = ", ";
+
+            //
+            // GroupBy, OrderBy, es UnsafeSelect() torli a korabbi kivalasztasokat igy nem gond ha tobbszor
+            // kerulnek meghivasra.
+            //
+
+            if (FGroupByCols.Any()) UnderlyingExpression.GroupBy(string.Join(sep, FGroupByCols));
+            if (FOrderByCols.Any()) UnderlyingExpression.OrderBy(string.Join(sep, FOrderByCols));
+            if (FSelectCols.Any()) UnderlyingExpression.UnsafeSelect(string.Join(sep, FSelectCols));
+
+            return FDialectProvider.MergeParamsIntoSql(UnderlyingExpression.ToSelectStatement(), UnderlyingExpression.Params);
+        }
     }
 }

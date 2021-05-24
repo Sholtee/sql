@@ -3,7 +3,7 @@
 **This is a proof of concept project, meant for playing only**
 
 At the moment this project has two objectives:
-1. **Generating bulked queries**:
+1. **Generating bulked write operations**:
   ```csharp
   using Solti.Utils.SQL;
   using ServiceStack.OrmLite; // required only for this example

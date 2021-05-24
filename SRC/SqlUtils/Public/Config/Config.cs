@@ -16,19 +16,18 @@ namespace Solti.Utils.SQL
     public static class Config
     {
 #if !DEBUG
-        private static readonly WriteOnce
-            FInstance = new(),
-            FKnownTables = new();
+        private static readonly WriteOnce<IConfig> FInstance = new();
+        private static readonly WriteOnce<IKnownDataTables> FKnownTables = new();
 
         /// <summary>
         /// The config instance.
         /// </summary>
-        public static IConfig Instance { get => (IConfig) FInstance.Value!; private set => FInstance.Value = value; }
+        public static IConfig Instance { get => FInstance.Value!; private set => FInstance.Value = value; }
 
         /// <summary>
         /// See <see cref="IKnownDataTables"/>.
         /// </summary>
-        public static IKnownDataTables KnownTables { get => (IKnownDataTables) FKnownTables.Value!; private set => FKnownTables.Value = value; }
+        public static IKnownDataTables KnownTables { get => FKnownTables.Value!; private set => FKnownTables.Value = value; }
 #else
         /// <summary>
         /// The config instance.

@@ -4,6 +4,7 @@
 *  Author: Denes Solti                                                          *
 ********************************************************************************/
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace Solti.Utils.SQL.Internals
@@ -11,6 +12,7 @@ namespace Solti.Utils.SQL.Internals
     using Interfaces;
     using Primitives;
 
+    [SuppressMessage("Performance", "CA1812:Avoid uninstantiated internal classes", Justification = "We can't use 'static' keyword since the class has an ancestor")]
     internal class UnwrappedValueTypeView: ViewFactory
     {
         public static Type CreateView(BelongsToAttribute bta) => Cache.GetOrAdd(bta /*jo kulcsnak*/, () =>

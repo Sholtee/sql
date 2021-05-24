@@ -5,6 +5,7 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -14,6 +15,7 @@ namespace Solti.Utils.SQL.Internals
     using Properties;
     using Primitives.Patterns;
 
+    [SuppressMessage("Performance", "CA1812:Avoid uninstantiated internal classes", Justification = "This class is passed as a type parameter")]
     internal sealed class Mapper<TSrc, TDst>: Singleton<Mapper<TSrc, TDst>>
     {
         private Func<TSrc?, TDst?> Core { get; } = CreateDelegate();

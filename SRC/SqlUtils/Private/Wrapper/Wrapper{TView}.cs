@@ -6,6 +6,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -15,6 +16,7 @@ namespace Solti.Utils.SQL.Internals
     using Primitives.Patterns;
     using Properties;
 
+    [SuppressMessage("Performance", "CA1812:Avoid uninstantiated internal classes", Justification = "This class is passed as a type parameter")]
     internal class Wrapper<TView>: Singleton<Wrapper<TView>>
     {
         private Func<IList, List<TView>> Core { get; }

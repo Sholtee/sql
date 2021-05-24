@@ -5,6 +5,7 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -18,6 +19,7 @@ namespace Solti.Utils.SQL.Internals
     // .Select(x => x.Key.MapTo<View>())
     //
 
+    [SuppressMessage("Performance", "CA1812:Avoid uninstantiated internal classes", Justification = "This class is passed as a type parameter")]
     internal sealed class GroupKeyView<TView, TUnwrappedView>: ViewFactory<GroupKeyView<TView, TUnwrappedView>>
     {
         protected override Type CreateView()

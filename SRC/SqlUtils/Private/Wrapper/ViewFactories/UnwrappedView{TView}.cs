@@ -5,6 +5,7 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 
@@ -13,6 +14,7 @@ namespace Solti.Utils.SQL.Internals
     using Interfaces;
     using Properties;
 
+    [SuppressMessage("Performance", "CA1812:Avoid uninstantiated internal classes", Justification = "This class is passed as a type parameter")]
     internal class UnwrappedView<TView>: ViewFactory<UnwrappedView<TView>>
     {
         protected override Type CreateView()

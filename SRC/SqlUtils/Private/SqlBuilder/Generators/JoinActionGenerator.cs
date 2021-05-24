@@ -5,10 +5,11 @@
 ********************************************************************************/
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+
+using static System.Diagnostics.Debug;
 
 namespace Solti.Utils.SQL.Internals
 {
@@ -20,14 +21,14 @@ namespace Solti.Utils.SQL.Internals
 
         protected override IEnumerable<MethodCallExpression> Generate(ParameterExpression bldr)
         {
-            Type @base = typeof(TView).GetQueryBase();
+            Type fromTable = typeof(TView).GetQueryBase();
 
             ISet<Type> joinedTables = new HashSet<Type>(new[]
             {
-                @base
+                fromTable
             });
 
-            foreach (var table in Selections
+            foreach (var toTable in Selections
                 .GroupBy(sel => sel.Reason.OrmType)
                 .Select(grp => new 
                 {
@@ -40,7 +41,7 @@ namespace Solti.Utils.SQL.Internals
                 // tablaig.
                 //
 
-                foreach (Edge edge in EdgeOperations.ShortestPath(@base, table.Type, CustomEdges))
+                foreach (Edge edge in EdgeOperations.ShortestPath(fromTable, toTable.Type, CustomEdges))
                 {
                     PropertyInfo joinTableCol, toTableCol;
 
@@ -49,14 +50,14 @@ namespace Solti.Utils.SQL.Internals
                         joinTableCol = edge.SourceProperty;          
                         toTableCol = edge.DestinationProperty;
 
-                        Debug.Assert(!joinedTables.Add(edge.DestinationTable));
+                        Assert(joinedTables.Contains(edge.DestinationTable));
                     }
                     else if (joinedTables.Add(edge.DestinationTable))
                     {
                         joinTableCol = edge.DestinationProperty;
                         toTableCol = edge.SourceProperty;
 
-                        Debug.Assert(!joinedTables.Add(edge.SourceTable));
+                        Assert(joinedTables.Contains(edge.SourceTable));
                     }
 
                     //
@@ -71,7 +72,7 @@ namespace Solti.Utils.SQL.Internals
 
                     yield return Expression.Call(
                         bldr,
-                        table.Required ? Join.Inner : Join.Left,
+                        toTable.Required ? Join.Inner : Join.Left,
                         Expression.Constant(toTableCol),
                         Expression.Constant(joinTableCol));
                 }

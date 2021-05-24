@@ -169,8 +169,6 @@ namespace Solti.Utils.SQL.OrmLite.Tests
                 UserId = userId,
                 Content = msg
             }));
-
-            SmartSqlBuilder<UserView>.Initialize();
         }
 
         [Test]

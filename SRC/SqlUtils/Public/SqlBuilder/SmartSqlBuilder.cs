@@ -10,13 +10,14 @@ namespace Solti.Utils.SQL
 {
     using Interfaces;
     using Internals;
-    using Properties;
 
     /// <summary>
     /// Builds the SQL query for the given view. 
     /// </summary>
     public static class SmartSqlBuilder<TView>
     {
+        private static readonly object FLock = new();
+
         private static Action<ISqlQuery>? FBuild;
 
         /// <summary>
@@ -29,11 +30,15 @@ namespace Solti.Utils.SQL
                 throw new ArgumentNullException(nameof(factory));
 
             if (FBuild is null)
-                throw new InvalidOperationException(Resources.UNINITIALIZED_BUILDER);
+                lock (FLock)
+                    #pragma warning disable CA1508 // Avoid dead conditional code
+                    if (FBuild is null)
+                    #pragma warning restore CA1508
+                        Initialize();
 
             TQuery query = factory(typeof(TView).GetQueryBase());
 
-            FBuild.Invoke(query);
+            FBuild!.Invoke(query);
             return query;
         }
 
@@ -41,9 +46,9 @@ namespace Solti.Utils.SQL
         /// Initializes this builder.
         /// </summary>
         [SuppressMessage("Design", "CA1000:Do not declare static members on generic types", Justification = "It's intended because all the specialized builders must have their own setup method.")]
-        public static void Initialize(params Edge[] customEdges) // TODO: Ne kelljen feltetlen hivni
+        public static void Initialize(params Edge[] customEdges)
         {
-            if (customEdges == null)
+            if (customEdges is null)
                 throw new ArgumentNullException(nameof(customEdges));
 
             FBuild = Compiler.Compile

@@ -221,7 +221,6 @@ namespace Solti.Utils.SQL.Tests
 
             Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 
-            SmartSqlBuilder<View1>.Initialize();
             SmartSqlBuilder<View1>.Build(_ => mockSqlBuilder.Object);
 
             mockSqlBuilder.Verify(x => x.InnerJoin(It.IsAny<PropertyInfo>(), It.IsAny<PropertyInfo>()), Times.Exactly(2));
@@ -264,7 +263,6 @@ namespace Solti.Utils.SQL.Tests
                     It.Is<PropertyInfo>(y => y == typeof(Start_Node).GetProperty(nameof(Start_Node.ReferenceWithoutAttribute))),
                     It.Is<PropertyInfo>(y => y == UnwrappedView<Extension1>.Type.GetProperty(nameof(Extension1.ReferenceWithoutAttribute)))));
 
-            SmartSqlBuilder<Extension1>.Initialize();
             SmartSqlBuilder<Extension1>.Build(_ => mockSqlBuilder.Object);
 
             mockSqlBuilder.Verify(x => x.InnerJoin(It.IsAny<PropertyInfo>(), It.IsAny<PropertyInfo>()), Times.Exactly(2));
@@ -302,7 +300,6 @@ namespace Solti.Utils.SQL.Tests
 
             Config.Use(new SpecifiedDataTables(typeof(Start_Node), typeof(Goal_Node), typeof(Node2), typeof(Node4), typeof(Node5), typeof(Node6), typeof(Node7), typeof(Node8)));
 
-            SmartSqlBuilder<View2>.Initialize();
             SmartSqlBuilder<View2>.Build(_ => mockSqlBuilder.Object);
 
             mockSqlBuilder.Verify(x => x.InnerJoin(It.IsAny<PropertyInfo>(), It.IsAny<PropertyInfo>()), Times.Once);

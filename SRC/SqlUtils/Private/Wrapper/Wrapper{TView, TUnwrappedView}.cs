@@ -64,12 +64,6 @@ namespace Solti.Utils.SQL.Internals
     {
         private Func<IEnumerable<TUnwrappedView>, IList> Core { get; }
 
-#if DEBUG
-        private static readonly Func<object, object?> GetDebugView = typeof(Expression)
-            .GetProperty("DebugView", BindingFlags.Instance | BindingFlags.NonPublic) // DebugView property internal, tudja fasz miert
-            .ToGetter();
-#endif
-
         public Wrapper()
         {
             //
@@ -82,7 +76,7 @@ namespace Solti.Utils.SQL.Internals
 
             Expression<Func<IEnumerable<TUnwrappedView>, IList>> coreExpr = Expression.Lambda<Func<IEnumerable<TUnwrappedView>, IList>>(GenerateBody(unwrappedObjects), unwrappedObjects);
 #if DEBUG
-            Debug.WriteLine($"Wrapper created:{Environment.NewLine}{GetDebugView(coreExpr)}");
+            Debug.WriteLine($"Wrapper created:{Environment.NewLine}{coreExpr.GetDebugView()}");
 #endif
             Core = coreExpr.Compile();
         }
